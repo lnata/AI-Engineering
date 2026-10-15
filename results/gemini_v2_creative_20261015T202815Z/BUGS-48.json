@@ -1,0 +1,72 @@
+{
+  "id": "BUGS-48",
+  "ok": true,
+  "error": null,
+  "latency_ms": 1967.6882500000002,
+  "model": "gemini-3.5-flash-lite",
+  "prompt_version": "v2",
+  "sampling_profile": "creative",
+  "sampling": {
+    "temperature": 0.4,
+    "top_p": 0.9
+  },
+  "usage": {
+    "input_tokens": 852,
+    "output_tokens": 500,
+    "total_tokens": 1352
+  },
+  "raw_text": "{\n  \"ticket_type\": \"change_request\",\n  \"summary\": \"Expose plant hierarchy from SAP to Databricks for Inventory report\",\n  \"priority\": \"medium\",\n  \"issue_category\": \"enhancement\",\n  \"report\": {\n    \"name\": \"Inventory Report\",\n    \"deploy_stage\": \"dev\",\n    \"dataset_name\": null\n  },\n  \"sap_fiori\": {\n    \"app_name\": \"Stock Overview\",\n    \"transaction_or_cds\": null\n  },\n  \"specification\": {\n    \"spec_id\": \"SPEC-OPS-007\",\n    \"version\": \"v2.1\",\n    \"title\": null\n  },\n  \"ownership\": {\n    \"report_developer\": \"Oleh\",\n    \"financial_analyst\": \"Ihor\",\n    \"data_pull_owner\": \"Katya M\",\n    \"primary_assignee_role\": \"data_pull\"\n  },\n  \"reconciliation\": {\n    \"compare_sap_vs_databricks\": true,\n    \"compare_databricks_vs_power_bi\": false,\n    \"compare_report_vs_spec\": true,\n    \"mismatch_suspected_at\": \"specification\",\n    \"notes\": \"Add plant hierarchy from SAP Fiori Stock Overview to Databricks based on SPEC-OPS-007 draft v2.1\"\n  },\n  \"deployment\": {\n    \"status\": \"not_started\",\n    \"requires_dev_deploy_first\": true,\n    \"awaiting_approval\": false,\n    \"approved_for_prod\": null,\n    \"approver_role\": \"financial_analyst\",\n    \"deployed_to_dev\": false,\n    \"deployed_to_prod\": false,\n    \"notes\": \"DEV first requested\"\n  },\n  \"repro_steps\": [],\n  \"labels\": [\n    \"change-request\",\n    \"plant-hierarchy\",\n    \"inventory-report\",\n    \"databricks\",\n    \"sap-fiori\"\n  ],\n  \"is_blocker\": false,\n  \"confidence_notes\": null\n}",
+  "extraction": {
+    "ticket_type": "change_request",
+    "summary": "Expose plant hierarchy from SAP to Databricks for Inventory report",
+    "priority": "medium",
+    "issue_category": "enhancement",
+    "report": {
+      "name": "Inventory Report",
+      "deploy_stage": "dev",
+      "dataset_name": null
+    },
+    "sap_fiori": {
+      "app_name": "Stock Overview",
+      "transaction_or_cds": null
+    },
+    "specification": {
+      "spec_id": "SPEC-OPS-007",
+      "version": "v2.1",
+      "title": null
+    },
+    "ownership": {
+      "report_developer": "Oleh",
+      "financial_analyst": "Ihor",
+      "data_pull_owner": "Katya M",
+      "primary_assignee_role": "data_pull"
+    },
+    "reconciliation": {
+      "compare_sap_vs_databricks": true,
+      "compare_databricks_vs_power_bi": false,
+      "compare_report_vs_spec": true,
+      "mismatch_suspected_at": "specification",
+      "notes": "Add plant hierarchy from SAP Fiori Stock Overview to Databricks based on SPEC-OPS-007 draft v2.1"
+    },
+    "deployment": {
+      "status": "not_started",
+      "requires_dev_deploy_first": true,
+      "awaiting_approval": false,
+      "approved_for_prod": null,
+      "approver_role": "financial_analyst",
+      "deployed_to_dev": false,
+      "deployed_to_prod": false,
+      "notes": "DEV first requested"
+    },
+    "repro_steps": [],
+    "labels": [
+      "change-request",
+      "plant-hierarchy",
+      "inventory-report",
+      "databricks",
+      "sap-fiori"
+    ],
+    "is_blocker": false,
+    "confidence_notes": null
+  }
+}

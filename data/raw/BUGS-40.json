@@ -1,0 +1,20 @@
+{
+  "id": "BUGS-40",
+  "summary": "excel export from PBI != underlying DB",
+  "description": "бизнес выгружает excel из PBI prod и сверяет с выгрузкой из БД — цифры не сходятся по SKU ABC-12. возможно visual filter. всё равно: каждый такой тикет = check data accuracy between DB and Power BI on PROD",
+  "text": "excel export from PBI != underlying DB\n\nбизнес выгружает excel из PBI prod и сверяет с выгрузкой из БД — цифры не сходятся по SKU ABC-12. возможно visual filter. всё равно: каждый такой тикет = check data accuracy between DB and Power BI on PROD",
+  "labels": [
+    "data-accuracy",
+    "dirty-text",
+    "extraction",
+    "golden-candidate",
+    "hw1",
+    "power-bi"
+  ],
+  "issue_type": "Bug",
+  "priority": "Medium",
+  "status": "To Do",
+  "created": "2026-10-15T20:55:03.815+0200",
+  "source": "jira",
+  "project": "BUGS"
+}

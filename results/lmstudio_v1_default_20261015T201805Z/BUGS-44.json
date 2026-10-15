@@ -1,0 +1,66 @@
+{
+  "id": "BUGS-44",
+  "ok": true,
+  "error": null,
+  "latency_ms": 9893.295167000006,
+  "model": "llama-3.2-3b-instruct",
+  "prompt_version": "v1",
+  "sampling_profile": "default",
+  "sampling": {
+    "temperature": 0.0,
+    "top_p": 1.0
+  },
+  "usage": {
+    "input_tokens": 1786,
+    "output_tokens": 818,
+    "total_tokens": 2604
+  },
+  "raw_text": "Here's a corrected JSON object that matches the provided schema:\n\n```json\n{\n  \"ticket_type\": \"change_request\",\n  \"summary\": \"PROD Customers by Region: DBX ok, PBI wrong filter\",\n  \"priority\": \"low\",\n  \"issue_category\": \"spec_mismatch\",\n  \"report\": {\n    \"name\": \"Customers by Region\",\n    \"deploy_stage\": \"both\",\n    \"dataset_name\": null\n  },\n  \"sap_fiori\": {\n    \"app_name\": \"Customer Master\",\n    \"transaction_or_cds\": \"mart.dim_customer на PROD\"\n  },\n  \"specification\": {\n    \"spec_id\": \"SPEC-FIN-021\",\n    \"version\": null,\n    \"title\": \"active customers\"\n  },\n  \"ownership\": {\n    \"report_developer\": \"Anna K\",\n    \"financial_analyst\": \"Maria B\",\n    \"data_pull_owner\": \"Dmytro\",\n    \"primary_assignee_role\": \"unknown\"\n  },\n  \"reconciliation\": {\n    \"compare_sap_vs_databricks\": true,\n    \"compare_databricks_vs_power_bi\": true,\n    \"compare_report_vs_spec\": true,\n    \"mismatch_suspected_at\": \"specification\",\n    \"notes\": null\n  },\n  \"deployment\": {\n    \"status\": \"pending_approval\",\n    \"requires_dev_deploy_first\": false,\n    \"awaiting_approval\": true,\n    \"approved_for_prod\": null,\n    \"approver_role\": null,\n    \"deployed_to_dev\": false,\n    \"deployed_to_prod\": null,\n    \"notes\": null\n  },\n  \"repro_steps\": [],\n  \"labels\": [],\n  \"is_blocker\": false,\n  \"confidence_notes\": null\n}\n```\n\nI made the following changes:\n\n1. Changed `ticket_type` to `change_request`, as it's an intentional change to the specification.\n2. Corrected the `ownership.primary_assignee_role` value to `unknown`, as it was not one of the allowed enum values.\n3. Removed the string 'null' and used null instead, where applicable.\n4. Ensured that all fields match the provided schema exactly.",
+  "extraction": {
+    "ticket_type": "change_request",
+    "summary": "PROD Customers by Region: DBX ok, PBI wrong filter",
+    "priority": "low",
+    "issue_category": "spec_mismatch",
+    "report": {
+      "name": "Customers by Region",
+      "deploy_stage": "both",
+      "dataset_name": null
+    },
+    "sap_fiori": {
+      "app_name": "Customer Master",
+      "transaction_or_cds": "mart.dim_customer на PROD"
+    },
+    "specification": {
+      "spec_id": "SPEC-FIN-021",
+      "version": null,
+      "title": "active customers"
+    },
+    "ownership": {
+      "report_developer": "Anna K",
+      "financial_analyst": "Maria B",
+      "data_pull_owner": "Dmytro",
+      "primary_assignee_role": "unknown"
+    },
+    "reconciliation": {
+      "compare_sap_vs_databricks": true,
+      "compare_databricks_vs_power_bi": true,
+      "compare_report_vs_spec": true,
+      "mismatch_suspected_at": "specification",
+      "notes": null
+    },
+    "deployment": {
+      "status": "pending_approval",
+      "requires_dev_deploy_first": false,
+      "awaiting_approval": true,
+      "approved_for_prod": null,
+      "approver_role": null,
+      "deployed_to_dev": false,
+      "deployed_to_prod": null,
+      "notes": null
+    },
+    "repro_steps": [],
+    "labels": [],
+    "is_blocker": false,
+    "confidence_notes": null
+  }
+}

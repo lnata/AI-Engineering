@@ -1,0 +1,29 @@
+{
+  "gemini": {
+    "dir": "results/gemini_v1_default_20261015T192358Z",
+    "valid_json_pct": 1.0,
+    "overall_field_accuracy": 0.7928571428571428,
+    "latency_p50_ms": 1956.5110000000009,
+    "latency_p95_ms": 2609.9343750000016,
+    "ok_tickets": 10,
+    "scored": 10
+  },
+  "ollama": {
+    "dir": "results/ollama_v1_default_20261015T201620Z",
+    "valid_json_pct": 0.9,
+    "overall_field_accuracy": 0.5142857142857142,
+    "latency_p50_ms": 8725.387956999995,
+    "latency_p95_ms": 19494.729375000003,
+    "ok_tickets": 9,
+    "scored": 10
+  },
+  "lmstudio": {
+    "dir": "results/lmstudio_v1_default_20261015T201805Z",
+    "valid_json_pct": 0.8,
+    "overall_field_accuracy": 0.38571428571428573,
+    "latency_p50_ms": 7751.858041999996,
+    "latency_p95_ms": 18472.424750000006,
+    "ok_tickets": 8,
+    "scored": 10
+  }
+}

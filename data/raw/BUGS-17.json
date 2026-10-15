@@ -1,0 +1,17 @@
+{
+  "id": "BUGS-17",
+  "summary": "can't unassign assignee",
+  "description": "в UI нельзя снять assignee — только переназначить. API позволяет null. product said bug. annoying for triage",
+  "text": "can't unassign assignee\n\nв UI нельзя снять assignee — только переназначить. API позволяет null. product said bug. annoying for triage",
+  "labels": [
+    "dirty-text",
+    "extraction",
+    "hw1"
+  ],
+  "issue_type": "Bug",
+  "priority": "Medium",
+  "status": "To Do",
+  "created": "2026-10-15T20:41:26.228+0200",
+  "source": "jira",
+  "project": "BUGS"
+}

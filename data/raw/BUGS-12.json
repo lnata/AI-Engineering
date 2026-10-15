@@ -1,0 +1,17 @@
+{
+  "id": "BUGS-12",
+  "summary": "цена показывается в неправильной валюте",
+  "description": "юзер из DE видит USD вместо EUR. иногда после смены языка. cart totals wrong accordingly. money bug!!! critical please",
+  "text": "цена показывается в неправильной валюте\n\nюзер из DE видит USD вместо EUR. иногда после смены языка. cart totals wrong accordingly. money bug!!! critical please",
+  "labels": [
+    "dirty-text",
+    "extraction",
+    "hw1"
+  ],
+  "issue_type": "Bug",
+  "priority": "Medium",
+  "status": "To Do",
+  "created": "2026-10-15T20:41:21.102+0200",
+  "source": "jira",
+  "project": "BUGS"
+}

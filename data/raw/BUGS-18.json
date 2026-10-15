@@ -1,0 +1,17 @@
+{
+  "id": "BUGS-18",
+  "summary": "timezone off by 3 hours",
+  "description": "события в календаре на 3 часа раньше для KYIV. UTC stored wrong? or display. repro: create event 15:00 → shows 12:00. DST related?",
+  "text": "timezone off by 3 hours\n\nсобытия в календаре на 3 часа раньше для KYIV. UTC stored wrong? or display. repro: create event 15:00 → shows 12:00. DST related?",
+  "labels": [
+    "dirty-text",
+    "extraction",
+    "hw1"
+  ],
+  "issue_type": "Bug",
+  "priority": "Medium",
+  "status": "To Do",
+  "created": "2026-10-15T20:41:27.391+0200",
+  "source": "jira",
+  "project": "BUGS"
+}

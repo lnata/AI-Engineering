@@ -1,0 +1,15 @@
+{
+  "id": "BUGS-41",
+  "ok": false,
+  "error": "BadRequestError: Error code: 400 - {'error': \"'response_format.type' must be 'json_schema' or 'text'\"}",
+  "latency_ms": null,
+  "model": "llama-3.2-3b-instruct",
+  "prompt_version": "v1",
+  "sampling_profile": "default",
+  "sampling": {
+    "temperature": 0.0,
+    "top_p": 1.0
+  },
+  "usage": {},
+  "extraction": null
+}

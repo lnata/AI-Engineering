@@ -1,0 +1,28 @@
+# Local model #1 — Ollama
+# Prerequisites:
+#   1) Install Ollama from https://ollama.com
+#   2) ollama pull llama3.2
+#   3) ollama serve   (usually starts automatically on macOS)
+# Run:
+#   python main.py --config config.ollama.yaml --ids BUGS-41 BUGS-42
+
+provider:
+  name: ollama
+  model: llama3.2
+  timeout_sec: 180
+  max_retries: 2
+  retry_backoff_sec: 3
+
+sampling:
+  default:
+    temperature: 0.0
+    top_p: 1.0
+  creative:
+    temperature: 0.4
+    top_p: 0.9
+
+run:
+  prompt_version: v1
+  sampling_profile: default
+  input_index: data/raw_index.json
+  output_dir: results

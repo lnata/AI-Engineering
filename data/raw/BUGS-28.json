@@ -1,0 +1,17 @@
+{
+  "id": "BUGS-28",
+  "summary": "feature flag stale after deploy",
+  "description": "after deploy flag 'new_checkout' still old value ~15min. redis cache? users see mixed UI. confusing A/B",
+  "text": "feature flag stale after deploy\n\nafter deploy flag 'new_checkout' still old value ~15min. redis cache? users see mixed UI. confusing A/B",
+  "labels": [
+    "dirty-text",
+    "extraction",
+    "hw1"
+  ],
+  "issue_type": "Bug",
+  "priority": "Medium",
+  "status": "To Do",
+  "created": "2026-10-15T20:41:37.096+0200",
+  "source": "jira",
+  "project": "BUGS"
+}

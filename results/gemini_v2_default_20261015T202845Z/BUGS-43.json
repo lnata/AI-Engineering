@@ -1,0 +1,75 @@
+{
+  "id": "BUGS-43",
+  "ok": true,
+  "error": null,
+  "latency_ms": 1792.522458999997,
+  "model": "gemini-3.5-flash-lite",
+  "prompt_version": "v2",
+  "sampling_profile": "default",
+  "sampling": {
+    "temperature": 0.0,
+    "top_p": 1.0
+  },
+  "usage": {
+    "input_tokens": 879,
+    "output_tokens": 517,
+    "total_tokens": 1396
+  },
+  "raw_text": "{\n  \"ticket_type\": \"bug\",\n  \"summary\": \"Data Pull missed SAP postings into Databricks DEV for Inventory Snapshot\",\n  \"priority\": \"high\",\n  \"issue_category\": \"data_mismatch\",\n  \"report\": {\n    \"name\": \"Inventory Snapshot\",\n    \"deploy_stage\": \"dev\",\n    \"dataset_name\": null\n  },\n  \"sap_fiori\": {\n    \"app_name\": \"Stock Overview\",\n    \"transaction_or_cds\": null\n  },\n  \"specification\": {\n    \"spec_id\": \"SPEC-OPS-007\",\n    \"version\": null,\n    \"title\": null\n  },\n  \"ownership\": {\n    \"report_developer\": null,\n    \"financial_analyst\": null,\n    \"data_pull_owner\": \"Katya M\",\n    \"primary_assignee_role\": \"data_pull\"\n  },\n  \"reconciliation\": {\n    \"compare_sap_vs_databricks\": true,\n    \"compare_databricks_vs_power_bi\": true,\n    \"compare_report_vs_spec\": false,\n    \"mismatch_suspected_at\": \"databricks\",\n    \"notes\": \"Verify Fiori Stock Overview against wh.inventory_snapshot on DEV for yesterday's movements\"\n  },\n  \"deployment\": {\n    \"status\": \"not_started\",\n    \"requires_dev_deploy_first\": true,\n    \"awaiting_approval\": false,\n    \"approved_for_prod\": null,\n    \"approver_role\": null,\n    \"deployed_to_dev\": false,\n    \"deployed_to_prod\": false,\n    \"notes\": \"Ticket opened for Databricks DEV pipeline miss\"\n  },\n  \"repro_steps\": [\n    \"Check Fiori Stock Overview for yesterday's movements\",\n    \"Check wh.inventory_snapshot in Databricks for yesterday\",\n    \"Check Inventory Snapshot DEV report\"\n  ],\n  \"labels\": [\n    \"data-pull\",\n    \"inventory\",\n    \"dev\",\n    \"missing-data\"\n  ],\n  \"is_blocker\": false,\n  \"confidence_notes\": null\n}",
+  "extraction": {
+    "ticket_type": "bug",
+    "summary": "Data Pull missed SAP postings into Databricks DEV for Inventory Snapshot",
+    "priority": "high",
+    "issue_category": "data_mismatch",
+    "report": {
+      "name": "Inventory Snapshot",
+      "deploy_stage": "dev",
+      "dataset_name": null
+    },
+    "sap_fiori": {
+      "app_name": "Stock Overview",
+      "transaction_or_cds": null
+    },
+    "specification": {
+      "spec_id": "SPEC-OPS-007",
+      "version": null,
+      "title": null
+    },
+    "ownership": {
+      "report_developer": null,
+      "financial_analyst": null,
+      "data_pull_owner": "Katya M",
+      "primary_assignee_role": "data_pull"
+    },
+    "reconciliation": {
+      "compare_sap_vs_databricks": true,
+      "compare_databricks_vs_power_bi": true,
+      "compare_report_vs_spec": false,
+      "mismatch_suspected_at": "databricks",
+      "notes": "Verify Fiori Stock Overview against wh.inventory_snapshot on DEV for yesterday's movements"
+    },
+    "deployment": {
+      "status": "not_started",
+      "requires_dev_deploy_first": true,
+      "awaiting_approval": false,
+      "approved_for_prod": null,
+      "approver_role": null,
+      "deployed_to_dev": false,
+      "deployed_to_prod": false,
+      "notes": "Ticket opened for Databricks DEV pipeline miss"
+    },
+    "repro_steps": [
+      "Check Fiori Stock Overview for yesterday's movements",
+      "Check wh.inventory_snapshot in Databricks for yesterday",
+      "Check Inventory Snapshot DEV report"
+    ],
+    "labels": [
+      "data-pull",
+      "inventory",
+      "dev",
+      "missing-data"
+    ],
+    "is_blocker": false,
+    "confidence_notes": null
+  }
+}

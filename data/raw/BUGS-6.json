@@ -1,0 +1,18 @@
+{
+  "id": "BUGS-6",
+  "summary": "webhook retries forever",
+  "description": "payment webhook ретраится бесконечно даже после 200. лог забит. load на payment-service x4. temp workaround: disable retry job. кто деплоил в пятницу???",
+  "text": "webhook retries forever\n\npayment webhook ретраится бесконечно даже после 200. лог забит. load на payment-service x4. temp workaround: disable retry job. кто деплоил в пятницу???",
+  "labels": [
+    "dirty-text",
+    "extraction",
+    "golden-candidate",
+    "hw1"
+  ],
+  "issue_type": "Bug",
+  "priority": "Medium",
+  "status": "To Do",
+  "created": "2026-10-15T20:41:14.950+0200",
+  "source": "jira",
+  "project": "BUGS"
+}

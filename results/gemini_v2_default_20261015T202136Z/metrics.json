@@ -1,0 +1,239 @@
+{
+  "results_dir": "results/gemini_v2_default_20261015T202136Z",
+  "golden_tickets_scored": 10,
+  "valid_json_pct": 1.0,
+  "overall_field_accuracy": 0.8857142857142857,
+  "field_accuracy": {
+    "ticket_type": 0.9,
+    "priority": 0.8,
+    "issue_category": 0.8,
+    "report.deploy_stage": 1.0,
+    "report.name": 0.8,
+    "specification.spec_id": 1.0,
+    "ownership.primary_assignee_role": 1.0,
+    "reconciliation.mismatch_suspected_at": 0.8,
+    "reconciliation.compare_sap_vs_databricks": 0.9,
+    "reconciliation.compare_databricks_vs_power_bi": 1.0,
+    "reconciliation.compare_report_vs_spec": 1.0,
+    "deployment.status": 0.4,
+    "deployment.requires_dev_deploy_first": 1.0,
+    "is_blocker": 1.0
+  },
+  "latency_ms": {
+    "p50": 1887.2795,
+    "p95": 2337.578333,
+    "mean": 1926.8154663999994
+  },
+  "per_ticket": [
+    {
+      "id": "BUGS-41",
+      "ok": true,
+      "field_accuracy": 1.0,
+      "matches": {
+        "ticket_type": true,
+        "priority": true,
+        "issue_category": true,
+        "report.deploy_stage": true,
+        "report.name": true,
+        "specification.spec_id": true,
+        "ownership.primary_assignee_role": true,
+        "reconciliation.mismatch_suspected_at": true,
+        "reconciliation.compare_sap_vs_databricks": true,
+        "reconciliation.compare_databricks_vs_power_bi": true,
+        "reconciliation.compare_report_vs_spec": true,
+        "deployment.status": true,
+        "deployment.requires_dev_deploy_first": true,
+        "is_blocker": true
+      }
+    },
+    {
+      "id": "BUGS-42",
+      "ok": true,
+      "field_accuracy": 0.7142857142857143,
+      "matches": {
+        "ticket_type": false,
+        "priority": false,
+        "issue_category": true,
+        "report.deploy_stage": true,
+        "report.name": false,
+        "specification.spec_id": true,
+        "ownership.primary_assignee_role": true,
+        "reconciliation.mismatch_suspected_at": true,
+        "reconciliation.compare_sap_vs_databricks": true,
+        "reconciliation.compare_databricks_vs_power_bi": true,
+        "reconciliation.compare_report_vs_spec": true,
+        "deployment.status": false,
+        "deployment.requires_dev_deploy_first": true,
+        "is_blocker": true
+      }
+    },
+    {
+      "id": "BUGS-43",
+      "ok": true,
+      "field_accuracy": 1.0,
+      "matches": {
+        "ticket_type": true,
+        "priority": true,
+        "issue_category": true,
+        "report.deploy_stage": true,
+        "report.name": true,
+        "specification.spec_id": true,
+        "ownership.primary_assignee_role": true,
+        "reconciliation.mismatch_suspected_at": true,
+        "reconciliation.compare_sap_vs_databricks": true,
+        "reconciliation.compare_databricks_vs_power_bi": true,
+        "reconciliation.compare_report_vs_spec": true,
+        "deployment.status": true,
+        "deployment.requires_dev_deploy_first": true,
+        "is_blocker": true
+      }
+    },
+    {
+      "id": "BUGS-44",
+      "ok": true,
+      "field_accuracy": 0.8571428571428571,
+      "matches": {
+        "ticket_type": true,
+        "priority": true,
+        "issue_category": true,
+        "report.deploy_stage": true,
+        "report.name": true,
+        "specification.spec_id": true,
+        "ownership.primary_assignee_role": true,
+        "reconciliation.mismatch_suspected_at": true,
+        "reconciliation.compare_sap_vs_databricks": false,
+        "reconciliation.compare_databricks_vs_power_bi": true,
+        "reconciliation.compare_report_vs_spec": true,
+        "deployment.status": false,
+        "deployment.requires_dev_deploy_first": true,
+        "is_blocker": true
+      }
+    },
+    {
+      "id": "BUGS-45",
+      "ok": true,
+      "field_accuracy": 0.8571428571428571,
+      "matches": {
+        "ticket_type": true,
+        "priority": true,
+        "issue_category": false,
+        "report.deploy_stage": true,
+        "report.name": true,
+        "specification.spec_id": true,
+        "ownership.primary_assignee_role": true,
+        "reconciliation.mismatch_suspected_at": false,
+        "reconciliation.compare_sap_vs_databricks": true,
+        "reconciliation.compare_databricks_vs_power_bi": true,
+        "reconciliation.compare_report_vs_spec": true,
+        "deployment.status": true,
+        "deployment.requires_dev_deploy_first": true,
+        "is_blocker": true
+      }
+    },
+    {
+      "id": "BUGS-46",
+      "ok": true,
+      "field_accuracy": 0.9285714285714286,
+      "matches": {
+        "ticket_type": true,
+        "priority": true,
+        "issue_category": true,
+        "report.deploy_stage": true,
+        "report.name": true,
+        "specification.spec_id": true,
+        "ownership.primary_assignee_role": true,
+        "reconciliation.mismatch_suspected_at": true,
+        "reconciliation.compare_sap_vs_databricks": true,
+        "reconciliation.compare_databricks_vs_power_bi": true,
+        "reconciliation.compare_report_vs_spec": true,
+        "deployment.status": false,
+        "deployment.requires_dev_deploy_first": true,
+        "is_blocker": true
+      }
+    },
+    {
+      "id": "BUGS-47",
+      "ok": true,
+      "field_accuracy": 0.8571428571428571,
+      "matches": {
+        "ticket_type": true,
+        "priority": false,
+        "issue_category": true,
+        "report.deploy_stage": true,
+        "report.name": true,
+        "specification.spec_id": true,
+        "ownership.primary_assignee_role": true,
+        "reconciliation.mismatch_suspected_at": true,
+        "reconciliation.compare_sap_vs_databricks": true,
+        "reconciliation.compare_databricks_vs_power_bi": true,
+        "reconciliation.compare_report_vs_spec": true,
+        "deployment.status": false,
+        "deployment.requires_dev_deploy_first": true,
+        "is_blocker": true
+      }
+    },
+    {
+      "id": "BUGS-48",
+      "ok": true,
+      "field_accuracy": 0.8571428571428571,
+      "matches": {
+        "ticket_type": true,
+        "priority": true,
+        "issue_category": true,
+        "report.deploy_stage": true,
+        "report.name": false,
+        "specification.spec_id": true,
+        "ownership.primary_assignee_role": true,
+        "reconciliation.mismatch_suspected_at": false,
+        "reconciliation.compare_sap_vs_databricks": true,
+        "reconciliation.compare_databricks_vs_power_bi": true,
+        "reconciliation.compare_report_vs_spec": true,
+        "deployment.status": true,
+        "deployment.requires_dev_deploy_first": true,
+        "is_blocker": true
+      }
+    },
+    {
+      "id": "BUGS-49",
+      "ok": true,
+      "field_accuracy": 0.8571428571428571,
+      "matches": {
+        "ticket_type": true,
+        "priority": true,
+        "issue_category": false,
+        "report.deploy_stage": true,
+        "report.name": true,
+        "specification.spec_id": true,
+        "ownership.primary_assignee_role": true,
+        "reconciliation.mismatch_suspected_at": true,
+        "reconciliation.compare_sap_vs_databricks": true,
+        "reconciliation.compare_databricks_vs_power_bi": true,
+        "reconciliation.compare_report_vs_spec": true,
+        "deployment.status": false,
+        "deployment.requires_dev_deploy_first": true,
+        "is_blocker": true
+      }
+    },
+    {
+      "id": "BUGS-50",
+      "ok": true,
+      "field_accuracy": 0.9285714285714286,
+      "matches": {
+        "ticket_type": true,
+        "priority": true,
+        "issue_category": true,
+        "report.deploy_stage": true,
+        "report.name": true,
+        "specification.spec_id": true,
+        "ownership.primary_assignee_role": true,
+        "reconciliation.mismatch_suspected_at": true,
+        "reconciliation.compare_sap_vs_databricks": true,
+        "reconciliation.compare_databricks_vs_power_bi": true,
+        "reconciliation.compare_report_vs_spec": true,
+        "deployment.status": false,
+        "deployment.requires_dev_deploy_first": true,
+        "is_blocker": true
+      }
+    }
+  ]
+}

@@ -1,0 +1,66 @@
+{
+  "id": "BUGS-50",
+  "ok": true,
+  "error": null,
+  "latency_ms": 3904.7915000000016,
+  "model": "llama-3.2-3b-instruct",
+  "prompt_version": "v1",
+  "sampling_profile": "default",
+  "sampling": {
+    "temperature": 0.0,
+    "top_p": 1.0
+  },
+  "usage": {
+    "input_tokens": 722,
+    "output_tokens": 356,
+    "total_tokens": 1078
+  },
+  "raw_text": "```json\n{\n  \"ticket_type\": \"bug\",\n  \"summary\": \"DEV: Databricks grain differs from Fiori CDS\",\n  \"priority\": \"high\",\n  \"issue_category\": \"spec_mismatch\",\n  \"report\": {\n    \"name\": \"Sales Overview\",\n    \"deploy_stage\": \"both\",\n    \"dataset_name\": null\n  },\n  \"sap_fiori\": {\n    \"app_name\": \"C_SALESORDER_Q1\",\n    \"transaction_or_cds\": \"CDS\"\n  },\n  \"specification\": {\n    \"spec_id\": \"SPEC-FIN-014\",\n    \"version\": null,\n    \"title\": null\n  },\n  \"ownership\": {\n    \"report_developer\": null,\n    \"financial_analyst\": null,\n    \"data_pull_owner\": \"Oleh/Anna/Dmytro/Maria\",\n    \"primary_assignee_role\": \"unknown\"\n  },\n  \"reconciliation\": {\n    \"compare_sap_vs_databricks\": true,\n    \"compare_databricks_vs_power_bi\": false,\n    \"compare_report_vs_spec\": true,\n    \"mismatch_suspected_at\": \"specification\",\n    \"notes\": null\n  },\n  \"deployment\": {\n    \"status\": \"pending_approval\",\n    \"requires_dev_deploy_first\": true,\n    \"awaiting_approval\": true,\n    \"approved_for_prod\": false,\n    \"approver_role\": null,\n    \"deployed_to_dev\": false,\n    \"deployed_to_prod\": false,\n    \"notes\": null\n  },\n  \"repro_steps\": [],\n  \"labels\": [],\n  \"is_blocker\": false,\n  \"confidence_notes\": null\n}\n```",
+  "extraction": {
+    "ticket_type": "bug",
+    "summary": "DEV: Databricks grain differs from Fiori CDS",
+    "priority": "high",
+    "issue_category": "spec_mismatch",
+    "report": {
+      "name": "Sales Overview",
+      "deploy_stage": "both",
+      "dataset_name": null
+    },
+    "sap_fiori": {
+      "app_name": "C_SALESORDER_Q1",
+      "transaction_or_cds": "CDS"
+    },
+    "specification": {
+      "spec_id": "SPEC-FIN-014",
+      "version": null,
+      "title": null
+    },
+    "ownership": {
+      "report_developer": null,
+      "financial_analyst": null,
+      "data_pull_owner": "Oleh/Anna/Dmytro/Maria",
+      "primary_assignee_role": "unknown"
+    },
+    "reconciliation": {
+      "compare_sap_vs_databricks": true,
+      "compare_databricks_vs_power_bi": false,
+      "compare_report_vs_spec": true,
+      "mismatch_suspected_at": "specification",
+      "notes": null
+    },
+    "deployment": {
+      "status": "pending_approval",
+      "requires_dev_deploy_first": true,
+      "awaiting_approval": true,
+      "approved_for_prod": false,
+      "approver_role": null,
+      "deployed_to_dev": false,
+      "deployed_to_prod": false,
+      "notes": null
+    },
+    "repro_steps": [],
+    "labels": [],
+    "is_blocker": false,
+    "confidence_notes": null
+  }
+}

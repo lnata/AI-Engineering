@@ -1,0 +1,66 @@
+{
+  "id": "BUGS-43",
+  "ok": true,
+  "error": null,
+  "latency_ms": 9851.556708,
+  "model": "llama3.2",
+  "prompt_version": "v1",
+  "sampling_profile": "default",
+  "sampling": {
+    "temperature": 0.0,
+    "top_p": 1.0
+  },
+  "usage": {
+    "input_tokens": 1803,
+    "output_tokens": 791,
+    "total_tokens": 2594
+  },
+  "raw_text": "{\n  \"ticket_type\": \"change_request\",\n  \"summary\": \"Data Pull missed SAP postings into Databricks DEV\",\n  \"priority\": \"low\",\n  \"issue_category\": \"spec_mismatch\",\n  \"report\": {\n    \"name\": \"Inventory Snapshot DEV\",\n    \"deploy_stage\": \"dev\",\n    \"dataset_name\": \"unknown\"\n  },\n  \"sap_fiori\": {\n    \"app_name\": \"Stock Overview\",\n    \"transaction_or_cds\": \"в Fiori\"\n  },\n  \"specification\": {\n    \"spec_id\": \"SPEC-OPS-007\",\n    \"version\": \"unknown\",\n    \"title\": \"unknown\"\n  },\n  \"ownership\": {\n    \"report_developer\": \"Katya M\",\n    \"financial_analyst\": \"unknown\",\n    \"data_pull_owner\": \"Katya M\",\n    \"primary_assignee_role\": \"report_developer\"\n  },\n  \"reconciliation\": {\n    \"compare_sap_vs_databricks\": true,\n    \"compare_databricks_vs_power_bi\": true,\n    \"compare_report_vs_spec\": true,\n    \"mismatch_suspected_at\": \"sap_fiori\",\n    \"notes\": \"Data Pull team (Katya M) — пайплайн SAP→DBX.\"\n  },\n  \"deployment\": {\n    \"status\": \"pending_approval\",\n    \"requires_dev_deploy_first\": true,\n    \"awaiting_approval\": true,\n    \"approved_for_prod\": false,\n    \"approver_role\": \"unknown\",\n    \"deployed_to_dev\": false,\n    \"deployed_to_prod\": false,\n    \"notes\": \"PBI Inventory_Dev.pbix тоже пустой за вчера — просто отражает Databricks.\"\n  },\n  \"repro_steps\": [],\n  \"labels\": [],\n  \"is_blocker\": false,\n  \"confidence_notes\": \"unknown\"\n}",
+  "extraction": {
+    "ticket_type": "change_request",
+    "summary": "Data Pull missed SAP postings into Databricks DEV",
+    "priority": "low",
+    "issue_category": "spec_mismatch",
+    "report": {
+      "name": "Inventory Snapshot DEV",
+      "deploy_stage": "dev",
+      "dataset_name": "unknown"
+    },
+    "sap_fiori": {
+      "app_name": "Stock Overview",
+      "transaction_or_cds": "в Fiori"
+    },
+    "specification": {
+      "spec_id": "SPEC-OPS-007",
+      "version": "unknown",
+      "title": "unknown"
+    },
+    "ownership": {
+      "report_developer": "Katya M",
+      "financial_analyst": "unknown",
+      "data_pull_owner": "Katya M",
+      "primary_assignee_role": "report_developer"
+    },
+    "reconciliation": {
+      "compare_sap_vs_databricks": true,
+      "compare_databricks_vs_power_bi": true,
+      "compare_report_vs_spec": true,
+      "mismatch_suspected_at": "sap_fiori",
+      "notes": "Data Pull team (Katya M) — пайплайн SAP→DBX."
+    },
+    "deployment": {
+      "status": "pending_approval",
+      "requires_dev_deploy_first": true,
+      "awaiting_approval": true,
+      "approved_for_prod": false,
+      "approver_role": "unknown",
+      "deployed_to_dev": false,
+      "deployed_to_prod": false,
+      "notes": "PBI Inventory_Dev.pbix тоже пустой за вчера — просто отражает Databricks."
+    },
+    "repro_steps": [],
+    "labels": [],
+    "is_blocker": false,
+    "confidence_notes": "unknown"
+  }
+}

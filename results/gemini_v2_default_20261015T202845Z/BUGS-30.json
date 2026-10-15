@@ -1,0 +1,71 @@
+{
+  "id": "BUGS-30",
+  "ok": true,
+  "error": null,
+  "latency_ms": 1693.269749999999,
+  "model": "gemini-3.5-flash-lite",
+  "prompt_version": "v2",
+  "sampling_profile": "default",
+  "sampling": {
+    "temperature": 0.0,
+    "top_p": 1.0
+  },
+  "usage": {
+    "input_tokens": 815,
+    "output_tokens": 490,
+    "total_tokens": 1305
+  },
+  "raw_text": "{\n  \"ticket_type\": \"change_request\",\n  \"summary\": \"Investigate flaky login button and potential race condition on hydration\",\n  \"priority\": \"low\",\n  \"issue_category\": \"performance\",\n  \"report\": {\n    \"name\": null,\n    \"deploy_stage\": \"unknown\",\n    \"dataset_name\": null\n  },\n  \"sap_fiori\": {\n    \"app_name\": null,\n    \"transaction_or_cds\": null\n  },\n  \"specification\": {\n    \"spec_id\": null,\n    \"version\": null,\n    \"title\": null\n  },\n  \"ownership\": {\n    \"report_developer\": null,\n    \"financial_analyst\": null,\n    \"data_pull_owner\": null,\n    \"primary_assignee_role\": \"report_developer\"\n  },\n  \"reconciliation\": {\n    \"compare_sap_vs_databricks\": false,\n    \"compare_databricks_vs_power_bi\": false,\n    \"compare_report_vs_spec\": false,\n    \"mismatch_suspected_at\": \"unknown\",\n    \"notes\": \"Non-bug investigated for Cypress login flakiness and hydration race condition\"\n  },\n  \"deployment\": {\n    \"status\": \"in_development\",\n    \"requires_dev_deploy_first\": true,\n    \"awaiting_approval\": false,\n    \"approved_for_prod\": null,\n    \"approver_role\": null,\n    \"deployed_to_dev\": false,\n    \"deployed_to_prod\": false,\n    \"notes\": \"Currently investigating\"\n  },\n  \"repro_steps\": [],\n  \"labels\": [\n    \"flaky-test\",\n    \"cypress\",\n    \"hydration\",\n    \"not-a-bug\"\n  ],\n  \"is_blocker\": false,\n  \"confidence_notes\": \"Ticket is about a frontend e2e login test / cypress flakiness rather than a standard analytics reporting issue, but structured according to the prompt constraints with change_request due to 'не баг'.\"\n}",
+  "extraction": {
+    "ticket_type": "change_request",
+    "summary": "Investigate flaky login button and potential race condition on hydration",
+    "priority": "low",
+    "issue_category": "performance",
+    "report": {
+      "name": null,
+      "deploy_stage": "unknown",
+      "dataset_name": null
+    },
+    "sap_fiori": {
+      "app_name": null,
+      "transaction_or_cds": null
+    },
+    "specification": {
+      "spec_id": null,
+      "version": null,
+      "title": null
+    },
+    "ownership": {
+      "report_developer": null,
+      "financial_analyst": null,
+      "data_pull_owner": null,
+      "primary_assignee_role": "report_developer"
+    },
+    "reconciliation": {
+      "compare_sap_vs_databricks": false,
+      "compare_databricks_vs_power_bi": false,
+      "compare_report_vs_spec": false,
+      "mismatch_suspected_at": "unknown",
+      "notes": "Non-bug investigated for Cypress login flakiness and hydration race condition"
+    },
+    "deployment": {
+      "status": "in_development",
+      "requires_dev_deploy_first": true,
+      "awaiting_approval": false,
+      "approved_for_prod": null,
+      "approver_role": null,
+      "deployed_to_dev": false,
+      "deployed_to_prod": false,
+      "notes": "Currently investigating"
+    },
+    "repro_steps": [],
+    "labels": [
+      "flaky-test",
+      "cypress",
+      "hydration",
+      "not-a-bug"
+    ],
+    "is_blocker": false,
+    "confidence_notes": "Ticket is about a frontend e2e login test / cypress flakiness rather than a standard analytics reporting issue, but structured according to the prompt constraints with change_request due to 'не баг'."
+  }
+}

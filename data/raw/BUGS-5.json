@@ -1,0 +1,18 @@
+{
+  "id": "BUGS-5",
+  "summary": "CSV export broken encoding",
+  "description": "експорт заказов в csv открывается в excel как кракозябры. utf-8 без bom? клиент из польши. urgent for finance month close. repro: orders > export > open in excel windows",
+  "text": "CSV export broken encoding\n\nекспорт заказов в csv открывается в excel как кракозябры. utf-8 без bom? клиент из польши. urgent for finance month close. repro: orders > export > open in excel windows",
+  "labels": [
+    "dirty-text",
+    "extraction",
+    "golden-candidate",
+    "hw1"
+  ],
+  "issue_type": "Bug",
+  "priority": "Medium",
+  "status": "To Do",
+  "created": "2026-10-15T20:41:13.906+0200",
+  "source": "jira",
+  "project": "BUGS"
+}

@@ -1,0 +1,75 @@
+{
+  "id": "BUGS-40",
+  "ok": true,
+  "error": null,
+  "latency_ms": 1743.3522079999993,
+  "model": "gemini-3.5-flash-lite",
+  "prompt_version": "v2",
+  "sampling_profile": "default",
+  "sampling": {
+    "temperature": 0.0,
+    "top_p": 1.0
+  },
+  "usage": {
+    "input_tokens": 845,
+    "output_tokens": 522,
+    "total_tokens": 1367
+  },
+  "raw_text": "{\n  \"ticket_type\": \"bug\",\n  \"summary\": \"Excel export data mismatch between Power BI prod and database for SKU ABC-12\",\n  \"priority\": \"high\",\n  \"issue_category\": \"data_mismatch\",\n  \"report\": {\n    \"name\": null,\n    \"deploy_stage\": \"prod\",\n    \"dataset_name\": null\n  },\n  \"sap_fiori\": {\n    \"app_name\": null,\n    \"transaction_or_cds\": null\n  },\n  \"specification\": {\n    \"spec_id\": null,\n    \"version\": null,\n    \"title\": null\n  },\n  \"ownership\": {\n    \"report_developer\": null,\n    \"financial_analyst\": null,\n    \"data_pull_owner\": null,\n    \"primary_assignee_role\": \"report_developer\"\n  },\n  \"reconciliation\": {\n    \"compare_sap_vs_databricks\": false,\n    \"compare_databricks_vs_power_bi\": true,\n    \"compare_report_vs_spec\": false,\n    \"mismatch_suspected_at\": \"power_bi_report\",\n    \"notes\": \"Check data accuracy between DB and Power BI on PROD for SKU ABC-12, possible visual filter issue.\"\n  },\n  \"deployment\": {\n    \"status\": \"not_started\",\n    \"requires_dev_deploy_first\": true,\n    \"awaiting_approval\": false,\n    \"approved_for_prod\": null,\n    \"approver_role\": \"financial_analyst\",\n    \"deployed_to_dev\": false,\n    \"deployed_to_prod\": false,\n    \"notes\": null\n  },\n  \"repro_steps\": [\n    \"Export data to Excel from PBI prod\",\n    \"Compare figures with underlying DB for SKU ABC-12\",\n    \"Check for visual filters causing the discrepancy\"\n  ],\n  \"labels\": [\n    \"data-mismatch\",\n    \"excel-export\",\n    \"prod\",\n    \"sku-abc-12\"\n  ],\n  \"is_blocker\": false,\n  \"confidence_notes\": \"Report product name is not mentioned in the ticket text.\"\n}",
+  "extraction": {
+    "ticket_type": "bug",
+    "summary": "Excel export data mismatch between Power BI prod and database for SKU ABC-12",
+    "priority": "high",
+    "issue_category": "data_mismatch",
+    "report": {
+      "name": null,
+      "deploy_stage": "prod",
+      "dataset_name": null
+    },
+    "sap_fiori": {
+      "app_name": null,
+      "transaction_or_cds": null
+    },
+    "specification": {
+      "spec_id": null,
+      "version": null,
+      "title": null
+    },
+    "ownership": {
+      "report_developer": null,
+      "financial_analyst": null,
+      "data_pull_owner": null,
+      "primary_assignee_role": "report_developer"
+    },
+    "reconciliation": {
+      "compare_sap_vs_databricks": false,
+      "compare_databricks_vs_power_bi": true,
+      "compare_report_vs_spec": false,
+      "mismatch_suspected_at": "power_bi_report",
+      "notes": "Check data accuracy between DB and Power BI on PROD for SKU ABC-12, possible visual filter issue."
+    },
+    "deployment": {
+      "status": "not_started",
+      "requires_dev_deploy_first": true,
+      "awaiting_approval": false,
+      "approved_for_prod": null,
+      "approver_role": "financial_analyst",
+      "deployed_to_dev": false,
+      "deployed_to_prod": false,
+      "notes": null
+    },
+    "repro_steps": [
+      "Export data to Excel from PBI prod",
+      "Compare figures with underlying DB for SKU ABC-12",
+      "Check for visual filters causing the discrepancy"
+    ],
+    "labels": [
+      "data-mismatch",
+      "excel-export",
+      "prod",
+      "sku-abc-12"
+    ],
+    "is_blocker": false,
+    "confidence_notes": "Report product name is not mentioned in the ticket text."
+  }
+}

@@ -1,0 +1,74 @@
+{
+  "id": "BUGS-49",
+  "ok": true,
+  "error": null,
+  "latency_ms": 2086.3749590000007,
+  "model": "gemini-3.5-flash-lite",
+  "prompt_version": "v1",
+  "sampling_profile": "default",
+  "sampling": {
+    "temperature": 0.0,
+    "top_p": 1.0
+  },
+  "usage": {
+    "input_tokens": 429,
+    "output_tokens": 557,
+    "total_tokens": 986
+  },
+  "extraction": {
+    "ticket_type": "bug",
+    "summary": "PROD FX_Revenue double FX conversion vs SPEC-FIN-041",
+    "priority": "high",
+    "issue_category": "spec_mismatch",
+    "report": {
+      "name": "FX_Revenue.pbix",
+      "deploy_stage": "prod",
+      "dataset_name": null
+    },
+    "sap_fiori": {
+      "app_name": "Incoming Payments",
+      "transaction_or_cds": null
+    },
+    "specification": {
+      "spec_id": "SPEC-FIN-041",
+      "version": null,
+      "title": "convert once at payment"
+    },
+    "ownership": {
+      "report_developer": null,
+      "financial_analyst": null,
+      "data_pull_owner": null,
+      "primary_assignee_role": "report_developer"
+    },
+    "reconciliation": {
+      "compare_sap_vs_databricks": true,
+      "compare_databricks_vs_power_bi": true,
+      "compare_report_vs_spec": true,
+      "mismatch_suspected_at": "power_bi_report",
+      "notes": "fact_payments already in EUR, PBI report applies fx_rate a second time violating SPEC-FIN-041"
+    },
+    "deployment": {
+      "status": "not_started",
+      "requires_dev_deploy_first": true,
+      "awaiting_approval": false,
+      "approved_for_prod": null,
+      "approver_role": "financial_analyst",
+      "deployed_to_dev": false,
+      "deployed_to_prod": false,
+      "notes": "Must be fixed in DEV and approved before promoting to PROD"
+    },
+    "repro_steps": [
+      "Check SAP Fiori Incoming Payments in EUR",
+      "Verify Databricks table fact_payments",
+      "Check Power BI FX_Revenue.pbix calculation against SPEC-FIN-041"
+    ],
+    "labels": [
+      "fx-revenue",
+      "double-conversion",
+      "spec-fin-041",
+      "month-close"
+    ],
+    "is_blocker": true,
+    "confidence_notes": null
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "id": "BUGS-7",
+  "summary": "dark mode text invisible",
+  "description": "в дарк моде secondary text почти чёрный на чёрном. невозможно читать settings. chrome + macos. firefox тоже. ios app ок. regression after design tokens update",
+  "text": "dark mode text invisible\n\nв дарк моде secondary text почти чёрный на чёрном. невозможно читать settings. chrome + macos. firefox тоже. ios app ок. regression after design tokens update",
+  "labels": [
+    "dirty-text",
+    "extraction",
+    "golden-candidate",
+    "hw1"
+  ],
+  "issue_type": "Bug",
+  "priority": "Medium",
+  "status": "To Do",
+  "created": "2026-10-15T20:41:15.988+0200",
+  "source": "jira",
+  "project": "BUGS"
+}

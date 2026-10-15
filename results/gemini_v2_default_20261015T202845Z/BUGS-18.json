@@ -1,0 +1,74 @@
+{
+  "id": "BUGS-18",
+  "ok": true,
+  "error": null,
+  "latency_ms": 2287.174625,
+  "model": "gemini-3.5-flash-lite",
+  "prompt_version": "v2",
+  "sampling_profile": "default",
+  "sampling": {
+    "temperature": 0.0,
+    "top_p": 1.0
+  },
+  "usage": {
+    "input_tokens": 830,
+    "output_tokens": 493,
+    "total_tokens": 1323
+  },
+  "raw_text": "{\n  \"ticket_type\": \"bug\",\n  \"summary\": \"Timezone offset issue causing calendar events to show 3 hours earlier for Kyiv\",\n  \"priority\": \"medium\",\n  \"issue_category\": \"transform_logic\",\n  \"report\": {\n    \"name\": null,\n    \"deploy_stage\": \"unknown\",\n    \"dataset_name\": null\n  },\n  \"sap_fiori\": {\n    \"app_name\": null,\n    \"transaction_or_cds\": null\n  },\n  \"specification\": {\n    \"spec_id\": null,\n    \"version\": null,\n    \"title\": null\n  },\n  \"ownership\": {\n    \"report_developer\": null,\n    \"financial_analyst\": null,\n    \"data_pull_owner\": null,\n    \"primary_assignee_role\": \"data_pull\"\n  },\n  \"reconciliation\": {\n    \"compare_sap_vs_databricks\": true,\n    \"compare_databricks_vs_power_bi\": false,\n    \"compare_report_vs_spec\": false,\n    \"mismatch_suspected_at\": \"databricks\",\n    \"notes\": \"Verify UTC storage versus display logic and DST handling for Kyiv timezone.\"\n  },\n  \"deployment\": {\n    \"status\": \"not_started\",\n    \"requires_dev_deploy_first\": true,\n    \"awaiting_approval\": false,\n    \"approved_for_prod\": null,\n    \"approver_role\": null,\n    \"deployed_to_dev\": null,\n    \"deployed_to_prod\": null,\n    \"notes\": null\n  },\n  \"repro_steps\": [\n    \"Create event at 15:00\",\n    \"Observe event displays as 12:00\"\n  ],\n  \"labels\": [\n    \"timezone\",\n    \"dst\",\n    \"databricks\",\n    \"kyiv\"\n  ],\n  \"is_blocker\": false,\n  \"confidence_notes\": \"Report name and specific Fiori/PBI components are not explicitly mentioned in the text.\"\n}",
+  "extraction": {
+    "ticket_type": "bug",
+    "summary": "Timezone offset issue causing calendar events to show 3 hours earlier for Kyiv",
+    "priority": "medium",
+    "issue_category": "transform_logic",
+    "report": {
+      "name": null,
+      "deploy_stage": "unknown",
+      "dataset_name": null
+    },
+    "sap_fiori": {
+      "app_name": null,
+      "transaction_or_cds": null
+    },
+    "specification": {
+      "spec_id": null,
+      "version": null,
+      "title": null
+    },
+    "ownership": {
+      "report_developer": null,
+      "financial_analyst": null,
+      "data_pull_owner": null,
+      "primary_assignee_role": "data_pull"
+    },
+    "reconciliation": {
+      "compare_sap_vs_databricks": true,
+      "compare_databricks_vs_power_bi": false,
+      "compare_report_vs_spec": false,
+      "mismatch_suspected_at": "databricks",
+      "notes": "Verify UTC storage versus display logic and DST handling for Kyiv timezone."
+    },
+    "deployment": {
+      "status": "not_started",
+      "requires_dev_deploy_first": true,
+      "awaiting_approval": false,
+      "approved_for_prod": null,
+      "approver_role": null,
+      "deployed_to_dev": null,
+      "deployed_to_prod": null,
+      "notes": null
+    },
+    "repro_steps": [
+      "Create event at 15:00",
+      "Observe event displays as 12:00"
+    ],
+    "labels": [
+      "timezone",
+      "dst",
+      "databricks",
+      "kyiv"
+    ],
+    "is_blocker": false,
+    "confidence_notes": "Report name and specific Fiori/PBI components are not explicitly mentioned in the text."
+  }
+}

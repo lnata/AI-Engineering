@@ -1,0 +1,75 @@
+{
+  "id": "BUGS-36",
+  "ok": true,
+  "error": null,
+  "latency_ms": 1708.1395000000016,
+  "model": "gemini-3.5-flash-lite",
+  "prompt_version": "v2",
+  "sampling_profile": "default",
+  "sampling": {
+    "temperature": 0.0,
+    "top_p": 1.0
+  },
+  "usage": {
+    "input_tokens": 831,
+    "output_tokens": 502,
+    "total_tokens": 1333
+  },
+  "raw_text": "{\n  \"ticket_type\": \"bug\",\n  \"summary\": \"Null vs blank handling in Pricing report causes incorrect average discount\",\n  \"priority\": \"high\",\n  \"issue_category\": \"data_mismatch\",\n  \"report\": {\n    \"name\": \"Pricing\",\n    \"deploy_stage\": \"dev\",\n    \"dataset_name\": null\n  },\n  \"sap_fiori\": {\n    \"app_name\": null,\n    \"transaction_or_cds\": null\n  },\n  \"specification\": {\n    \"spec_id\": null,\n    \"version\": null,\n    \"title\": null\n  },\n  \"ownership\": {\n    \"report_developer\": null,\n    \"financial_analyst\": null,\n    \"data_pull_owner\": null,\n    \"primary_assignee_role\": \"report_developer\"\n  },\n  \"reconciliation\": {\n    \"compare_sap_vs_databricks\": false,\n    \"compare_databricks_vs_power_bi\": true,\n    \"compare_report_vs_spec\": false,\n    \"mismatch_suspected_at\": \"power_bi_report\",\n    \"notes\": \"Check DB vs PowerBI on DEV for null vs 0 in discount column.\"\n  },\n  \"deployment\": {\n    \"status\": \"not_started\",\n    \"requires_dev_deploy_first\": true,\n    \"awaiting_approval\": false,\n    \"approved_for_prod\": null,\n    \"approver_role\": \"financial_analyst\",\n    \"deployed_to_dev\": false,\n    \"deployed_to_prod\": false,\n    \"notes\": \"Investigation requested on DEV.\"\n  },\n  \"repro_steps\": [\n    \"Check discount column in dev database where value is null\",\n    \"Check Power BI Pricing report where discount is displayed as 0\",\n    \"Verify average discount calculation\"\n  ],\n  \"labels\": [\n    \"data-mismatch\",\n    \"null-values\",\n    \"pricing-report\",\n    \"dev\"\n  ],\n  \"is_blocker\": false,\n  \"confidence_notes\": null\n}",
+  "extraction": {
+    "ticket_type": "bug",
+    "summary": "Null vs blank handling in Pricing report causes incorrect average discount",
+    "priority": "high",
+    "issue_category": "data_mismatch",
+    "report": {
+      "name": "Pricing",
+      "deploy_stage": "dev",
+      "dataset_name": null
+    },
+    "sap_fiori": {
+      "app_name": null,
+      "transaction_or_cds": null
+    },
+    "specification": {
+      "spec_id": null,
+      "version": null,
+      "title": null
+    },
+    "ownership": {
+      "report_developer": null,
+      "financial_analyst": null,
+      "data_pull_owner": null,
+      "primary_assignee_role": "report_developer"
+    },
+    "reconciliation": {
+      "compare_sap_vs_databricks": false,
+      "compare_databricks_vs_power_bi": true,
+      "compare_report_vs_spec": false,
+      "mismatch_suspected_at": "power_bi_report",
+      "notes": "Check DB vs PowerBI on DEV for null vs 0 in discount column."
+    },
+    "deployment": {
+      "status": "not_started",
+      "requires_dev_deploy_first": true,
+      "awaiting_approval": false,
+      "approved_for_prod": null,
+      "approver_role": "financial_analyst",
+      "deployed_to_dev": false,
+      "deployed_to_prod": false,
+      "notes": "Investigation requested on DEV."
+    },
+    "repro_steps": [
+      "Check discount column in dev database where value is null",
+      "Check Power BI Pricing report where discount is displayed as 0",
+      "Verify average discount calculation"
+    ],
+    "labels": [
+      "data-mismatch",
+      "null-values",
+      "pricing-report",
+      "dev"
+    ],
+    "is_blocker": false,
+    "confidence_notes": null
+  }
+}

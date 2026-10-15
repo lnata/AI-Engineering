@@ -1,0 +1,18 @@
+{
+  "id": "BUGS-10",
+  "summary": "фильтр по дате сбрасывается",
+  "description": "на странице orders ставишь date range, применяешь фильтр — после сортировки даты сбрасываются. бесит. chrome. steps missing sorry busy",
+  "text": "фильтр по дате сбрасывается\n\nна странице orders ставишь date range, применяешь фильтр — после сортировки даты сбрасываются. бесит. chrome. steps missing sorry busy",
+  "labels": [
+    "dirty-text",
+    "extraction",
+    "golden-candidate",
+    "hw1"
+  ],
+  "issue_type": "Bug",
+  "priority": "Medium",
+  "status": "To Do",
+  "created": "2026-10-15T20:41:18.992+0200",
+  "source": "jira",
+  "project": "BUGS"
+}

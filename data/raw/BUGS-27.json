@@ -1,0 +1,17 @@
+{
+  "id": "BUGS-27",
+  "summary": "mobile web keyboard covers input",
+  "description": "android chrome: focused input covered by keyboard on checkout address form. can't see what typing. ios safari fine",
+  "text": "mobile web keyboard covers input\n\nandroid chrome: focused input covered by keyboard on checkout address form. can't see what typing. ios safari fine",
+  "labels": [
+    "dirty-text",
+    "extraction",
+    "hw1"
+  ],
+  "issue_type": "Bug",
+  "priority": "Medium",
+  "status": "To Do",
+  "created": "2026-10-15T20:41:36.030+0200",
+  "source": "jira",
+  "project": "BUGS"
+}

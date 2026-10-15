@@ -1,0 +1,74 @@
+{
+  "id": "BUGS-7",
+  "ok": true,
+  "error": null,
+  "latency_ms": 1846.6357500000008,
+  "model": "gemini-3.5-flash-lite",
+  "prompt_version": "v2",
+  "sampling_profile": "default",
+  "sampling": {
+    "temperature": 0.0,
+    "top_p": 1.0
+  },
+  "usage": {
+    "input_tokens": 816,
+    "output_tokens": 488,
+    "total_tokens": 1304
+  },
+  "raw_text": "{\n  \"ticket_type\": \"bug\",\n  \"summary\": \"Secondary text is invisible in dark mode on settings page\",\n  \"priority\": \"low\",\n  \"issue_category\": \"other\",\n  \"report\": {\n    \"name\": \"Settings\",\n    \"deploy_stage\": \"unknown\",\n    \"dataset_name\": null\n  },\n  \"sap_fiori\": {\n    \"app_name\": null,\n    \"transaction_or_cds\": null\n  },\n  \"specification\": {\n    \"spec_id\": null,\n    \"version\": null,\n    \"title\": null\n  },\n  \"ownership\": {\n    \"report_developer\": null,\n    \"financial_analyst\": null,\n    \"data_pull_owner\": null,\n    \"primary_assignee_role\": \"report_developer\"\n  },\n  \"reconciliation\": {\n    \"compare_sap_vs_databricks\": false,\n    \"compare_databricks_vs_power_bi\": false,\n    \"compare_report_vs_spec\": false,\n    \"mismatch_suspected_at\": \"unknown\",\n    \"notes\": \"Cosmetic ui bug related to dark mode design tokens\"\n  },\n  \"deployment\": {\n    \"status\": \"not_started\",\n    \"requires_dev_deploy_first\": true,\n    \"awaiting_approval\": false,\n    \"approved_for_prod\": null,\n    \"approver_role\": null,\n    \"deployed_to_dev\": null,\n    \"deployed_to_prod\": null,\n    \"notes\": null\n  },\n  \"repro_steps\": [\n    \"Open report on Chrome or Firefox with macOS in dark mode\",\n    \"Navigate to settings page\",\n    \"Observe secondary text color\"\n  ],\n  \"labels\": [\n    \"dark-mode\",\n    \"ui-bug\",\n    \"regression\"\n  ],\n  \"is_blocker\": false,\n  \"confidence_notes\": \"UI bug reported on settings, not strictly core analytics pipeline report, but mapped to report and role per schema requirements.\"\n}",
+  "extraction": {
+    "ticket_type": "bug",
+    "summary": "Secondary text is invisible in dark mode on settings page",
+    "priority": "low",
+    "issue_category": "other",
+    "report": {
+      "name": "Settings",
+      "deploy_stage": "unknown",
+      "dataset_name": null
+    },
+    "sap_fiori": {
+      "app_name": null,
+      "transaction_or_cds": null
+    },
+    "specification": {
+      "spec_id": null,
+      "version": null,
+      "title": null
+    },
+    "ownership": {
+      "report_developer": null,
+      "financial_analyst": null,
+      "data_pull_owner": null,
+      "primary_assignee_role": "report_developer"
+    },
+    "reconciliation": {
+      "compare_sap_vs_databricks": false,
+      "compare_databricks_vs_power_bi": false,
+      "compare_report_vs_spec": false,
+      "mismatch_suspected_at": "unknown",
+      "notes": "Cosmetic ui bug related to dark mode design tokens"
+    },
+    "deployment": {
+      "status": "not_started",
+      "requires_dev_deploy_first": true,
+      "awaiting_approval": false,
+      "approved_for_prod": null,
+      "approver_role": null,
+      "deployed_to_dev": null,
+      "deployed_to_prod": null,
+      "notes": null
+    },
+    "repro_steps": [
+      "Open report on Chrome or Firefox with macOS in dark mode",
+      "Navigate to settings page",
+      "Observe secondary text color"
+    ],
+    "labels": [
+      "dark-mode",
+      "ui-bug",
+      "regression"
+    ],
+    "is_blocker": false,
+    "confidence_notes": "UI bug reported on settings, not strictly core analytics pipeline report, but mapped to report and role per schema requirements."
+  }
+}

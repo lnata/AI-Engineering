@@ -1,0 +1,17 @@
+{
+  "id": "BUGS-29",
+  "summary": "audit log missing deletes",
+  "description": "удаления записей не пишутся в audit log. creates/updates ok. compliance asked. must fix before audit next month",
+  "text": "audit log missing deletes\n\nудаления записей не пишутся в audit log. creates/updates ok. compliance asked. must fix before audit next month",
+  "labels": [
+    "dirty-text",
+    "extraction",
+    "hw1"
+  ],
+  "issue_type": "Bug",
+  "priority": "Medium",
+  "status": "To Do",
+  "created": "2026-10-15T20:41:38.102+0200",
+  "source": "jira",
+  "project": "BUGS"
+}

@@ -1,0 +1,18 @@
+{
+  "id": "BUGS-4",
+  "summary": "поиск не находит товары с дефисом",
+  "description": "ищем 'wifi-router' — 0 результатов, хотя товар есть. 'wifi router' находит. также баг с апострофами. qa env only? нет на проде тоже видели",
+  "text": "поиск не находит товары с дефисом\n\nищем 'wifi-router' — 0 результатов, хотя товар есть. 'wifi router' находит. также баг с апострофами. qa env only? нет на проде тоже видели",
+  "labels": [
+    "dirty-text",
+    "extraction",
+    "golden-candidate",
+    "hw1"
+  ],
+  "issue_type": "Bug",
+  "priority": "Medium",
+  "status": "To Do",
+  "created": "2026-10-15T20:41:12.677+0200",
+  "source": "jira",
+  "project": "BUGS"
+}

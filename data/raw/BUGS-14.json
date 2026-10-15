@@ -1,0 +1,17 @@
+{
+  "id": "BUGS-14",
+  "summary": "транслит в slug ломает урлы",
+  "description": "кириллические title → slug с %D0%.. и 404. раньше работало. seo team angry. example: /products/кофеварка → 404, /products/kofevarka works if manual",
+  "text": "транслит в slug ломает урлы\n\nкириллические title → slug с %D0%.. и 404. раньше работало. seo team angry. example: /products/кофеварка → 404, /products/kofevarka works if manual",
+  "labels": [
+    "dirty-text",
+    "extraction",
+    "hw1"
+  ],
+  "issue_type": "Bug",
+  "priority": "Medium",
+  "status": "To Do",
+  "created": "2026-10-15T20:41:23.058+0200",
+  "source": "jira",
+  "project": "BUGS"
+}

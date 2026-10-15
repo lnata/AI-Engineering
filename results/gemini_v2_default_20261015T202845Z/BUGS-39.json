@@ -1,0 +1,75 @@
+{
+  "id": "BUGS-39",
+  "ok": true,
+  "error": null,
+  "latency_ms": 1712.6730829999985,
+  "model": "gemini-3.5-flash-lite",
+  "prompt_version": "v2",
+  "sampling_profile": "default",
+  "sampling": {
+    "temperature": 0.0,
+    "top_p": 1.0
+  },
+  "usage": {
+    "input_tokens": 831,
+    "output_tokens": 520,
+    "total_tokens": 1351
+  },
+  "raw_text": "{\n  \"ticket_type\": \"bug\",\n  \"summary\": \"Incremental refresh skipped partition 2026-09 on DEV report\",\n  \"priority\": \"high\",\n  \"issue_category\": \"refresh_failure\",\n  \"report\": {\n    \"name\": \"Orders Incremental\",\n    \"deploy_stage\": \"dev\",\n    \"dataset_name\": \"Orders_Incremental_Dev.pbix\"\n  },\n  \"sap_fiori\": {\n    \"app_name\": null,\n    \"transaction_or_cds\": null\n  },\n  \"specification\": {\n    \"spec_id\": null,\n    \"version\": null,\n    \"title\": null\n  },\n  \"ownership\": {\n    \"report_developer\": null,\n    \"financial_analyst\": null,\n    \"data_pull_owner\": null,\n    \"primary_assignee_role\": \"report_developer\"\n  },\n  \"reconciliation\": {\n    \"compare_sap_vs_databricks\": false,\n    \"compare_databricks_vs_power_bi\": true,\n    \"compare_report_vs_spec\": false,\n    \"mismatch_suspected_at\": \"power_bi_report\",\n    \"notes\": \"Compare counts by day database vs power bi DEV\"\n  },\n  \"deployment\": {\n    \"status\": \"not_started\",\n    \"requires_dev_deploy_first\": true,\n    \"awaiting_approval\": false,\n    \"approved_for_prod\": null,\n    \"approver_role\": \"financial_analyst\",\n    \"deployed_to_dev\": false,\n    \"deployed_to_prod\": false,\n    \"notes\": \"Issue reported on DEV, fix not started yet\"\n  },\n  \"repro_steps\": [\n    \"Check rows in Databricks for partition 2026-09\",\n    \"Check dataset in Power BI DEV\",\n    \"Compare counts by day between database and power bi DEV\"\n  ],\n  \"labels\": [\n    \"incremental-refresh\",\n    \"dev\",\n    \"missing-partition\",\n    \"refresh-failure\"\n  ],\n  \"is_blocker\": false,\n  \"confidence_notes\": null\n}",
+  "extraction": {
+    "ticket_type": "bug",
+    "summary": "Incremental refresh skipped partition 2026-09 on DEV report",
+    "priority": "high",
+    "issue_category": "refresh_failure",
+    "report": {
+      "name": "Orders Incremental",
+      "deploy_stage": "dev",
+      "dataset_name": "Orders_Incremental_Dev.pbix"
+    },
+    "sap_fiori": {
+      "app_name": null,
+      "transaction_or_cds": null
+    },
+    "specification": {
+      "spec_id": null,
+      "version": null,
+      "title": null
+    },
+    "ownership": {
+      "report_developer": null,
+      "financial_analyst": null,
+      "data_pull_owner": null,
+      "primary_assignee_role": "report_developer"
+    },
+    "reconciliation": {
+      "compare_sap_vs_databricks": false,
+      "compare_databricks_vs_power_bi": true,
+      "compare_report_vs_spec": false,
+      "mismatch_suspected_at": "power_bi_report",
+      "notes": "Compare counts by day database vs power bi DEV"
+    },
+    "deployment": {
+      "status": "not_started",
+      "requires_dev_deploy_first": true,
+      "awaiting_approval": false,
+      "approved_for_prod": null,
+      "approver_role": "financial_analyst",
+      "deployed_to_dev": false,
+      "deployed_to_prod": false,
+      "notes": "Issue reported on DEV, fix not started yet"
+    },
+    "repro_steps": [
+      "Check rows in Databricks for partition 2026-09",
+      "Check dataset in Power BI DEV",
+      "Compare counts by day between database and power bi DEV"
+    ],
+    "labels": [
+      "incremental-refresh",
+      "dev",
+      "missing-partition",
+      "refresh-failure"
+    ],
+    "is_blocker": false,
+    "confidence_notes": null
+  }
+}

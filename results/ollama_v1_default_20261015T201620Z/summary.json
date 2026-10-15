@@ -1,0 +1,631 @@
+{
+  "created_at": "20261015T201620Z",
+  "provider": {
+    "name": "ollama",
+    "model": "llama3.2",
+    "base_url": null,
+    "timeout_sec": 180.0,
+    "max_retries": 2,
+    "retry_backoff_sec": 3.0
+  },
+  "prompt_version": "v1",
+  "sampling_profile": "default",
+  "count": 10,
+  "ok_count": 9,
+  "results": [
+    {
+      "id": "BUGS-41",
+      "ok": true,
+      "error": null,
+      "latency_ms": 19494.729375000003,
+      "model": "llama3.2",
+      "prompt_version": "v1",
+      "sampling_profile": "default",
+      "sampling": {
+        "temperature": 0.0,
+        "top_p": 1.0
+      },
+      "usage": {
+        "input_tokens": 1883,
+        "output_tokens": 805,
+        "total_tokens": 2688
+      },
+      "raw_text": "{\n  \"ticket_type\": \"change_request\",\n  \"summary\": \"PROD Sales Overview: SAP Fiori != Databricks\",\n  \"priority\": \"critical\",\n  \"issue_category\": \"spec_mismatch\",\n  \"report\": {\n    \"name\": \"Sales_Overview_v3.pbix\",\n    \"deploy_stage\": \"both\",\n    \"dataset_name\": \"mart.fact_orders\"\n  },\n  \"sap_fiori\": {\n    \"app_name\": \"Manage Sales Orders\",\n    \"transaction_or_cds\": \"CDS C_SALESORDER_Q1\"\n  },\n  \"specification\": {\n    \"spec_id\": \"SPEC-FIN-014\",\n    \"version\": \"v1.3\",\n    \"title\": \"financial analyst Maria B.\"\n  },\n  \"ownership\": {\n    \"report_developer\": \"Anna K.\",\n    \"financial_analyst\": \"Maria B.\",\n    \"data_pull_owner\": \"Dmytro S.\",\n    \"primary_assignee_role\": \"report_developer\"\n  },\n  \"reconciliation\": {\n    \"compare_sap_vs_databricks\": true,\n    \"compare_databricks_vs_power_bi\": true,\n    \"compare_report_vs_spec\": true,\n    \"mismatch_suspected_at\": \"sap_fiori\",\n    \"notes\": \"похоже проблема на этапе Data Pull\"\n  },\n  \"deployment\": {\n    \"status\": \"pending_approval\",\n    \"requires_dev_deploy_first\": true,\n    \"awaiting_approval\": true,\n    \"approved_for_prod\": false,\n    \"approver_role\": \"unknown\",\n    \"deployed_to_dev\": false,\n    \"deployed_to_prod\": false,\n    \"notes\": \"need fix/CR deploy to DEV first, then approval, then PROD\"\n  },\n  \"repro_steps\": [],\n  \"labels\": [],\n  \"is_blocker\": false,\n  \"confidence_notes\": null\n}",
+      "extraction": {
+        "ticket_type": "change_request",
+        "summary": "PROD Sales Overview: SAP Fiori != Databricks",
+        "priority": "critical",
+        "issue_category": "spec_mismatch",
+        "report": {
+          "name": "Sales_Overview_v3.pbix",
+          "deploy_stage": "both",
+          "dataset_name": "mart.fact_orders"
+        },
+        "sap_fiori": {
+          "app_name": "Manage Sales Orders",
+          "transaction_or_cds": "CDS C_SALESORDER_Q1"
+        },
+        "specification": {
+          "spec_id": "SPEC-FIN-014",
+          "version": "v1.3",
+          "title": "financial analyst Maria B."
+        },
+        "ownership": {
+          "report_developer": "Anna K.",
+          "financial_analyst": "Maria B.",
+          "data_pull_owner": "Dmytro S.",
+          "primary_assignee_role": "report_developer"
+        },
+        "reconciliation": {
+          "compare_sap_vs_databricks": true,
+          "compare_databricks_vs_power_bi": true,
+          "compare_report_vs_spec": true,
+          "mismatch_suspected_at": "sap_fiori",
+          "notes": "похоже проблема на этапе Data Pull"
+        },
+        "deployment": {
+          "status": "pending_approval",
+          "requires_dev_deploy_first": true,
+          "awaiting_approval": true,
+          "approved_for_prod": false,
+          "approver_role": "unknown",
+          "deployed_to_dev": false,
+          "deployed_to_prod": false,
+          "notes": "need fix/CR deploy to DEV first, then approval, then PROD"
+        },
+        "repro_steps": [],
+        "labels": [],
+        "is_blocker": false,
+        "confidence_notes": null
+      }
+    },
+    {
+      "id": "BUGS-42",
+      "ok": true,
+      "error": null,
+      "latency_ms": 9329.213666999996,
+      "model": "llama3.2",
+      "prompt_version": "v1",
+      "sampling_profile": "default",
+      "sampling": {
+        "temperature": 0.0,
+        "top_p": 1.0
+      },
+      "usage": {
+        "input_tokens": 1806,
+        "output_tokens": 761,
+        "total_tokens": 2567
+      },
+      "raw_text": "{\n  \"ticket_type\": \"change_request\",\n  \"summary\": \"DEV Gross Margin report does not match SPEC-FIN-030\",\n  \"priority\": \"medium\",\n  \"issue_category\": \"spec_mismatch\",\n  \"report\": {\n    \"name\": \"Gross Margin report\",\n    \"deploy_stage\": \"dev\",\n    \"dataset_name\": \"unknown\"\n  },\n  \"sap_fiori\": {\n    \"app_name\": \"Finance_Dev.pbix\",\n    \"transaction_or_cds\": \"unknown\"\n  },\n  \"specification\": {\n    \"spec_id\": \"SPEC-FIN-030\",\n    \"version\": \"v1.0\",\n    \"title\": \"exclude intercompany\"\n  },\n  \"ownership\": {\n    \"report_developer\": \"Oleh P.\",\n    \"financial_analyst\": \"Ihor S\",\n    \"data_pull_owner\": \"unknown\",\n    \"primary_assignee_role\": \"report_developer\"\n  },\n  \"reconciliation\": {\n    \"compare_sap_vs_databricks\": true,\n    \"compare_databricks_vs_power_bi\": true,\n    \"compare_report_vs_spec\": true,\n    \"mismatch_suspected_at\": \"specification\",\n    \"notes\": \"report vs specification mismatch\"\n  },\n  \"deployment\": {\n    \"status\": \"pending_approval\",\n    \"requires_dev_deploy_first\": true,\n    \"awaiting_approval\": true,\n    \"approved_for_prod\": false,\n    \"approver_role\": \"unknown\",\n    \"deployed_to_dev\": false,\n    \"deployed_to_prod\": false,\n    \"notes\": \"fix/CR deploys to DEV first, then approval, then PROD\"\n  },\n  \"repro_steps\": [],\n  \"labels\": [],\n  \"is_blocker\": false,\n  \"confidence_notes\": \"unknown\"\n}",
+      "extraction": {
+        "ticket_type": "change_request",
+        "summary": "DEV Gross Margin report does not match SPEC-FIN-030",
+        "priority": "medium",
+        "issue_category": "spec_mismatch",
+        "report": {
+          "name": "Gross Margin report",
+          "deploy_stage": "dev",
+          "dataset_name": "unknown"
+        },
+        "sap_fiori": {
+          "app_name": "Finance_Dev.pbix",
+          "transaction_or_cds": "unknown"
+        },
+        "specification": {
+          "spec_id": "SPEC-FIN-030",
+          "version": "v1.0",
+          "title": "exclude intercompany"
+        },
+        "ownership": {
+          "report_developer": "Oleh P.",
+          "financial_analyst": "Ihor S",
+          "data_pull_owner": "unknown",
+          "primary_assignee_role": "report_developer"
+        },
+        "reconciliation": {
+          "compare_sap_vs_databricks": true,
+          "compare_databricks_vs_power_bi": true,
+          "compare_report_vs_spec": true,
+          "mismatch_suspected_at": "specification",
+          "notes": "report vs specification mismatch"
+        },
+        "deployment": {
+          "status": "pending_approval",
+          "requires_dev_deploy_first": true,
+          "awaiting_approval": true,
+          "approved_for_prod": false,
+          "approver_role": "unknown",
+          "deployed_to_dev": false,
+          "deployed_to_prod": false,
+          "notes": "fix/CR deploys to DEV first, then approval, then PROD"
+        },
+        "repro_steps": [],
+        "labels": [],
+        "is_blocker": false,
+        "confidence_notes": "unknown"
+      }
+    },
+    {
+      "id": "BUGS-43",
+      "ok": true,
+      "error": null,
+      "latency_ms": 9851.556708,
+      "model": "llama3.2",
+      "prompt_version": "v1",
+      "sampling_profile": "default",
+      "sampling": {
+        "temperature": 0.0,
+        "top_p": 1.0
+      },
+      "usage": {
+        "input_tokens": 1803,
+        "output_tokens": 791,
+        "total_tokens": 2594
+      },
+      "raw_text": "{\n  \"ticket_type\": \"change_request\",\n  \"summary\": \"Data Pull missed SAP postings into Databricks DEV\",\n  \"priority\": \"low\",\n  \"issue_category\": \"spec_mismatch\",\n  \"report\": {\n    \"name\": \"Inventory Snapshot DEV\",\n    \"deploy_stage\": \"dev\",\n    \"dataset_name\": \"unknown\"\n  },\n  \"sap_fiori\": {\n    \"app_name\": \"Stock Overview\",\n    \"transaction_or_cds\": \"в Fiori\"\n  },\n  \"specification\": {\n    \"spec_id\": \"SPEC-OPS-007\",\n    \"version\": \"unknown\",\n    \"title\": \"unknown\"\n  },\n  \"ownership\": {\n    \"report_developer\": \"Katya M\",\n    \"financial_analyst\": \"unknown\",\n    \"data_pull_owner\": \"Katya M\",\n    \"primary_assignee_role\": \"report_developer\"\n  },\n  \"reconciliation\": {\n    \"compare_sap_vs_databricks\": true,\n    \"compare_databricks_vs_power_bi\": true,\n    \"compare_report_vs_spec\": true,\n    \"mismatch_suspected_at\": \"sap_fiori\",\n    \"notes\": \"Data Pull team (Katya M) — пайплайн SAP→DBX.\"\n  },\n  \"deployment\": {\n    \"status\": \"pending_approval\",\n    \"requires_dev_deploy_first\": true,\n    \"awaiting_approval\": true,\n    \"approved_for_prod\": false,\n    \"approver_role\": \"unknown\",\n    \"deployed_to_dev\": false,\n    \"deployed_to_prod\": false,\n    \"notes\": \"PBI Inventory_Dev.pbix тоже пустой за вчера — просто отражает Databricks.\"\n  },\n  \"repro_steps\": [],\n  \"labels\": [],\n  \"is_blocker\": false,\n  \"confidence_notes\": \"unknown\"\n}",
+      "extraction": {
+        "ticket_type": "change_request",
+        "summary": "Data Pull missed SAP postings into Databricks DEV",
+        "priority": "low",
+        "issue_category": "spec_mismatch",
+        "report": {
+          "name": "Inventory Snapshot DEV",
+          "deploy_stage": "dev",
+          "dataset_name": "unknown"
+        },
+        "sap_fiori": {
+          "app_name": "Stock Overview",
+          "transaction_or_cds": "в Fiori"
+        },
+        "specification": {
+          "spec_id": "SPEC-OPS-007",
+          "version": "unknown",
+          "title": "unknown"
+        },
+        "ownership": {
+          "report_developer": "Katya M",
+          "financial_analyst": "unknown",
+          "data_pull_owner": "Katya M",
+          "primary_assignee_role": "report_developer"
+        },
+        "reconciliation": {
+          "compare_sap_vs_databricks": true,
+          "compare_databricks_vs_power_bi": true,
+          "compare_report_vs_spec": true,
+          "mismatch_suspected_at": "sap_fiori",
+          "notes": "Data Pull team (Katya M) — пайплайн SAP→DBX."
+        },
+        "deployment": {
+          "status": "pending_approval",
+          "requires_dev_deploy_first": true,
+          "awaiting_approval": true,
+          "approved_for_prod": false,
+          "approver_role": "unknown",
+          "deployed_to_dev": false,
+          "deployed_to_prod": false,
+          "notes": "PBI Inventory_Dev.pbix тоже пустой за вчера — просто отражает Databricks."
+        },
+        "repro_steps": [],
+        "labels": [],
+        "is_blocker": false,
+        "confidence_notes": "unknown"
+      }
+    },
+    {
+      "id": "BUGS-44",
+      "ok": true,
+      "error": null,
+      "latency_ms": 9255.400208999994,
+      "model": "llama3.2",
+      "prompt_version": "v1",
+      "sampling_profile": "default",
+      "sampling": {
+        "temperature": 0.0,
+        "top_p": 1.0
+      },
+      "usage": {
+        "input_tokens": 1787,
+        "output_tokens": 768,
+        "total_tokens": 2555
+      },
+      "raw_text": "{\n  \"ticket_type\": \"change_request\",\n  \"summary\": \"PROD Customers by Region: DBX ok, PBI wrong filter\",\n  \"priority\": \"low\",\n  \"issue_category\": \"spec_mismatch\",\n  \"report\": {\n    \"name\": \"Customers by Region\",\n    \"deploy_stage\": \"both\",\n    \"dataset_name\": \"Customers_Prod.pbix\"\n  },\n  \"sap_fiori\": {\n    \"app_name\": \"Customer Master\",\n    \"transaction_or_cds\": \"mart.dim_customer на PROD\"\n  },\n  \"specification\": {\n    \"spec_id\": \"SPEC-FIN-021\",\n    \"version\": null,\n    \"title\": \"only active customers\"\n  },\n  \"ownership\": {\n    \"report_developer\": \"Anna K\",\n    \"financial_analyst\": \"Maria B\",\n    \"data_pull_owner\": \"Dmytro\",\n    \"primary_assignee_role\": \"report_developer\"\n  },\n  \"reconciliation\": {\n    \"compare_sap_vs_databricks\": true,\n    \"compare_databricks_vs_power_bi\": true,\n    \"compare_report_vs_spec\": true,\n    \"mismatch_suspected_at\": \"sap_fiori\",\n    \"notes\": \"SAP Fiori Customer Master approximately like DBX.\"\n  },\n  \"deployment\": {\n    \"status\": \"pending_approval\",\n    \"requires_dev_deploy_first\": true,\n    \"awaiting_approval\": true,\n    \"approved_for_prod\": null,\n    \"approver_role\": null,\n    \"deployed_to_dev\": null,\n    \"deployed_to_prod\": null,\n    \"notes\": \"SAP Fiori Customer Master approximately like DBX.\"\n  },\n  \"repro_steps\": [],\n  \"labels\": [],\n  \"is_blocker\": false,\n  \"confidence_notes\": null\n}",
+      "extraction": {
+        "ticket_type": "change_request",
+        "summary": "PROD Customers by Region: DBX ok, PBI wrong filter",
+        "priority": "low",
+        "issue_category": "spec_mismatch",
+        "report": {
+          "name": "Customers by Region",
+          "deploy_stage": "both",
+          "dataset_name": "Customers_Prod.pbix"
+        },
+        "sap_fiori": {
+          "app_name": "Customer Master",
+          "transaction_or_cds": "mart.dim_customer на PROD"
+        },
+        "specification": {
+          "spec_id": "SPEC-FIN-021",
+          "version": null,
+          "title": "only active customers"
+        },
+        "ownership": {
+          "report_developer": "Anna K",
+          "financial_analyst": "Maria B",
+          "data_pull_owner": "Dmytro",
+          "primary_assignee_role": "report_developer"
+        },
+        "reconciliation": {
+          "compare_sap_vs_databricks": true,
+          "compare_databricks_vs_power_bi": true,
+          "compare_report_vs_spec": true,
+          "mismatch_suspected_at": "sap_fiori",
+          "notes": "SAP Fiori Customer Master approximately like DBX."
+        },
+        "deployment": {
+          "status": "pending_approval",
+          "requires_dev_deploy_first": true,
+          "awaiting_approval": true,
+          "approved_for_prod": null,
+          "approver_role": null,
+          "deployed_to_dev": null,
+          "deployed_to_prod": null,
+          "notes": "SAP Fiori Customer Master approximately like DBX."
+        },
+        "repro_steps": [],
+        "labels": [],
+        "is_blocker": false,
+        "confidence_notes": null
+      }
+    },
+    {
+      "id": "BUGS-45",
+      "ok": true,
+      "error": null,
+      "latency_ms": 8725.387956999995,
+      "model": "llama3.2",
+      "prompt_version": "v1",
+      "sampling_profile": "default",
+      "sampling": {
+        "temperature": 0.0,
+        "top_p": 1.0
+      },
+      "usage": {
+        "input_tokens": 1761,
+        "output_tokens": 729,
+        "total_tokens": 2490
+      },
+      "raw_text": "{\n  \"ticket_type\": \"change_request\",\n  \"summary\": \"Users compare wrong Fiori period vs report PROD\",\n  \"priority\": \"critical\",\n  \"issue_category\": \"spec_mismatch\",\n  \"report\": {\n    \"name\": \"FX_Revenue.pbix PROD\",\n    \"deploy_stage\": \"both\",\n    \"dataset_name\": null\n  },\n  \"sap_fiori\": {\n    \"app_name\": \"SAP Fiori\",\n    \"transaction_or_cds\": \"posting period\"\n  },\n  \"specification\": {\n    \"spec_id\": \"SPEC-FIN-041\",\n    \"version\": null,\n    \"title\": null\n  },\n  \"ownership\": {\n    \"report_developer\": \"unknown\",\n    \"financial_analyst\": \"unknown\",\n    \"data_pull_owner\": \"unknown\",\n    \"primary_assignee_role\": \"unknown\"\n  },\n  \"reconciliation\": {\n    \"compare_sap_vs_databricks\": true,\n    \"compare_databricks_vs_power_bi\": true,\n    \"compare_report_vs_spec\": true,\n    \"mismatch_suspected_at\": \"sap_fiori\",\n    \"notes\": \"Possible user error\"\n  },\n  \"deployment\": {\n    \"status\": \"unknown\",\n    \"requires_dev_deploy_first\": true,\n    \"awaiting_approval\": false,\n    \"approved_for_prod\": false,\n    \"approver_role\": null,\n    \"deployed_to_dev\": false,\n    \"deployed_to_prod\": false,\n    \"notes\": \"Fix/CR deploys to DEV first, then approval, then PROD\"\n  },\n  \"repro_steps\": [],\n  \"labels\": [],\n  \"is_blocker\": false,\n  \"confidence_notes\": null\n}",
+      "extraction": {
+        "ticket_type": "change_request",
+        "summary": "Users compare wrong Fiori period vs report PROD",
+        "priority": "critical",
+        "issue_category": "spec_mismatch",
+        "report": {
+          "name": "FX_Revenue.pbix PROD",
+          "deploy_stage": "both",
+          "dataset_name": null
+        },
+        "sap_fiori": {
+          "app_name": "SAP Fiori",
+          "transaction_or_cds": "posting period"
+        },
+        "specification": {
+          "spec_id": "SPEC-FIN-041",
+          "version": null,
+          "title": null
+        },
+        "ownership": {
+          "report_developer": "unknown",
+          "financial_analyst": "unknown",
+          "data_pull_owner": "unknown",
+          "primary_assignee_role": "unknown"
+        },
+        "reconciliation": {
+          "compare_sap_vs_databricks": true,
+          "compare_databricks_vs_power_bi": true,
+          "compare_report_vs_spec": true,
+          "mismatch_suspected_at": "sap_fiori",
+          "notes": "Possible user error"
+        },
+        "deployment": {
+          "status": "unknown",
+          "requires_dev_deploy_first": true,
+          "awaiting_approval": false,
+          "approved_for_prod": false,
+          "approver_role": null,
+          "deployed_to_dev": false,
+          "deployed_to_prod": false,
+          "notes": "Fix/CR deploys to DEV first, then approval, then PROD"
+        },
+        "repro_steps": [],
+        "labels": [],
+        "is_blocker": false,
+        "confidence_notes": null
+      }
+    },
+    {
+      "id": "BUGS-46",
+      "ok": true,
+      "error": null,
+      "latency_ms": 4389.386040999994,
+      "model": "llama3.2",
+      "prompt_version": "v1",
+      "sampling_profile": "default",
+      "sampling": {
+        "temperature": 0.0,
+        "top_p": 1.0
+      },
+      "usage": {
+        "input_tokens": 756,
+        "output_tokens": 376,
+        "total_tokens": 1132
+      },
+      "raw_text": "{\n  \"ticket_type\": \"change_request\",\n  \"summary\": \"add channel split to Sales Overview per new spec\",\n  \"priority\": \"high\",\n  \"issue_category\": \"spec_mismatch\",\n  \"report\": {\n    \"name\": \"Sales Overview\",\n    \"deploy_stage\": \"both\",\n    \"dataset_name\": \"unknown\"\n  },\n  \"sap_fiori\": {\n    \"app_name\": \"unknown\",\n    \"transaction_or_cds\": \"unknown\"\n  },\n  \"specification\": {\n    \"spec_id\": \"SPEC-FIN-014\",\n    \"version\": \"v1.4\",\n    \"title\": \"Financial specification\"\n  },\n  \"ownership\": {\n    \"report_developer\": \"Anna K\",\n    \"financial_analyst\": \"Maria B\",\n    \"data_pull_owner\": \"unknown\",\n    \"primary_assignee_role\": \"report_developer\"\n  },\n  \"reconciliation\": {\n    \"compare_sap_vs_databricks\": true,\n    \"compare_databricks_vs_power_bi\": true,\n    \"compare_report_vs_spec\": true,\n    \"mismatch_suspected_at\": \"specification\",\n    \"notes\": \"report vs new spec; DBX vs PBI.\"\n  },\n  \"deployment\": {\n    \"status\": \"pending_approval\",\n    \"requires_dev_deploy_first\": true,\n    \"awaiting_approval\": true,\n    \"approved_for_prod\": false,\n    \"approver_role\": \"unknown\",\n    \"deployed_to_dev\": false,\n    \"deployed_to_prod\": false,\n    \"notes\": \"fix/CR deploys to DEV first, then approval, then PROD.\"\n  },\n  \"repro_steps\": [],\n  \"labels\": [],\n  \"is_blocker\": false,\n  \"confidence_notes\": \"unknown\"\n}",
+      "extraction": {
+        "ticket_type": "change_request",
+        "summary": "add channel split to Sales Overview per new spec",
+        "priority": "high",
+        "issue_category": "spec_mismatch",
+        "report": {
+          "name": "Sales Overview",
+          "deploy_stage": "both",
+          "dataset_name": "unknown"
+        },
+        "sap_fiori": {
+          "app_name": "unknown",
+          "transaction_or_cds": "unknown"
+        },
+        "specification": {
+          "spec_id": "SPEC-FIN-014",
+          "version": "v1.4",
+          "title": "Financial specification"
+        },
+        "ownership": {
+          "report_developer": "Anna K",
+          "financial_analyst": "Maria B",
+          "data_pull_owner": "unknown",
+          "primary_assignee_role": "report_developer"
+        },
+        "reconciliation": {
+          "compare_sap_vs_databricks": true,
+          "compare_databricks_vs_power_bi": true,
+          "compare_report_vs_spec": true,
+          "mismatch_suspected_at": "specification",
+          "notes": "report vs new spec; DBX vs PBI."
+        },
+        "deployment": {
+          "status": "pending_approval",
+          "requires_dev_deploy_first": true,
+          "awaiting_approval": true,
+          "approved_for_prod": false,
+          "approver_role": "unknown",
+          "deployed_to_dev": false,
+          "deployed_to_prod": false,
+          "notes": "fix/CR deploys to DEV first, then approval, then PROD."
+        },
+        "repro_steps": [],
+        "labels": [],
+        "is_blocker": false,
+        "confidence_notes": "unknown"
+      }
+    },
+    {
+      "id": "BUGS-47",
+      "ok": true,
+      "error": null,
+      "latency_ms": 8556.514708999992,
+      "model": "llama3.2",
+      "prompt_version": "v1",
+      "sampling_profile": "default",
+      "sampling": {
+        "temperature": 0.0,
+        "top_p": 1.0
+      },
+      "usage": {
+        "input_tokens": 1826,
+        "output_tokens": 712,
+        "total_tokens": 2538
+      },
+      "raw_text": "{\n  \"ticket_type\": \"change_request\",\n  \"summary\": \"CR: change FX conversion timing in SPEC-FIN-041\",\n  \"priority\": \"low\",\n  \"issue_category\": \"spec_mismatch\",\n  \"report\": {\n    \"name\": \"PBI FX_Revenue\",\n    \"deploy_stage\": \"both\",\n    \"dataset_name\": null\n  },\n  \"sap_fiori\": {\n    \"app_name\": null,\n    \"transaction_or_cds\": null\n  },\n  \"specification\": {\n    \"spec_id\": \"SPEC-FIN-041\",\n    \"version\": null,\n    \"title\": null\n  },\n  \"ownership\": {\n    \"report_developer\": \"unknown\",\n    \"financial_analyst\": \"FA Maria\",\n    \"data_pull_owner\": \"Data Pull Dmytro\",\n    \"primary_assignee_role\": \"unknown\"\n  },\n  \"reconciliation\": {\n    \"compare_sap_vs_databricks\": true,\n    \"compare_databricks_vs_power_bi\": true,\n    \"compare_report_vs_spec\": true,\n    \"mismatch_suspected_at\": \"specification\",\n    \"notes\": null\n  },\n  \"deployment\": {\n    \"status\": \"pending_approval\",\n    \"requires_dev_deploy_first\": true,\n    \"awaiting_approval\": true,\n    \"approved_for_prod\": null,\n    \"approver_role\": \"unknown\",\n    \"deployed_to_dev\": true,\n    \"deployed_to_prod\": null,\n    \"notes\": \"environment: DEV, then PROD\"\n  },\n  \"repro_steps\": [],\n  \"labels\": [],\n  \"is_blocker\": false,\n  \"confidence_notes\": null\n}",
+      "extraction": {
+        "ticket_type": "change_request",
+        "summary": "CR: change FX conversion timing in SPEC-FIN-041",
+        "priority": "low",
+        "issue_category": "spec_mismatch",
+        "report": {
+          "name": "PBI FX_Revenue",
+          "deploy_stage": "both",
+          "dataset_name": null
+        },
+        "sap_fiori": {
+          "app_name": null,
+          "transaction_or_cds": null
+        },
+        "specification": {
+          "spec_id": "SPEC-FIN-041",
+          "version": null,
+          "title": null
+        },
+        "ownership": {
+          "report_developer": "unknown",
+          "financial_analyst": "FA Maria",
+          "data_pull_owner": "Data Pull Dmytro",
+          "primary_assignee_role": "unknown"
+        },
+        "reconciliation": {
+          "compare_sap_vs_databricks": true,
+          "compare_databricks_vs_power_bi": true,
+          "compare_report_vs_spec": true,
+          "mismatch_suspected_at": "specification",
+          "notes": null
+        },
+        "deployment": {
+          "status": "pending_approval",
+          "requires_dev_deploy_first": true,
+          "awaiting_approval": true,
+          "approved_for_prod": null,
+          "approver_role": "unknown",
+          "deployed_to_dev": true,
+          "deployed_to_prod": null,
+          "notes": "environment: DEV, then PROD"
+        },
+        "repro_steps": [],
+        "labels": [],
+        "is_blocker": false,
+        "confidence_notes": null
+      }
+    },
+    {
+      "id": "BUGS-48",
+      "ok": false,
+      "error": "repair failed: ValidationError: 1 validation error for TicketExtraction\npriority\n  Input should be 'low', 'medium', 'high' or 'critical' [type=enum, input_value='unknown', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/enum",
+      "latency_ms": 17779.16729099999,
+      "model": "llama3.2",
+      "prompt_version": "v1",
+      "sampling_profile": "default",
+      "sampling": {
+        "temperature": 0.0,
+        "top_p": 1.0
+      },
+      "usage": {
+        "input_tokens": 3514,
+        "output_tokens": 1556,
+        "total_tokens": 5070
+      },
+      "raw_text": "{\n  \"ticket_type\": \"change_request\",\n  \"summary\": \"expose plant hierarchy from SAP to Databricks\",\n  \"priority\": \"unknown\",\n  \"issue_category\": \"spec_mismatch\",\n  \"report\": {\n    \"name\": \"Inventory report\",\n    \"deploy_stage\": \"both\",\n    \"dataset_name\": \"unknown\"\n  },\n  \"sap_fiori\": {\n    \"app_name\": \"Stock Overview\",\n    \"transaction_or_cds\": \"unknown\"\n  },\n  \"specification\": {\n    \"spec_id\": \"SPEC-OPS-007\",\n    \"version\": \"draft v2.1\",\n    \"title\": \"unknown\"\n  },\n  \"ownership\": {\n    \"report_developer\": \"Katya M\",\n    \"financial_analyst\": \"Ihor\",\n    \"data_pull_owner\": \"Dev Oleh\",\n    \"primary_assignee_role\": \"report_developer\"\n  },\n  \"reconciliation\": {\n    \"compare_sap_vs_databricks\": true,\n    \"compare_databricks_vs_power_bi\": true,\n    \"compare_report_vs_spec\": true,\n    \"mismatch_suspected_at\": \"specification\",\n    \"notes\": \"CR for Data Pull: добавить plant hierarchy из SAP Fiori Stock Overview в Databricks\"\n  },\n  \"deployment\": {\n    \"status\": \"in_development\",\n    \"requires_dev_deploy_first\": true,\n    \"awaiting_approval\": false,\n    \"approved_for_prod\": false,\n    \"approver_role\": \"unknown\",\n    \"deployed_to_dev\": true,\n    \"deployed_to_prod\": false,\n    \"notes\": \"DEV first.\"\n  },\n  \"repro_steps\": [],\n  \"labels\": [],\n  \"is_blocker\": false,\n  \"confidence_notes\": \"unknown\"\n}",
+      "extraction": null
+    },
+    {
+      "id": "BUGS-49",
+      "ok": true,
+      "error": null,
+      "latency_ms": 4316.710458000003,
+      "model": "llama3.2",
+      "prompt_version": "v1",
+      "sampling_profile": "default",
+      "sampling": {
+        "temperature": 0.0,
+        "top_p": 1.0
+      },
+      "usage": {
+        "input_tokens": 719,
+        "output_tokens": 374,
+        "total_tokens": 1093
+      },
+      "raw_text": "{\n  \"ticket_type\": \"bug\",\n  \"summary\": \"FX_Revenue double FX vs SPEC-FIN-041\",\n  \"priority\": \"low\",\n  \"issue_category\": \"spec_mismatch\",\n  \"report\": {\n    \"name\": \"FX_Revenue\",\n    \"deploy_stage\": \"both\",\n    \"dataset_name\": \"FX_Revenue.pbix\"\n  },\n  \"sap_fiori\": {\n    \"app_name\": \"Incoming Payments\",\n    \"transaction_or_cds\": \"SAP Fiori Incoming Payments\"\n  },\n  \"specification\": {\n    \"spec_id\": \"SPEC-FIN-041\",\n    \"version\": \"unknown\",\n    \"title\": \"convert once at payment\"\n  },\n  \"ownership\": {\n    \"report_developer\": \"unknown\",\n    \"financial_analyst\": \"unknown\",\n    \"data_pull_owner\": \"unknown\",\n    \"primary_assignee_role\": \"unknown\"\n  },\n  \"reconciliation\": {\n    \"compare_sap_vs_databricks\": true,\n    \"compare_databricks_vs_power_bi\": true,\n    \"compare_report_vs_spec\": true,\n    \"mismatch_suspected_at\": \"specification\",\n    \"notes\": \"rasxodzenie na etape Power BI report PROD\"\n  },\n  \"deployment\": {\n    \"status\": \"pending_approval\",\n    \"requires_dev_deploy_first\": true,\n    \"awaiting_approval\": true,\n    \"approved_for_prod\": false,\n    \"approver_role\": \"unknown\",\n    \"deployed_to_dev\": false,\n    \"deployed_to_prod\": false,\n    \"notes\": \"blocker month close\"\n  },\n  \"repro_steps\": [],\n  \"labels\": [],\n  \"is_blocker\": true,\n  \"confidence_notes\": \"unknown\"\n}",
+      "extraction": {
+        "ticket_type": "bug",
+        "summary": "FX_Revenue double FX vs SPEC-FIN-041",
+        "priority": "low",
+        "issue_category": "spec_mismatch",
+        "report": {
+          "name": "FX_Revenue",
+          "deploy_stage": "both",
+          "dataset_name": "FX_Revenue.pbix"
+        },
+        "sap_fiori": {
+          "app_name": "Incoming Payments",
+          "transaction_or_cds": "SAP Fiori Incoming Payments"
+        },
+        "specification": {
+          "spec_id": "SPEC-FIN-041",
+          "version": "unknown",
+          "title": "convert once at payment"
+        },
+        "ownership": {
+          "report_developer": "unknown",
+          "financial_analyst": "unknown",
+          "data_pull_owner": "unknown",
+          "primary_assignee_role": "unknown"
+        },
+        "reconciliation": {
+          "compare_sap_vs_databricks": true,
+          "compare_databricks_vs_power_bi": true,
+          "compare_report_vs_spec": true,
+          "mismatch_suspected_at": "specification",
+          "notes": "rasxodzenie na etape Power BI report PROD"
+        },
+        "deployment": {
+          "status": "pending_approval",
+          "requires_dev_deploy_first": true,
+          "awaiting_approval": true,
+          "approved_for_prod": false,
+          "approver_role": "unknown",
+          "deployed_to_dev": false,
+          "deployed_to_prod": false,
+          "notes": "blocker month close"
+        },
+        "repro_steps": [],
+        "labels": [],
+        "is_blocker": true,
+        "confidence_notes": "unknown"
+      }
+    },
+    {
+      "id": "BUGS-50",
+      "ok": true,
+      "error": null,
+      "latency_ms": 4513.298165999999,
+      "model": "llama3.2",
+      "prompt_version": "v1",
+      "sampling_profile": "default",
+      "sampling": {
+        "temperature": 0.0,
+        "top_p": 1.0
+      },
+      "usage": {
+        "input_tokens": 712,
+        "output_tokens": 389,
+        "total_tokens": 1101
+      },
+      "raw_text": "{\n  \"ticket_type\": \"bug\",\n  \"summary\": \"DEV: Databricks grain differs from Fiori CDS\",\n  \"priority\": \"high\",\n  \"issue_category\": \"spec_mismatch\",\n  \"report\": {\n    \"name\": \"Sales Overview\",\n    \"deploy_stage\": \"both\",\n    \"dataset_name\": \"unknown\"\n  },\n  \"sap_fiori\": {\n    \"app_name\": \"C_SALESORDER_Q1\",\n    \"transaction_or_cds\": \"CDS\"\n  },\n  \"specification\": {\n    \"spec_id\": \"SPEC-FIN-014\",\n    \"version\": \"unknown\",\n    \"title\": \"expect header net value\"\n  },\n  \"ownership\": {\n    \"report_developer\": \"unknown\",\n    \"financial_analyst\": \"Anna\",\n    \"data_pull_owner\": \"Dmytro\",\n    \"primary_assignee_role\": \"unknown\"\n  },\n  \"reconciliation\": {\n    \"compare_sap_vs_databricks\": true,\n    \"compare_databricks_vs_power_bi\": true,\n    \"compare_report_vs_spec\": true,\n    \"mismatch_suspected_at\": \"specification\",\n    \"notes\": \"баг на Databricks/Data Pull этапе. Oleh/Anna/Dmytro/Maria.\"\n  },\n  \"deployment\": {\n    \"status\": \"pending_approval\",\n    \"requires_dev_deploy_first\": true,\n    \"awaiting_approval\": true,\n    \"approved_for_prod\": false,\n    \"approver_role\": \"unknown\",\n    \"deployed_to_dev\": false,\n    \"deployed_to_prod\": false,\n    \"notes\": \"DEV: Databricks grain differs from Fiori CDS\"\n  },\n  \"repro_steps\": [],\n  \"labels\": [],\n  \"is_blocker\": false,\n  \"confidence_notes\": \"unknown\"\n}",
+      "extraction": {
+        "ticket_type": "bug",
+        "summary": "DEV: Databricks grain differs from Fiori CDS",
+        "priority": "high",
+        "issue_category": "spec_mismatch",
+        "report": {
+          "name": "Sales Overview",
+          "deploy_stage": "both",
+          "dataset_name": "unknown"
+        },
+        "sap_fiori": {
+          "app_name": "C_SALESORDER_Q1",
+          "transaction_or_cds": "CDS"
+        },
+        "specification": {
+          "spec_id": "SPEC-FIN-014",
+          "version": "unknown",
+          "title": "expect header net value"
+        },
+        "ownership": {
+          "report_developer": "unknown",
+          "financial_analyst": "Anna",
+          "data_pull_owner": "Dmytro",
+          "primary_assignee_role": "unknown"
+        },
+        "reconciliation": {
+          "compare_sap_vs_databricks": true,
+          "compare_databricks_vs_power_bi": true,
+          "compare_report_vs_spec": true,
+          "mismatch_suspected_at": "specification",
+          "notes": "баг на Databricks/Data Pull этапе. Oleh/Anna/Dmytro/Maria."
+        },
+        "deployment": {
+          "status": "pending_approval",
+          "requires_dev_deploy_first": true,
+          "awaiting_approval": true,
+          "approved_for_prod": false,
+          "approver_role": "unknown",
+          "deployed_to_dev": false,
+          "deployed_to_prod": false,
+          "notes": "DEV: Databricks grain differs from Fiori CDS"
+        },
+        "repro_steps": [],
+        "labels": [],
+        "is_blocker": false,
+        "confidence_notes": "unknown"
+      }
+    }
+  ]
+}

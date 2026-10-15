@@ -1,0 +1,9 @@
+{
+  "dir": "results/gemini_v2_default_20261015T202845Z",
+  "ok": 53,
+  "count": 53,
+  "valid_json_pct": 1.0,
+  "latency_p50_ms": 1842.4453330000006,
+  "latency_p95_ms": 2344.2886670000007,
+  "note": "13 tickets retried after Gemini 429 and merged"
+}

@@ -1,0 +1,19 @@
+{
+  "id": "BUGS-44",
+  "summary": "PROD Customers by Region: DBX ok, PBI wrong filter",
+  "description": "mart.dim_customer на PROD = 11802 UA active.\nCustomers_Prod.pbix показывает 12040 — похоже включены soft-deleted.\nSAP Fiori Customer Master примерно как DBX.\nspec SPEC-FIN-021 говорит только active customers.\n\ndeveloper Anna K / FA Maria B / Data Pull Dmytro.\nсверить DBX vs PBI и PBI vs spec.",
+  "text": "PROD Customers by Region: DBX ok, PBI wrong filter\n\nmart.dim_customer на PROD = 11802 UA active.\nCustomers_Prod.pbix показывает 12040 — похоже включены soft-deleted.\nSAP Fiori Customer Master примерно как DBX.\nspec SPEC-FIN-021 говорит только active customers.\n\ndeveloper Anna K / FA Maria B / Data Pull Dmytro.\nсверить DBX vs PBI и PBI vs spec.",
+  "labels": [
+    "dirty-text",
+    "extraction",
+    "golden-candidate",
+    "hw1",
+    "pipeline-pbi"
+  ],
+  "issue_type": "Bug",
+  "priority": "Medium",
+  "status": "To Do",
+  "created": "2026-10-15T21:02:07.766+0200",
+  "source": "jira",
+  "project": "BUGS"
+}

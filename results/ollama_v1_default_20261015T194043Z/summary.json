@@ -1,0 +1,46 @@
+{
+  "created_at": "20261015T194043Z",
+  "provider": {
+    "name": "ollama",
+    "model": "llama3.2",
+    "timeout_sec": 180.0,
+    "max_retries": 2,
+    "retry_backoff_sec": 3.0
+  },
+  "prompt_version": "v1",
+  "sampling_profile": "default",
+  "count": 2,
+  "ok_count": 0,
+  "results": [
+    {
+      "id": "BUGS-41",
+      "ok": false,
+      "error": "ValidationError: 3 validation errors for TicketExtraction\npriority\n  Input should be 'low', 'medium', 'high' or 'critical' [type=enum, input_value='null', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/enum\nownership.primary_assignee_role\n  Field required [type=missing, input_value={'report_developer': 'Ann...ull_owner': 'Dmytro S.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing\nis_blocker\n  Field required [type=missing, input_value={'summary': 'PROD Sales O...ll (SAP→Databricks)'}}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing",
+      "latency_ms": null,
+      "model": "llama3.2",
+      "prompt_version": "v1",
+      "sampling_profile": "default",
+      "sampling": {
+        "temperature": 0.0,
+        "top_p": 1.0
+      },
+      "usage": {},
+      "extraction": null
+    },
+    {
+      "id": "BUGS-42",
+      "ok": false,
+      "error": "ValidationError: 4 validation errors for TicketExtraction\npriority\n  Field required [type=missing, input_value={'summary': 'DEV Gross Ma...ation must be checked'}}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing\nissue_category\n  Field required [type=missing, input_value={'summary': 'DEV Gross Ma...ation must be checked'}}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing\nownership.primary_assignee_role\n  Field required [type=missing, input_value={'report_developer': None...'data_pull_owner': None}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing\nis_blocker\n  Field required [type=missing, input_value={'summary': 'DEV Gross Ma...ation must be checked'}}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing",
+      "latency_ms": null,
+      "model": "llama3.2",
+      "prompt_version": "v1",
+      "sampling_profile": "default",
+      "sampling": {
+        "temperature": 0.0,
+        "top_p": 1.0
+      },
+      "usage": {},
+      "extraction": null
+    }
+  ]
+}

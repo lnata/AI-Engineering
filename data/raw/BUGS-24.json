@@ -1,0 +1,17 @@
+{
+  "id": "BUGS-24",
+  "summary": "фильтры на UA/EN mixed UI",
+  "description": "часть лейблов українською, часть english after partial localization deploy. looks broken. not functional bug but release blocker for marketing",
+  "text": "фильтры на UA/EN mixed UI\n\nчасть лейблов українською, часть english after partial localization deploy. looks broken. not functional bug but release blocker for marketing",
+  "labels": [
+    "dirty-text",
+    "extraction",
+    "hw1"
+  ],
+  "issue_type": "Bug",
+  "priority": "Medium",
+  "status": "To Do",
+  "created": "2026-10-15T20:41:33.104+0200",
+  "source": "jira",
+  "project": "BUGS"
+}

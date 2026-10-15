@@ -1,0 +1,74 @@
+{
+  "id": "BUGS-37",
+  "ok": true,
+  "error": null,
+  "latency_ms": 2456.8257079999967,
+  "model": "gemini-3.5-flash-lite",
+  "prompt_version": "v2",
+  "sampling_profile": "default",
+  "sampling": {
+    "temperature": 0.0,
+    "top_p": 1.0
+  },
+  "usage": {
+    "input_tokens": 838,
+    "output_tokens": 519,
+    "total_tokens": 1357
+  },
+  "raw_text": "{\n  \"ticket_type\": \"bug\",\n  \"summary\": \"Currency conversion double applied in PROD for FX Revenue report\",\n  \"priority\": \"critical\",\n  \"issue_category\": \"transform_logic\",\n  \"report\": {\n    \"name\": \"FX Revenue\",\n    \"deploy_stage\": \"prod\",\n    \"dataset_name\": null\n  },\n  \"sap_fiori\": {\n    \"app_name\": null,\n    \"transaction_or_cds\": null\n  },\n  \"specification\": {\n    \"spec_id\": null,\n    \"version\": null,\n    \"title\": null\n  },\n  \"ownership\": {\n    \"report_developer\": null,\n    \"financial_analyst\": null,\n    \"data_pull_owner\": null,\n    \"primary_assignee_role\": \"report_developer\"\n  },\n  \"reconciliation\": {\n    \"compare_sap_vs_databricks\": false,\n    \"compare_databricks_vs_power_bi\": true,\n    \"compare_report_vs_spec\": false,\n    \"mismatch_suspected_at\": \"power_bi_report\",\n    \"notes\": \"fact_payments is already in EUR, but PBI applies fx_rate again leading to totals x1.08 vs DB\"\n  },\n  \"deployment\": {\n    \"status\": \"not_started\",\n    \"requires_dev_deploy_first\": true,\n    \"awaiting_approval\": false,\n    \"approved_for_prod\": null,\n    \"approver_role\": \"financial_analyst\",\n    \"deployed_to_dev\": false,\n    \"deployed_to_prod\": false,\n    \"notes\": \"critical for month-close, validation needed between DB and Power BI PROD\"\n  },\n  \"repro_steps\": [\n    \"Check fact_payments in Databricks for EUR currency state\",\n    \"Compare Databricks figures with Power BI PROD report FX Revenue totals\"\n  ],\n  \"labels\": [\n    \"currency-conversion\",\n    \"prod\",\n    \"month-close\",\n    \"fx-revenue\"\n  ],\n  \"is_blocker\": true,\n  \"confidence_notes\": null\n}",
+  "extraction": {
+    "ticket_type": "bug",
+    "summary": "Currency conversion double applied in PROD for FX Revenue report",
+    "priority": "critical",
+    "issue_category": "transform_logic",
+    "report": {
+      "name": "FX Revenue",
+      "deploy_stage": "prod",
+      "dataset_name": null
+    },
+    "sap_fiori": {
+      "app_name": null,
+      "transaction_or_cds": null
+    },
+    "specification": {
+      "spec_id": null,
+      "version": null,
+      "title": null
+    },
+    "ownership": {
+      "report_developer": null,
+      "financial_analyst": null,
+      "data_pull_owner": null,
+      "primary_assignee_role": "report_developer"
+    },
+    "reconciliation": {
+      "compare_sap_vs_databricks": false,
+      "compare_databricks_vs_power_bi": true,
+      "compare_report_vs_spec": false,
+      "mismatch_suspected_at": "power_bi_report",
+      "notes": "fact_payments is already in EUR, but PBI applies fx_rate again leading to totals x1.08 vs DB"
+    },
+    "deployment": {
+      "status": "not_started",
+      "requires_dev_deploy_first": true,
+      "awaiting_approval": false,
+      "approved_for_prod": null,
+      "approver_role": "financial_analyst",
+      "deployed_to_dev": false,
+      "deployed_to_prod": false,
+      "notes": "critical for month-close, validation needed between DB and Power BI PROD"
+    },
+    "repro_steps": [
+      "Check fact_payments in Databricks for EUR currency state",
+      "Compare Databricks figures with Power BI PROD report FX Revenue totals"
+    ],
+    "labels": [
+      "currency-conversion",
+      "prod",
+      "month-close",
+      "fx-revenue"
+    ],
+    "is_blocker": true,
+    "confidence_notes": null
+  }
+}

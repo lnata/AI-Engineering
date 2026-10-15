@@ -1,0 +1,73 @@
+{
+  "id": "BUGS-15",
+  "ok": true,
+  "error": null,
+  "latency_ms": 1745.9057499999985,
+  "model": "gemini-3.5-flash-lite",
+  "prompt_version": "v2",
+  "sampling_profile": "default",
+  "sampling": {
+    "temperature": 0.0,
+    "top_p": 1.0
+  },
+  "usage": {
+    "input_tokens": 826,
+    "output_tokens": 473,
+    "total_tokens": 1299
+  },
+  "raw_text": "{\n  \"ticket_type\": \"bug\",\n  \"summary\": \"Analytics dashboard slow with p95 at 8 seconds\",\n  \"priority\": \"medium\",\n  \"issue_category\": \"performance\",\n  \"report\": {\n    \"name\": \"Analytics\",\n    \"deploy_stage\": \"unknown\",\n    \"dataset_name\": null\n  },\n  \"sap_fiori\": {\n    \"app_name\": null,\n    \"transaction_or_cds\": null\n  },\n  \"specification\": {\n    \"spec_id\": null,\n    \"version\": null,\n    \"title\": null\n  },\n  \"ownership\": {\n    \"report_developer\": null,\n    \"financial_analyst\": null,\n    \"data_pull_owner\": null,\n    \"primary_assignee_role\": \"report_developer\"\n  },\n  \"reconciliation\": {\n    \"compare_sap_vs_databricks\": false,\n    \"compare_databricks_vs_power_bi\": false,\n    \"compare_report_vs_spec\": false,\n    \"mismatch_suspected_at\": \"power_bi_report\",\n    \"notes\": \"Performance issue with slow loading times and high p95 duration.\"\n  },\n  \"deployment\": {\n    \"status\": \"not_started\",\n    \"requires_dev_deploy_first\": true,\n    \"awaiting_approval\": false,\n    \"approved_for_prod\": null,\n    \"approver_role\": null,\n    \"deployed_to_dev\": null,\n    \"deployed_to_prod\": null,\n    \"notes\": null\n  },\n  \"repro_steps\": [\n    \"Open Analytics dashboard\",\n    \"Measure load time and p95 latency\"\n  ],\n  \"labels\": [\n    \"performance\",\n    \"slow-dashboard\",\n    \"p95\"\n  ],\n  \"is_blocker\": false,\n  \"confidence_notes\": \"No specific report or dataset filename provided, general analytics dashboard.\"\n}",
+  "extraction": {
+    "ticket_type": "bug",
+    "summary": "Analytics dashboard slow with p95 at 8 seconds",
+    "priority": "medium",
+    "issue_category": "performance",
+    "report": {
+      "name": "Analytics",
+      "deploy_stage": "unknown",
+      "dataset_name": null
+    },
+    "sap_fiori": {
+      "app_name": null,
+      "transaction_or_cds": null
+    },
+    "specification": {
+      "spec_id": null,
+      "version": null,
+      "title": null
+    },
+    "ownership": {
+      "report_developer": null,
+      "financial_analyst": null,
+      "data_pull_owner": null,
+      "primary_assignee_role": "report_developer"
+    },
+    "reconciliation": {
+      "compare_sap_vs_databricks": false,
+      "compare_databricks_vs_power_bi": false,
+      "compare_report_vs_spec": false,
+      "mismatch_suspected_at": "power_bi_report",
+      "notes": "Performance issue with slow loading times and high p95 duration."
+    },
+    "deployment": {
+      "status": "not_started",
+      "requires_dev_deploy_first": true,
+      "awaiting_approval": false,
+      "approved_for_prod": null,
+      "approver_role": null,
+      "deployed_to_dev": null,
+      "deployed_to_prod": null,
+      "notes": null
+    },
+    "repro_steps": [
+      "Open Analytics dashboard",
+      "Measure load time and p95 latency"
+    ],
+    "labels": [
+      "performance",
+      "slow-dashboard",
+      "p95"
+    ],
+    "is_blocker": false,
+    "confidence_notes": "No specific report or dataset filename provided, general analytics dashboard."
+  }
+}

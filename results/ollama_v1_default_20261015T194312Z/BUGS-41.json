@@ -1,0 +1,65 @@
+{
+  "id": "BUGS-41",
+  "ok": true,
+  "error": null,
+  "latency_ms": 5453.155125,
+  "model": "llama3.2",
+  "prompt_version": "v1",
+  "sampling_profile": "default",
+  "sampling": {
+    "temperature": 0.0,
+    "top_p": 1.0
+  },
+  "usage": {
+    "input_tokens": 2828,
+    "output_tokens": 327,
+    "total_tokens": 3155
+  },
+  "extraction": {
+    "ticket_type": "bug",
+    "summary": "PROD Sales Overview: SAP Fiori != Databricks",
+    "priority": "medium",
+    "issue_category": "spec_mismatch",
+    "report": {
+      "name": "Sales_Overview_v3.pbix",
+      "deploy_stage": "both",
+      "dataset_name": "unknown"
+    },
+    "sap_fiori": {
+      "app_name": "Manage Sales Orders",
+      "transaction_or_cds": "CDS C_SALESORDER_Q1"
+    },
+    "specification": {
+      "spec_id": "SPEC-FIN-014",
+      "version": "v1.3",
+      "title": "Financial specification"
+    },
+    "ownership": {
+      "report_developer": "Anna K.",
+      "financial_analyst": "Maria B.",
+      "data_pull_owner": "Dmytro S.",
+      "primary_assignee_role": "unknown"
+    },
+    "reconciliation": {
+      "compare_sap_vs_databricks": true,
+      "compare_databricks_vs_power_bi": true,
+      "compare_report_vs_spec": true,
+      "mismatch_suspected_at": "databricks",
+      "notes": null
+    },
+    "deployment": {
+      "status": "pending_approval",
+      "requires_dev_deploy_first": true,
+      "awaiting_approval": true,
+      "approved_for_prod": null,
+      "approver_role": null,
+      "deployed_to_dev": null,
+      "deployed_to_prod": null,
+      "notes": "Problem on Data Pull (SAP→Databricks)"
+    },
+    "repro_steps": [],
+    "labels": [],
+    "is_blocker": false,
+    "confidence_notes": null
+  }
+}

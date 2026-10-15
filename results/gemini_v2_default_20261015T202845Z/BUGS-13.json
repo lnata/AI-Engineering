@@ -1,0 +1,74 @@
+{
+  "id": "BUGS-13",
+  "ok": true,
+  "error": null,
+  "latency_ms": 1994.280959000001,
+  "model": "gemini-3.5-flash-lite",
+  "prompt_version": "v2",
+  "sampling_profile": "default",
+  "sampling": {
+    "temperature": 0.0,
+    "top_p": 1.0
+  },
+  "usage": {
+    "input_tokens": 822,
+    "output_tokens": 523,
+    "total_tokens": 1345
+  },
+  "raw_text": "{\n  \"ticket_type\": \"bug\",\n  \"summary\": \"Attachment upload fails with 413 error for files larger than 4MB despite 25MB UI limit\",\n  \"priority\": \"medium\",\n  \"issue_category\": \"other\",\n  \"report\": {\n    \"name\": null,\n    \"deploy_stage\": \"unknown\",\n    \"dataset_name\": null\n  },\n  \"sap_fiori\": {\n    \"app_name\": null,\n    \"transaction_or_cds\": null\n  },\n  \"specification\": {\n    \"spec_id\": null,\n    \"version\": null,\n    \"title\": null\n  },\n  \"ownership\": {\n    \"report_developer\": null,\n    \"financial_analyst\": null,\n    \"data_pull_owner\": null,\n    \"primary_assignee_role\": \"unknown\"\n  },\n  \"reconciliation\": {\n    \"compare_sap_vs_databricks\": false,\n    \"compare_databricks_vs_power_bi\": false,\n    \"compare_report_vs_spec\": false,\n    \"mismatch_suspected_at\": \"unknown\",\n    \"notes\": \"Non-analytics infrastructure or application issue related to file uploads and nginx/api gateway limits.\"\n  },\n  \"deployment\": {\n    \"status\": \"not_started\",\n    \"requires_dev_deploy_first\": true,\n    \"awaiting_approval\": false,\n    \"approved_for_prod\": null,\n    \"approver_role\": null,\n    \"deployed_to_dev\": null,\n    \"deployed_to_prod\": null,\n    \"notes\": null\n  },\n  \"repro_steps\": [\n    \"Try to attach a file larger than 4MB in the UI\",\n    \"Observe error 413 request entity too large\"\n  ],\n  \"labels\": [\n    \"attachment-upload\",\n    \"nginx\",\n    \"api-gateway\",\n    \"error-413\"\n  ],\n  \"is_blocker\": false,\n  \"confidence_notes\": \"Ticket is about a web attachment upload limit (nginx / api gateway) and does not relate to SAP Fiori, Databricks, or Power BI reporting.\"\n}",
+  "extraction": {
+    "ticket_type": "bug",
+    "summary": "Attachment upload fails with 413 error for files larger than 4MB despite 25MB UI limit",
+    "priority": "medium",
+    "issue_category": "other",
+    "report": {
+      "name": null,
+      "deploy_stage": "unknown",
+      "dataset_name": null
+    },
+    "sap_fiori": {
+      "app_name": null,
+      "transaction_or_cds": null
+    },
+    "specification": {
+      "spec_id": null,
+      "version": null,
+      "title": null
+    },
+    "ownership": {
+      "report_developer": null,
+      "financial_analyst": null,
+      "data_pull_owner": null,
+      "primary_assignee_role": "unknown"
+    },
+    "reconciliation": {
+      "compare_sap_vs_databricks": false,
+      "compare_databricks_vs_power_bi": false,
+      "compare_report_vs_spec": false,
+      "mismatch_suspected_at": "unknown",
+      "notes": "Non-analytics infrastructure or application issue related to file uploads and nginx/api gateway limits."
+    },
+    "deployment": {
+      "status": "not_started",
+      "requires_dev_deploy_first": true,
+      "awaiting_approval": false,
+      "approved_for_prod": null,
+      "approver_role": null,
+      "deployed_to_dev": null,
+      "deployed_to_prod": null,
+      "notes": null
+    },
+    "repro_steps": [
+      "Try to attach a file larger than 4MB in the UI",
+      "Observe error 413 request entity too large"
+    ],
+    "labels": [
+      "attachment-upload",
+      "nginx",
+      "api-gateway",
+      "error-413"
+    ],
+    "is_blocker": false,
+    "confidence_notes": "Ticket is about a web attachment upload limit (nginx / api gateway) and does not relate to SAP Fiori, Databricks, or Power BI reporting."
+  }
+}

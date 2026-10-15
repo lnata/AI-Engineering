@@ -1,0 +1,20 @@
+provider:
+  name: gemini
+  model: gemini-3.5-flash-lite
+  timeout_sec: 180
+  max_retries: 2
+  retry_backoff_sec: 3
+
+sampling:
+  default:
+    temperature: 0.0
+    top_p: 1.0
+  creative:
+    temperature: 0.4
+    top_p: 0.9
+
+run:
+  prompt_version: v1
+  sampling_profile: default
+  input_index: data/raw_index.json
+  output_dir: results

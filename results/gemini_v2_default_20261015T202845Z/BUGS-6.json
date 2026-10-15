@@ -1,0 +1,71 @@
+{
+  "id": "BUGS-6",
+  "ok": true,
+  "error": null,
+  "latency_ms": 1987.763375,
+  "model": "gemini-3.5-flash-lite",
+  "prompt_version": "v2",
+  "sampling_profile": "default",
+  "sampling": {
+    "temperature": 0.0,
+    "top_p": 1.0
+  },
+  "usage": {
+    "input_tokens": 824,
+    "output_tokens": 469,
+    "total_tokens": 1293
+  },
+  "raw_text": "{\n  \"ticket_type\": \"bug\",\n  \"summary\": \"Payment webhook retries infinitely despite 200 response\",\n  \"priority\": \"high\",\n  \"issue_category\": \"refresh_failure\",\n  \"report\": {\n    \"name\": null,\n    \"deploy_stage\": \"unknown\",\n    \"dataset_name\": null\n  },\n  \"sap_fiori\": {\n    \"app_name\": null,\n    \"transaction_or_cds\": null\n  },\n  \"specification\": {\n    \"spec_id\": null,\n    \"version\": null,\n    \"title\": null\n  },\n  \"ownership\": {\n    \"report_developer\": null,\n    \"financial_analyst\": null,\n    \"data_pull_owner\": null,\n    \"primary_assignee_role\": \"data_pull\"\n  },\n  \"reconciliation\": {\n    \"compare_sap_vs_databricks\": false,\n    \"compare_databricks_vs_power_bi\": false,\n    \"compare_report_vs_spec\": false,\n    \"mismatch_suspected_at\": \"unknown\",\n    \"notes\": \"Webhook issue causing heavy load on payment-service\"\n  },\n  \"deployment\": {\n    \"status\": \"in_development\",\n    \"requires_dev_deploy_first\": true,\n    \"awaiting_approval\": false,\n    \"approved_for_prod\": null,\n    \"approver_role\": null,\n    \"deployed_to_dev\": null,\n    \"deployed_to_prod\": null,\n    \"notes\": \"Mention of recent Friday deploy causing the issue\"\n  },\n  \"repro_steps\": [],\n  \"labels\": [\n    \"webhook\",\n    \"payment-service\",\n    \"infinite-retry\",\n    \"high-load\"\n  ],\n  \"is_blocker\": false,\n  \"confidence_notes\": \"Ticket refers to a backend webhook service issue rather than a specific Power BI report or SAP Fiori app.\"\n}",
+  "extraction": {
+    "ticket_type": "bug",
+    "summary": "Payment webhook retries infinitely despite 200 response",
+    "priority": "high",
+    "issue_category": "refresh_failure",
+    "report": {
+      "name": null,
+      "deploy_stage": "unknown",
+      "dataset_name": null
+    },
+    "sap_fiori": {
+      "app_name": null,
+      "transaction_or_cds": null
+    },
+    "specification": {
+      "spec_id": null,
+      "version": null,
+      "title": null
+    },
+    "ownership": {
+      "report_developer": null,
+      "financial_analyst": null,
+      "data_pull_owner": null,
+      "primary_assignee_role": "data_pull"
+    },
+    "reconciliation": {
+      "compare_sap_vs_databricks": false,
+      "compare_databricks_vs_power_bi": false,
+      "compare_report_vs_spec": false,
+      "mismatch_suspected_at": "unknown",
+      "notes": "Webhook issue causing heavy load on payment-service"
+    },
+    "deployment": {
+      "status": "in_development",
+      "requires_dev_deploy_first": true,
+      "awaiting_approval": false,
+      "approved_for_prod": null,
+      "approver_role": null,
+      "deployed_to_dev": null,
+      "deployed_to_prod": null,
+      "notes": "Mention of recent Friday deploy causing the issue"
+    },
+    "repro_steps": [],
+    "labels": [
+      "webhook",
+      "payment-service",
+      "infinite-retry",
+      "high-load"
+    ],
+    "is_blocker": false,
+    "confidence_notes": "Ticket refers to a backend webhook service issue rather than a specific Power BI report or SAP Fiori app."
+  }
+}

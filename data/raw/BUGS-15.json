@@ -1,0 +1,17 @@
+{
+  "id": "BUGS-15",
+  "summary": "slow dashboard p95 8s",
+  "description": "dashboard /analytics грузится 6-10s. p95~8s. started monday. maybe n+1 query after new widgets. no error just slow. please profile",
+  "text": "slow dashboard p95 8s\n\ndashboard /analytics грузится 6-10s. p95~8s. started monday. maybe n+1 query after new widgets. no error just slow. please profile",
+  "labels": [
+    "dirty-text",
+    "extraction",
+    "hw1"
+  ],
+  "issue_type": "Bug",
+  "priority": "Medium",
+  "status": "To Do",
+  "created": "2026-10-15T20:41:23.976+0200",
+  "source": "jira",
+  "project": "BUGS"
+}

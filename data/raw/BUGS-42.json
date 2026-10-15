@@ -1,0 +1,19 @@
+{
+  "id": "BUGS-42",
+  "summary": "DEV Gross Margin report does not match SPEC-FIN-030",
+  "description": "отчёт Finance_Dev.pbix на DEV.\nцифры Databricks mart.fact_revenue/cogs сходятся с PBI, НО расчёт Gross Margin % не по спеке SPEC-FIN-030 v1.0.\nв спеке: exclude intercompany; в отчёте intercompany включены.\n\nэто не data pull баг — отчёт не соответствует требованиям.\nFA: Ihor S, developer: Oleh P.\nсверить report vs specification обязательно.",
+  "text": "DEV Gross Margin report does not match SPEC-FIN-030\n\nотчёт Finance_Dev.pbix на DEV.\nцифры Databricks mart.fact_revenue/cogs сходятся с PBI, НО расчёт Gross Margin % не по спеке SPEC-FIN-030 v1.0.\nв спеке: exclude intercompany; в отчёте intercompany включены.\n\nэто не data pull баг — отчёт не соответствует требованиям.\nFA: Ihor S, developer: Oleh P.\nсверить report vs specification обязательно.",
+  "labels": [
+    "dirty-text",
+    "extraction",
+    "golden-candidate",
+    "hw1",
+    "pipeline-spec"
+  ],
+  "issue_type": "Bug",
+  "priority": "Medium",
+  "status": "To Do",
+  "created": "2026-10-15T21:02:05.431+0200",
+  "source": "jira",
+  "project": "BUGS"
+}

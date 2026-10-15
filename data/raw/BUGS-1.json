@@ -1,0 +1,18 @@
+{
+  "id": "BUGS-1",
+  "summary": "login freezes after 2FA chrome",
+  "description": "после 2fa экран логина просто зависает. только chrome. firefox ок. началось после вчерашнего деплоя. энтерпрайз клиенты орут. срочнооо.\n\nsteps:\n1 open login\n2 complete 2fa\n3 freeze\n\nbrowser: chrome 128\nos: ???",
+  "text": "login freezes after 2FA chrome\n\nпосле 2fa экран логина просто зависает. только chrome. firefox ок. началось после вчерашнего деплоя. энтерпрайз клиенты орут. срочнооо.\n\nsteps:\n1 open login\n2 complete 2fa\n3 freeze\n\nbrowser: chrome 128\nos: ???",
+  "labels": [
+    "dirty-text",
+    "extraction",
+    "golden-candidate",
+    "hw1"
+  ],
+  "issue_type": "Bug",
+  "priority": "Medium",
+  "status": "To Do",
+  "created": "2026-10-15T20:41:09.145+0200",
+  "source": "jira",
+  "project": "BUGS"
+}

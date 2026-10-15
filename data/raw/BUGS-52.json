@@ -1,0 +1,19 @@
+{
+  "id": "BUGS-52",
+  "summary": "CR channel split: approved on DEV — schedule PROD deploy",
+  "description": "CHANGE REQUEST Sales Overview channel split.\nDEV deploy done, FA Maria approved yesterday.\nнужен PROD deploy по пайплайну: DEV → approval → PROD (approval already done).\ndeveloper Anna K.",
+  "text": "CR channel split: approved on DEV — schedule PROD deploy\n\nCHANGE REQUEST Sales Overview channel split.\nDEV deploy done, FA Maria approved yesterday.\nнужен PROD deploy по пайплайну: DEV → approval → PROD (approval already done).\ndeveloper Anna K.",
+  "labels": [
+    "change-request",
+    "deployment",
+    "dirty-text",
+    "extraction",
+    "hw1"
+  ],
+  "issue_type": "Task",
+  "priority": "Medium",
+  "status": "To Do",
+  "created": "2026-10-15T21:04:57.427+0200",
+  "source": "jira",
+  "project": "BUGS"
+}

@@ -1,0 +1,77 @@
+{
+  "id": "BUGS-47",
+  "ok": true,
+  "error": null,
+  "latency_ms": 1899.5474590000008,
+  "model": "gemini-3.5-flash-lite",
+  "prompt_version": "v2",
+  "sampling_profile": "creative",
+  "sampling": {
+    "temperature": 0.4,
+    "top_p": 0.9
+  },
+  "usage": {
+    "input_tokens": 871,
+    "output_tokens": 546,
+    "total_tokens": 1417
+  },
+  "raw_text": "{\n  \"ticket_type\": \"change_request\",\n  \"summary\": \"Change FX conversion timing from payment date to posting date in FX Revenue report\",\n  \"priority\": \"medium\",\n  \"issue_category\": \"enhancement\",\n  \"report\": {\n    \"name\": \"FX Revenue\",\n    \"deploy_stage\": \"both\",\n    \"dataset_name\": null\n  },\n  \"sap_fiori\": {\n    \"app_name\": null,\n    \"transaction_or_cds\": null\n  },\n  \"specification\": {\n    \"spec_id\": \"SPEC-FIN-041\",\n    \"version\": null,\n    \"title\": null\n  },\n  \"ownership\": {\n    \"report_developer\": \"Anna\",\n    \"financial_analyst\": \"Maria\",\n    \"data_pull_owner\": \"Dmytro\",\n    \"primary_assignee_role\": \"financial_analyst\"\n  },\n  \"reconciliation\": {\n    \"compare_sap_vs_databricks\": true,\n    \"compare_databricks_vs_power_bi\": true,\n    \"compare_report_vs_spec\": true,\n    \"mismatch_suspected_at\": \"specification\",\n    \"notes\": \"FX conversion logic changes from payment date to posting date affecting data pull fx join and PBI model\"\n  },\n  \"deployment\": {\n    \"status\": \"not_started\",\n    \"requires_dev_deploy_first\": true,\n    \"awaiting_approval\": false,\n    \"approved_for_prod\": null,\n    \"approver_role\": \"financial_analyst\",\n    \"deployed_to_dev\": false,\n    \"deployed_to_prod\": false,\n    \"notes\": \"сначала DEV, потом PROD\"\n  },\n  \"repro_steps\": [\n    \"Update SPEC-FIN-041 to specify posting date for FX conversion\",\n    \"Update Databricks FX join logic\",\n    \"Update Power BI FX_Revenue report\",\n    \"Deploy to DEV for validation\",\n    \"Promote to PROD after approval\"\n  ],\n  \"labels\": [\n    \"change-request\",\n    \"fx-revenue\",\n    \"databricks\",\n    \"power-bi\"\n  ],\n  \"is_blocker\": false,\n  \"confidence_notes\": null\n}",
+  "extraction": {
+    "ticket_type": "change_request",
+    "summary": "Change FX conversion timing from payment date to posting date in FX Revenue report",
+    "priority": "medium",
+    "issue_category": "enhancement",
+    "report": {
+      "name": "FX Revenue",
+      "deploy_stage": "both",
+      "dataset_name": null
+    },
+    "sap_fiori": {
+      "app_name": null,
+      "transaction_or_cds": null
+    },
+    "specification": {
+      "spec_id": "SPEC-FIN-041",
+      "version": null,
+      "title": null
+    },
+    "ownership": {
+      "report_developer": "Anna",
+      "financial_analyst": "Maria",
+      "data_pull_owner": "Dmytro",
+      "primary_assignee_role": "financial_analyst"
+    },
+    "reconciliation": {
+      "compare_sap_vs_databricks": true,
+      "compare_databricks_vs_power_bi": true,
+      "compare_report_vs_spec": true,
+      "mismatch_suspected_at": "specification",
+      "notes": "FX conversion logic changes from payment date to posting date affecting data pull fx join and PBI model"
+    },
+    "deployment": {
+      "status": "not_started",
+      "requires_dev_deploy_first": true,
+      "awaiting_approval": false,
+      "approved_for_prod": null,
+      "approver_role": "financial_analyst",
+      "deployed_to_dev": false,
+      "deployed_to_prod": false,
+      "notes": "сначала DEV, потом PROD"
+    },
+    "repro_steps": [
+      "Update SPEC-FIN-041 to specify posting date for FX conversion",
+      "Update Databricks FX join logic",
+      "Update Power BI FX_Revenue report",
+      "Deploy to DEV for validation",
+      "Promote to PROD after approval"
+    ],
+    "labels": [
+      "change-request",
+      "fx-revenue",
+      "databricks",
+      "power-bi"
+    ],
+    "is_blocker": false,
+    "confidence_notes": null
+  }
+}

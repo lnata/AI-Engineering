@@ -1,0 +1,20 @@
+{
+  "id": "BUGS-34",
+  "summary": "dev refresh ok but measure wrong",
+  "description": "на деве refresh проходит без ошибок но Gross Margin % в PBI 42% а в sql (revenue-cogs)/revenue = 38%. measure DAX подозрительный. файл Finance_Dev.pbix. сверить формулы/данные БД и power bi DEV",
+  "text": "dev refresh ok but measure wrong\n\nна деве refresh проходит без ошибок но Gross Margin % в PBI 42% а в sql (revenue-cogs)/revenue = 38%. measure DAX подозрительный. файл Finance_Dev.pbix. сверить формулы/данные БД и power bi DEV",
+  "labels": [
+    "data-accuracy",
+    "dirty-text",
+    "extraction",
+    "golden-candidate",
+    "hw1",
+    "power-bi"
+  ],
+  "issue_type": "Bug",
+  "priority": "Medium",
+  "status": "To Do",
+  "created": "2026-10-15T20:54:54.920+0200",
+  "source": "jira",
+  "project": "BUGS"
+}

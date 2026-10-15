@@ -1,0 +1,239 @@
+{
+  "results_dir": "results/lmstudio_v1_default_20261015T201805Z",
+  "golden_tickets_scored": 10,
+  "valid_json_pct": 0.8,
+  "overall_field_accuracy": 0.38571428571428573,
+  "field_accuracy": {
+    "ticket_type": 0.4,
+    "priority": 0.3,
+    "issue_category": 0.2,
+    "report.deploy_stage": 0.3,
+    "report.name": 0.3,
+    "specification.spec_id": 0.8,
+    "ownership.primary_assignee_role": 0.0,
+    "reconciliation.mismatch_suspected_at": 0.3,
+    "reconciliation.compare_sap_vs_databricks": 0.6,
+    "reconciliation.compare_databricks_vs_power_bi": 0.3,
+    "reconciliation.compare_report_vs_spec": 0.6,
+    "deployment.status": 0.1,
+    "deployment.requires_dev_deploy_first": 0.5,
+    "is_blocker": 0.7
+  },
+  "latency_ms": {
+    "p50": 7751.858041999996,
+    "p95": 18472.424750000006,
+    "mean": 9157.895116700001
+  },
+  "per_ticket": [
+    {
+      "id": "BUGS-41",
+      "ok": true,
+      "field_accuracy": 0.35714285714285715,
+      "matches": {
+        "ticket_type": false,
+        "priority": true,
+        "issue_category": false,
+        "report.deploy_stage": false,
+        "report.name": false,
+        "specification.spec_id": true,
+        "ownership.primary_assignee_role": false,
+        "reconciliation.mismatch_suspected_at": false,
+        "reconciliation.compare_sap_vs_databricks": true,
+        "reconciliation.compare_databricks_vs_power_bi": true,
+        "reconciliation.compare_report_vs_spec": false,
+        "deployment.status": false,
+        "deployment.requires_dev_deploy_first": true,
+        "is_blocker": false
+      }
+    },
+    {
+      "id": "BUGS-42",
+      "ok": true,
+      "field_accuracy": 0.42857142857142855,
+      "matches": {
+        "ticket_type": false,
+        "priority": false,
+        "issue_category": true,
+        "report.deploy_stage": false,
+        "report.name": false,
+        "specification.spec_id": true,
+        "ownership.primary_assignee_role": false,
+        "reconciliation.mismatch_suspected_at": true,
+        "reconciliation.compare_sap_vs_databricks": false,
+        "reconciliation.compare_databricks_vs_power_bi": true,
+        "reconciliation.compare_report_vs_spec": true,
+        "deployment.status": false,
+        "deployment.requires_dev_deploy_first": false,
+        "is_blocker": true
+      }
+    },
+    {
+      "id": "BUGS-43",
+      "ok": true,
+      "field_accuracy": 0.5,
+      "matches": {
+        "ticket_type": true,
+        "priority": false,
+        "issue_category": true,
+        "report.deploy_stage": true,
+        "report.name": false,
+        "specification.spec_id": true,
+        "ownership.primary_assignee_role": false,
+        "reconciliation.mismatch_suspected_at": false,
+        "reconciliation.compare_sap_vs_databricks": true,
+        "reconciliation.compare_databricks_vs_power_bi": false,
+        "reconciliation.compare_report_vs_spec": false,
+        "deployment.status": false,
+        "deployment.requires_dev_deploy_first": true,
+        "is_blocker": true
+      }
+    },
+    {
+      "id": "BUGS-44",
+      "ok": true,
+      "field_accuracy": 0.42857142857142855,
+      "matches": {
+        "ticket_type": false,
+        "priority": false,
+        "issue_category": false,
+        "report.deploy_stage": false,
+        "report.name": true,
+        "specification.spec_id": true,
+        "ownership.primary_assignee_role": false,
+        "reconciliation.mismatch_suspected_at": false,
+        "reconciliation.compare_sap_vs_databricks": true,
+        "reconciliation.compare_databricks_vs_power_bi": true,
+        "reconciliation.compare_report_vs_spec": true,
+        "deployment.status": false,
+        "deployment.requires_dev_deploy_first": false,
+        "is_blocker": true
+      }
+    },
+    {
+      "id": "BUGS-45",
+      "ok": true,
+      "field_accuracy": 0.42857142857142855,
+      "matches": {
+        "ticket_type": false,
+        "priority": false,
+        "issue_category": false,
+        "report.deploy_stage": true,
+        "report.name": false,
+        "specification.spec_id": true,
+        "ownership.primary_assignee_role": false,
+        "reconciliation.mismatch_suspected_at": true,
+        "reconciliation.compare_sap_vs_databricks": true,
+        "reconciliation.compare_databricks_vs_power_bi": false,
+        "reconciliation.compare_report_vs_spec": true,
+        "deployment.status": false,
+        "deployment.requires_dev_deploy_first": false,
+        "is_blocker": true
+      }
+    },
+    {
+      "id": "BUGS-46",
+      "ok": true,
+      "field_accuracy": 0.6428571428571429,
+      "matches": {
+        "ticket_type": true,
+        "priority": false,
+        "issue_category": false,
+        "report.deploy_stage": true,
+        "report.name": true,
+        "specification.spec_id": true,
+        "ownership.primary_assignee_role": false,
+        "reconciliation.mismatch_suspected_at": true,
+        "reconciliation.compare_sap_vs_databricks": false,
+        "reconciliation.compare_databricks_vs_power_bi": false,
+        "reconciliation.compare_report_vs_spec": true,
+        "deployment.status": true,
+        "deployment.requires_dev_deploy_first": true,
+        "is_blocker": true
+      }
+    },
+    {
+      "id": "BUGS-47",
+      "ok": false,
+      "field_accuracy": 0.0,
+      "matches": {
+        "ticket_type": false,
+        "priority": false,
+        "issue_category": false,
+        "report.deploy_stage": false,
+        "report.name": false,
+        "specification.spec_id": false,
+        "ownership.primary_assignee_role": false,
+        "reconciliation.mismatch_suspected_at": false,
+        "reconciliation.compare_sap_vs_databricks": false,
+        "reconciliation.compare_databricks_vs_power_bi": false,
+        "reconciliation.compare_report_vs_spec": false,
+        "deployment.status": false,
+        "deployment.requires_dev_deploy_first": false,
+        "is_blocker": false
+      }
+    },
+    {
+      "id": "BUGS-48",
+      "ok": false,
+      "field_accuracy": 0.0,
+      "matches": {
+        "ticket_type": false,
+        "priority": false,
+        "issue_category": false,
+        "report.deploy_stage": false,
+        "report.name": false,
+        "specification.spec_id": false,
+        "ownership.primary_assignee_role": false,
+        "reconciliation.mismatch_suspected_at": false,
+        "reconciliation.compare_sap_vs_databricks": false,
+        "reconciliation.compare_databricks_vs_power_bi": false,
+        "reconciliation.compare_report_vs_spec": false,
+        "deployment.status": false,
+        "deployment.requires_dev_deploy_first": false,
+        "is_blocker": false
+      }
+    },
+    {
+      "id": "BUGS-49",
+      "ok": true,
+      "field_accuracy": 0.5,
+      "matches": {
+        "ticket_type": true,
+        "priority": true,
+        "issue_category": false,
+        "report.deploy_stage": false,
+        "report.name": false,
+        "specification.spec_id": true,
+        "ownership.primary_assignee_role": false,
+        "reconciliation.mismatch_suspected_at": false,
+        "reconciliation.compare_sap_vs_databricks": true,
+        "reconciliation.compare_databricks_vs_power_bi": false,
+        "reconciliation.compare_report_vs_spec": true,
+        "deployment.status": false,
+        "deployment.requires_dev_deploy_first": true,
+        "is_blocker": true
+      }
+    },
+    {
+      "id": "BUGS-50",
+      "ok": true,
+      "field_accuracy": 0.5714285714285714,
+      "matches": {
+        "ticket_type": true,
+        "priority": true,
+        "issue_category": false,
+        "report.deploy_stage": false,
+        "report.name": true,
+        "specification.spec_id": true,
+        "ownership.primary_assignee_role": false,
+        "reconciliation.mismatch_suspected_at": false,
+        "reconciliation.compare_sap_vs_databricks": true,
+        "reconciliation.compare_databricks_vs_power_bi": false,
+        "reconciliation.compare_report_vs_spec": true,
+        "deployment.status": false,
+        "deployment.requires_dev_deploy_first": true,
+        "is_blocker": true
+      }
+    }
+  ]
+}

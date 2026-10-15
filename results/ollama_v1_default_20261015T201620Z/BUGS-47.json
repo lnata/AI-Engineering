@@ -1,0 +1,66 @@
+{
+  "id": "BUGS-47",
+  "ok": true,
+  "error": null,
+  "latency_ms": 8556.514708999992,
+  "model": "llama3.2",
+  "prompt_version": "v1",
+  "sampling_profile": "default",
+  "sampling": {
+    "temperature": 0.0,
+    "top_p": 1.0
+  },
+  "usage": {
+    "input_tokens": 1826,
+    "output_tokens": 712,
+    "total_tokens": 2538
+  },
+  "raw_text": "{\n  \"ticket_type\": \"change_request\",\n  \"summary\": \"CR: change FX conversion timing in SPEC-FIN-041\",\n  \"priority\": \"low\",\n  \"issue_category\": \"spec_mismatch\",\n  \"report\": {\n    \"name\": \"PBI FX_Revenue\",\n    \"deploy_stage\": \"both\",\n    \"dataset_name\": null\n  },\n  \"sap_fiori\": {\n    \"app_name\": null,\n    \"transaction_or_cds\": null\n  },\n  \"specification\": {\n    \"spec_id\": \"SPEC-FIN-041\",\n    \"version\": null,\n    \"title\": null\n  },\n  \"ownership\": {\n    \"report_developer\": \"unknown\",\n    \"financial_analyst\": \"FA Maria\",\n    \"data_pull_owner\": \"Data Pull Dmytro\",\n    \"primary_assignee_role\": \"unknown\"\n  },\n  \"reconciliation\": {\n    \"compare_sap_vs_databricks\": true,\n    \"compare_databricks_vs_power_bi\": true,\n    \"compare_report_vs_spec\": true,\n    \"mismatch_suspected_at\": \"specification\",\n    \"notes\": null\n  },\n  \"deployment\": {\n    \"status\": \"pending_approval\",\n    \"requires_dev_deploy_first\": true,\n    \"awaiting_approval\": true,\n    \"approved_for_prod\": null,\n    \"approver_role\": \"unknown\",\n    \"deployed_to_dev\": true,\n    \"deployed_to_prod\": null,\n    \"notes\": \"environment: DEV, then PROD\"\n  },\n  \"repro_steps\": [],\n  \"labels\": [],\n  \"is_blocker\": false,\n  \"confidence_notes\": null\n}",
+  "extraction": {
+    "ticket_type": "change_request",
+    "summary": "CR: change FX conversion timing in SPEC-FIN-041",
+    "priority": "low",
+    "issue_category": "spec_mismatch",
+    "report": {
+      "name": "PBI FX_Revenue",
+      "deploy_stage": "both",
+      "dataset_name": null
+    },
+    "sap_fiori": {
+      "app_name": null,
+      "transaction_or_cds": null
+    },
+    "specification": {
+      "spec_id": "SPEC-FIN-041",
+      "version": null,
+      "title": null
+    },
+    "ownership": {
+      "report_developer": "unknown",
+      "financial_analyst": "FA Maria",
+      "data_pull_owner": "Data Pull Dmytro",
+      "primary_assignee_role": "unknown"
+    },
+    "reconciliation": {
+      "compare_sap_vs_databricks": true,
+      "compare_databricks_vs_power_bi": true,
+      "compare_report_vs_spec": true,
+      "mismatch_suspected_at": "specification",
+      "notes": null
+    },
+    "deployment": {
+      "status": "pending_approval",
+      "requires_dev_deploy_first": true,
+      "awaiting_approval": true,
+      "approved_for_prod": null,
+      "approver_role": "unknown",
+      "deployed_to_dev": true,
+      "deployed_to_prod": null,
+      "notes": "environment: DEV, then PROD"
+    },
+    "repro_steps": [],
+    "labels": [],
+    "is_blocker": false,
+    "confidence_notes": null
+  }
+}

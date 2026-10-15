@@ -1,0 +1,19 @@
+{
+  "id": "BUGS-43",
+  "summary": "Data Pull missed SAP postings into Databricks DEV",
+  "description": "Inventory Snapshot DEV: в Fiori Stock Overview есть движения за вчера, в wh.inventory_snapshot их нет.\nPBI Inventory_Dev.pbix тоже пустой за вчера — просто отражает Databricks.\n\nData Pull team (Katya M) — пайплайн SAP→DBX.\nspec SPEC-OPS-007.\nсверять SAP vs Databricks на DEV; PBI вторичен.",
+  "text": "Data Pull missed SAP postings into Databricks DEV\n\nInventory Snapshot DEV: в Fiori Stock Overview есть движения за вчера, в wh.inventory_snapshot их нет.\nPBI Inventory_Dev.pbix тоже пустой за вчера — просто отражает Databricks.\n\nData Pull team (Katya M) — пайплайн SAP→DBX.\nspec SPEC-OPS-007.\nсверять SAP vs Databricks на DEV; PBI вторичен.",
+  "labels": [
+    "dirty-text",
+    "extraction",
+    "golden-candidate",
+    "hw1",
+    "pipeline-databricks"
+  ],
+  "issue_type": "Bug",
+  "priority": "Medium",
+  "status": "To Do",
+  "created": "2026-10-15T21:02:06.783+0200",
+  "source": "jira",
+  "project": "BUGS"
+}

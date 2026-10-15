@@ -1,0 +1,19 @@
+{
+  "id": "BUGS-45",
+  "summary": "Users compare wrong Fiori period vs report PROD",
+  "description": "бизнес смотрит в SAP Fiori другой posting period чем фильтр в FX_Revenue.pbix PROD.\nкричат что 'данные не сходятся' но возможно user error.\nвсё равно завели баг — надо пройти сверку SAP vs DBX vs PBI vs SPEC-FIN-041.\nData Pull Dmytro, FA Maria, Dev Anna.",
+  "text": "Users compare wrong Fiori period vs report PROD\n\nбизнес смотрит в SAP Fiori другой posting period чем фильтр в FX_Revenue.pbix PROD.\nкричат что 'данные не сходятся' но возможно user error.\nвсё равно завели баг — надо пройти сверку SAP vs DBX vs PBI vs SPEC-FIN-041.\nData Pull Dmytro, FA Maria, Dev Anna.",
+  "labels": [
+    "dirty-text",
+    "extraction",
+    "golden-candidate",
+    "hw1",
+    "pipeline-sap"
+  ],
+  "issue_type": "Bug",
+  "priority": "Medium",
+  "status": "To Do",
+  "created": "2026-10-15T21:02:09.045+0200",
+  "source": "jira",
+  "project": "BUGS"
+}

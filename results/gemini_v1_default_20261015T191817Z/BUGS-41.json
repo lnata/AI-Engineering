@@ -1,0 +1,15 @@
+{
+  "id": "BUGS-41",
+  "ok": false,
+  "error": "ServerError: 504 DEADLINE_EXCEEDED. {'error': {'code': 504, 'message': 'Deadline expired before operation could complete.', 'status': 'DEADLINE_EXCEEDED'}}",
+  "latency_ms": null,
+  "model": "gemini-3.8-flash",
+  "prompt_version": "v1",
+  "sampling_profile": "default",
+  "sampling": {
+    "temperature": 0.0,
+    "top_p": 1.0
+  },
+  "usage": {},
+  "extraction": null
+}

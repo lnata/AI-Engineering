@@ -1,0 +1,77 @@
+{
+  "id": "BUGS-53",
+  "ok": true,
+  "error": null,
+  "latency_ms": 2637.782874999999,
+  "model": "gemini-3.5-flash-lite",
+  "prompt_version": "v2",
+  "sampling_profile": "default",
+  "sampling": {
+    "temperature": 0.0,
+    "top_p": 1.0
+  },
+  "usage": {
+    "input_tokens": 856,
+    "output_tokens": 536,
+    "total_tokens": 1392
+  },
+  "raw_text": "{\n  \"ticket_type\": \"bug\",\n  \"summary\": \"Inventory fix pushed straight to PROD bypassing DEV and FA approval\",\n  \"priority\": \"critical\",\n  \"issue_category\": \"other\",\n  \"report\": {\n    \"name\": \"Inventory Snapshot\",\n    \"deploy_stage\": \"prod\",\n    \"dataset_name\": null\n  },\n  \"sap_fiori\": {\n    \"app_name\": null,\n    \"transaction_or_cds\": null\n  },\n  \"specification\": {\n    \"spec_id\": null,\n    \"version\": null,\n    \"title\": null\n  },\n  \"ownership\": {\n    \"report_developer\": \"Oleh\",\n    \"financial_analyst\": \"Katya\",\n    \"data_pull_owner\": \"Ihor\",\n    \"primary_assignee_role\": \"report_developer\"\n  },\n  \"reconciliation\": {\n    \"compare_sap_vs_databricks\": false,\n    \"compare_databricks_vs_power_bi\": false,\n    \"compare_report_vs_spec\": false,\n    \"mismatch_suspected_at\": \"unknown\",\n    \"notes\": \"Process breach issue regarding hotfix deployed directly to production.\"\n  },\n  \"deployment\": {\n    \"status\": \"deployed_to_prod\",\n    \"requires_dev_deploy_first\": true,\n    \"awaiting_approval\": false,\n    \"approved_for_prod\": false,\n    \"approver_role\": \"financial_analyst\",\n    \"deployed_to_dev\": false,\n    \"deployed_to_prod\": true,\n    \"notes\": \"Hotfix was pushed straight to PROD, bypassing DEV and FA approval. Needs rollback and proper pipeline deployment.\"\n  },\n  \"repro_steps\": [\n    \"Identify the hotfix pushed to PROD\",\n    \"Rollback the unauthorized PROD deployment\",\n    \"Deploy the fix properly to DEV\",\n    \"Obtain approval from FA\",\n    \"Deploy from DEV to PROD following the standard process\"\n  ],\n  \"labels\": [\n    \"process-breach\",\n    \"deployment-error\",\n    \"inventory-snapshot\",\n    \"hotfix\"\n  ],\n  \"is_blocker\": true,\n  \"confidence_notes\": null\n}",
+  "extraction": {
+    "ticket_type": "bug",
+    "summary": "Inventory fix pushed straight to PROD bypassing DEV and FA approval",
+    "priority": "critical",
+    "issue_category": "other",
+    "report": {
+      "name": "Inventory Snapshot",
+      "deploy_stage": "prod",
+      "dataset_name": null
+    },
+    "sap_fiori": {
+      "app_name": null,
+      "transaction_or_cds": null
+    },
+    "specification": {
+      "spec_id": null,
+      "version": null,
+      "title": null
+    },
+    "ownership": {
+      "report_developer": "Oleh",
+      "financial_analyst": "Katya",
+      "data_pull_owner": "Ihor",
+      "primary_assignee_role": "report_developer"
+    },
+    "reconciliation": {
+      "compare_sap_vs_databricks": false,
+      "compare_databricks_vs_power_bi": false,
+      "compare_report_vs_spec": false,
+      "mismatch_suspected_at": "unknown",
+      "notes": "Process breach issue regarding hotfix deployed directly to production."
+    },
+    "deployment": {
+      "status": "deployed_to_prod",
+      "requires_dev_deploy_first": true,
+      "awaiting_approval": false,
+      "approved_for_prod": false,
+      "approver_role": "financial_analyst",
+      "deployed_to_dev": false,
+      "deployed_to_prod": true,
+      "notes": "Hotfix was pushed straight to PROD, bypassing DEV and FA approval. Needs rollback and proper pipeline deployment."
+    },
+    "repro_steps": [
+      "Identify the hotfix pushed to PROD",
+      "Rollback the unauthorized PROD deployment",
+      "Deploy the fix properly to DEV",
+      "Obtain approval from FA",
+      "Deploy from DEV to PROD following the standard process"
+    ],
+    "labels": [
+      "process-breach",
+      "deployment-error",
+      "inventory-snapshot",
+      "hotfix"
+    ],
+    "is_blocker": true,
+    "confidence_notes": null
+  }
+}

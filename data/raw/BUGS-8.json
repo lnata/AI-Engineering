@@ -1,0 +1,18 @@
+{
+  "id": "BUGS-8",
+  "summary": "дублируются тикеты при даблклике",
+  "description": "если менеджер дважды кликает Create — создаётся 2 identical tickets. иногда 3. нет debounce. баг старый но щас стало больно. mobile web worse",
+  "text": "дублируются тикеты при даблклике\n\nесли менеджер дважды кликает Create — создаётся 2 identical tickets. иногда 3. нет debounce. баг старый но щас стало больно. mobile web worse",
+  "labels": [
+    "dirty-text",
+    "extraction",
+    "golden-candidate",
+    "hw1"
+  ],
+  "issue_type": "Bug",
+  "priority": "Medium",
+  "status": "To Do",
+  "created": "2026-10-15T20:41:16.977+0200",
+  "source": "jira",
+  "project": "BUGS"
+}

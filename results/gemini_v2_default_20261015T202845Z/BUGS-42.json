@@ -1,0 +1,75 @@
+{
+  "id": "BUGS-42",
+  "ok": true,
+  "error": null,
+  "latency_ms": 1872.1511250000021,
+  "model": "gemini-3.5-flash-lite",
+  "prompt_version": "v2",
+  "sampling_profile": "default",
+  "sampling": {
+    "temperature": 0.0,
+    "top_p": 1.0
+  },
+  "usage": {
+    "input_tokens": 900,
+    "output_tokens": 587,
+    "total_tokens": 1487
+  },
+  "raw_text": "{\n  \"ticket_type\": \"change_request\",\n  \"summary\": \"Gross Margin report calculation does not match SPEC-FIN-030 due to intercompany inclusion\",\n  \"priority\": \"high\",\n  \"issue_category\": \"spec_mismatch\",\n  \"report\": {\n    \"name\": \"Gross Margin\",\n    \"deploy_stage\": \"dev\",\n    \"dataset_name\": \"mart.fact_revenue/cogs\"\n  },\n  \"sap_fiori\": {\n    \"app_name\": null,\n    \"transaction_or_cds\": null\n  },\n  \"specification\": {\n    \"spec_id\": \"SPEC-FIN-030\",\n    \"version\": \"1.0\",\n    \"title\": null\n  },\n  \"ownership\": {\n    \"report_developer\": \"Oleh P.\",\n    \"financial_analyst\": \"Ihor S\",\n    \"data_pull_owner\": null,\n    \"primary_assignee_role\": \"report_developer\"\n  },\n  \"reconciliation\": {\n    \"compare_sap_vs_databricks\": false,\n    \"compare_databricks_vs_power_bi\": true,\n    \"compare_report_vs_spec\": true,\n    \"mismatch_suspected_at\": \"specification\",\n    \"notes\": \"Databricks figures match Power BI, but Gross Margin calculation must exclude intercompany per SPEC-FIN-030 v1.0\"\n  },\n  \"deployment\": {\n    \"status\": \"not_started\",\n    \"requires_dev_deploy_first\": true,\n    \"awaiting_approval\": false,\n    \"approved_for_prod\": null,\n    \"approver_role\": \"financial_analyst\",\n    \"deployed_to_dev\": false,\n    \"deployed_to_prod\": false,\n    \"notes\": \"Fix needs to be applied to DEV report Finance_Dev.pbix\"\n  },\n  \"repro_steps\": [\n    \"Open Gross Margin report on DEV\",\n    \"Check Gross Margin % calculation against SPEC-FIN-030 v1.0\",\n    \"Verify intercompany inclusion\"\n  ],\n  \"labels\": [\n    \"gross-margin\",\n    \"spec-mismatch\",\n    \"intercompany\",\n    \"dev\"\n  ],\n  \"is_blocker\": false,\n  \"confidence_notes\": \"Explicitly marked as 'не баг' and CR-like logic in the ticket text, so ticket_type is classified as change_request.\"\n}",
+  "extraction": {
+    "ticket_type": "change_request",
+    "summary": "Gross Margin report calculation does not match SPEC-FIN-030 due to intercompany inclusion",
+    "priority": "high",
+    "issue_category": "spec_mismatch",
+    "report": {
+      "name": "Gross Margin",
+      "deploy_stage": "dev",
+      "dataset_name": "mart.fact_revenue/cogs"
+    },
+    "sap_fiori": {
+      "app_name": null,
+      "transaction_or_cds": null
+    },
+    "specification": {
+      "spec_id": "SPEC-FIN-030",
+      "version": "1.0",
+      "title": null
+    },
+    "ownership": {
+      "report_developer": "Oleh P.",
+      "financial_analyst": "Ihor S",
+      "data_pull_owner": null,
+      "primary_assignee_role": "report_developer"
+    },
+    "reconciliation": {
+      "compare_sap_vs_databricks": false,
+      "compare_databricks_vs_power_bi": true,
+      "compare_report_vs_spec": true,
+      "mismatch_suspected_at": "specification",
+      "notes": "Databricks figures match Power BI, but Gross Margin calculation must exclude intercompany per SPEC-FIN-030 v1.0"
+    },
+    "deployment": {
+      "status": "not_started",
+      "requires_dev_deploy_first": true,
+      "awaiting_approval": false,
+      "approved_for_prod": null,
+      "approver_role": "financial_analyst",
+      "deployed_to_dev": false,
+      "deployed_to_prod": false,
+      "notes": "Fix needs to be applied to DEV report Finance_Dev.pbix"
+    },
+    "repro_steps": [
+      "Open Gross Margin report on DEV",
+      "Check Gross Margin % calculation against SPEC-FIN-030 v1.0",
+      "Verify intercompany inclusion"
+    ],
+    "labels": [
+      "gross-margin",
+      "spec-mismatch",
+      "intercompany",
+      "dev"
+    ],
+    "is_blocker": false,
+    "confidence_notes": "Explicitly marked as 'не баг' and CR-like logic in the ticket text, so ticket_type is classified as change_request."
+  }
+}

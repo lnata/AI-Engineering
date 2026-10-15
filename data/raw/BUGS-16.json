@@ -1,0 +1,17 @@
+{
+  "id": "BUGS-16",
+  "summary": "email template broken variables",
+  "description": "в письме 'Hello {{user_name}}' так и уходит. не рендерится. only welcome email. reset password ok. hotfix needed for onboarding",
+  "text": "email template broken variables\n\nв письме 'Hello {{user_name}}' так и уходит. не рендерится. only welcome email. reset password ok. hotfix needed for onboarding",
+  "labels": [
+    "dirty-text",
+    "extraction",
+    "hw1"
+  ],
+  "issue_type": "Bug",
+  "priority": "Medium",
+  "status": "To Do",
+  "created": "2026-10-15T20:41:25.105+0200",
+  "source": "jira",
+  "project": "BUGS"
+}

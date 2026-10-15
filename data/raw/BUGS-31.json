@@ -1,0 +1,20 @@
+{
+  "id": "BUGS-31",
+  "summary": "PBI sales total != DB on PROD",
+  "description": "на проде в power bi отчёт Sales Overview показывает revenue 1.24M, а select sum(amount) from fact_orders за тот же период даёт 1.31M. расхождение ~70k. pbix: Sales_Overview_v3.pbix. dataset refresh вчера 23:00. надо сверить точность данных БД vs Power BI на PROD. срочно finance",
+  "text": "PBI sales total != DB on PROD\n\nна проде в power bi отчёт Sales Overview показывает revenue 1.24M, а select sum(amount) from fact_orders за тот же период даёт 1.31M. расхождение ~70k. pbix: Sales_Overview_v3.pbix. dataset refresh вчера 23:00. надо сверить точность данных БД vs Power BI на PROD. срочно finance",
+  "labels": [
+    "data-accuracy",
+    "dirty-text",
+    "extraction",
+    "golden-candidate",
+    "hw1",
+    "power-bi"
+  ],
+  "issue_type": "Bug",
+  "priority": "Medium",
+  "status": "To Do",
+  "created": "2026-10-15T20:54:51.418+0200",
+  "source": "jira",
+  "project": "BUGS"
+}

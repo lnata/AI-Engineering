@@ -1,0 +1,748 @@
+{
+  "created_at": "20261015T192358Z",
+  "provider": {
+    "name": "gemini",
+    "model": "gemini-3.5-flash-lite",
+    "timeout_sec": 180.0,
+    "max_retries": 2,
+    "retry_backoff_sec": 3.0
+  },
+  "prompt_version": "v1",
+  "sampling_profile": "default",
+  "count": 10,
+  "ok_count": 10,
+  "results": [
+    {
+      "id": "BUGS-41",
+      "ok": true,
+      "error": null,
+      "latency_ms": 2547.150959,
+      "model": "gemini-3.5-flash-lite",
+      "prompt_version": "v1",
+      "sampling_profile": "default",
+      "sampling": {
+        "temperature": 0.0,
+        "top_p": 1.0
+      },
+      "usage": {
+        "input_tokens": 502,
+        "output_tokens": 588,
+        "total_tokens": 1090
+      },
+      "extraction": {
+        "ticket_type": "bug",
+        "summary": "PROD Sales Overview report data mismatch between SAP Fiori and Databricks",
+        "priority": "high",
+        "issue_category": "data_mismatch",
+        "report": {
+          "name": "Sales_Overview_v3.pbix",
+          "deploy_stage": "prod",
+          "dataset_name": null
+        },
+        "sap_fiori": {
+          "app_name": "Manage Sales Orders",
+          "transaction_or_cds": "C_SALESORDER_Q1"
+        },
+        "specification": {
+          "spec_id": "SPEC-FIN-014",
+          "version": "v1.3",
+          "title": null
+        },
+        "ownership": {
+          "report_developer": "Anna K.",
+          "financial_analyst": "Maria B.",
+          "data_pull_owner": "Dmytro S.",
+          "primary_assignee_role": "data_pull"
+        },
+        "reconciliation": {
+          "compare_sap_vs_databricks": true,
+          "compare_databricks_vs_power_bi": true,
+          "compare_report_vs_spec": true,
+          "mismatch_suspected_at": "databricks",
+          "notes": "Compare SAP Fiori revenue 1.31M against Databricks mart.fact_orders 1.24M for March"
+        },
+        "deployment": {
+          "status": "not_started",
+          "requires_dev_deploy_first": true,
+          "awaiting_approval": false,
+          "approved_for_prod": null,
+          "approver_role": "financial_analyst",
+          "deployed_to_dev": false,
+          "deployed_to_prod": false,
+          "notes": "Must deploy fix to DEV first before promoting to PROD"
+        },
+        "repro_steps": [
+          "Check revenue in SAP Fiori app Manage Sales Orders CDS C_SALESORDER_Q1 for March",
+          "Compare with Databricks mart.fact_orders for the same period",
+          "Verify Power BI Sales_Overview_v3.pbix numbers"
+        ],
+        "labels": [
+          "sales-overview",
+          "data-mismatch",
+          "sap-fiori",
+          "databricks"
+        ],
+        "is_blocker": true,
+        "confidence_notes": null
+      }
+    },
+    {
+      "id": "BUGS-42",
+      "ok": true,
+      "error": null,
+      "latency_ms": 2249.961125,
+      "model": "gemini-3.5-flash-lite",
+      "prompt_version": "v1",
+      "sampling_profile": "default",
+      "sampling": {
+        "temperature": 0.0,
+        "top_p": 1.0
+      },
+      "usage": {
+        "input_tokens": 456,
+        "output_tokens": 571,
+        "total_tokens": 1027
+      },
+      "extraction": {
+        "ticket_type": "bug",
+        "summary": "DEV Gross Margin report does not match spec due to intercompany inclusion",
+        "priority": "medium",
+        "issue_category": "spec_mismatch",
+        "report": {
+          "name": "Finance_Dev.pbix",
+          "deploy_stage": "dev",
+          "dataset_name": "fact_revenue/cogs"
+        },
+        "sap_fiori": {
+          "app_name": null,
+          "transaction_or_cds": null
+        },
+        "specification": {
+          "spec_id": "SPEC-FIN-030",
+          "version": "1.0",
+          "title": "Gross Margin"
+        },
+        "ownership": {
+          "report_developer": "Oleh P.",
+          "financial_analyst": "Ihor S",
+          "data_pull_owner": null,
+          "primary_assignee_role": "report_developer"
+        },
+        "reconciliation": {
+          "compare_sap_vs_databricks": false,
+          "compare_databricks_vs_power_bi": true,
+          "compare_report_vs_spec": true,
+          "mismatch_suspected_at": "specification",
+          "notes": "Databricks figures match Power BI, but Gross Margin calculation includes intercompany, violating spec SPEC-FIN-030 v1.0 which requires excluding intercompany."
+        },
+        "deployment": {
+          "status": "not_started",
+          "requires_dev_deploy_first": true,
+          "awaiting_approval": false,
+          "approved_for_prod": null,
+          "approver_role": "financial_analyst",
+          "deployed_to_dev": false,
+          "deployed_to_prod": false,
+          "notes": "Must fix in DEV first, then get financial analyst approval before moving to PROD."
+        },
+        "repro_steps": [
+          "Open Finance_Dev.pbix in DEV",
+          "Check Gross Margin % calculation against SPEC-FIN-030 v1.0",
+          "Verify whether intercompany transactions are incorrectly included"
+        ],
+        "labels": [
+          "gross-margin",
+          "spec-mismatch",
+          "intercompany",
+          "dev-report"
+        ],
+        "is_blocker": false,
+        "confidence_notes": null
+      }
+    },
+    {
+      "id": "BUGS-43",
+      "ok": true,
+      "error": null,
+      "latency_ms": 1897.29625,
+      "model": "gemini-3.5-flash-lite",
+      "prompt_version": "v1",
+      "sampling_profile": "default",
+      "sampling": {
+        "temperature": 0.0,
+        "top_p": 1.0
+      },
+      "usage": {
+        "input_tokens": 435,
+        "output_tokens": 511,
+        "total_tokens": 946
+      },
+      "extraction": {
+        "ticket_type": "bug",
+        "summary": "Data pull missed SAP postings into Databricks DEV",
+        "priority": "medium",
+        "issue_category": "data_mismatch",
+        "report": {
+          "name": "Inventory_Dev.pbix",
+          "deploy_stage": "dev",
+          "dataset_name": null
+        },
+        "sap_fiori": {
+          "app_name": "Stock Overview",
+          "transaction_or_cds": null
+        },
+        "specification": {
+          "spec_id": "SPEC-OPS-007",
+          "version": null,
+          "title": null
+        },
+        "ownership": {
+          "report_developer": null,
+          "financial_analyst": null,
+          "data_pull_owner": "Katya M",
+          "primary_assignee_role": "data_pull"
+        },
+        "reconciliation": {
+          "compare_sap_vs_databricks": true,
+          "compare_databricks_vs_power_bi": true,
+          "compare_report_vs_spec": false,
+          "mismatch_suspected_at": "databricks",
+          "notes": "Сверять SAP vs Databricks на DEV; PBI вторичен"
+        },
+        "deployment": {
+          "status": "not_started",
+          "requires_dev_deploy_first": true,
+          "awaiting_approval": false,
+          "approved_for_prod": null,
+          "approver_role": null,
+          "deployed_to_dev": false,
+          "deployed_to_prod": false,
+          "notes": null
+        },
+        "repro_steps": [
+          "Check Fiori Stock Overview for yesterday's movements",
+          "Check wh.inventory_snapshot in Databricks DEV",
+          "Check Inventory_Dev.pbix for yesterday's data"
+        ],
+        "labels": [
+          "data-pull",
+          "databricks",
+          "dev",
+          "inventory"
+        ],
+        "is_blocker": false,
+        "confidence_notes": null
+      }
+    },
+    {
+      "id": "BUGS-44",
+      "ok": true,
+      "error": null,
+      "latency_ms": 1881.509834,
+      "model": "gemini-3.5-flash-lite",
+      "prompt_version": "v1",
+      "sampling_profile": "default",
+      "sampling": {
+        "temperature": 0.0,
+        "top_p": 1.0
+      },
+      "usage": {
+        "input_tokens": 443,
+        "output_tokens": 569,
+        "total_tokens": 1012
+      },
+      "extraction": {
+        "ticket_type": "bug",
+        "summary": "PROD Customers by Region: DBX ok, PBI wrong filter",
+        "priority": "medium",
+        "issue_category": "filter_rls",
+        "report": {
+          "name": "Customers_Prod.pbix",
+          "deploy_stage": "prod",
+          "dataset_name": "dim_customer"
+        },
+        "sap_fiori": {
+          "app_name": "Customer Master",
+          "transaction_or_cds": null
+        },
+        "specification": {
+          "spec_id": "SPEC-FIN-021",
+          "version": null,
+          "title": null
+        },
+        "ownership": {
+          "report_developer": "Anna K",
+          "financial_analyst": "Maria B",
+          "data_pull_owner": "Dmytro",
+          "primary_assignee_role": "report_developer"
+        },
+        "reconciliation": {
+          "compare_sap_vs_databricks": false,
+          "compare_databricks_vs_power_bi": true,
+          "compare_report_vs_spec": true,
+          "mismatch_suspected_at": "power_bi_report",
+          "notes": "Verify Databricks vs Power BI and Power BI vs specification; active customers filter missing"
+        },
+        "deployment": {
+          "status": "not_started",
+          "requires_dev_deploy_first": true,
+          "awaiting_approval": false,
+          "approved_for_prod": null,
+          "approver_role": "financial_analyst",
+          "deployed_to_dev": false,
+          "deployed_to_prod": false,
+          "notes": "Must deploy to DEV first, get approval from Maria B, then deploy to PROD"
+        },
+        "repro_steps": [
+          "Check mart.dim_customer in PROD to confirm 11802 active customers",
+          "Check Customers_Prod.pbix to verify 12040 customers are shown",
+          "Review SPEC-FIN-021 to confirm only active customers should be included"
+        ],
+        "labels": [
+          "customers",
+          "power-bi",
+          "filter-bug",
+          "prod"
+        ],
+        "is_blocker": false,
+        "confidence_notes": null
+      }
+    },
+    {
+      "id": "BUGS-45",
+      "ok": true,
+      "error": null,
+      "latency_ms": 2089.7005000000013,
+      "model": "gemini-3.5-flash-lite",
+      "prompt_version": "v1",
+      "sampling_profile": "default",
+      "sampling": {
+        "temperature": 0.0,
+        "top_p": 1.0
+      },
+      "usage": {
+        "input_tokens": 428,
+        "output_tokens": 570,
+        "total_tokens": 998
+      },
+      "extraction": {
+        "ticket_type": "bug",
+        "summary": "Users compare incorrect Fiori period against PROD FX_Revenue report",
+        "priority": "medium",
+        "issue_category": "data_mismatch",
+        "report": {
+          "name": "FX_Revenue.pbix",
+          "deploy_stage": "prod",
+          "dataset_name": null
+        },
+        "sap_fiori": {
+          "app_name": null,
+          "transaction_or_cds": null
+        },
+        "specification": {
+          "spec_id": "SPEC-FIN-041",
+          "version": null,
+          "title": null
+        },
+        "ownership": {
+          "report_developer": "Anna",
+          "financial_analyst": "Maria",
+          "data_pull_owner": "Dmytro",
+          "primary_assignee_role": "unknown"
+        },
+        "reconciliation": {
+          "compare_sap_vs_databricks": true,
+          "compare_databricks_vs_power_bi": true,
+          "compare_report_vs_spec": true,
+          "mismatch_suspected_at": "unknown",
+          "notes": "Perform full reconciliation across SAP, Databricks, Power BI, and SPEC-FIN-041 due to potential user error in period selection."
+        },
+        "deployment": {
+          "status": "not_started",
+          "requires_dev_deploy_first": true,
+          "awaiting_approval": false,
+          "approved_for_prod": null,
+          "approver_role": "financial_analyst",
+          "deployed_to_dev": false,
+          "deployed_to_prod": false,
+          "notes": "Bug analysis phase, must follow dev then prod release path if fix is needed."
+        },
+        "repro_steps": [
+          "Check posting period selected in SAP Fiori",
+          "Compare with filter applied in FX_Revenue.pbix PROD",
+          "Run full reconciliation SAP vs DBX vs PBI vs SPEC-FIN-041"
+        ],
+        "labels": [
+          "fiori-period",
+          "data-mismatch",
+          "fx-revenue",
+          "user-error"
+        ],
+        "is_blocker": false,
+        "confidence_notes": "Suspected user error regarding posting period filters, but full reconciliation requested."
+      }
+    },
+    {
+      "id": "BUGS-46",
+      "ok": true,
+      "error": null,
+      "latency_ms": 2609.9343750000016,
+      "model": "gemini-3.5-flash-lite",
+      "prompt_version": "v1",
+      "sampling_profile": "default",
+      "sampling": {
+        "temperature": 0.0,
+        "top_p": 1.0
+      },
+      "usage": {
+        "input_tokens": 458,
+        "output_tokens": 541,
+        "total_tokens": 999
+      },
+      "extraction": {
+        "ticket_type": "change_request",
+        "summary": "Add channel split to Sales Overview report per spec SPEC-FIN-014 v1.4",
+        "priority": "medium",
+        "issue_category": "enhancement",
+        "report": {
+          "name": "Sales Overview",
+          "deploy_stage": "both",
+          "dataset_name": null
+        },
+        "sap_fiori": {
+          "app_name": null,
+          "transaction_or_cds": null
+        },
+        "specification": {
+          "spec_id": "SPEC-FIN-014",
+          "version": "v1.4",
+          "title": "revenue by channel"
+        },
+        "ownership": {
+          "report_developer": "Anna K",
+          "financial_analyst": "Maria B",
+          "data_pull_owner": null,
+          "primary_assignee_role": "report_developer"
+        },
+        "reconciliation": {
+          "compare_sap_vs_databricks": false,
+          "compare_databricks_vs_power_bi": true,
+          "compare_report_vs_spec": true,
+          "mismatch_suspected_at": "specification",
+          "notes": "Verify report vs new spec and Databricks vs PBI"
+        },
+        "deployment": {
+          "status": "not_started",
+          "requires_dev_deploy_first": true,
+          "awaiting_approval": false,
+          "approved_for_prod": null,
+          "approver_role": "financial_analyst",
+          "deployed_to_dev": false,
+          "deployed_to_prod": false,
+          "notes": "Must deploy to DEV first, then get approval for PROD"
+        },
+        "repro_steps": [
+          "Update PBI model and visuals to include channel split",
+          "Compare report against spec SPEC-FIN-014 v1.4",
+          "Compare Databricks mart.fact_orders with Power BI"
+        ],
+        "labels": [
+          "channel-split",
+          "sales-overview",
+          "spec-fin-014"
+        ],
+        "is_blocker": false,
+        "confidence_notes": null
+      }
+    },
+    {
+      "id": "BUGS-47",
+      "ok": true,
+      "error": null,
+      "latency_ms": 1852.9874590000013,
+      "model": "gemini-3.5-flash-lite",
+      "prompt_version": "v1",
+      "sampling_profile": "default",
+      "sampling": {
+        "temperature": 0.0,
+        "top_p": 1.0
+      },
+      "usage": {
+        "input_tokens": 427,
+        "output_tokens": 491,
+        "total_tokens": 918
+      },
+      "extraction": {
+        "ticket_type": "change_request",
+        "summary": "Change FX conversion timing to posting date in SPEC-FIN-041",
+        "priority": "medium",
+        "issue_category": "enhancement",
+        "report": {
+          "name": "FX_Revenue",
+          "deploy_stage": "both",
+          "dataset_name": null
+        },
+        "sap_fiori": {
+          "app_name": null,
+          "transaction_or_cds": null
+        },
+        "specification": {
+          "spec_id": "SPEC-FIN-041",
+          "version": null,
+          "title": null
+        },
+        "ownership": {
+          "report_developer": "Anna",
+          "financial_analyst": "Maria",
+          "data_pull_owner": "Dmytro",
+          "primary_assignee_role": "financial_analyst"
+        },
+        "reconciliation": {
+          "compare_sap_vs_databricks": true,
+          "compare_databricks_vs_power_bi": true,
+          "compare_report_vs_spec": true,
+          "mismatch_suspected_at": "specification",
+          "notes": "FX conversion timing changed from payment date to posting date, affecting spec, data pull, and PBI report"
+        },
+        "deployment": {
+          "status": "not_started",
+          "requires_dev_deploy_first": true,
+          "awaiting_approval": false,
+          "approved_for_prod": null,
+          "approver_role": "financial_analyst",
+          "deployed_to_dev": false,
+          "deployed_to_prod": false,
+          "notes": "Deploy to DEV first, then PROD"
+        },
+        "repro_steps": [],
+        "labels": [
+          "fx-conversion",
+          "spec-fin-041",
+          "data-pull",
+          "fx-revenue"
+        ],
+        "is_blocker": false,
+        "confidence_notes": null
+      }
+    },
+    {
+      "id": "BUGS-48",
+      "ok": true,
+      "error": null,
+      "latency_ms": 1956.5110000000009,
+      "model": "gemini-3.5-flash-lite",
+      "prompt_version": "v1",
+      "sampling_profile": "default",
+      "sampling": {
+        "temperature": 0.0,
+        "top_p": 1.0
+      },
+      "usage": {
+        "input_tokens": 408,
+        "output_tokens": 490,
+        "total_tokens": 898
+      },
+      "extraction": {
+        "ticket_type": "change_request",
+        "summary": "Expose plant hierarchy from SAP to Databricks for Inventory report",
+        "priority": "medium",
+        "issue_category": "enhancement",
+        "report": {
+          "name": "Inventory report",
+          "deploy_stage": "dev",
+          "dataset_name": null
+        },
+        "sap_fiori": {
+          "app_name": "Stock Overview",
+          "transaction_or_cds": null
+        },
+        "specification": {
+          "spec_id": "SPEC-OPS-007",
+          "version": "v2.1",
+          "title": "plant hierarchy"
+        },
+        "ownership": {
+          "report_developer": "Oleh",
+          "financial_analyst": "Ihor",
+          "data_pull_owner": "Katya M",
+          "primary_assignee_role": "data_pull"
+        },
+        "reconciliation": {
+          "compare_sap_vs_databricks": true,
+          "compare_databricks_vs_power_bi": true,
+          "compare_report_vs_spec": true,
+          "mismatch_suspected_at": "databricks",
+          "notes": "Add plant hierarchy from SAP Fiori Stock Overview into Databricks to allow filtering in Inventory report according to spec."
+        },
+        "deployment": {
+          "status": "in_development",
+          "requires_dev_deploy_first": true,
+          "awaiting_approval": false,
+          "approved_for_prod": null,
+          "approver_role": "financial_analyst",
+          "deployed_to_dev": false,
+          "deployed_to_prod": false,
+          "notes": "DEV first."
+        },
+        "repro_steps": [],
+        "labels": [
+          "plant-hierarchy",
+          "databricks",
+          "inventory-report",
+          "fiori"
+        ],
+        "is_blocker": false,
+        "confidence_notes": null
+      }
+    },
+    {
+      "id": "BUGS-49",
+      "ok": true,
+      "error": null,
+      "latency_ms": 2086.3749590000007,
+      "model": "gemini-3.5-flash-lite",
+      "prompt_version": "v1",
+      "sampling_profile": "default",
+      "sampling": {
+        "temperature": 0.0,
+        "top_p": 1.0
+      },
+      "usage": {
+        "input_tokens": 429,
+        "output_tokens": 557,
+        "total_tokens": 986
+      },
+      "extraction": {
+        "ticket_type": "bug",
+        "summary": "PROD FX_Revenue double FX conversion vs SPEC-FIN-041",
+        "priority": "high",
+        "issue_category": "spec_mismatch",
+        "report": {
+          "name": "FX_Revenue.pbix",
+          "deploy_stage": "prod",
+          "dataset_name": null
+        },
+        "sap_fiori": {
+          "app_name": "Incoming Payments",
+          "transaction_or_cds": null
+        },
+        "specification": {
+          "spec_id": "SPEC-FIN-041",
+          "version": null,
+          "title": "convert once at payment"
+        },
+        "ownership": {
+          "report_developer": null,
+          "financial_analyst": null,
+          "data_pull_owner": null,
+          "primary_assignee_role": "report_developer"
+        },
+        "reconciliation": {
+          "compare_sap_vs_databricks": true,
+          "compare_databricks_vs_power_bi": true,
+          "compare_report_vs_spec": true,
+          "mismatch_suspected_at": "power_bi_report",
+          "notes": "fact_payments already in EUR, PBI report applies fx_rate a second time violating SPEC-FIN-041"
+        },
+        "deployment": {
+          "status": "not_started",
+          "requires_dev_deploy_first": true,
+          "awaiting_approval": false,
+          "approved_for_prod": null,
+          "approver_role": "financial_analyst",
+          "deployed_to_dev": false,
+          "deployed_to_prod": false,
+          "notes": "Must be fixed in DEV and approved before promoting to PROD"
+        },
+        "repro_steps": [
+          "Check SAP Fiori Incoming Payments in EUR",
+          "Verify Databricks table fact_payments",
+          "Check Power BI FX_Revenue.pbix calculation against SPEC-FIN-041"
+        ],
+        "labels": [
+          "fx-revenue",
+          "double-conversion",
+          "spec-fin-041",
+          "month-close"
+        ],
+        "is_blocker": true,
+        "confidence_notes": null
+      }
+    },
+    {
+      "id": "BUGS-50",
+      "ok": true,
+      "error": null,
+      "latency_ms": 1894.3563749999973,
+      "model": "gemini-3.5-flash-lite",
+      "prompt_version": "v1",
+      "sampling_profile": "default",
+      "sampling": {
+        "temperature": 0.0,
+        "top_p": 1.0
+      },
+      "usage": {
+        "input_tokens": 423,
+        "output_tokens": 554,
+        "total_tokens": 977
+      },
+      "extraction": {
+        "ticket_type": "bug",
+        "summary": "Databricks grain differs from Fiori CDS in DEV Sales Overview",
+        "priority": "high",
+        "issue_category": "transform_logic",
+        "report": {
+          "name": "Sales Overview",
+          "deploy_stage": "dev",
+          "dataset_name": null
+        },
+        "sap_fiori": {
+          "app_name": null,
+          "transaction_or_cds": "C_SALESORDER_Q1"
+        },
+        "specification": {
+          "spec_id": "SPEC-FIN-014",
+          "version": null,
+          "title": null
+        },
+        "ownership": {
+          "report_developer": "Maria",
+          "financial_analyst": "Anna",
+          "data_pull_owner": "Dmytro",
+          "primary_assignee_role": "data_pull"
+        },
+        "reconciliation": {
+          "compare_sap_vs_databricks": true,
+          "compare_databricks_vs_power_bi": true,
+          "compare_report_vs_spec": true,
+          "mismatch_suspected_at": "databricks",
+          "notes": "C_SALESORDER_Q1 returns header level while Data Pull collected line level without proper aggregation causing Sales Overview DEV to overstate values"
+        },
+        "deployment": {
+          "status": "not_started",
+          "requires_dev_deploy_first": true,
+          "awaiting_approval": false,
+          "approved_for_prod": null,
+          "approver_role": "financial_analyst",
+          "deployed_to_dev": false,
+          "deployed_to_prod": false,
+          "notes": "Must deploy to DEV first"
+        },
+        "repro_steps": [
+          "Check Fiori CDS C_SALESORDER_Q1 header level values",
+          "Compare against Databricks line level aggregation",
+          "Verify Sales Overview DEV report against SPEC-FIN-014"
+        ],
+        "labels": [
+          "dev",
+          "databricks",
+          "fiori-cds",
+          "sales-overview",
+          "data-pull"
+        ],
+        "is_blocker": true,
+        "confidence_notes": null
+      }
+    }
+  ]
+}

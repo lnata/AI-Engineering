@@ -1,0 +1,18 @@
+{
+  "id": "BUGS-9",
+  "summary": "SSO redirect loop okta",
+  "description": "okta sso → redirect loop. clears cookies fixes temporarily. affects ~30 users on custom domain. error in console: state mismatch. started after okta cert rotation?",
+  "text": "SSO redirect loop okta\n\nokta sso → redirect loop. clears cookies fixes temporarily. affects ~30 users on custom domain. error in console: state mismatch. started after okta cert rotation?",
+  "labels": [
+    "dirty-text",
+    "extraction",
+    "golden-candidate",
+    "hw1"
+  ],
+  "issue_type": "Bug",
+  "priority": "Medium",
+  "status": "To Do",
+  "created": "2026-10-15T20:41:17.986+0200",
+  "source": "jira",
+  "project": "BUGS"
+}

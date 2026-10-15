@@ -1,0 +1,70 @@
+{
+  "id": "BUGS-28",
+  "ok": true,
+  "error": null,
+  "latency_ms": 1658.1718330000044,
+  "model": "gemini-3.5-flash-lite",
+  "prompt_version": "v2",
+  "sampling_profile": "default",
+  "sampling": {
+    "temperature": 0.0,
+    "top_p": 1.0
+  },
+  "usage": {
+    "input_tokens": 812,
+    "output_tokens": 443,
+    "total_tokens": 1255
+  },
+  "raw_text": "{\n  \"ticket_type\": \"bug\",\n  \"summary\": \"Feature flag stale after deploy due to cache\",\n  \"priority\": \"medium\",\n  \"issue_category\": \"transform_logic\",\n  \"report\": {\n    \"name\": null,\n    \"deploy_stage\": \"unknown\",\n    \"dataset_name\": null\n  },\n  \"sap_fiori\": {\n    \"app_name\": null,\n    \"transaction_or_cds\": null\n  },\n  \"specification\": {\n    \"spec_id\": null,\n    \"version\": null,\n    \"title\": null\n  },\n  \"ownership\": {\n    \"report_developer\": null,\n    \"financial_analyst\": null,\n    \"data_pull_owner\": null,\n    \"primary_assignee_role\": \"unknown\"\n  },\n  \"reconciliation\": {\n    \"compare_sap_vs_databricks\": false,\n    \"compare_databricks_vs_power_bi\": false,\n    \"compare_report_vs_spec\": false,\n    \"mismatch_suspected_at\": \"unknown\",\n    \"notes\": null\n  },\n  \"deployment\": {\n    \"status\": \"not_started\",\n    \"requires_dev_deploy_first\": true,\n    \"awaiting_approval\": false,\n    \"approved_for_prod\": null,\n    \"approver_role\": null,\n    \"deployed_to_dev\": null,\n    \"deployed_to_prod\": null,\n    \"notes\": null\n  },\n  \"repro_steps\": [],\n  \"labels\": [\n    \"feature-flag\",\n    \"cache\",\n    \"deployment\"\n  ],\n  \"is_blocker\": false,\n  \"confidence_notes\": \"Ticket is about a general web application feature flag and caching issue rather than an analytics report, SAP Fiori, or Databricks pipeline.\"\n}",
+  "extraction": {
+    "ticket_type": "bug",
+    "summary": "Feature flag stale after deploy due to cache",
+    "priority": "medium",
+    "issue_category": "transform_logic",
+    "report": {
+      "name": null,
+      "deploy_stage": "unknown",
+      "dataset_name": null
+    },
+    "sap_fiori": {
+      "app_name": null,
+      "transaction_or_cds": null
+    },
+    "specification": {
+      "spec_id": null,
+      "version": null,
+      "title": null
+    },
+    "ownership": {
+      "report_developer": null,
+      "financial_analyst": null,
+      "data_pull_owner": null,
+      "primary_assignee_role": "unknown"
+    },
+    "reconciliation": {
+      "compare_sap_vs_databricks": false,
+      "compare_databricks_vs_power_bi": false,
+      "compare_report_vs_spec": false,
+      "mismatch_suspected_at": "unknown",
+      "notes": null
+    },
+    "deployment": {
+      "status": "not_started",
+      "requires_dev_deploy_first": true,
+      "awaiting_approval": false,
+      "approved_for_prod": null,
+      "approver_role": null,
+      "deployed_to_dev": null,
+      "deployed_to_prod": null,
+      "notes": null
+    },
+    "repro_steps": [],
+    "labels": [
+      "feature-flag",
+      "cache",
+      "deployment"
+    ],
+    "is_blocker": false,
+    "confidence_notes": "Ticket is about a general web application feature flag and caching issue rather than an analytics report, SAP Fiori, or Databricks pipeline."
+  }
+}

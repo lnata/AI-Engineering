@@ -1,0 +1,15 @@
+{
+  "id": "BUGS-41",
+  "ok": false,
+  "error": "RateLimitError: Error code: 429 - {'error': {'message': 'You have no credits remaining. Add credits to continue using the API at https://platform.openai.com/settings/organization/billing/.', 'type': 'insufficient_quota', 'param': None, 'code': 'credit_balance_exhausted'}}",
+  "latency_ms": null,
+  "model": "gpt-4o-mini",
+  "prompt_version": "v1",
+  "sampling_profile": "default",
+  "sampling": {
+    "temperature": 0.0,
+    "top_p": 1.0
+  },
+  "usage": {},
+  "extraction": null
+}

@@ -1,0 +1,34 @@
+{
+  "teams": [
+    {
+      "id": "report_dev",
+      "name": "Report Development",
+      "role": "report_developer",
+      "responsibility": "Build and maintain Power BI reports/datasets against the approved specification",
+      "members": [
+        {"name": "Anna Kovalska", "handle": "anna.k"},
+        {"name": "Oleh Petrenko", "handle": "oleh.p"}
+      ]
+    },
+    {
+      "id": "fin_analysts",
+      "name": "Financial Analysts",
+      "role": "financial_analyst",
+      "responsibility": "Own report specifications, business rules, and acceptance criteria",
+      "members": [
+        {"name": "Maria Bondar", "handle": "maria.b"},
+        {"name": "Ihor Sydorenko", "handle": "ihor.s"}
+      ]
+    },
+    {
+      "id": "data_pull",
+      "name": "Data Pull",
+      "role": "data_pull",
+      "responsibility": "Extract/load data from SAP into Databricks and keep pipelines healthy",
+      "members": [
+        {"name": "Dmytro Shevchenko", "handle": "dmytro.s"},
+        {"name": "Kateryna Melnyk", "handle": "katya.m"}
+      ]
+    }
+  ]
+}

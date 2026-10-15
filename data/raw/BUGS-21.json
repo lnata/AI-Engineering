@@ -1,0 +1,17 @@
+{
+  "id": "BUGS-21",
+  "summary": "permissions: viewer can edit",
+  "description": "viewer role может редактировать description. reproduce on shared board. security?? please check ACL. found by customer trial",
+  "text": "permissions: viewer can edit\n\nviewer role может редактировать description. reproduce on shared board. security?? please check ACL. found by customer trial",
+  "labels": [
+    "dirty-text",
+    "extraction",
+    "hw1"
+  ],
+  "issue_type": "Bug",
+  "priority": "Medium",
+  "status": "To Do",
+  "created": "2026-10-15T20:41:30.229+0200",
+  "source": "jira",
+  "project": "BUGS"
+}

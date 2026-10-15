@@ -1,0 +1,8 @@
+Extract structured fields from this Jira ticket.
+
+Ticket id: {{ticket_id}}
+Jira issue type (hint): {{jira_issue_type}}
+
+--- TICKET TEXT START ---
+{{ticket_text}}
+--- TICKET TEXT END ---

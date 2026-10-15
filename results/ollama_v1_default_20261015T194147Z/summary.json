@@ -1,0 +1,54 @@
+{
+  "created_at": "20261015T194147Z",
+  "provider": {
+    "name": "ollama",
+    "model": "llama3.2",
+    "timeout_sec": 180.0,
+    "max_retries": 2,
+    "retry_backoff_sec": 3.0
+  },
+  "prompt_version": "v1",
+  "sampling_profile": "default",
+  "count": 2,
+  "ok_count": 0,
+  "results": [
+    {
+      "id": "BUGS-41",
+      "ok": false,
+      "error": "repair failed: ValidationError: 2 validation errors for TicketExtraction\nownership.primary_assignee_role\n  Field required [type=missing, input_value={'report_developer': 'Ann...ull_owner': 'Dmytro S.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing\nis_blocker\n  Field required [type=missing, input_value={'summary': 'PROD Sales O... 'deploy_stage': 'both'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing",
+      "latency_ms": 21606.355084000003,
+      "model": "llama3.2",
+      "prompt_version": "v1",
+      "sampling_profile": "default",
+      "sampling": {
+        "temperature": 0.0,
+        "top_p": 1.0
+      },
+      "usage": {
+        "input_tokens": 11862,
+        "output_tokens": 1416,
+        "total_tokens": 13278
+      },
+      "extraction": null
+    },
+    {
+      "id": "BUGS-42",
+      "ok": false,
+      "error": "repair failed: ValidationError: 1 validation error for TicketExtraction\nownership.primary_assignee_role\n  Field required [type=missing, input_value={'report_developer': None...'data_pull_owner': None}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing",
+      "latency_ms": 22183.806250999995,
+      "model": "llama3.2",
+      "prompt_version": "v1",
+      "sampling_profile": "default",
+      "sampling": {
+        "temperature": 0.0,
+        "top_p": 1.0
+      },
+      "usage": {
+        "input_tokens": 11717,
+        "output_tokens": 1326,
+        "total_tokens": 13043
+      },
+      "extraction": null
+    }
+  ]
+}

@@ -1,0 +1,74 @@
+{
+  "id": "BUGS-43",
+  "ok": true,
+  "error": null,
+  "latency_ms": 1897.29625,
+  "model": "gemini-3.5-flash-lite",
+  "prompt_version": "v1",
+  "sampling_profile": "default",
+  "sampling": {
+    "temperature": 0.0,
+    "top_p": 1.0
+  },
+  "usage": {
+    "input_tokens": 435,
+    "output_tokens": 511,
+    "total_tokens": 946
+  },
+  "extraction": {
+    "ticket_type": "bug",
+    "summary": "Data pull missed SAP postings into Databricks DEV",
+    "priority": "medium",
+    "issue_category": "data_mismatch",
+    "report": {
+      "name": "Inventory_Dev.pbix",
+      "deploy_stage": "dev",
+      "dataset_name": null
+    },
+    "sap_fiori": {
+      "app_name": "Stock Overview",
+      "transaction_or_cds": null
+    },
+    "specification": {
+      "spec_id": "SPEC-OPS-007",
+      "version": null,
+      "title": null
+    },
+    "ownership": {
+      "report_developer": null,
+      "financial_analyst": null,
+      "data_pull_owner": "Katya M",
+      "primary_assignee_role": "data_pull"
+    },
+    "reconciliation": {
+      "compare_sap_vs_databricks": true,
+      "compare_databricks_vs_power_bi": true,
+      "compare_report_vs_spec": false,
+      "mismatch_suspected_at": "databricks",
+      "notes": "Сверять SAP vs Databricks на DEV; PBI вторичен"
+    },
+    "deployment": {
+      "status": "not_started",
+      "requires_dev_deploy_first": true,
+      "awaiting_approval": false,
+      "approved_for_prod": null,
+      "approver_role": null,
+      "deployed_to_dev": false,
+      "deployed_to_prod": false,
+      "notes": null
+    },
+    "repro_steps": [
+      "Check Fiori Stock Overview for yesterday's movements",
+      "Check wh.inventory_snapshot in Databricks DEV",
+      "Check Inventory_Dev.pbix for yesterday's data"
+    ],
+    "labels": [
+      "data-pull",
+      "databricks",
+      "dev",
+      "inventory"
+    ],
+    "is_blocker": false,
+    "confidence_notes": null
+  }
+}

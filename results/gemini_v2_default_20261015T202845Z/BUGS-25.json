@@ -1,0 +1,73 @@
+{
+  "id": "BUGS-25",
+  "ok": true,
+  "error": null,
+  "latency_ms": 1695.0170830000034,
+  "model": "gemini-3.5-flash-lite",
+  "prompt_version": "v2",
+  "sampling_profile": "default",
+  "sampling": {
+    "temperature": 0.0,
+    "top_p": 1.0
+  },
+  "usage": {
+    "input_tokens": 824,
+    "output_tokens": 495,
+    "total_tokens": 1319
+  },
+  "raw_text": "{\n  \"ticket_type\": \"bug\",\n  \"summary\": \"Rate limit 429 error on bulk import due to missing backoff\",\n  \"priority\": \"medium\",\n  \"issue_category\": \"performance\",\n  \"report\": {\n    \"name\": null,\n    \"deploy_stage\": \"unknown\",\n    \"dataset_name\": null\n  },\n  \"sap_fiori\": {\n    \"app_name\": null,\n    \"transaction_or_cds\": null\n  },\n  \"specification\": {\n    \"spec_id\": null,\n    \"version\": null,\n    \"title\": null\n  },\n  \"ownership\": {\n    \"report_developer\": null,\n    \"financial_analyst\": null,\n    \"data_pull_owner\": null,\n    \"primary_assignee_role\": \"data_pull\"\n  },\n  \"reconciliation\": {\n    \"compare_sap_vs_databricks\": false,\n    \"compare_databricks_vs_power_bi\": false,\n    \"compare_report_vs_spec\": false,\n    \"mismatch_suspected_at\": \"unknown\",\n    \"notes\": \"Bulk csv import fails at 500 rows with 429 rate limit error. Needs retry-after handling.\"\n  },\n  \"deployment\": {\n    \"status\": \"not_started\",\n    \"requires_dev_deploy_first\": true,\n    \"awaiting_approval\": false,\n    \"approved_for_prod\": null,\n    \"approver_role\": null,\n    \"deployed_to_dev\": false,\n    \"deployed_to_prod\": false,\n    \"notes\": null\n  },\n  \"repro_steps\": [\n    \"Perform bulk csv import\",\n    \"Observe failure at 500 rows with 429 error\"\n  ],\n  \"labels\": [\n    \"rate-limit\",\n    \"bulk-import\",\n    \"performance\"\n  ],\n  \"is_blocker\": false,\n  \"confidence_notes\": \"The ticket is about a data import API rate limit issue rather than a reporting mismatch.\"\n}",
+  "extraction": {
+    "ticket_type": "bug",
+    "summary": "Rate limit 429 error on bulk import due to missing backoff",
+    "priority": "medium",
+    "issue_category": "performance",
+    "report": {
+      "name": null,
+      "deploy_stage": "unknown",
+      "dataset_name": null
+    },
+    "sap_fiori": {
+      "app_name": null,
+      "transaction_or_cds": null
+    },
+    "specification": {
+      "spec_id": null,
+      "version": null,
+      "title": null
+    },
+    "ownership": {
+      "report_developer": null,
+      "financial_analyst": null,
+      "data_pull_owner": null,
+      "primary_assignee_role": "data_pull"
+    },
+    "reconciliation": {
+      "compare_sap_vs_databricks": false,
+      "compare_databricks_vs_power_bi": false,
+      "compare_report_vs_spec": false,
+      "mismatch_suspected_at": "unknown",
+      "notes": "Bulk csv import fails at 500 rows with 429 rate limit error. Needs retry-after handling."
+    },
+    "deployment": {
+      "status": "not_started",
+      "requires_dev_deploy_first": true,
+      "awaiting_approval": false,
+      "approved_for_prod": null,
+      "approver_role": null,
+      "deployed_to_dev": false,
+      "deployed_to_prod": false,
+      "notes": null
+    },
+    "repro_steps": [
+      "Perform bulk csv import",
+      "Observe failure at 500 rows with 429 error"
+    ],
+    "labels": [
+      "rate-limit",
+      "bulk-import",
+      "performance"
+    ],
+    "is_blocker": false,
+    "confidence_notes": "The ticket is about a data import API rate limit issue rather than a reporting mismatch."
+  }
+}

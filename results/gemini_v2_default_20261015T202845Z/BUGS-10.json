@@ -1,0 +1,74 @@
+{
+  "id": "BUGS-10",
+  "ok": true,
+  "error": null,
+  "latency_ms": 1799.3841669999995,
+  "model": "gemini-3.5-flash-lite",
+  "prompt_version": "v2",
+  "sampling_profile": "default",
+  "sampling": {
+    "temperature": 0.0,
+    "top_p": 1.0
+  },
+  "usage": {
+    "input_tokens": 820,
+    "output_tokens": 354,
+    "total_tokens": 1174
+  },
+  "raw_text": "{\"ticket_type\": \"bug\", \"summary\": \"Date filter resets after sorting on the Orders page\", \"priority\": \"medium\", \"issue_category\": \"filter_rls\", \"report\": {\"name\": \"Orders\", \"deploy_stage\": \"unknown\", \"dataset_name\": null}, \"sap_fiori\": {\"app_name\": null, \"transaction_or_cds\": null}, \"specification\": {\"spec_id\": null, \"version\": null, \"title\": null}, \"ownership\": {\"report_developer\": null, \"financial_analyst\": null, \"data_pull_owner\": null, \"primary_assignee_role\": \"report_developer\"}, \"reconciliation\": {\"compare_sap_vs_databricks\": false, \"compare_databricks_vs_power_bi\": false, \"compare_report_vs_spec\": false, \"mismatch_suspected_at\": \"power_bi_report\", \"notes\": \"Filter state resets upon sorting interaction\"}, \"deployment\": {\"status\": \"not_started\", \"requires_dev_deploy_first\": true, \"awaiting_approval\": false, \"approved_for_prod\": null, \"approver_role\": null, \"deployed_to_dev\": null, \"deployed_to_prod\": null, \"notes\": null}, \"repro_steps\": [\"Go to orders page\", \"Set date range and apply filter\", \"Perform sorting and observe date reset\"], \"labels\": [\"filter\", \"orders\", \"ui-bug\"], \"is_blocker\": false, \"confidence_notes\": \"No environment specified in ticket, assumed DEV/general bug.\"}",
+  "extraction": {
+    "ticket_type": "bug",
+    "summary": "Date filter resets after sorting on the Orders page",
+    "priority": "medium",
+    "issue_category": "filter_rls",
+    "report": {
+      "name": "Orders",
+      "deploy_stage": "unknown",
+      "dataset_name": null
+    },
+    "sap_fiori": {
+      "app_name": null,
+      "transaction_or_cds": null
+    },
+    "specification": {
+      "spec_id": null,
+      "version": null,
+      "title": null
+    },
+    "ownership": {
+      "report_developer": null,
+      "financial_analyst": null,
+      "data_pull_owner": null,
+      "primary_assignee_role": "report_developer"
+    },
+    "reconciliation": {
+      "compare_sap_vs_databricks": false,
+      "compare_databricks_vs_power_bi": false,
+      "compare_report_vs_spec": false,
+      "mismatch_suspected_at": "power_bi_report",
+      "notes": "Filter state resets upon sorting interaction"
+    },
+    "deployment": {
+      "status": "not_started",
+      "requires_dev_deploy_first": true,
+      "awaiting_approval": false,
+      "approved_for_prod": null,
+      "approver_role": null,
+      "deployed_to_dev": null,
+      "deployed_to_prod": null,
+      "notes": null
+    },
+    "repro_steps": [
+      "Go to orders page",
+      "Set date range and apply filter",
+      "Perform sorting and observe date reset"
+    ],
+    "labels": [
+      "filter",
+      "orders",
+      "ui-bug"
+    ],
+    "is_blocker": false,
+    "confidence_notes": "No environment specified in ticket, assumed DEV/general bug."
+  }
+}

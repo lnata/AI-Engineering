@@ -1,0 +1,20 @@
+{
+  "id": "BUGS-48",
+  "ok": false,
+  "error": "repair failed: ValidationError: 2 validation errors for TicketExtraction\nownership.report_developer\n  Input should be a valid string [type=string_type, input_value=['Katya M', 'Dev Oleh'], input_type=list]\n    For further information visit https://errors.pydantic.dev/2.13/v/string_type\nownership.financial_analyst\n  Input should be a valid string [type=string_type, input_value=['Ihor'], input_type=list]\n    For further information visit https://errors.pydantic.dev/2.13/v/string_type",
+  "latency_ms": 16142.447875999977,
+  "model": "llama-3.2-3b-instruct",
+  "prompt_version": "v1",
+  "sampling_profile": "default",
+  "sampling": {
+    "temperature": 0.0,
+    "top_p": 1.0
+  },
+  "usage": {
+    "input_tokens": 3598,
+    "output_tokens": 1432,
+    "total_tokens": 5030
+  },
+  "raw_text": "```json\n{\n  \"ticket_type\": \"change_request\",\n  \"summary\": \"expose plant hierarchy from SAP to Databricks\",\n  \"priority\": \"low\",\n  \"issue_category\": \"spec_mismatch\",\n  \"report\": {\n    \"name\": \"Inventory report\",\n    \"deploy_stage\": \"both\",\n    \"dataset_name\": null\n  },\n  \"sap_fiori\": {\n    \"app_name\": \"Stock Overview\",\n    \"transaction_or_cds\": null\n  },\n  \"specification\": {\n    \"spec_id\": \"SPEC-OPS-007\",\n    \"version\": \"draft v2.1\",\n    \"title\": null\n  },\n  \"ownership\": {\n    \"report_developer\": [\"Katya M\", \"Dev Oleh\"],\n    \"financial_analyst\": [\"Ihor\"],\n    \"data_pull_owner\": null,\n    \"primary_assignee_role\": \"report_developer\"\n  },\n  \"reconciliation\": {\n    \"compare_sap_vs_databricks\": true,\n    \"compare_databricks_vs_power_bi\": false,\n    \"compare_report_vs_spec\": true,\n    \"mismatch_suspected_at\": \"specification\",\n    \"notes\": null\n  },\n  \"deployment\": {\n    \"status\": \"in_development\",\n    \"requires_dev_deploy_first\": true,\n    \"awaiting_approval\": false,\n    \"approved_for_prod\": false,\n    \"approver_role\": null,\n    \"deployed_to_dev\": false,\n    \"deployed_to_prod\": false,\n    \"notes\": null\n  },\n  \"repro_steps\": [],\n  \"labels\": [],\n  \"is_blocker\": false,\n  \"confidence_notes\": null\n}\n```",
+  "extraction": null
+}

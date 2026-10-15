@@ -1,0 +1,75 @@
+{
+  "id": "BUGS-50",
+  "ok": true,
+  "error": null,
+  "latency_ms": 1920.9558750000006,
+  "model": "gemini-3.5-flash-lite",
+  "prompt_version": "v2",
+  "sampling_profile": "default",
+  "sampling": {
+    "temperature": 0.0,
+    "top_p": 1.0
+  },
+  "usage": {
+    "input_tokens": 867,
+    "output_tokens": 560,
+    "total_tokens": 1427
+  },
+  "raw_text": "{\n  \"ticket_type\": \"bug\",\n  \"summary\": \"Databricks grain differs from Fiori CDS causing inflated numbers in Sales Overview DEV\",\n  \"priority\": \"high\",\n  \"issue_category\": \"transform_logic\",\n  \"report\": {\n    \"name\": \"Sales Overview\",\n    \"deploy_stage\": \"dev\",\n    \"dataset_name\": null\n  },\n  \"sap_fiori\": {\n    \"app_name\": null,\n    \"transaction_or_cds\": \"C_SALESORDER_Q1\"\n  },\n  \"specification\": {\n    \"spec_id\": \"SPEC-FIN-014\",\n    \"version\": null,\n    \"title\": null\n  },\n  \"ownership\": {\n    \"report_developer\": null,\n    \"financial_analyst\": null,\n    \"data_pull_owner\": \"Oleh / Anna / Dmytro / Maria\",\n    \"primary_assignee_role\": \"data_pull\"\n  },\n  \"reconciliation\": {\n    \"compare_sap_vs_databricks\": true,\n    \"compare_databricks_vs_power_bi\": true,\n    \"compare_report_vs_spec\": true,\n    \"mismatch_suspected_at\": \"databricks\",\n    \"notes\": \"Databricks collected line level instead of header level without proper aggregation, violating SPEC-FIN-014.\"\n  },\n  \"deployment\": {\n    \"status\": \"not_started\",\n    \"requires_dev_deploy_first\": true,\n    \"awaiting_approval\": false,\n    \"approved_for_prod\": null,\n    \"approver_role\": \"financial_analyst\",\n    \"deployed_to_dev\": false,\n    \"deployed_to_prod\": false,\n    \"notes\": \"Issue is in DEV stage.\"\n  },\n  \"repro_steps\": [\n    \"Check C_SALESORDER_Q1 in Fiori which returns header level\",\n    \"Compare against Databricks Data Pull which gathered line level without aggregation\",\n    \"Verify Sales Overview DEV report against SPEC-FIN-014 header net value expectation\"\n  ],\n  \"labels\": [\n    \"databricks\",\n    \"grain-mismatch\",\n    \"sales-overview\",\n    \"dev\"\n  ],\n  \"is_blocker\": false,\n  \"confidence_notes\": null\n}",
+  "extraction": {
+    "ticket_type": "bug",
+    "summary": "Databricks grain differs from Fiori CDS causing inflated numbers in Sales Overview DEV",
+    "priority": "high",
+    "issue_category": "transform_logic",
+    "report": {
+      "name": "Sales Overview",
+      "deploy_stage": "dev",
+      "dataset_name": null
+    },
+    "sap_fiori": {
+      "app_name": null,
+      "transaction_or_cds": "C_SALESORDER_Q1"
+    },
+    "specification": {
+      "spec_id": "SPEC-FIN-014",
+      "version": null,
+      "title": null
+    },
+    "ownership": {
+      "report_developer": null,
+      "financial_analyst": null,
+      "data_pull_owner": "Oleh / Anna / Dmytro / Maria",
+      "primary_assignee_role": "data_pull"
+    },
+    "reconciliation": {
+      "compare_sap_vs_databricks": true,
+      "compare_databricks_vs_power_bi": true,
+      "compare_report_vs_spec": true,
+      "mismatch_suspected_at": "databricks",
+      "notes": "Databricks collected line level instead of header level without proper aggregation, violating SPEC-FIN-014."
+    },
+    "deployment": {
+      "status": "not_started",
+      "requires_dev_deploy_first": true,
+      "awaiting_approval": false,
+      "approved_for_prod": null,
+      "approver_role": "financial_analyst",
+      "deployed_to_dev": false,
+      "deployed_to_prod": false,
+      "notes": "Issue is in DEV stage."
+    },
+    "repro_steps": [
+      "Check C_SALESORDER_Q1 in Fiori which returns header level",
+      "Compare against Databricks Data Pull which gathered line level without aggregation",
+      "Verify Sales Overview DEV report against SPEC-FIN-014 header net value expectation"
+    ],
+    "labels": [
+      "databricks",
+      "grain-mismatch",
+      "sales-overview",
+      "dev"
+    ],
+    "is_blocker": false,
+    "confidence_notes": null
+  }
+}

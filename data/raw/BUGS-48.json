@@ -1,0 +1,18 @@
+{
+  "id": "BUGS-48",
+  "summary": "CR: expose plant hierarchy from SAP to Databricks",
+  "description": "CR для Data Pull: добавить plant hierarchy из SAP Fiori Stock Overview в Databricks, чтобы Inventory report мог фильтровать по иерархии как в SPEC-OPS-007 draft v2.1.\nDEV first.\nKatya M + FA Ihor + Dev Oleh.",
+  "text": "CR: expose plant hierarchy from SAP to Databricks\n\nCR для Data Pull: добавить plant hierarchy из SAP Fiori Stock Overview в Databricks, чтобы Inventory report мог фильтровать по иерархии как в SPEC-OPS-007 draft v2.1.\nDEV first.\nKatya M + FA Ihor + Dev Oleh.",
+  "labels": [
+    "change-request",
+    "dirty-text",
+    "extraction",
+    "hw1"
+  ],
+  "issue_type": "Task",
+  "priority": "Medium",
+  "status": "To Do",
+  "created": "2026-10-15T21:02:12.239+0200",
+  "source": "jira",
+  "project": "BUGS"
+}

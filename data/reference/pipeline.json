@@ -1,0 +1,51 @@
+{
+  "pipeline": [
+    {
+      "stage": "sap_fiori",
+      "owner_role": "financial_analyst",
+      "also_involves": ["data_pull"],
+      "description": "Business source figures and documents visible in SAP Fiori apps",
+      "typical_issues": [
+        "Wrong filters in Fiori app",
+        "User compares different posting periods",
+        "Master data not yet posted in SAP"
+      ]
+    },
+    {
+      "stage": "databricks",
+      "owner_role": "data_pull",
+      "also_involves": [],
+      "description": "Data Pull loads SAP extracts into Databricks tables/marts",
+      "typical_issues": [
+        "ETL lag / missed partition",
+        "Wrong join or soft-delete filter",
+        "Currency already converted in mart"
+      ]
+    },
+    {
+      "stage": "power_bi_report",
+      "owner_role": "report_developer",
+      "also_involves": ["financial_analyst"],
+      "description": "Power BI dataset and report visuals on DEV or PROD",
+      "typical_issues": [
+        "Wrong DAX measure",
+        "RLS hiding rows",
+        "Stale gateway / dataset refresh",
+        "Visual-level filters"
+      ]
+    },
+    {
+      "stage": "specification",
+      "owner_role": "financial_analyst",
+      "also_involves": ["report_developer"],
+      "description": "Approved business rules the report must implement",
+      "typical_issues": [
+        "Report logic does not match spec",
+        "Spec ambiguous or outdated",
+        "Change request needed to update requirements"
+      ]
+    }
+  ],
+  "reconciliation_rule": "For every bug, compare across relevant stages and always consider report vs specification — a 'data bug' may actually be a spec mismatch.",
+  "deployment_rule": "After fix/CR: DEV deploy → approval → PROD deploy. See deployment.json."
+}

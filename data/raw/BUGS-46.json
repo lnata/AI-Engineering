@@ -1,0 +1,19 @@
+{
+  "id": "BUGS-46",
+  "summary": "CR: add channel split to Sales Overview per new spec",
+  "description": "CHANGE REQUEST (не баг).\nотчёт Sales Overview PROD+DEV.\nфинансовые аналитики обновили SPEC-FIN-014 → нужна v1.4: разбивка revenue by channel.\nсейчас канала в PBI нет, хотя в Databricks mart.fact_orders channel уже есть (Data Pull ок).\n\nнужно: обновить спеку acceptance, доработать PBI (Anna K), FA Maria B.\nсверка после: report vs new spec; DBX vs PBI.",
+  "text": "CR: add channel split to Sales Overview per new spec\n\nCHANGE REQUEST (не баг).\nотчёт Sales Overview PROD+DEV.\nфинансовые аналитики обновили SPEC-FIN-014 → нужна v1.4: разбивка revenue by channel.\nсейчас канала в PBI нет, хотя в Databricks mart.fact_orders channel уже есть (Data Pull ок).\n\nнужно: обновить спеку acceptance, доработать PBI (Anna K), FA Maria B.\nсверка после: report vs new spec; DBX vs PBI.",
+  "labels": [
+    "change-request",
+    "dirty-text",
+    "extraction",
+    "golden-candidate",
+    "hw1"
+  ],
+  "issue_type": "Task",
+  "priority": "Medium",
+  "status": "To Do",
+  "created": "2026-10-15T21:02:10.040+0200",
+  "source": "jira",
+  "project": "BUGS"
+}

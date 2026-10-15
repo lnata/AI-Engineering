@@ -1,0 +1,66 @@
+{
+  "id": "BUGS-44",
+  "ok": true,
+  "error": null,
+  "latency_ms": 9255.400208999994,
+  "model": "llama3.2",
+  "prompt_version": "v1",
+  "sampling_profile": "default",
+  "sampling": {
+    "temperature": 0.0,
+    "top_p": 1.0
+  },
+  "usage": {
+    "input_tokens": 1787,
+    "output_tokens": 768,
+    "total_tokens": 2555
+  },
+  "raw_text": "{\n  \"ticket_type\": \"change_request\",\n  \"summary\": \"PROD Customers by Region: DBX ok, PBI wrong filter\",\n  \"priority\": \"low\",\n  \"issue_category\": \"spec_mismatch\",\n  \"report\": {\n    \"name\": \"Customers by Region\",\n    \"deploy_stage\": \"both\",\n    \"dataset_name\": \"Customers_Prod.pbix\"\n  },\n  \"sap_fiori\": {\n    \"app_name\": \"Customer Master\",\n    \"transaction_or_cds\": \"mart.dim_customer на PROD\"\n  },\n  \"specification\": {\n    \"spec_id\": \"SPEC-FIN-021\",\n    \"version\": null,\n    \"title\": \"only active customers\"\n  },\n  \"ownership\": {\n    \"report_developer\": \"Anna K\",\n    \"financial_analyst\": \"Maria B\",\n    \"data_pull_owner\": \"Dmytro\",\n    \"primary_assignee_role\": \"report_developer\"\n  },\n  \"reconciliation\": {\n    \"compare_sap_vs_databricks\": true,\n    \"compare_databricks_vs_power_bi\": true,\n    \"compare_report_vs_spec\": true,\n    \"mismatch_suspected_at\": \"sap_fiori\",\n    \"notes\": \"SAP Fiori Customer Master approximately like DBX.\"\n  },\n  \"deployment\": {\n    \"status\": \"pending_approval\",\n    \"requires_dev_deploy_first\": true,\n    \"awaiting_approval\": true,\n    \"approved_for_prod\": null,\n    \"approver_role\": null,\n    \"deployed_to_dev\": null,\n    \"deployed_to_prod\": null,\n    \"notes\": \"SAP Fiori Customer Master approximately like DBX.\"\n  },\n  \"repro_steps\": [],\n  \"labels\": [],\n  \"is_blocker\": false,\n  \"confidence_notes\": null\n}",
+  "extraction": {
+    "ticket_type": "change_request",
+    "summary": "PROD Customers by Region: DBX ok, PBI wrong filter",
+    "priority": "low",
+    "issue_category": "spec_mismatch",
+    "report": {
+      "name": "Customers by Region",
+      "deploy_stage": "both",
+      "dataset_name": "Customers_Prod.pbix"
+    },
+    "sap_fiori": {
+      "app_name": "Customer Master",
+      "transaction_or_cds": "mart.dim_customer на PROD"
+    },
+    "specification": {
+      "spec_id": "SPEC-FIN-021",
+      "version": null,
+      "title": "only active customers"
+    },
+    "ownership": {
+      "report_developer": "Anna K",
+      "financial_analyst": "Maria B",
+      "data_pull_owner": "Dmytro",
+      "primary_assignee_role": "report_developer"
+    },
+    "reconciliation": {
+      "compare_sap_vs_databricks": true,
+      "compare_databricks_vs_power_bi": true,
+      "compare_report_vs_spec": true,
+      "mismatch_suspected_at": "sap_fiori",
+      "notes": "SAP Fiori Customer Master approximately like DBX."
+    },
+    "deployment": {
+      "status": "pending_approval",
+      "requires_dev_deploy_first": true,
+      "awaiting_approval": true,
+      "approved_for_prod": null,
+      "approver_role": null,
+      "deployed_to_dev": null,
+      "deployed_to_prod": null,
+      "notes": "SAP Fiori Customer Master approximately like DBX."
+    },
+    "repro_steps": [],
+    "labels": [],
+    "is_blocker": false,
+    "confidence_notes": null
+  }
+}

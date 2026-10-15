@@ -1,0 +1,20 @@
+{
+  "id": "BUGS-37",
+  "summary": "currency conversion double applied prod",
+  "description": "подозрение: в fact_payments уже EUR, а PBI ещё раз * fx_rate. totals x1.08 vs DB. prod report FX_Revenue.pbix. критично для закрытия месяца. validate DB vs Power BI accuracy PROD",
+  "text": "currency conversion double applied prod\n\nподозрение: в fact_payments уже EUR, а PBI ещё раз * fx_rate. totals x1.08 vs DB. prod report FX_Revenue.pbix. критично для закрытия месяца. validate DB vs Power BI accuracy PROD",
+  "labels": [
+    "data-accuracy",
+    "dirty-text",
+    "extraction",
+    "golden-candidate",
+    "hw1",
+    "power-bi"
+  ],
+  "issue_type": "Bug",
+  "priority": "Medium",
+  "status": "To Do",
+  "created": "2026-10-15T20:54:58.365+0200",
+  "source": "jira",
+  "project": "BUGS"
+}

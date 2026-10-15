@@ -1,0 +1,75 @@
+{
+  "id": "BUGS-44",
+  "ok": true,
+  "error": null,
+  "latency_ms": 1878.2340419999998,
+  "model": "gemini-3.5-flash-lite",
+  "prompt_version": "v2",
+  "sampling_profile": "creative",
+  "sampling": {
+    "temperature": 0.4,
+    "top_p": 0.9
+  },
+  "usage": {
+    "input_tokens": 887,
+    "output_tokens": 560,
+    "total_tokens": 1447
+  },
+  "raw_text": "{\n  \"ticket_type\": \"bug\",\n  \"summary\": \"Customers by Region PROD report includes soft-deleted customers due to wrong filter\",\n  \"priority\": \"high\",\n  \"issue_category\": \"filter_rls\",\n  \"report\": {\n    \"name\": \"Customers by Region\",\n    \"deploy_stage\": \"prod\",\n    \"dataset_name\": null\n  },\n  \"sap_fiori\": {\n    \"app_name\": \"Customer Master\",\n    \"transaction_or_cds\": null\n  },\n  \"specification\": {\n    \"spec_id\": \"SPEC-FIN-021\",\n    \"version\": null,\n    \"title\": null\n  },\n  \"ownership\": {\n    \"report_developer\": \"Anna K\",\n    \"financial_analyst\": \"Maria B\",\n    \"data_pull_owner\": \"Dmytro\",\n    \"primary_assignee_role\": \"report_developer\"\n  },\n  \"reconciliation\": {\n    \"compare_sap_vs_databricks\": false,\n    \"compare_databricks_vs_power_bi\": true,\n    \"compare_report_vs_spec\": true,\n    \"mismatch_suspected_at\": \"power_bi_report\",\n    \"notes\": \"mart.dim_customer in Databricks has 11802 active customers, while Power BI shows 12040 including soft-deleted ones, violating SPEC-FIN-021.\"\n  },\n  \"deployment\": {\n    \"status\": \"not_started\",\n    \"requires_dev_deploy_first\": true,\n    \"awaiting_approval\": false,\n    \"approved_for_prod\": null,\n    \"approver_role\": \"financial_analyst\",\n    \"deployed_to_dev\": false,\n    \"deployed_to_prod\": false,\n    \"notes\": null\n  },\n  \"repro_steps\": [\n    \"Check mart.dim_customer on PROD Databricks\",\n    \"Open Customers by Region PROD report and check customer count\",\n    \"Verify against active customer requirement in SPEC-FIN-021\"\n  ],\n  \"labels\": [\n    \"customers-by-region\",\n    \"filter-bug\",\n    \"power-bi\",\n    \"prod-issue\"\n  ],\n  \"is_blocker\": false,\n  \"confidence_notes\": null\n}",
+  "extraction": {
+    "ticket_type": "bug",
+    "summary": "Customers by Region PROD report includes soft-deleted customers due to wrong filter",
+    "priority": "high",
+    "issue_category": "filter_rls",
+    "report": {
+      "name": "Customers by Region",
+      "deploy_stage": "prod",
+      "dataset_name": null
+    },
+    "sap_fiori": {
+      "app_name": "Customer Master",
+      "transaction_or_cds": null
+    },
+    "specification": {
+      "spec_id": "SPEC-FIN-021",
+      "version": null,
+      "title": null
+    },
+    "ownership": {
+      "report_developer": "Anna K",
+      "financial_analyst": "Maria B",
+      "data_pull_owner": "Dmytro",
+      "primary_assignee_role": "report_developer"
+    },
+    "reconciliation": {
+      "compare_sap_vs_databricks": false,
+      "compare_databricks_vs_power_bi": true,
+      "compare_report_vs_spec": true,
+      "mismatch_suspected_at": "power_bi_report",
+      "notes": "mart.dim_customer in Databricks has 11802 active customers, while Power BI shows 12040 including soft-deleted ones, violating SPEC-FIN-021."
+    },
+    "deployment": {
+      "status": "not_started",
+      "requires_dev_deploy_first": true,
+      "awaiting_approval": false,
+      "approved_for_prod": null,
+      "approver_role": "financial_analyst",
+      "deployed_to_dev": false,
+      "deployed_to_prod": false,
+      "notes": null
+    },
+    "repro_steps": [
+      "Check mart.dim_customer on PROD Databricks",
+      "Open Customers by Region PROD report and check customer count",
+      "Verify against active customer requirement in SPEC-FIN-021"
+    ],
+    "labels": [
+      "customers-by-region",
+      "filter-bug",
+      "power-bi",
+      "prod-issue"
+    ],
+    "is_blocker": false,
+    "confidence_notes": null
+  }
+}

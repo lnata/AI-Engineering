@@ -1,0 +1,73 @@
+{
+  "id": "BUGS-20",
+  "ok": true,
+  "error": null,
+  "latency_ms": 1930.7476250000004,
+  "model": "gemini-3.5-flash-lite",
+  "prompt_version": "v2",
+  "sampling_profile": "default",
+  "sampling": {
+    "temperature": 0.0,
+    "top_p": 1.0
+  },
+  "usage": {
+    "input_tokens": 807,
+    "output_tokens": 470,
+    "total_tokens": 1277
+  },
+  "raw_text": "{\n  \"ticket_type\": \"bug\",\n  \"summary\": \"PDF export shows empty white boxes for charts\",\n  \"priority\": \"medium\",\n  \"issue_category\": \"other\",\n  \"report\": {\n    \"name\": \"General\",\n    \"deploy_stage\": \"unknown\",\n    \"dataset_name\": null\n  },\n  \"sap_fiori\": {\n    \"app_name\": null,\n    \"transaction_or_cds\": null\n  },\n  \"specification\": {\n    \"spec_id\": null,\n    \"version\": null,\n    \"title\": null\n  },\n  \"ownership\": {\n    \"report_developer\": null,\n    \"financial_analyst\": null,\n    \"data_pull_owner\": null,\n    \"primary_assignee_role\": \"report_developer\"\n  },\n  \"reconciliation\": {\n    \"compare_sap_vs_databricks\": false,\n    \"compare_databricks_vs_power_bi\": false,\n    \"compare_report_vs_spec\": false,\n    \"mismatch_suspected_at\": \"power_bi_report\",\n    \"notes\": \"PDF export rendering issue related to puppeteer or fonts after chrome headless upgrade.\"\n  },\n  \"deployment\": {\n    \"status\": \"not_started\",\n    \"requires_dev_deploy_first\": true,\n    \"awaiting_approval\": false,\n    \"approved_for_prod\": null,\n    \"approver_role\": null,\n    \"deployed_to_dev\": null,\n    \"deployed_to_prod\": null,\n    \"notes\": null\n  },\n  \"repro_steps\": [\n    \"Export report to PDF\",\n    \"Observe empty white boxes instead of charts\"\n  ],\n  \"labels\": [\n    \"pdf-export\",\n    \"rendering-bug\",\n    \"puppeteer\"\n  ],\n  \"is_blocker\": false,\n  \"confidence_notes\": \"Report name was not explicitly stated in the ticket.\"\n}",
+  "extraction": {
+    "ticket_type": "bug",
+    "summary": "PDF export shows empty white boxes for charts",
+    "priority": "medium",
+    "issue_category": "other",
+    "report": {
+      "name": "General",
+      "deploy_stage": "unknown",
+      "dataset_name": null
+    },
+    "sap_fiori": {
+      "app_name": null,
+      "transaction_or_cds": null
+    },
+    "specification": {
+      "spec_id": null,
+      "version": null,
+      "title": null
+    },
+    "ownership": {
+      "report_developer": null,
+      "financial_analyst": null,
+      "data_pull_owner": null,
+      "primary_assignee_role": "report_developer"
+    },
+    "reconciliation": {
+      "compare_sap_vs_databricks": false,
+      "compare_databricks_vs_power_bi": false,
+      "compare_report_vs_spec": false,
+      "mismatch_suspected_at": "power_bi_report",
+      "notes": "PDF export rendering issue related to puppeteer or fonts after chrome headless upgrade."
+    },
+    "deployment": {
+      "status": "not_started",
+      "requires_dev_deploy_first": true,
+      "awaiting_approval": false,
+      "approved_for_prod": null,
+      "approver_role": null,
+      "deployed_to_dev": null,
+      "deployed_to_prod": null,
+      "notes": null
+    },
+    "repro_steps": [
+      "Export report to PDF",
+      "Observe empty white boxes instead of charts"
+    ],
+    "labels": [
+      "pdf-export",
+      "rendering-bug",
+      "puppeteer"
+    ],
+    "is_blocker": false,
+    "confidence_notes": "Report name was not explicitly stated in the ticket."
+  }
+}

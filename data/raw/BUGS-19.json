@@ -1,0 +1,17 @@
+{
+  "id": "BUGS-19",
+  "summary": "oauth token refresh race",
+  "description": "иногда два refresh параллельно → invalidate session. user logged out randomly. hard to repro. maybe only slow network. stack: auth-service",
+  "text": "oauth token refresh race\n\nиногда два refresh параллельно → invalidate session. user logged out randomly. hard to repro. maybe only slow network. stack: auth-service",
+  "labels": [
+    "dirty-text",
+    "extraction",
+    "hw1"
+  ],
+  "issue_type": "Bug",
+  "priority": "Medium",
+  "status": "To Do",
+  "created": "2026-10-15T20:41:28.339+0200",
+  "source": "jira",
+  "project": "BUGS"
+}

@@ -1,0 +1,20 @@
+{
+  "id": "BUGS-32",
+  "summary": "dev: Power BI inventory lag vs warehouse",
+  "description": "на DEV после ETL inventory_qty в pbi на 1 день старше чем таблица wh.inventory_snapshot. файл Inventory_Dev.pbix. иногда ок после manual refresh. проверить accuracy database <-> power bi на dev окружении",
+  "text": "dev: Power BI inventory lag vs warehouse\n\nна DEV после ETL inventory_qty в pbi на 1 день старше чем таблица wh.inventory_snapshot. файл Inventory_Dev.pbix. иногда ок после manual refresh. проверить accuracy database <-> power bi на dev окружении",
+  "labels": [
+    "data-accuracy",
+    "dirty-text",
+    "extraction",
+    "golden-candidate",
+    "hw1",
+    "power-bi"
+  ],
+  "issue_type": "Bug",
+  "priority": "Medium",
+  "status": "To Do",
+  "created": "2026-10-15T20:54:52.557+0200",
+  "source": "jira",
+  "project": "BUGS"
+}

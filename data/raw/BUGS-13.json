@@ -1,0 +1,17 @@
+{
+  "id": "BUGS-13",
+  "summary": "attachment upload 413",
+  "description": "нельзя прикрепить файл >4mb хотя в UI написано 25mb. nginx? api gateway? ошибка 413 request entity too large. pdf invoices broken workflow",
+  "text": "attachment upload 413\n\nнельзя прикрепить файл >4mb хотя в UI написано 25mb. nginx? api gateway? ошибка 413 request entity too large. pdf invoices broken workflow",
+  "labels": [
+    "dirty-text",
+    "extraction",
+    "hw1"
+  ],
+  "issue_type": "Bug",
+  "priority": "Medium",
+  "status": "To Do",
+  "created": "2026-10-15T20:41:22.103+0200",
+  "source": "jira",
+  "project": "BUGS"
+}

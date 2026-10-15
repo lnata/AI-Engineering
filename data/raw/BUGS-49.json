@@ -1,0 +1,19 @@
+{
+  "id": "BUGS-49",
+  "summary": "PROD FX_Revenue double FX vs SPEC-FIN-041",
+  "description": "в fact_payments уже EUR, PBI FX_Revenue.pbix ещё раз * fx_rate.\nSAP Fiori Incoming Payments в EUR.\nDatabricks ок по спеке? спека SPEC-FIN-041: convert once at payment.\nрасхождение на этапе Power BI report PROD.\nсверить все три слоя + spec. blocker month close.",
+  "text": "PROD FX_Revenue double FX vs SPEC-FIN-041\n\nв fact_payments уже EUR, PBI FX_Revenue.pbix ещё раз * fx_rate.\nSAP Fiori Incoming Payments в EUR.\nDatabricks ок по спеке? спека SPEC-FIN-041: convert once at payment.\nрасхождение на этапе Power BI report PROD.\nсверить все три слоя + spec. blocker month close.",
+  "labels": [
+    "dirty-text",
+    "extraction",
+    "golden-candidate",
+    "hw1",
+    "pipeline-pbi"
+  ],
+  "issue_type": "Bug",
+  "priority": "Medium",
+  "status": "To Do",
+  "created": "2026-10-15T21:02:13.366+0200",
+  "source": "jira",
+  "project": "BUGS"
+}

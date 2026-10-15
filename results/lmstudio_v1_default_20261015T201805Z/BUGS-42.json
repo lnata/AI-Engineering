@@ -1,0 +1,66 @@
+{
+  "id": "BUGS-42",
+  "ok": true,
+  "error": null,
+  "latency_ms": 7751.858041999996,
+  "model": "llama-3.2-3b-instruct",
+  "prompt_version": "v1",
+  "sampling_profile": "default",
+  "sampling": {
+    "temperature": 0.0,
+    "top_p": 1.0
+  },
+  "usage": {
+    "input_tokens": 1808,
+    "output_tokens": 721,
+    "total_tokens": 2529
+  },
+  "raw_text": "```json\n{\n  \"ticket_type\": \"change_request\",\n  \"summary\": \"DEV Gross Margin report does not match SPEC-FIN-030\",\n  \"priority\": \"critical\",\n  \"issue_category\": \"spec_mismatch\",\n  \"report\": {\n    \"name\": \"Gross Margin report\",\n    \"deploy_stage\": \"both\",\n    \"dataset_name\": null\n  },\n  \"sap_fiori\": {\n    \"app_name\": \"Finance_Dev.pbix\",\n    \"transaction_or_cds\": null\n  },\n  \"specification\": {\n    \"spec_id\": \"SPEC-FIN-030\",\n    \"version\": \"v1.0\",\n    \"title\": \"Gross Margin report\"\n  },\n  \"ownership\": {\n    \"report_developer\": \"Oleh P.\",\n    \"financial_analyst\": \"Ihor S\",\n    \"data_pull_owner\": null,\n    \"primary_assignee_role\": \"unknown\"\n  },\n  \"reconciliation\": {\n    \"compare_sap_vs_databricks\": true,\n    \"compare_databricks_vs_power_bi\": true,\n    \"compare_report_vs_spec\": true,\n    \"mismatch_suspected_at\": \"specification\",\n    \"notes\": null\n  },\n  \"deployment\": {\n    \"status\": \"pending_approval\",\n    \"requires_dev_deploy_first\": false,\n    \"awaiting_approval\": true,\n    \"approved_for_prod\": false,\n    \"approver_role\": null,\n    \"deployed_to_dev\": false,\n    \"deployed_to_prod\": false,\n    \"notes\": null\n  },\n  \"repro_steps\": [],\n  \"labels\": [],\n  \"is_blocker\": false,\n  \"confidence_notes\": null\n}\n```",
+  "extraction": {
+    "ticket_type": "change_request",
+    "summary": "DEV Gross Margin report does not match SPEC-FIN-030",
+    "priority": "critical",
+    "issue_category": "spec_mismatch",
+    "report": {
+      "name": "Gross Margin report",
+      "deploy_stage": "both",
+      "dataset_name": null
+    },
+    "sap_fiori": {
+      "app_name": "Finance_Dev.pbix",
+      "transaction_or_cds": null
+    },
+    "specification": {
+      "spec_id": "SPEC-FIN-030",
+      "version": "v1.0",
+      "title": "Gross Margin report"
+    },
+    "ownership": {
+      "report_developer": "Oleh P.",
+      "financial_analyst": "Ihor S",
+      "data_pull_owner": null,
+      "primary_assignee_role": "unknown"
+    },
+    "reconciliation": {
+      "compare_sap_vs_databricks": true,
+      "compare_databricks_vs_power_bi": true,
+      "compare_report_vs_spec": true,
+      "mismatch_suspected_at": "specification",
+      "notes": null
+    },
+    "deployment": {
+      "status": "pending_approval",
+      "requires_dev_deploy_first": false,
+      "awaiting_approval": true,
+      "approved_for_prod": false,
+      "approver_role": null,
+      "deployed_to_dev": false,
+      "deployed_to_prod": false,
+      "notes": null
+    },
+    "repro_steps": [],
+    "labels": [],
+    "is_blocker": false,
+    "confidence_notes": null
+  }
+}

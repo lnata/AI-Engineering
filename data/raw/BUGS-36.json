@@ -1,0 +1,20 @@
+{
+  "id": "BUGS-36",
+  "summary": "NULL vs blank in PBI vs Postgres",
+  "description": "в БД (dev) null в column discount, в PBI показывается как 0 и ломает avg discount. pbix Pricing_QA.pbix. data accuracy check DB vs PowerBI on DEV please",
+  "text": "NULL vs blank in PBI vs Postgres\n\nв БД (dev) null в column discount, в PBI показывается как 0 и ломает avg discount. pbix Pricing_QA.pbix. data accuracy check DB vs PowerBI on DEV please",
+  "labels": [
+    "data-accuracy",
+    "dirty-text",
+    "extraction",
+    "golden-candidate",
+    "hw1",
+    "power-bi"
+  ],
+  "issue_type": "Bug",
+  "priority": "Medium",
+  "status": "To Do",
+  "created": "2026-10-15T20:54:57.206+0200",
+  "source": "jira",
+  "project": "BUGS"
+}

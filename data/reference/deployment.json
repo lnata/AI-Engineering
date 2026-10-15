@@ -1,0 +1,49 @@
+{
+  "rule": "After a bug fix or change request is implemented: deploy to DEV first, get approval, only then deploy to PROD. Never skip DEV or approval.",
+  "steps": [
+    {
+      "id": "in_development",
+      "name": "Implement fix / change",
+      "environment": null,
+      "owner_role": "report_developer",
+      "also_involves": ["data_pull"],
+      "exit_criteria": "Code/report/pipeline change ready to publish to DEV"
+    },
+    {
+      "id": "deployed_to_dev",
+      "name": "Deploy to DEV",
+      "environment": "dev",
+      "owner_role": "report_developer",
+      "also_involves": ["data_pull"],
+      "exit_criteria": "Change visible on DEV; reconciliation checks can be re-run"
+    },
+    {
+      "id": "pending_approval",
+      "name": "Await approval for PROD",
+      "environment": "dev",
+      "owner_role": "financial_analyst",
+      "also_involves": ["report_developer"],
+      "exit_criteria": "FA (or designated approver) confirms DEV results vs spec / expected figures"
+    },
+    {
+      "id": "approved_for_prod",
+      "name": "Approved for PROD",
+      "environment": "dev",
+      "owner_role": "financial_analyst",
+      "also_involves": [],
+      "exit_criteria": "Explicit approval recorded"
+    },
+    {
+      "id": "deployed_to_prod",
+      "name": "Deploy to PROD",
+      "environment": "prod",
+      "owner_role": "report_developer",
+      "also_involves": ["data_pull"],
+      "exit_criteria": "Change live on PROD; final reconciliation on PROD"
+    }
+  ],
+  "forbidden": [
+    "Deploy fix directly to PROD without DEV",
+    "Promote to PROD without approval"
+  ]
+}

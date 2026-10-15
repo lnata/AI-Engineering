@@ -1,0 +1,73 @@
+{
+  "id": "BUGS-51",
+  "ok": true,
+  "error": null,
+  "latency_ms": 1990.703332999999,
+  "model": "gemini-3.5-flash-lite",
+  "prompt_version": "v2",
+  "sampling_profile": "default",
+  "sampling": {
+    "temperature": 0.0,
+    "top_p": 1.0
+  },
+  "usage": {
+    "input_tokens": 877,
+    "output_tokens": 520,
+    "total_tokens": 1397
+  },
+  "raw_text": "{\n  \"ticket_type\": \"bug\",\n  \"summary\": \"Fix FX double-convert on DEV awaiting approval for PROD\",\n  \"priority\": \"high\",\n  \"issue_category\": \"transform_logic\",\n  \"report\": {\n    \"name\": \"FX Revenue\",\n    \"deploy_stage\": \"dev\",\n    \"dataset_name\": null\n  },\n  \"sap_fiori\": {\n    \"app_name\": null,\n    \"transaction_or_cds\": null\n  },\n  \"specification\": {\n    \"spec_id\": \"SPEC-FIN-041\",\n    \"version\": null,\n    \"title\": null\n  },\n  \"ownership\": {\n    \"report_developer\": \"Anna K\",\n    \"financial_analyst\": \"Maria B\",\n    \"data_pull_owner\": \"Dmytro\",\n    \"primary_assignee_role\": \"report_developer\"\n  },\n  \"reconciliation\": {\n    \"compare_sap_vs_databricks\": true,\n    \"compare_databricks_vs_power_bi\": true,\n    \"compare_report_vs_spec\": true,\n    \"mismatch_suspected_at\": \"power_bi_report\",\n    \"notes\": \"Reconciliation SAP vs Databricks vs PBI vs SPEC-FIN-041 on DEV is ok\"\n  },\n  \"deployment\": {\n    \"status\": \"pending_approval\",\n    \"requires_dev_deploy_first\": true,\n    \"awaiting_approval\": true,\n    \"approved_for_prod\": false,\n    \"approver_role\": \"financial_analyst\",\n    \"deployed_to_dev\": true,\n    \"deployed_to_prod\": false,\n    \"notes\": \"Fix already deployed to DEV, waiting for FA Maria B approval before PROD promotion\"\n  },\n  \"repro_steps\": [\n    \"Check FX revenue numbers against SAP and spec SPEC-FIN-041 on DEV\"\n  ],\n  \"labels\": [\n    \"fx-revenue\",\n    \"double-convert\",\n    \"dev-deployed\",\n    \"pending-approval\"\n  ],\n  \"is_blocker\": false,\n  \"confidence_notes\": null\n}",
+  "extraction": {
+    "ticket_type": "bug",
+    "summary": "Fix FX double-convert on DEV awaiting approval for PROD",
+    "priority": "high",
+    "issue_category": "transform_logic",
+    "report": {
+      "name": "FX Revenue",
+      "deploy_stage": "dev",
+      "dataset_name": null
+    },
+    "sap_fiori": {
+      "app_name": null,
+      "transaction_or_cds": null
+    },
+    "specification": {
+      "spec_id": "SPEC-FIN-041",
+      "version": null,
+      "title": null
+    },
+    "ownership": {
+      "report_developer": "Anna K",
+      "financial_analyst": "Maria B",
+      "data_pull_owner": "Dmytro",
+      "primary_assignee_role": "report_developer"
+    },
+    "reconciliation": {
+      "compare_sap_vs_databricks": true,
+      "compare_databricks_vs_power_bi": true,
+      "compare_report_vs_spec": true,
+      "mismatch_suspected_at": "power_bi_report",
+      "notes": "Reconciliation SAP vs Databricks vs PBI vs SPEC-FIN-041 on DEV is ok"
+    },
+    "deployment": {
+      "status": "pending_approval",
+      "requires_dev_deploy_first": true,
+      "awaiting_approval": true,
+      "approved_for_prod": false,
+      "approver_role": "financial_analyst",
+      "deployed_to_dev": true,
+      "deployed_to_prod": false,
+      "notes": "Fix already deployed to DEV, waiting for FA Maria B approval before PROD promotion"
+    },
+    "repro_steps": [
+      "Check FX revenue numbers against SAP and spec SPEC-FIN-041 on DEV"
+    ],
+    "labels": [
+      "fx-revenue",
+      "double-convert",
+      "dev-deployed",
+      "pending-approval"
+    ],
+    "is_blocker": false,
+    "confidence_notes": null
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "id": "BUGS-3",
+  "summary": "NullPointer in checkout",
+  "description": "prod error:\njava.lang.NullPointerException at CheckoutService.calcTax(CheckoutService.java:214)\n\nhappens when country=UA and promo code empty. started ~3h ago. approx 12% users. no stack in sentry yet wait there is",
+  "text": "NullPointer in checkout\n\nprod error:\njava.lang.NullPointerException at CheckoutService.calcTax(CheckoutService.java:214)\n\nhappens when country=UA and promo code empty. started ~3h ago. approx 12% users. no stack in sentry yet wait there is",
+  "labels": [
+    "dirty-text",
+    "extraction",
+    "golden-candidate",
+    "hw1"
+  ],
+  "issue_type": "Bug",
+  "priority": "Medium",
+  "status": "To Do",
+  "created": "2026-10-15T20:41:11.536+0200",
+  "source": "jira",
+  "project": "BUGS"
+}

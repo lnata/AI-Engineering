@@ -1,0 +1,19 @@
+{
+  "id": "BUGS-47",
+  "summary": "CR: change FX conversion timing in SPEC-FIN-041",
+  "description": "change request: аналитики хотят конвертацию на posting date вместо payment date.\nэто меняет SPEC-FIN-041 и логику и Data Pull (fx join) и PBI FX_Revenue.\nокружение: сначала DEV, потом PROD.\nowners: FA Maria, Data Pull Dmytro, Dev Anna.\nне баг — изменение требований.",
+  "text": "CR: change FX conversion timing in SPEC-FIN-041\n\nchange request: аналитики хотят конвертацию на posting date вместо payment date.\nэто меняет SPEC-FIN-041 и логику и Data Pull (fx join) и PBI FX_Revenue.\nокружение: сначала DEV, потом PROD.\nowners: FA Maria, Data Pull Dmytro, Dev Anna.\nне баг — изменение требований.",
+  "labels": [
+    "change-request",
+    "dirty-text",
+    "extraction",
+    "golden-candidate",
+    "hw1"
+  ],
+  "issue_type": "Task",
+  "priority": "Medium",
+  "status": "To Do",
+  "created": "2026-10-15T21:02:11.054+0200",
+  "source": "jira",
+  "project": "BUGS"
+}

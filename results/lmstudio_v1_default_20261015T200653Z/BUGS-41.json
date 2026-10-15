@@ -1,0 +1,19 @@
+{
+  "id": "BUGS-41",
+  "ok": false,
+  "error": "repair failed: JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
+  "latency_ms": 242034.124082,
+  "model": "llama-3.2-3b-instruct",
+  "prompt_version": "v1",
+  "sampling_profile": "default",
+  "sampling": {
+    "temperature": 0.0,
+    "top_p": 1.0
+  },
+  "usage": {
+    "input_tokens": 23430,
+    "output_tokens": 19020,
+    "total_tokens": 42450
+  },
+  "extraction": null
+}

@@ -1,0 +1,72 @@
+{
+  "id": "BUGS-45",
+  "ok": true,
+  "error": null,
+  "latency_ms": 11025.458873999994,
+  "model": "llama-3.2-3b-instruct",
+  "prompt_version": "v1",
+  "sampling_profile": "default",
+  "sampling": {
+    "temperature": 0.0,
+    "top_p": 1.0
+  },
+  "usage": {
+    "input_tokens": 1846,
+    "output_tokens": 904,
+    "total_tokens": 2750
+  },
+  "raw_text": "Here's a corrected JSON object that matches the provided schema:\n\n```json\n{\n  \"ticket_type\": \"change_request\",\n  \"summary\": \"Users compare wrong Fiori period vs report PROD\",\n  \"priority\": \"critical\",\n  \"issue_category\": \"spec_mismatch\",\n  \"report\": {\n    \"name\": \"FX_Revenue.pbix PROD\",\n    \"deploy_stage\": \"prod\",\n    \"dataset_name\": null\n  },\n  \"sap_fiori\": {\n    \"app_name\": \"SAP Fiori\",\n    \"transaction_or_cds\": \"posting period\"\n  },\n  \"specification\": {\n    \"spec_id\": \"SPEC-FIN-041\",\n    \"version\": null,\n    \"title\": null\n  },\n  \"ownership\": {\n    \"report_developer\": \"unknown\",\n    \"financial_analyst\": \"Maria\",\n    \"data_pull_owner\": \"Dmytro\",\n    \"primary_assignee_role\": \"unknown\"\n  },\n  \"reconciliation\": {\n    \"compare_sap_vs_databricks\": true,\n    \"compare_databricks_vs_power_bi\": false,\n    \"compare_report_vs_spec\": true,\n    \"mismatch_suspected_at\": \"sap_fiori\",\n    \"notes\": \"Data Pull Dmytro, FA Maria, Dev Anna.\"\n  },\n  \"deployment\": {\n    \"status\": \"in_development\",\n    \"requires_dev_deploy_first\": false,\n    \"awaiting_approval\": true,\n    \"approved_for_prod\": null,\n    \"approver_role\": null,\n    \"deployed_to_dev\": true,\n    \"deployed_to_prod\": false,\n    \"notes\": \"Fix/CR deploys to DEV first, then approval, then PROD.\"\n  },\n  \"repro_steps\": [\n    \"Compare SAP Fiori period vs report PROD\",\n    \"Verify Data Pull Dmytro, FA Maria, Dev Anna.\"\n  ],\n  \"labels\": [\n    \"data_mismatch\",\n    \"specification mismatch\"\n  ],\n  \"is_blocker\": false,\n  \"confidence_notes\": null\n}\n```\n\nNote that I corrected the `ticket_type` to `change_request`, as it was initially set to `bug`. Also, I updated the ownership roles and deployment status according to the provided schema.",
+  "extraction": {
+    "ticket_type": "change_request",
+    "summary": "Users compare wrong Fiori period vs report PROD",
+    "priority": "critical",
+    "issue_category": "spec_mismatch",
+    "report": {
+      "name": "FX_Revenue.pbix PROD",
+      "deploy_stage": "prod",
+      "dataset_name": null
+    },
+    "sap_fiori": {
+      "app_name": "SAP Fiori",
+      "transaction_or_cds": "posting period"
+    },
+    "specification": {
+      "spec_id": "SPEC-FIN-041",
+      "version": null,
+      "title": null
+    },
+    "ownership": {
+      "report_developer": "unknown",
+      "financial_analyst": "Maria",
+      "data_pull_owner": "Dmytro",
+      "primary_assignee_role": "unknown"
+    },
+    "reconciliation": {
+      "compare_sap_vs_databricks": true,
+      "compare_databricks_vs_power_bi": false,
+      "compare_report_vs_spec": true,
+      "mismatch_suspected_at": "sap_fiori",
+      "notes": "Data Pull Dmytro, FA Maria, Dev Anna."
+    },
+    "deployment": {
+      "status": "in_development",
+      "requires_dev_deploy_first": false,
+      "awaiting_approval": true,
+      "approved_for_prod": null,
+      "approver_role": null,
+      "deployed_to_dev": true,
+      "deployed_to_prod": false,
+      "notes": "Fix/CR deploys to DEV first, then approval, then PROD."
+    },
+    "repro_steps": [
+      "Compare SAP Fiori period vs report PROD",
+      "Verify Data Pull Dmytro, FA Maria, Dev Anna."
+    ],
+    "labels": [
+      "data_mismatch",
+      "specification mismatch"
+    ],
+    "is_blocker": false,
+    "confidence_notes": null
+  }
+}

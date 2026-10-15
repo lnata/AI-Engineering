@@ -1,0 +1,32 @@
+# Local model #2 — LM Studio (try after Ollama)
+# Prerequisites:
+#   1) Install https://lmstudio.ai
+#   2) Download a small instruct model
+#   3) Developer -> Start Server (default http://localhost:1234)
+#   4) Put the loaded model id into provider.model below
+# Run:
+#   python main.py --config config.lmstudio.yaml --ids BUGS-41 BUGS-42
+
+provider:
+  name: lmstudio
+  # Must match the model id shown as loaded in LM Studio (Llama 3.2 3B Instruct)
+  model: llama-3.2-3b-instruct
+  # Server URL port from LM Studio (yours is 1235, not default 1234)
+  base_url: http://localhost:1235/v1
+  timeout_sec: 180
+  max_retries: 2
+  retry_backoff_sec: 3
+
+sampling:
+  default:
+    temperature: 0.0
+    top_p: 1.0
+  creative:
+    temperature: 0.4
+    top_p: 0.9
+
+run:
+  prompt_version: v1
+  sampling_profile: default
+  input_index: data/raw_index.json
+  output_dir: results

@@ -1,0 +1,19 @@
+{
+  "id": "BUGS-41",
+  "summary": "PROD Sales Overview: SAP Fiori != Databricks",
+  "description": "баг по отчёту Sales Overview на PROD.\n\nв SAP Fiori app 'Manage Sales Orders' (CDS C_SALESORDER_Q1) за март revenue = 1.31M.\nв Databricks mart.fact_orders за тот же период 1.24M.\nPower BI Sales_Overview_v3.pbix показывает 1.24M (как DBX).\n\nспека SPEC-FIN-014 v1.3 — financial analyst Maria B.\nreport developer Anna K.\nData Pull: Dmytro S.\n\nнадо сверить SAP vs Databricks vs PBI vs спеку. похоже проблема на этапе Data Pull (SAP→Databricks).",
+  "text": "PROD Sales Overview: SAP Fiori != Databricks\n\nбаг по отчёту Sales Overview на PROD.\n\nв SAP Fiori app 'Manage Sales Orders' (CDS C_SALESORDER_Q1) за март revenue = 1.31M.\nв Databricks mart.fact_orders за тот же период 1.24M.\nPower BI Sales_Overview_v3.pbix показывает 1.24M (как DBX).\n\nспека SPEC-FIN-014 v1.3 — financial analyst Maria B.\nreport developer Anna K.\nData Pull: Dmytro S.\n\nнадо сверить SAP vs Databricks vs PBI vs спеку. похоже проблема на этапе Data Pull (SAP→Databricks).",
+  "labels": [
+    "dirty-text",
+    "extraction",
+    "golden-candidate",
+    "hw1",
+    "pipeline-sap"
+  ],
+  "issue_type": "Bug",
+  "priority": "Medium",
+  "status": "To Do",
+  "created": "2026-10-15T21:02:04.337+0200",
+  "source": "jira",
+  "project": "BUGS"
+}

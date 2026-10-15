@@ -1,0 +1,983 @@
+{
+  "created_at": "20261015T203217Z",
+  "provider": {
+    "name": "gemini",
+    "model": "gemini-3.5-flash-lite",
+    "base_url": null,
+    "timeout_sec": 180.0,
+    "max_retries": 2,
+    "retry_backoff_sec": 3.0
+  },
+  "prompt_version": "v2",
+  "sampling_profile": "default",
+  "count": 13,
+  "ok_count": 13,
+  "results": [
+    {
+      "id": "BUGS-17",
+      "ok": true,
+      "error": null,
+      "latency_ms": 1745.9758329999997,
+      "model": "gemini-3.5-flash-lite",
+      "prompt_version": "v2",
+      "sampling_profile": "default",
+      "sampling": {
+        "temperature": 0.0,
+        "top_p": 1.0
+      },
+      "usage": {
+        "input_tokens": 807,
+        "output_tokens": 465,
+        "total_tokens": 1272
+      },
+      "raw_text": "{\n  \"ticket_type\": \"bug\",\n  \"summary\": \"Cannot unassign assignee in the UI\",\n  \"priority\": \"low\",\n  \"issue_category\": \"other\",\n  \"report\": {\n    \"name\": null,\n    \"deploy_stage\": \"unknown\",\n    \"dataset_name\": null\n  },\n  \"sap_fiori\": {\n    \"app_name\": null,\n    \"transaction_or_cds\": null\n  },\n  \"specification\": {\n    \"spec_id\": null,\n    \"version\": null,\n    \"title\": null\n  },\n  \"ownership\": {\n    \"report_developer\": null,\n    \"financial_analyst\": null,\n    \"data_pull_owner\": null,\n    \"primary_assignee_role\": \"unknown\"\n  },\n  \"reconciliation\": {\n    \"compare_sap_vs_databricks\": false,\n    \"compare_databricks_vs_power_bi\": false,\n    \"compare_report_vs_spec\": false,\n    \"mismatch_suspected_at\": \"unknown\",\n    \"notes\": null\n  },\n  \"deployment\": {\n    \"status\": \"not_started\",\n    \"requires_dev_deploy_first\": true,\n    \"awaiting_approval\": false,\n    \"approved_for_prod\": null,\n    \"approver_role\": null,\n    \"deployed_to_dev\": null,\n    \"deployed_to_prod\": null,\n    \"notes\": null\n  },\n  \"repro_steps\": [\n    \"Open UI\",\n    \"Attempt to unassign assignee\",\n    \"Observe that UI does not allow removing assignee while API does\"\n  ],\n  \"labels\": [\n    \"ui-bug\",\n    \"assignee\",\n    \"triage\"\n  ],\n  \"is_blocker\": false,\n  \"confidence_notes\": \"This ticket is about a UI bug for managing assignees rather than an analytics reporting issue.\"\n}",
+      "extraction": {
+        "ticket_type": "bug",
+        "summary": "Cannot unassign assignee in the UI",
+        "priority": "low",
+        "issue_category": "other",
+        "report": {
+          "name": null,
+          "deploy_stage": "unknown",
+          "dataset_name": null
+        },
+        "sap_fiori": {
+          "app_name": null,
+          "transaction_or_cds": null
+        },
+        "specification": {
+          "spec_id": null,
+          "version": null,
+          "title": null
+        },
+        "ownership": {
+          "report_developer": null,
+          "financial_analyst": null,
+          "data_pull_owner": null,
+          "primary_assignee_role": "unknown"
+        },
+        "reconciliation": {
+          "compare_sap_vs_databricks": false,
+          "compare_databricks_vs_power_bi": false,
+          "compare_report_vs_spec": false,
+          "mismatch_suspected_at": "unknown",
+          "notes": null
+        },
+        "deployment": {
+          "status": "not_started",
+          "requires_dev_deploy_first": true,
+          "awaiting_approval": false,
+          "approved_for_prod": null,
+          "approver_role": null,
+          "deployed_to_dev": null,
+          "deployed_to_prod": null,
+          "notes": null
+        },
+        "repro_steps": [
+          "Open UI",
+          "Attempt to unassign assignee",
+          "Observe that UI does not allow removing assignee while API does"
+        ],
+        "labels": [
+          "ui-bug",
+          "assignee",
+          "triage"
+        ],
+        "is_blocker": false,
+        "confidence_notes": "This ticket is about a UI bug for managing assignees rather than an analytics reporting issue."
+      }
+    },
+    {
+      "id": "BUGS-18",
+      "ok": true,
+      "error": null,
+      "latency_ms": 2287.174625,
+      "model": "gemini-3.5-flash-lite",
+      "prompt_version": "v2",
+      "sampling_profile": "default",
+      "sampling": {
+        "temperature": 0.0,
+        "top_p": 1.0
+      },
+      "usage": {
+        "input_tokens": 830,
+        "output_tokens": 493,
+        "total_tokens": 1323
+      },
+      "raw_text": "{\n  \"ticket_type\": \"bug\",\n  \"summary\": \"Timezone offset issue causing calendar events to show 3 hours earlier for Kyiv\",\n  \"priority\": \"medium\",\n  \"issue_category\": \"transform_logic\",\n  \"report\": {\n    \"name\": null,\n    \"deploy_stage\": \"unknown\",\n    \"dataset_name\": null\n  },\n  \"sap_fiori\": {\n    \"app_name\": null,\n    \"transaction_or_cds\": null\n  },\n  \"specification\": {\n    \"spec_id\": null,\n    \"version\": null,\n    \"title\": null\n  },\n  \"ownership\": {\n    \"report_developer\": null,\n    \"financial_analyst\": null,\n    \"data_pull_owner\": null,\n    \"primary_assignee_role\": \"data_pull\"\n  },\n  \"reconciliation\": {\n    \"compare_sap_vs_databricks\": true,\n    \"compare_databricks_vs_power_bi\": false,\n    \"compare_report_vs_spec\": false,\n    \"mismatch_suspected_at\": \"databricks\",\n    \"notes\": \"Verify UTC storage versus display logic and DST handling for Kyiv timezone.\"\n  },\n  \"deployment\": {\n    \"status\": \"not_started\",\n    \"requires_dev_deploy_first\": true,\n    \"awaiting_approval\": false,\n    \"approved_for_prod\": null,\n    \"approver_role\": null,\n    \"deployed_to_dev\": null,\n    \"deployed_to_prod\": null,\n    \"notes\": null\n  },\n  \"repro_steps\": [\n    \"Create event at 15:00\",\n    \"Observe event displays as 12:00\"\n  ],\n  \"labels\": [\n    \"timezone\",\n    \"dst\",\n    \"databricks\",\n    \"kyiv\"\n  ],\n  \"is_blocker\": false,\n  \"confidence_notes\": \"Report name and specific Fiori/PBI components are not explicitly mentioned in the text.\"\n}",
+      "extraction": {
+        "ticket_type": "bug",
+        "summary": "Timezone offset issue causing calendar events to show 3 hours earlier for Kyiv",
+        "priority": "medium",
+        "issue_category": "transform_logic",
+        "report": {
+          "name": null,
+          "deploy_stage": "unknown",
+          "dataset_name": null
+        },
+        "sap_fiori": {
+          "app_name": null,
+          "transaction_or_cds": null
+        },
+        "specification": {
+          "spec_id": null,
+          "version": null,
+          "title": null
+        },
+        "ownership": {
+          "report_developer": null,
+          "financial_analyst": null,
+          "data_pull_owner": null,
+          "primary_assignee_role": "data_pull"
+        },
+        "reconciliation": {
+          "compare_sap_vs_databricks": true,
+          "compare_databricks_vs_power_bi": false,
+          "compare_report_vs_spec": false,
+          "mismatch_suspected_at": "databricks",
+          "notes": "Verify UTC storage versus display logic and DST handling for Kyiv timezone."
+        },
+        "deployment": {
+          "status": "not_started",
+          "requires_dev_deploy_first": true,
+          "awaiting_approval": false,
+          "approved_for_prod": null,
+          "approver_role": null,
+          "deployed_to_dev": null,
+          "deployed_to_prod": null,
+          "notes": null
+        },
+        "repro_steps": [
+          "Create event at 15:00",
+          "Observe event displays as 12:00"
+        ],
+        "labels": [
+          "timezone",
+          "dst",
+          "databricks",
+          "kyiv"
+        ],
+        "is_blocker": false,
+        "confidence_notes": "Report name and specific Fiori/PBI components are not explicitly mentioned in the text."
+      }
+    },
+    {
+      "id": "BUGS-19",
+      "ok": true,
+      "error": null,
+      "latency_ms": 1639.701917,
+      "model": "gemini-3.5-flash-lite",
+      "prompt_version": "v2",
+      "sampling_profile": "default",
+      "sampling": {
+        "temperature": 0.0,
+        "top_p": 1.0
+      },
+      "usage": {
+        "input_tokens": 812,
+        "output_tokens": 473,
+        "total_tokens": 1285
+      },
+      "raw_text": "{\n  \"ticket_type\": \"bug\",\n  \"summary\": \"OAuth token refresh race condition causes random user logouts\",\n  \"priority\": \"medium\",\n  \"issue_category\": \"other\",\n  \"report\": {\n    \"name\": null,\n    \"deploy_stage\": \"unknown\",\n    \"dataset_name\": null\n  },\n  \"sap_fiori\": {\n    \"app_name\": null,\n    \"transaction_or_cds\": null\n  },\n  \"specification\": {\n    \"spec_id\": null,\n    \"version\": null,\n    \"title\": null\n  },\n  \"ownership\": {\n    \"report_developer\": null,\n    \"financial_analyst\": null,\n    \"data_pull_owner\": null,\n    \"primary_assignee_role\": \"unknown\"\n  },\n  \"reconciliation\": {\n    \"compare_sap_vs_databricks\": false,\n    \"compare_databricks_vs_power_bi\": false,\n    \"compare_report_vs_spec\": false,\n    \"mismatch_suspected_at\": \"unknown\",\n    \"notes\": null\n  },\n  \"deployment\": {\n    \"status\": \"not_started\",\n    \"requires_dev_deploy_first\": true,\n    \"awaiting_approval\": false,\n    \"approved_for_prod\": null,\n    \"approver_role\": null,\n    \"deployed_to_dev\": null,\n    \"deployed_to_prod\": null,\n    \"notes\": null\n  },\n  \"repro_steps\": [\n    \"trigger two token refresh requests in parallel\",\n    \"observe session invalidation under slow network conditions\"\n  ],\n  \"labels\": [\n    \"auth-service\",\n    \"oauth\",\n    \"token-refresh\",\n    \"race-condition\"\n  ],\n  \"is_blocker\": false,\n  \"confidence_notes\": \"Ticket is about auth-service OAuth token refresh issue rather than SAP-Databricks-PowerBI pipeline.\"\n}",
+      "extraction": {
+        "ticket_type": "bug",
+        "summary": "OAuth token refresh race condition causes random user logouts",
+        "priority": "medium",
+        "issue_category": "other",
+        "report": {
+          "name": null,
+          "deploy_stage": "unknown",
+          "dataset_name": null
+        },
+        "sap_fiori": {
+          "app_name": null,
+          "transaction_or_cds": null
+        },
+        "specification": {
+          "spec_id": null,
+          "version": null,
+          "title": null
+        },
+        "ownership": {
+          "report_developer": null,
+          "financial_analyst": null,
+          "data_pull_owner": null,
+          "primary_assignee_role": "unknown"
+        },
+        "reconciliation": {
+          "compare_sap_vs_databricks": false,
+          "compare_databricks_vs_power_bi": false,
+          "compare_report_vs_spec": false,
+          "mismatch_suspected_at": "unknown",
+          "notes": null
+        },
+        "deployment": {
+          "status": "not_started",
+          "requires_dev_deploy_first": true,
+          "awaiting_approval": false,
+          "approved_for_prod": null,
+          "approver_role": null,
+          "deployed_to_dev": null,
+          "deployed_to_prod": null,
+          "notes": null
+        },
+        "repro_steps": [
+          "trigger two token refresh requests in parallel",
+          "observe session invalidation under slow network conditions"
+        ],
+        "labels": [
+          "auth-service",
+          "oauth",
+          "token-refresh",
+          "race-condition"
+        ],
+        "is_blocker": false,
+        "confidence_notes": "Ticket is about auth-service OAuth token refresh issue rather than SAP-Databricks-PowerBI pipeline."
+      }
+    },
+    {
+      "id": "BUGS-20",
+      "ok": true,
+      "error": null,
+      "latency_ms": 1930.7476250000004,
+      "model": "gemini-3.5-flash-lite",
+      "prompt_version": "v2",
+      "sampling_profile": "default",
+      "sampling": {
+        "temperature": 0.0,
+        "top_p": 1.0
+      },
+      "usage": {
+        "input_tokens": 807,
+        "output_tokens": 470,
+        "total_tokens": 1277
+      },
+      "raw_text": "{\n  \"ticket_type\": \"bug\",\n  \"summary\": \"PDF export shows empty white boxes for charts\",\n  \"priority\": \"medium\",\n  \"issue_category\": \"other\",\n  \"report\": {\n    \"name\": \"General\",\n    \"deploy_stage\": \"unknown\",\n    \"dataset_name\": null\n  },\n  \"sap_fiori\": {\n    \"app_name\": null,\n    \"transaction_or_cds\": null\n  },\n  \"specification\": {\n    \"spec_id\": null,\n    \"version\": null,\n    \"title\": null\n  },\n  \"ownership\": {\n    \"report_developer\": null,\n    \"financial_analyst\": null,\n    \"data_pull_owner\": null,\n    \"primary_assignee_role\": \"report_developer\"\n  },\n  \"reconciliation\": {\n    \"compare_sap_vs_databricks\": false,\n    \"compare_databricks_vs_power_bi\": false,\n    \"compare_report_vs_spec\": false,\n    \"mismatch_suspected_at\": \"power_bi_report\",\n    \"notes\": \"PDF export rendering issue related to puppeteer or fonts after chrome headless upgrade.\"\n  },\n  \"deployment\": {\n    \"status\": \"not_started\",\n    \"requires_dev_deploy_first\": true,\n    \"awaiting_approval\": false,\n    \"approved_for_prod\": null,\n    \"approver_role\": null,\n    \"deployed_to_dev\": null,\n    \"deployed_to_prod\": null,\n    \"notes\": null\n  },\n  \"repro_steps\": [\n    \"Export report to PDF\",\n    \"Observe empty white boxes instead of charts\"\n  ],\n  \"labels\": [\n    \"pdf-export\",\n    \"rendering-bug\",\n    \"puppeteer\"\n  ],\n  \"is_blocker\": false,\n  \"confidence_notes\": \"Report name was not explicitly stated in the ticket.\"\n}",
+      "extraction": {
+        "ticket_type": "bug",
+        "summary": "PDF export shows empty white boxes for charts",
+        "priority": "medium",
+        "issue_category": "other",
+        "report": {
+          "name": "General",
+          "deploy_stage": "unknown",
+          "dataset_name": null
+        },
+        "sap_fiori": {
+          "app_name": null,
+          "transaction_or_cds": null
+        },
+        "specification": {
+          "spec_id": null,
+          "version": null,
+          "title": null
+        },
+        "ownership": {
+          "report_developer": null,
+          "financial_analyst": null,
+          "data_pull_owner": null,
+          "primary_assignee_role": "report_developer"
+        },
+        "reconciliation": {
+          "compare_sap_vs_databricks": false,
+          "compare_databricks_vs_power_bi": false,
+          "compare_report_vs_spec": false,
+          "mismatch_suspected_at": "power_bi_report",
+          "notes": "PDF export rendering issue related to puppeteer or fonts after chrome headless upgrade."
+        },
+        "deployment": {
+          "status": "not_started",
+          "requires_dev_deploy_first": true,
+          "awaiting_approval": false,
+          "approved_for_prod": null,
+          "approver_role": null,
+          "deployed_to_dev": null,
+          "deployed_to_prod": null,
+          "notes": null
+        },
+        "repro_steps": [
+          "Export report to PDF",
+          "Observe empty white boxes instead of charts"
+        ],
+        "labels": [
+          "pdf-export",
+          "rendering-bug",
+          "puppeteer"
+        ],
+        "is_blocker": false,
+        "confidence_notes": "Report name was not explicitly stated in the ticket."
+      }
+    },
+    {
+      "id": "BUGS-21",
+      "ok": true,
+      "error": null,
+      "latency_ms": 1712.8380830000012,
+      "model": "gemini-3.5-flash-lite",
+      "prompt_version": "v2",
+      "sampling_profile": "default",
+      "sampling": {
+        "temperature": 0.0,
+        "top_p": 1.0
+      },
+      "usage": {
+        "input_tokens": 806,
+        "output_tokens": 461,
+        "total_tokens": 1267
+      },
+      "raw_text": "{\n  \"ticket_type\": \"bug\",\n  \"summary\": \"Report viewers can edit description on shared board\",\n  \"priority\": \"critical\",\n  \"issue_category\": \"filter_rls\",\n  \"report\": {\n    \"name\": null,\n    \"deploy_stage\": \"unknown\",\n    \"dataset_name\": null\n  },\n  \"sap_fiori\": {\n    \"app_name\": null,\n    \"transaction_or_cds\": null\n  },\n  \"specification\": {\n    \"spec_id\": null,\n    \"version\": null,\n    \"title\": null\n  },\n  \"ownership\": {\n    \"report_developer\": null,\n    \"financial_analyst\": null,\n    \"data_pull_owner\": null,\n    \"primary_assignee_role\": \"report_developer\"\n  },\n  \"reconciliation\": {\n    \"compare_sap_vs_databricks\": false,\n    \"compare_databricks_vs_power_bi\": false,\n    \"compare_report_vs_spec\": false,\n    \"mismatch_suspected_at\": \"unknown\",\n    \"notes\": \"Security/ACL issue regarding report viewer permissions.\"\n  },\n  \"deployment\": {\n    \"status\": \"not_started\",\n    \"requires_dev_deploy_first\": true,\n    \"awaiting_approval\": false,\n    \"approved_for_prod\": null,\n    \"approver_role\": \"financial_analyst\",\n    \"deployed_to_dev\": false,\n    \"deployed_to_prod\": false,\n    \"notes\": null\n  },\n  \"repro_steps\": [\n    \"Open shared board as viewer\",\n    \"Attempt to edit description\"\n  ],\n  \"labels\": [\n    \"security\",\n    \"acl\",\n    \"permissions\"\n  ],\n  \"is_blocker\": true,\n  \"confidence_notes\": \"Report name and specific dataset are not mentioned in the ticket.\"\n}",
+      "extraction": {
+        "ticket_type": "bug",
+        "summary": "Report viewers can edit description on shared board",
+        "priority": "critical",
+        "issue_category": "filter_rls",
+        "report": {
+          "name": null,
+          "deploy_stage": "unknown",
+          "dataset_name": null
+        },
+        "sap_fiori": {
+          "app_name": null,
+          "transaction_or_cds": null
+        },
+        "specification": {
+          "spec_id": null,
+          "version": null,
+          "title": null
+        },
+        "ownership": {
+          "report_developer": null,
+          "financial_analyst": null,
+          "data_pull_owner": null,
+          "primary_assignee_role": "report_developer"
+        },
+        "reconciliation": {
+          "compare_sap_vs_databricks": false,
+          "compare_databricks_vs_power_bi": false,
+          "compare_report_vs_spec": false,
+          "mismatch_suspected_at": "unknown",
+          "notes": "Security/ACL issue regarding report viewer permissions."
+        },
+        "deployment": {
+          "status": "not_started",
+          "requires_dev_deploy_first": true,
+          "awaiting_approval": false,
+          "approved_for_prod": null,
+          "approver_role": "financial_analyst",
+          "deployed_to_dev": false,
+          "deployed_to_prod": false,
+          "notes": null
+        },
+        "repro_steps": [
+          "Open shared board as viewer",
+          "Attempt to edit description"
+        ],
+        "labels": [
+          "security",
+          "acl",
+          "permissions"
+        ],
+        "is_blocker": true,
+        "confidence_notes": "Report name and specific dataset are not mentioned in the ticket."
+      }
+    },
+    {
+      "id": "BUGS-22",
+      "ok": true,
+      "error": null,
+      "latency_ms": 1607.5736250000004,
+      "model": "gemini-3.5-flash-lite",
+      "prompt_version": "v2",
+      "sampling_profile": "default",
+      "sampling": {
+        "temperature": 0.0,
+        "top_p": 1.0
+      },
+      "usage": {
+        "input_tokens": 826,
+        "output_tokens": 442,
+        "total_tokens": 1268
+      },
+      "raw_text": "{\n  \"ticket_type\": \"bug\",\n  \"summary\": \"Search autocomplete crashes on iOS due to index out of range error\",\n  \"priority\": \"high\",\n  \"issue_category\": \"other\",\n  \"report\": {\n    \"name\": null,\n    \"deploy_stage\": \"unknown\",\n    \"dataset_name\": null\n  },\n  \"sap_fiori\": {\n    \"app_name\": null,\n    \"transaction_or_cds\": null\n  },\n  \"specification\": {\n    \"spec_id\": null,\n    \"version\": null,\n    \"title\": null\n  },\n  \"ownership\": {\n    \"report_developer\": null,\n    \"financial_analyst\": null,\n    \"data_pull_owner\": null,\n    \"primary_assignee_role\": \"unknown\"\n  },\n  \"reconciliation\": {\n    \"compare_sap_vs_databricks\": false,\n    \"compare_databricks_vs_power_bi\": false,\n    \"compare_report_vs_spec\": false,\n    \"mismatch_suspected_at\": \"unknown\",\n    \"notes\": null\n  },\n  \"deployment\": {\n    \"status\": \"not_started\",\n    \"requires_dev_deploy_first\": true,\n    \"awaiting_approval\": false,\n    \"approved_for_prod\": null,\n    \"approver_role\": null,\n    \"deployed_to_dev\": null,\n    \"deployed_to_prod\": false,\n    \"notes\": null\n  },\n  \"repro_steps\": [\n    \"Type 1 character in search\"\n  ],\n  \"labels\": [\n    \"ios\",\n    \"crash\",\n    \"search\"\n  ],\n  \"is_blocker\": false,\n  \"confidence_notes\": \"Ticket is about a mobile app crash, not an analytics reporting pipeline.\"\n}",
+      "extraction": {
+        "ticket_type": "bug",
+        "summary": "Search autocomplete crashes on iOS due to index out of range error",
+        "priority": "high",
+        "issue_category": "other",
+        "report": {
+          "name": null,
+          "deploy_stage": "unknown",
+          "dataset_name": null
+        },
+        "sap_fiori": {
+          "app_name": null,
+          "transaction_or_cds": null
+        },
+        "specification": {
+          "spec_id": null,
+          "version": null,
+          "title": null
+        },
+        "ownership": {
+          "report_developer": null,
+          "financial_analyst": null,
+          "data_pull_owner": null,
+          "primary_assignee_role": "unknown"
+        },
+        "reconciliation": {
+          "compare_sap_vs_databricks": false,
+          "compare_databricks_vs_power_bi": false,
+          "compare_report_vs_spec": false,
+          "mismatch_suspected_at": "unknown",
+          "notes": null
+        },
+        "deployment": {
+          "status": "not_started",
+          "requires_dev_deploy_first": true,
+          "awaiting_approval": false,
+          "approved_for_prod": null,
+          "approver_role": null,
+          "deployed_to_dev": null,
+          "deployed_to_prod": false,
+          "notes": null
+        },
+        "repro_steps": [
+          "Type 1 character in search"
+        ],
+        "labels": [
+          "ios",
+          "crash",
+          "search"
+        ],
+        "is_blocker": false,
+        "confidence_notes": "Ticket is about a mobile app crash, not an analytics reporting pipeline."
+      }
+    },
+    {
+      "id": "BUGS-39",
+      "ok": true,
+      "error": null,
+      "latency_ms": 1712.6730829999985,
+      "model": "gemini-3.5-flash-lite",
+      "prompt_version": "v2",
+      "sampling_profile": "default",
+      "sampling": {
+        "temperature": 0.0,
+        "top_p": 1.0
+      },
+      "usage": {
+        "input_tokens": 831,
+        "output_tokens": 520,
+        "total_tokens": 1351
+      },
+      "raw_text": "{\n  \"ticket_type\": \"bug\",\n  \"summary\": \"Incremental refresh skipped partition 2026-09 on DEV report\",\n  \"priority\": \"high\",\n  \"issue_category\": \"refresh_failure\",\n  \"report\": {\n    \"name\": \"Orders Incremental\",\n    \"deploy_stage\": \"dev\",\n    \"dataset_name\": \"Orders_Incremental_Dev.pbix\"\n  },\n  \"sap_fiori\": {\n    \"app_name\": null,\n    \"transaction_or_cds\": null\n  },\n  \"specification\": {\n    \"spec_id\": null,\n    \"version\": null,\n    \"title\": null\n  },\n  \"ownership\": {\n    \"report_developer\": null,\n    \"financial_analyst\": null,\n    \"data_pull_owner\": null,\n    \"primary_assignee_role\": \"report_developer\"\n  },\n  \"reconciliation\": {\n    \"compare_sap_vs_databricks\": false,\n    \"compare_databricks_vs_power_bi\": true,\n    \"compare_report_vs_spec\": false,\n    \"mismatch_suspected_at\": \"power_bi_report\",\n    \"notes\": \"Compare counts by day database vs power bi DEV\"\n  },\n  \"deployment\": {\n    \"status\": \"not_started\",\n    \"requires_dev_deploy_first\": true,\n    \"awaiting_approval\": false,\n    \"approved_for_prod\": null,\n    \"approver_role\": \"financial_analyst\",\n    \"deployed_to_dev\": false,\n    \"deployed_to_prod\": false,\n    \"notes\": \"Issue reported on DEV, fix not started yet\"\n  },\n  \"repro_steps\": [\n    \"Check rows in Databricks for partition 2026-09\",\n    \"Check dataset in Power BI DEV\",\n    \"Compare counts by day between database and power bi DEV\"\n  ],\n  \"labels\": [\n    \"incremental-refresh\",\n    \"dev\",\n    \"missing-partition\",\n    \"refresh-failure\"\n  ],\n  \"is_blocker\": false,\n  \"confidence_notes\": null\n}",
+      "extraction": {
+        "ticket_type": "bug",
+        "summary": "Incremental refresh skipped partition 2026-09 on DEV report",
+        "priority": "high",
+        "issue_category": "refresh_failure",
+        "report": {
+          "name": "Orders Incremental",
+          "deploy_stage": "dev",
+          "dataset_name": "Orders_Incremental_Dev.pbix"
+        },
+        "sap_fiori": {
+          "app_name": null,
+          "transaction_or_cds": null
+        },
+        "specification": {
+          "spec_id": null,
+          "version": null,
+          "title": null
+        },
+        "ownership": {
+          "report_developer": null,
+          "financial_analyst": null,
+          "data_pull_owner": null,
+          "primary_assignee_role": "report_developer"
+        },
+        "reconciliation": {
+          "compare_sap_vs_databricks": false,
+          "compare_databricks_vs_power_bi": true,
+          "compare_report_vs_spec": false,
+          "mismatch_suspected_at": "power_bi_report",
+          "notes": "Compare counts by day database vs power bi DEV"
+        },
+        "deployment": {
+          "status": "not_started",
+          "requires_dev_deploy_first": true,
+          "awaiting_approval": false,
+          "approved_for_prod": null,
+          "approver_role": "financial_analyst",
+          "deployed_to_dev": false,
+          "deployed_to_prod": false,
+          "notes": "Issue reported on DEV, fix not started yet"
+        },
+        "repro_steps": [
+          "Check rows in Databricks for partition 2026-09",
+          "Check dataset in Power BI DEV",
+          "Compare counts by day between database and power bi DEV"
+        ],
+        "labels": [
+          "incremental-refresh",
+          "dev",
+          "missing-partition",
+          "refresh-failure"
+        ],
+        "is_blocker": false,
+        "confidence_notes": null
+      }
+    },
+    {
+      "id": "BUGS-40",
+      "ok": true,
+      "error": null,
+      "latency_ms": 1743.3522079999993,
+      "model": "gemini-3.5-flash-lite",
+      "prompt_version": "v2",
+      "sampling_profile": "default",
+      "sampling": {
+        "temperature": 0.0,
+        "top_p": 1.0
+      },
+      "usage": {
+        "input_tokens": 845,
+        "output_tokens": 522,
+        "total_tokens": 1367
+      },
+      "raw_text": "{\n  \"ticket_type\": \"bug\",\n  \"summary\": \"Excel export data mismatch between Power BI prod and database for SKU ABC-12\",\n  \"priority\": \"high\",\n  \"issue_category\": \"data_mismatch\",\n  \"report\": {\n    \"name\": null,\n    \"deploy_stage\": \"prod\",\n    \"dataset_name\": null\n  },\n  \"sap_fiori\": {\n    \"app_name\": null,\n    \"transaction_or_cds\": null\n  },\n  \"specification\": {\n    \"spec_id\": null,\n    \"version\": null,\n    \"title\": null\n  },\n  \"ownership\": {\n    \"report_developer\": null,\n    \"financial_analyst\": null,\n    \"data_pull_owner\": null,\n    \"primary_assignee_role\": \"report_developer\"\n  },\n  \"reconciliation\": {\n    \"compare_sap_vs_databricks\": false,\n    \"compare_databricks_vs_power_bi\": true,\n    \"compare_report_vs_spec\": false,\n    \"mismatch_suspected_at\": \"power_bi_report\",\n    \"notes\": \"Check data accuracy between DB and Power BI on PROD for SKU ABC-12, possible visual filter issue.\"\n  },\n  \"deployment\": {\n    \"status\": \"not_started\",\n    \"requires_dev_deploy_first\": true,\n    \"awaiting_approval\": false,\n    \"approved_for_prod\": null,\n    \"approver_role\": \"financial_analyst\",\n    \"deployed_to_dev\": false,\n    \"deployed_to_prod\": false,\n    \"notes\": null\n  },\n  \"repro_steps\": [\n    \"Export data to Excel from PBI prod\",\n    \"Compare figures with underlying DB for SKU ABC-12\",\n    \"Check for visual filters causing the discrepancy\"\n  ],\n  \"labels\": [\n    \"data-mismatch\",\n    \"excel-export\",\n    \"prod\",\n    \"sku-abc-12\"\n  ],\n  \"is_blocker\": false,\n  \"confidence_notes\": \"Report product name is not mentioned in the ticket text.\"\n}",
+      "extraction": {
+        "ticket_type": "bug",
+        "summary": "Excel export data mismatch between Power BI prod and database for SKU ABC-12",
+        "priority": "high",
+        "issue_category": "data_mismatch",
+        "report": {
+          "name": null,
+          "deploy_stage": "prod",
+          "dataset_name": null
+        },
+        "sap_fiori": {
+          "app_name": null,
+          "transaction_or_cds": null
+        },
+        "specification": {
+          "spec_id": null,
+          "version": null,
+          "title": null
+        },
+        "ownership": {
+          "report_developer": null,
+          "financial_analyst": null,
+          "data_pull_owner": null,
+          "primary_assignee_role": "report_developer"
+        },
+        "reconciliation": {
+          "compare_sap_vs_databricks": false,
+          "compare_databricks_vs_power_bi": true,
+          "compare_report_vs_spec": false,
+          "mismatch_suspected_at": "power_bi_report",
+          "notes": "Check data accuracy between DB and Power BI on PROD for SKU ABC-12, possible visual filter issue."
+        },
+        "deployment": {
+          "status": "not_started",
+          "requires_dev_deploy_first": true,
+          "awaiting_approval": false,
+          "approved_for_prod": null,
+          "approver_role": "financial_analyst",
+          "deployed_to_dev": false,
+          "deployed_to_prod": false,
+          "notes": null
+        },
+        "repro_steps": [
+          "Export data to Excel from PBI prod",
+          "Compare figures with underlying DB for SKU ABC-12",
+          "Check for visual filters causing the discrepancy"
+        ],
+        "labels": [
+          "data-mismatch",
+          "excel-export",
+          "prod",
+          "sku-abc-12"
+        ],
+        "is_blocker": false,
+        "confidence_notes": "Report product name is not mentioned in the ticket text."
+      }
+    },
+    {
+      "id": "BUGS-41",
+      "ok": true,
+      "error": null,
+      "latency_ms": 1874.5393749999994,
+      "model": "gemini-3.5-flash-lite",
+      "prompt_version": "v2",
+      "sampling_profile": "default",
+      "sampling": {
+        "temperature": 0.0,
+        "top_p": 1.0
+      },
+      "usage": {
+        "input_tokens": 946,
+        "output_tokens": 584,
+        "total_tokens": 1530
+      },
+      "raw_text": "{\n  \"ticket_type\": \"bug\",\n  \"summary\": \"PROD Sales Overview: SAP Fiori revenue does not match Databricks\",\n  \"priority\": \"critical\",\n  \"issue_category\": \"data_mismatch\",\n  \"report\": {\n    \"name\": \"Sales Overview\",\n    \"deploy_stage\": \"prod\",\n    \"dataset_name\": null\n  },\n  \"sap_fiori\": {\n    \"app_name\": \"Manage Sales Orders\",\n    \"transaction_or_cds\": \"C_SALESORDER_Q1\"\n  },\n  \"specification\": {\n    \"spec_id\": \"SPEC-FIN-014\",\n    \"version\": \"1.3\",\n    \"title\": null\n  },\n  \"ownership\": {\n    \"report_developer\": \"Anna K.\",\n    \"financial_analyst\": \"Maria B.\",\n    \"data_pull_owner\": \"Dmytro S.\",\n    \"primary_assignee_role\": \"data_pull\"\n  },\n  \"reconciliation\": {\n    \"compare_sap_vs_databricks\": true,\n    \"compare_databricks_vs_power_bi\": true,\n    \"compare_report_vs_spec\": true,\n    \"mismatch_suspected_at\": \"databricks\",\n    \"notes\": \"SAP Fiori shows 1.31M revenue for March, while Databricks mart.fact_orders and Power BI show 1.24M.\"\n  },\n  \"deployment\": {\n    \"status\": \"not_started\",\n    \"requires_dev_deploy_first\": true,\n    \"awaiting_approval\": false,\n    \"approved_for_prod\": null,\n    \"approver_role\": \"financial_analyst\",\n    \"deployed_to_dev\": null,\n    \"deployed_to_prod\": true,\n    \"notes\": \"Issue reported on PROD Sales Overview report.\"\n  },\n  \"repro_steps\": [\n    \"Check SAP Fiori app 'Manage Sales Orders' (CDS C_SALESORDER_Q1) for March revenue\",\n    \"Check Databricks mart.fact_orders for March revenue\",\n    \"Check Power BI Sales Overview report for March revenue\"\n  ],\n  \"labels\": [\n    \"sales-overview\",\n    \"prod\",\n    \"data-mismatch\",\n    \"sap-fiori\",\n    \"databricks\"\n  ],\n  \"is_blocker\": true,\n  \"confidence_notes\": null\n}",
+      "extraction": {
+        "ticket_type": "bug",
+        "summary": "PROD Sales Overview: SAP Fiori revenue does not match Databricks",
+        "priority": "critical",
+        "issue_category": "data_mismatch",
+        "report": {
+          "name": "Sales Overview",
+          "deploy_stage": "prod",
+          "dataset_name": null
+        },
+        "sap_fiori": {
+          "app_name": "Manage Sales Orders",
+          "transaction_or_cds": "C_SALESORDER_Q1"
+        },
+        "specification": {
+          "spec_id": "SPEC-FIN-014",
+          "version": "1.3",
+          "title": null
+        },
+        "ownership": {
+          "report_developer": "Anna K.",
+          "financial_analyst": "Maria B.",
+          "data_pull_owner": "Dmytro S.",
+          "primary_assignee_role": "data_pull"
+        },
+        "reconciliation": {
+          "compare_sap_vs_databricks": true,
+          "compare_databricks_vs_power_bi": true,
+          "compare_report_vs_spec": true,
+          "mismatch_suspected_at": "databricks",
+          "notes": "SAP Fiori shows 1.31M revenue for March, while Databricks mart.fact_orders and Power BI show 1.24M."
+        },
+        "deployment": {
+          "status": "not_started",
+          "requires_dev_deploy_first": true,
+          "awaiting_approval": false,
+          "approved_for_prod": null,
+          "approver_role": "financial_analyst",
+          "deployed_to_dev": null,
+          "deployed_to_prod": true,
+          "notes": "Issue reported on PROD Sales Overview report."
+        },
+        "repro_steps": [
+          "Check SAP Fiori app 'Manage Sales Orders' (CDS C_SALESORDER_Q1) for March revenue",
+          "Check Databricks mart.fact_orders for March revenue",
+          "Check Power BI Sales Overview report for March revenue"
+        ],
+        "labels": [
+          "sales-overview",
+          "prod",
+          "data-mismatch",
+          "sap-fiori",
+          "databricks"
+        ],
+        "is_blocker": true,
+        "confidence_notes": null
+      }
+    },
+    {
+      "id": "BUGS-42",
+      "ok": true,
+      "error": null,
+      "latency_ms": 1872.1511250000021,
+      "model": "gemini-3.5-flash-lite",
+      "prompt_version": "v2",
+      "sampling_profile": "default",
+      "sampling": {
+        "temperature": 0.0,
+        "top_p": 1.0
+      },
+      "usage": {
+        "input_tokens": 900,
+        "output_tokens": 587,
+        "total_tokens": 1487
+      },
+      "raw_text": "{\n  \"ticket_type\": \"change_request\",\n  \"summary\": \"Gross Margin report calculation does not match SPEC-FIN-030 due to intercompany inclusion\",\n  \"priority\": \"high\",\n  \"issue_category\": \"spec_mismatch\",\n  \"report\": {\n    \"name\": \"Gross Margin\",\n    \"deploy_stage\": \"dev\",\n    \"dataset_name\": \"mart.fact_revenue/cogs\"\n  },\n  \"sap_fiori\": {\n    \"app_name\": null,\n    \"transaction_or_cds\": null\n  },\n  \"specification\": {\n    \"spec_id\": \"SPEC-FIN-030\",\n    \"version\": \"1.0\",\n    \"title\": null\n  },\n  \"ownership\": {\n    \"report_developer\": \"Oleh P.\",\n    \"financial_analyst\": \"Ihor S\",\n    \"data_pull_owner\": null,\n    \"primary_assignee_role\": \"report_developer\"\n  },\n  \"reconciliation\": {\n    \"compare_sap_vs_databricks\": false,\n    \"compare_databricks_vs_power_bi\": true,\n    \"compare_report_vs_spec\": true,\n    \"mismatch_suspected_at\": \"specification\",\n    \"notes\": \"Databricks figures match Power BI, but Gross Margin calculation must exclude intercompany per SPEC-FIN-030 v1.0\"\n  },\n  \"deployment\": {\n    \"status\": \"not_started\",\n    \"requires_dev_deploy_first\": true,\n    \"awaiting_approval\": false,\n    \"approved_for_prod\": null,\n    \"approver_role\": \"financial_analyst\",\n    \"deployed_to_dev\": false,\n    \"deployed_to_prod\": false,\n    \"notes\": \"Fix needs to be applied to DEV report Finance_Dev.pbix\"\n  },\n  \"repro_steps\": [\n    \"Open Gross Margin report on DEV\",\n    \"Check Gross Margin % calculation against SPEC-FIN-030 v1.0\",\n    \"Verify intercompany inclusion\"\n  ],\n  \"labels\": [\n    \"gross-margin\",\n    \"spec-mismatch\",\n    \"intercompany\",\n    \"dev\"\n  ],\n  \"is_blocker\": false,\n  \"confidence_notes\": \"Explicitly marked as 'не баг' and CR-like logic in the ticket text, so ticket_type is classified as change_request.\"\n}",
+      "extraction": {
+        "ticket_type": "change_request",
+        "summary": "Gross Margin report calculation does not match SPEC-FIN-030 due to intercompany inclusion",
+        "priority": "high",
+        "issue_category": "spec_mismatch",
+        "report": {
+          "name": "Gross Margin",
+          "deploy_stage": "dev",
+          "dataset_name": "mart.fact_revenue/cogs"
+        },
+        "sap_fiori": {
+          "app_name": null,
+          "transaction_or_cds": null
+        },
+        "specification": {
+          "spec_id": "SPEC-FIN-030",
+          "version": "1.0",
+          "title": null
+        },
+        "ownership": {
+          "report_developer": "Oleh P.",
+          "financial_analyst": "Ihor S",
+          "data_pull_owner": null,
+          "primary_assignee_role": "report_developer"
+        },
+        "reconciliation": {
+          "compare_sap_vs_databricks": false,
+          "compare_databricks_vs_power_bi": true,
+          "compare_report_vs_spec": true,
+          "mismatch_suspected_at": "specification",
+          "notes": "Databricks figures match Power BI, but Gross Margin calculation must exclude intercompany per SPEC-FIN-030 v1.0"
+        },
+        "deployment": {
+          "status": "not_started",
+          "requires_dev_deploy_first": true,
+          "awaiting_approval": false,
+          "approved_for_prod": null,
+          "approver_role": "financial_analyst",
+          "deployed_to_dev": false,
+          "deployed_to_prod": false,
+          "notes": "Fix needs to be applied to DEV report Finance_Dev.pbix"
+        },
+        "repro_steps": [
+          "Open Gross Margin report on DEV",
+          "Check Gross Margin % calculation against SPEC-FIN-030 v1.0",
+          "Verify intercompany inclusion"
+        ],
+        "labels": [
+          "gross-margin",
+          "spec-mismatch",
+          "intercompany",
+          "dev"
+        ],
+        "is_blocker": false,
+        "confidence_notes": "Explicitly marked as 'не баг' and CR-like logic in the ticket text, so ticket_type is classified as change_request."
+      }
+    },
+    {
+      "id": "BUGS-43",
+      "ok": true,
+      "error": null,
+      "latency_ms": 1792.522458999997,
+      "model": "gemini-3.5-flash-lite",
+      "prompt_version": "v2",
+      "sampling_profile": "default",
+      "sampling": {
+        "temperature": 0.0,
+        "top_p": 1.0
+      },
+      "usage": {
+        "input_tokens": 879,
+        "output_tokens": 517,
+        "total_tokens": 1396
+      },
+      "raw_text": "{\n  \"ticket_type\": \"bug\",\n  \"summary\": \"Data Pull missed SAP postings into Databricks DEV for Inventory Snapshot\",\n  \"priority\": \"high\",\n  \"issue_category\": \"data_mismatch\",\n  \"report\": {\n    \"name\": \"Inventory Snapshot\",\n    \"deploy_stage\": \"dev\",\n    \"dataset_name\": null\n  },\n  \"sap_fiori\": {\n    \"app_name\": \"Stock Overview\",\n    \"transaction_or_cds\": null\n  },\n  \"specification\": {\n    \"spec_id\": \"SPEC-OPS-007\",\n    \"version\": null,\n    \"title\": null\n  },\n  \"ownership\": {\n    \"report_developer\": null,\n    \"financial_analyst\": null,\n    \"data_pull_owner\": \"Katya M\",\n    \"primary_assignee_role\": \"data_pull\"\n  },\n  \"reconciliation\": {\n    \"compare_sap_vs_databricks\": true,\n    \"compare_databricks_vs_power_bi\": true,\n    \"compare_report_vs_spec\": false,\n    \"mismatch_suspected_at\": \"databricks\",\n    \"notes\": \"Verify Fiori Stock Overview against wh.inventory_snapshot on DEV for yesterday's movements\"\n  },\n  \"deployment\": {\n    \"status\": \"not_started\",\n    \"requires_dev_deploy_first\": true,\n    \"awaiting_approval\": false,\n    \"approved_for_prod\": null,\n    \"approver_role\": null,\n    \"deployed_to_dev\": false,\n    \"deployed_to_prod\": false,\n    \"notes\": \"Ticket opened for Databricks DEV pipeline miss\"\n  },\n  \"repro_steps\": [\n    \"Check Fiori Stock Overview for yesterday's movements\",\n    \"Check wh.inventory_snapshot in Databricks for yesterday\",\n    \"Check Inventory Snapshot DEV report\"\n  ],\n  \"labels\": [\n    \"data-pull\",\n    \"inventory\",\n    \"dev\",\n    \"missing-data\"\n  ],\n  \"is_blocker\": false,\n  \"confidence_notes\": null\n}",
+      "extraction": {
+        "ticket_type": "bug",
+        "summary": "Data Pull missed SAP postings into Databricks DEV for Inventory Snapshot",
+        "priority": "high",
+        "issue_category": "data_mismatch",
+        "report": {
+          "name": "Inventory Snapshot",
+          "deploy_stage": "dev",
+          "dataset_name": null
+        },
+        "sap_fiori": {
+          "app_name": "Stock Overview",
+          "transaction_or_cds": null
+        },
+        "specification": {
+          "spec_id": "SPEC-OPS-007",
+          "version": null,
+          "title": null
+        },
+        "ownership": {
+          "report_developer": null,
+          "financial_analyst": null,
+          "data_pull_owner": "Katya M",
+          "primary_assignee_role": "data_pull"
+        },
+        "reconciliation": {
+          "compare_sap_vs_databricks": true,
+          "compare_databricks_vs_power_bi": true,
+          "compare_report_vs_spec": false,
+          "mismatch_suspected_at": "databricks",
+          "notes": "Verify Fiori Stock Overview against wh.inventory_snapshot on DEV for yesterday's movements"
+        },
+        "deployment": {
+          "status": "not_started",
+          "requires_dev_deploy_first": true,
+          "awaiting_approval": false,
+          "approved_for_prod": null,
+          "approver_role": null,
+          "deployed_to_dev": false,
+          "deployed_to_prod": false,
+          "notes": "Ticket opened for Databricks DEV pipeline miss"
+        },
+        "repro_steps": [
+          "Check Fiori Stock Overview for yesterday's movements",
+          "Check wh.inventory_snapshot in Databricks for yesterday",
+          "Check Inventory Snapshot DEV report"
+        ],
+        "labels": [
+          "data-pull",
+          "inventory",
+          "dev",
+          "missing-data"
+        ],
+        "is_blocker": false,
+        "confidence_notes": null
+      }
+    },
+    {
+      "id": "BUGS-44",
+      "ok": true,
+      "error": null,
+      "latency_ms": 1938.1197079999986,
+      "model": "gemini-3.5-flash-lite",
+      "prompt_version": "v2",
+      "sampling_profile": "default",
+      "sampling": {
+        "temperature": 0.0,
+        "top_p": 1.0
+      },
+      "usage": {
+        "input_tokens": 887,
+        "output_tokens": 562,
+        "total_tokens": 1449
+      },
+      "raw_text": "{\n  \"ticket_type\": \"bug\",\n  \"summary\": \"PROD Customers by Region showing soft-deleted customers due to wrong filter\",\n  \"priority\": \"high\",\n  \"issue_category\": \"filter_rls\",\n  \"report\": {\n    \"name\": \"Customers by Region\",\n    \"deploy_stage\": \"prod\",\n    \"dataset_name\": \"Customers_Prod\"\n  },\n  \"sap_fiori\": {\n    \"app_name\": \"Customer Master\",\n    \"transaction_or_cds\": null\n  },\n  \"specification\": {\n    \"spec_id\": \"SPEC-FIN-021\",\n    \"version\": null,\n    \"title\": null\n  },\n  \"ownership\": {\n    \"report_developer\": \"Anna K\",\n    \"financial_analyst\": \"Maria B\",\n    \"data_pull_owner\": \"Dmytro\",\n    \"primary_assignee_role\": \"report_developer\"\n  },\n  \"reconciliation\": {\n    \"compare_sap_vs_databricks\": false,\n    \"compare_databricks_vs_power_bi\": true,\n    \"compare_report_vs_spec\": true,\n    \"mismatch_suspected_at\": \"power_bi_report\",\n    \"notes\": \"Databricks shows 11802 active customers, Power BI shows 12040 including soft-deleted ones against SPEC-FIN-021\"\n  },\n  \"deployment\": {\n    \"status\": \"not_started\",\n    \"requires_dev_deploy_first\": true,\n    \"awaiting_approval\": false,\n    \"approved_for_prod\": null,\n    \"approver_role\": \"financial_analyst\",\n    \"deployed_to_dev\": null,\n    \"deployed_to_prod\": false,\n    \"notes\": \"Needs fix in DEV first then promote to PROD\"\n  },\n  \"repro_steps\": [\n    \"Open Customers by Region report on PROD\",\n    \"Check customer count against mart.dim_customer in Databricks\",\n    \"Verify active customer filter according to SPEC-FIN-021\"\n  ],\n  \"labels\": [\n    \"customers-by-region\",\n    \"filter-bug\",\n    \"power-bi\",\n    \"prod\"\n  ],\n  \"is_blocker\": false,\n  \"confidence_notes\": null\n}",
+      "extraction": {
+        "ticket_type": "bug",
+        "summary": "PROD Customers by Region showing soft-deleted customers due to wrong filter",
+        "priority": "high",
+        "issue_category": "filter_rls",
+        "report": {
+          "name": "Customers by Region",
+          "deploy_stage": "prod",
+          "dataset_name": "Customers_Prod"
+        },
+        "sap_fiori": {
+          "app_name": "Customer Master",
+          "transaction_or_cds": null
+        },
+        "specification": {
+          "spec_id": "SPEC-FIN-021",
+          "version": null,
+          "title": null
+        },
+        "ownership": {
+          "report_developer": "Anna K",
+          "financial_analyst": "Maria B",
+          "data_pull_owner": "Dmytro",
+          "primary_assignee_role": "report_developer"
+        },
+        "reconciliation": {
+          "compare_sap_vs_databricks": false,
+          "compare_databricks_vs_power_bi": true,
+          "compare_report_vs_spec": true,
+          "mismatch_suspected_at": "power_bi_report",
+          "notes": "Databricks shows 11802 active customers, Power BI shows 12040 including soft-deleted ones against SPEC-FIN-021"
+        },
+        "deployment": {
+          "status": "not_started",
+          "requires_dev_deploy_first": true,
+          "awaiting_approval": false,
+          "approved_for_prod": null,
+          "approver_role": "financial_analyst",
+          "deployed_to_dev": null,
+          "deployed_to_prod": false,
+          "notes": "Needs fix in DEV first then promote to PROD"
+        },
+        "repro_steps": [
+          "Open Customers by Region report on PROD",
+          "Check customer count against mart.dim_customer in Databricks",
+          "Verify active customer filter according to SPEC-FIN-021"
+        ],
+        "labels": [
+          "customers-by-region",
+          "filter-bug",
+          "power-bi",
+          "prod"
+        ],
+        "is_blocker": false,
+        "confidence_notes": null
+      }
+    },
+    {
+      "id": "BUGS-45",
+      "ok": true,
+      "error": null,
+      "latency_ms": 1842.4453330000006,
+      "model": "gemini-3.5-flash-lite",
+      "prompt_version": "v2",
+      "sampling_profile": "default",
+      "sampling": {
+        "temperature": 0.0,
+        "top_p": 1.0
+      },
+      "usage": {
+        "input_tokens": 872,
+        "output_tokens": 534,
+        "total_tokens": 1406
+      },
+      "raw_text": "{\n  \"ticket_type\": \"bug\",\n  \"summary\": \"Users comparing wrong Fiori period vs FX Revenue report on PROD\",\n  \"priority\": \"medium\",\n  \"issue_category\": \"data_mismatch\",\n  \"report\": {\n    \"name\": \"FX Revenue\",\n    \"deploy_stage\": \"prod\",\n    \"dataset_name\": null\n  },\n  \"sap_fiori\": {\n    \"app_name\": null,\n    \"transaction_or_cds\": null\n  },\n  \"specification\": {\n    \"spec_id\": \"SPEC-FIN-041\",\n    \"version\": null,\n    \"title\": null\n  },\n  \"ownership\": {\n    \"report_developer\": \"Anna\",\n    \"financial_analyst\": \"Maria\",\n    \"data_pull_owner\": \"Dmytro\",\n    \"primary_assignee_role\": \"financial_analyst\"\n  },\n  \"reconciliation\": {\n    \"compare_sap_vs_databricks\": true,\n    \"compare_databricks_vs_power_bi\": true,\n    \"compare_report_vs_spec\": true,\n    \"mismatch_suspected_at\": \"specification\",\n    \"notes\": \"Verify posting period filter between SAP Fiori and FX Revenue PROD against SPEC-FIN-041\"\n  },\n  \"deployment\": {\n    \"status\": \"not_started\",\n    \"requires_dev_deploy_first\": true,\n    \"awaiting_approval\": false,\n    \"approved_for_prod\": null,\n    \"approver_role\": \"financial_analyst\",\n    \"deployed_to_dev\": false,\n    \"deployed_to_prod\": false,\n    \"notes\": null\n  },\n  \"repro_steps\": [\n    \"Open SAP Fiori and check posting period\",\n    \"Open FX_Revenue.pbix PROD and check active filter\",\n    \"Compare figures against SPEC-FIN-041\"\n  ],\n  \"labels\": [\n    \"data-mismatch\",\n    \"user-error\",\n    \"posting-period\",\n    \"fx-revenue\"\n  ],\n  \"is_blocker\": false,\n  \"confidence_notes\": \"Possible user error regarding period selection, but full reconciliation requested.\"\n}",
+      "extraction": {
+        "ticket_type": "bug",
+        "summary": "Users comparing wrong Fiori period vs FX Revenue report on PROD",
+        "priority": "medium",
+        "issue_category": "data_mismatch",
+        "report": {
+          "name": "FX Revenue",
+          "deploy_stage": "prod",
+          "dataset_name": null
+        },
+        "sap_fiori": {
+          "app_name": null,
+          "transaction_or_cds": null
+        },
+        "specification": {
+          "spec_id": "SPEC-FIN-041",
+          "version": null,
+          "title": null
+        },
+        "ownership": {
+          "report_developer": "Anna",
+          "financial_analyst": "Maria",
+          "data_pull_owner": "Dmytro",
+          "primary_assignee_role": "financial_analyst"
+        },
+        "reconciliation": {
+          "compare_sap_vs_databricks": true,
+          "compare_databricks_vs_power_bi": true,
+          "compare_report_vs_spec": true,
+          "mismatch_suspected_at": "specification",
+          "notes": "Verify posting period filter between SAP Fiori and FX Revenue PROD against SPEC-FIN-041"
+        },
+        "deployment": {
+          "status": "not_started",
+          "requires_dev_deploy_first": true,
+          "awaiting_approval": false,
+          "approved_for_prod": null,
+          "approver_role": "financial_analyst",
+          "deployed_to_dev": false,
+          "deployed_to_prod": false,
+          "notes": null
+        },
+        "repro_steps": [
+          "Open SAP Fiori and check posting period",
+          "Open FX_Revenue.pbix PROD and check active filter",
+          "Compare figures against SPEC-FIN-041"
+        ],
+        "labels": [
+          "data-mismatch",
+          "user-error",
+          "posting-period",
+          "fx-revenue"
+        ],
+        "is_blocker": false,
+        "confidence_notes": "Possible user error regarding period selection, but full reconciliation requested."
+      }
+    }
+  ]
+}

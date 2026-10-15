@@ -1,0 +1,13 @@
+Extract structured fields from this Jira ticket.
+
+Ticket id: {{ticket_id}}
+Jira issue type (hint): {{jira_issue_type}}
+
+Pay special attention to:
+- human report.name (not .pbix file name)
+- priority using the critical/high/medium rules
+- deployment.status from any DEV / approval / PROD signals
+
+--- TICKET TEXT START ---
+{{ticket_text}}
+--- TICKET TEXT END ---

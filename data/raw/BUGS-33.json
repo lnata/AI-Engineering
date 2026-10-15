@@ -1,0 +1,20 @@
+{
+  "id": "BUGS-33",
+  "summary": "PROD customer count mismatch regions",
+  "description": "powerbi Customers by Region: UA=12040, DB dim_customer where country='UA' = 11802. prod. кто прав хз. dataset Customers_Prod. возможно soft-delete не фильтруется в pbi. verify data accuracy db vs pbi PROD",
+  "text": "PROD customer count mismatch regions\n\npowerbi Customers by Region: UA=12040, DB dim_customer where country='UA' = 11802. prod. кто прав хз. dataset Customers_Prod. возможно soft-delete не фильтруется в pbi. verify data accuracy db vs pbi PROD",
+  "labels": [
+    "data-accuracy",
+    "dirty-text",
+    "extraction",
+    "golden-candidate",
+    "hw1",
+    "power-bi"
+  ],
+  "issue_type": "Bug",
+  "priority": "Medium",
+  "status": "To Do",
+  "created": "2026-10-15T20:54:53.888+0200",
+  "source": "jira",
+  "project": "BUGS"
+}

@@ -1,0 +1,74 @@
+{
+  "id": "BUGS-33",
+  "ok": true,
+  "error": null,
+  "latency_ms": 2098.4240829999976,
+  "model": "gemini-3.5-flash-lite",
+  "prompt_version": "v2",
+  "sampling_profile": "default",
+  "sampling": {
+    "temperature": 0.0,
+    "top_p": 1.0
+  },
+  "usage": {
+    "input_tokens": 849,
+    "output_tokens": 544,
+    "total_tokens": 1393
+  },
+  "raw_text": "{\n  \"ticket_type\": \"bug\",\n  \"summary\": \"PROD customer count mismatch in Customers by Region for UA\",\n  \"priority\": \"high\",\n  \"issue_category\": \"data_mismatch\",\n  \"report\": {\n    \"name\": \"Customers by Region\",\n    \"deploy_stage\": \"prod\",\n    \"dataset_name\": \"Customers_Prod\"\n  },\n  \"sap_fiori\": {\n    \"app_name\": null,\n    \"transaction_or_cds\": null\n  },\n  \"specification\": {\n    \"spec_id\": null,\n    \"version\": null,\n    \"title\": null\n  },\n  \"ownership\": {\n    \"report_developer\": null,\n    \"financial_analyst\": null,\n    \"data_pull_owner\": null,\n    \"primary_assignee_role\": \"report_developer\"\n  },\n  \"reconciliation\": {\n    \"compare_sap_vs_databricks\": false,\n    \"compare_databricks_vs_power_bi\": true,\n    \"compare_report_vs_spec\": false,\n    \"mismatch_suspected_at\": \"power_bi_report\",\n    \"notes\": \"Verify data accuracy between DB dim_customer (country='UA' = 11802) vs Power BI (UA = 12040). Possible soft-delete not filtered in PBI.\"\n  },\n  \"deployment\": {\n    \"status\": \"not_started\",\n    \"requires_dev_deploy_first\": true,\n    \"awaiting_approval\": false,\n    \"approved_for_prod\": null,\n    \"approver_role\": \"financial_analyst\",\n    \"deployed_to_dev\": null,\n    \"deployed_to_prod\": true,\n    \"notes\": \"Ticket opened for PROD investigation.\"\n  },\n  \"repro_steps\": [\n    \"Check Customers by Region report in PROD for UA count\",\n    \"Compare with Databricks dim_customer where country='UA'\"\n  ],\n  \"labels\": [\n    \"customer-count\",\n    \"data-mismatch\",\n    \"prod-issue\",\n    \"soft-delete\"\n  ],\n  \"is_blocker\": false,\n  \"confidence_notes\": \"Suspected soft-delete filtering issue in Power BI.\"\n}",
+  "extraction": {
+    "ticket_type": "bug",
+    "summary": "PROD customer count mismatch in Customers by Region for UA",
+    "priority": "high",
+    "issue_category": "data_mismatch",
+    "report": {
+      "name": "Customers by Region",
+      "deploy_stage": "prod",
+      "dataset_name": "Customers_Prod"
+    },
+    "sap_fiori": {
+      "app_name": null,
+      "transaction_or_cds": null
+    },
+    "specification": {
+      "spec_id": null,
+      "version": null,
+      "title": null
+    },
+    "ownership": {
+      "report_developer": null,
+      "financial_analyst": null,
+      "data_pull_owner": null,
+      "primary_assignee_role": "report_developer"
+    },
+    "reconciliation": {
+      "compare_sap_vs_databricks": false,
+      "compare_databricks_vs_power_bi": true,
+      "compare_report_vs_spec": false,
+      "mismatch_suspected_at": "power_bi_report",
+      "notes": "Verify data accuracy between DB dim_customer (country='UA' = 11802) vs Power BI (UA = 12040). Possible soft-delete not filtered in PBI."
+    },
+    "deployment": {
+      "status": "not_started",
+      "requires_dev_deploy_first": true,
+      "awaiting_approval": false,
+      "approved_for_prod": null,
+      "approver_role": "financial_analyst",
+      "deployed_to_dev": null,
+      "deployed_to_prod": true,
+      "notes": "Ticket opened for PROD investigation."
+    },
+    "repro_steps": [
+      "Check Customers by Region report in PROD for UA count",
+      "Compare with Databricks dim_customer where country='UA'"
+    ],
+    "labels": [
+      "customer-count",
+      "data-mismatch",
+      "prod-issue",
+      "soft-delete"
+    ],
+    "is_blocker": false,
+    "confidence_notes": "Suspected soft-delete filtering issue in Power BI."
+  }
+}

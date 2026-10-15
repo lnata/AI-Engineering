@@ -1,0 +1,73 @@
+{
+  "id": "BUGS-8",
+  "ok": true,
+  "error": null,
+  "latency_ms": 1791.81,
+  "model": "gemini-3.5-flash-lite",
+  "prompt_version": "v2",
+  "sampling_profile": "default",
+  "sampling": {
+    "temperature": 0.0,
+    "top_p": 1.0
+  },
+  "usage": {
+    "input_tokens": 826,
+    "output_tokens": 461,
+    "total_tokens": 1287
+  },
+  "raw_text": "{\n  \"ticket_type\": \"bug\",\n  \"summary\": \"Duplicate tickets created on double click due to missing debounce\",\n  \"priority\": \"medium\",\n  \"issue_category\": \"other\",\n  \"report\": {\n    \"name\": null,\n    \"deploy_stage\": \"unknown\",\n    \"dataset_name\": null\n  },\n  \"sap_fiori\": {\n    \"app_name\": null,\n    \"transaction_or_cds\": null\n  },\n  \"specification\": {\n    \"spec_id\": null,\n    \"version\": null,\n    \"title\": null\n  },\n  \"ownership\": {\n    \"report_developer\": null,\n    \"financial_analyst\": null,\n    \"data_pull_owner\": null,\n    \"primary_assignee_role\": \"unknown\"\n  },\n  \"reconciliation\": {\n    \"compare_sap_vs_databricks\": false,\n    \"compare_databricks_vs_power_bi\": false,\n    \"compare_report_vs_spec\": false,\n    \"mismatch_suspected_at\": \"unknown\",\n    \"notes\": null\n  },\n  \"deployment\": {\n    \"status\": \"not_started\",\n    \"requires_dev_deploy_first\": true,\n    \"awaiting_approval\": false,\n    \"approved_for_prod\": null,\n    \"approver_role\": null,\n    \"deployed_to_dev\": null,\n    \"deployed_to_prod\": null,\n    \"notes\": null\n  },\n  \"repro_steps\": [\n    \"double click Create button as a manager\",\n    \"observe multiple identical tickets created\"\n  ],\n  \"labels\": [\n    \"ui-bug\",\n    \"double-click\",\n    \"debounce-missing\"\n  ],\n  \"is_blocker\": false,\n  \"confidence_notes\": \"Ticket is about UI ticket creation behavior, not analytics reporting, but mapped to the required schema.\"\n}",
+  "extraction": {
+    "ticket_type": "bug",
+    "summary": "Duplicate tickets created on double click due to missing debounce",
+    "priority": "medium",
+    "issue_category": "other",
+    "report": {
+      "name": null,
+      "deploy_stage": "unknown",
+      "dataset_name": null
+    },
+    "sap_fiori": {
+      "app_name": null,
+      "transaction_or_cds": null
+    },
+    "specification": {
+      "spec_id": null,
+      "version": null,
+      "title": null
+    },
+    "ownership": {
+      "report_developer": null,
+      "financial_analyst": null,
+      "data_pull_owner": null,
+      "primary_assignee_role": "unknown"
+    },
+    "reconciliation": {
+      "compare_sap_vs_databricks": false,
+      "compare_databricks_vs_power_bi": false,
+      "compare_report_vs_spec": false,
+      "mismatch_suspected_at": "unknown",
+      "notes": null
+    },
+    "deployment": {
+      "status": "not_started",
+      "requires_dev_deploy_first": true,
+      "awaiting_approval": false,
+      "approved_for_prod": null,
+      "approver_role": null,
+      "deployed_to_dev": null,
+      "deployed_to_prod": null,
+      "notes": null
+    },
+    "repro_steps": [
+      "double click Create button as a manager",
+      "observe multiple identical tickets created"
+    ],
+    "labels": [
+      "ui-bug",
+      "double-click",
+      "debounce-missing"
+    ],
+    "is_blocker": false,
+    "confidence_notes": "Ticket is about UI ticket creation behavior, not analytics reporting, but mapped to the required schema."
+  }
+}

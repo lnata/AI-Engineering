@@ -1,0 +1,17 @@
+{
+  "id": "BUGS-25",
+  "summary": "rate limit 429 on bulk import",
+  "description": "bulk csv import dies на 500 rows with 429. no backoff in client. docs say 1000 ok. need retry-after handling",
+  "text": "rate limit 429 on bulk import\n\nbulk csv import dies на 500 rows with 429. no backoff in client. docs say 1000 ok. need retry-after handling",
+  "labels": [
+    "dirty-text",
+    "extraction",
+    "hw1"
+  ],
+  "issue_type": "Bug",
+  "priority": "Medium",
+  "status": "To Do",
+  "created": "2026-10-15T20:41:34.082+0200",
+  "source": "jira",
+  "project": "BUGS"
+}

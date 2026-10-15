@@ -1,0 +1,967 @@
+[
+  {
+    "id": "BUGS-1",
+    "summary": "login freezes after 2FA chrome",
+    "description": "после 2fa экран логина просто зависает. только chrome. firefox ок. началось после вчерашнего деплоя. энтерпрайз клиенты орут. срочнооо.\n\nsteps:\n1 open login\n2 complete 2fa\n3 freeze\n\nbrowser: chrome 128\nos: ???",
+    "text": "login freezes after 2FA chrome\n\nпосле 2fa экран логина просто зависает. только chrome. firefox ок. началось после вчерашнего деплоя. энтерпрайз клиенты орут. срочнооо.\n\nsteps:\n1 open login\n2 complete 2fa\n3 freeze\n\nbrowser: chrome 128\nos: ???",
+    "labels": [
+      "dirty-text",
+      "extraction",
+      "golden-candidate",
+      "hw1"
+    ],
+    "issue_type": "Bug",
+    "priority": "Medium",
+    "status": "To Do",
+    "created": "2026-10-15T20:41:09.145+0200",
+    "source": "jira",
+    "project": "BUGS"
+  },
+  {
+    "id": "BUGS-2",
+    "summary": "кнопка Save не работает на мобилке",
+    "description": "на айфоне в сафари кнопка сейв серая и не кликается. андроид вроде ок. воспроизводится не всегда. скрин не приложил. priority? хз но мешает продажам",
+    "text": "кнопка Save не работает на мобилке\n\nна айфоне в сафари кнопка сейв серая и не кликается. андроид вроде ок. воспроизводится не всегда. скрин не приложил. priority? хз но мешает продажам",
+    "labels": [
+      "dirty-text",
+      "extraction",
+      "golden-candidate",
+      "hw1"
+    ],
+    "issue_type": "Bug",
+    "priority": "Medium",
+    "status": "To Do",
+    "created": "2026-10-15T20:41:10.521+0200",
+    "source": "jira",
+    "project": "BUGS"
+  },
+  {
+    "id": "BUGS-3",
+    "summary": "NullPointer in checkout",
+    "description": "prod error:\njava.lang.NullPointerException at CheckoutService.calcTax(CheckoutService.java:214)\n\nhappens when country=UA and promo code empty. started ~3h ago. approx 12% users. no stack in sentry yet wait there is",
+    "text": "NullPointer in checkout\n\nprod error:\njava.lang.NullPointerException at CheckoutService.calcTax(CheckoutService.java:214)\n\nhappens when country=UA and promo code empty. started ~3h ago. approx 12% users. no stack in sentry yet wait there is",
+    "labels": [
+      "dirty-text",
+      "extraction",
+      "golden-candidate",
+      "hw1"
+    ],
+    "issue_type": "Bug",
+    "priority": "Medium",
+    "status": "To Do",
+    "created": "2026-10-15T20:41:11.536+0200",
+    "source": "jira",
+    "project": "BUGS"
+  },
+  {
+    "id": "BUGS-4",
+    "summary": "поиск не находит товары с дефисом",
+    "description": "ищем 'wifi-router' — 0 результатов, хотя товар есть. 'wifi router' находит. также баг с апострофами. qa env only? нет на проде тоже видели",
+    "text": "поиск не находит товары с дефисом\n\nищем 'wifi-router' — 0 результатов, хотя товар есть. 'wifi router' находит. также баг с апострофами. qa env only? нет на проде тоже видели",
+    "labels": [
+      "dirty-text",
+      "extraction",
+      "golden-candidate",
+      "hw1"
+    ],
+    "issue_type": "Bug",
+    "priority": "Medium",
+    "status": "To Do",
+    "created": "2026-10-15T20:41:12.677+0200",
+    "source": "jira",
+    "project": "BUGS"
+  },
+  {
+    "id": "BUGS-5",
+    "summary": "CSV export broken encoding",
+    "description": "експорт заказов в csv открывается в excel как кракозябры. utf-8 без bom? клиент из польши. urgent for finance month close. repro: orders > export > open in excel windows",
+    "text": "CSV export broken encoding\n\nекспорт заказов в csv открывается в excel как кракозябры. utf-8 без bom? клиент из польши. urgent for finance month close. repro: orders > export > open in excel windows",
+    "labels": [
+      "dirty-text",
+      "extraction",
+      "golden-candidate",
+      "hw1"
+    ],
+    "issue_type": "Bug",
+    "priority": "Medium",
+    "status": "To Do",
+    "created": "2026-10-15T20:41:13.906+0200",
+    "source": "jira",
+    "project": "BUGS"
+  },
+  {
+    "id": "BUGS-6",
+    "summary": "webhook retries forever",
+    "description": "payment webhook ретраится бесконечно даже после 200. лог забит. load на payment-service x4. temp workaround: disable retry job. кто деплоил в пятницу???",
+    "text": "webhook retries forever\n\npayment webhook ретраится бесконечно даже после 200. лог забит. load на payment-service x4. temp workaround: disable retry job. кто деплоил в пятницу???",
+    "labels": [
+      "dirty-text",
+      "extraction",
+      "golden-candidate",
+      "hw1"
+    ],
+    "issue_type": "Bug",
+    "priority": "Medium",
+    "status": "To Do",
+    "created": "2026-10-15T20:41:14.950+0200",
+    "source": "jira",
+    "project": "BUGS"
+  },
+  {
+    "id": "BUGS-7",
+    "summary": "dark mode text invisible",
+    "description": "в дарк моде secondary text почти чёрный на чёрном. невозможно читать settings. chrome + macos. firefox тоже. ios app ок. regression after design tokens update",
+    "text": "dark mode text invisible\n\nв дарк моде secondary text почти чёрный на чёрном. невозможно читать settings. chrome + macos. firefox тоже. ios app ок. regression after design tokens update",
+    "labels": [
+      "dirty-text",
+      "extraction",
+      "golden-candidate",
+      "hw1"
+    ],
+    "issue_type": "Bug",
+    "priority": "Medium",
+    "status": "To Do",
+    "created": "2026-10-15T20:41:15.988+0200",
+    "source": "jira",
+    "project": "BUGS"
+  },
+  {
+    "id": "BUGS-8",
+    "summary": "дублируются тикеты при даблклике",
+    "description": "если менеджер дважды кликает Create — создаётся 2 identical tickets. иногда 3. нет debounce. баг старый но щас стало больно. mobile web worse",
+    "text": "дублируются тикеты при даблклике\n\nесли менеджер дважды кликает Create — создаётся 2 identical tickets. иногда 3. нет debounce. баг старый но щас стало больно. mobile web worse",
+    "labels": [
+      "dirty-text",
+      "extraction",
+      "golden-candidate",
+      "hw1"
+    ],
+    "issue_type": "Bug",
+    "priority": "Medium",
+    "status": "To Do",
+    "created": "2026-10-15T20:41:16.977+0200",
+    "source": "jira",
+    "project": "BUGS"
+  },
+  {
+    "id": "BUGS-9",
+    "summary": "SSO redirect loop okta",
+    "description": "okta sso → redirect loop. clears cookies fixes temporarily. affects ~30 users on custom domain. error in console: state mismatch. started after okta cert rotation?",
+    "text": "SSO redirect loop okta\n\nokta sso → redirect loop. clears cookies fixes temporarily. affects ~30 users on custom domain. error in console: state mismatch. started after okta cert rotation?",
+    "labels": [
+      "dirty-text",
+      "extraction",
+      "golden-candidate",
+      "hw1"
+    ],
+    "issue_type": "Bug",
+    "priority": "Medium",
+    "status": "To Do",
+    "created": "2026-10-15T20:41:17.986+0200",
+    "source": "jira",
+    "project": "BUGS"
+  },
+  {
+    "id": "BUGS-10",
+    "summary": "фильтр по дате сбрасывается",
+    "description": "на странице orders ставишь date range, применяешь фильтр — после сортировки даты сбрасываются. бесит. chrome. steps missing sorry busy",
+    "text": "фильтр по дате сбрасывается\n\nна странице orders ставишь date range, применяешь фильтр — после сортировки даты сбрасываются. бесит. chrome. steps missing sorry busy",
+    "labels": [
+      "dirty-text",
+      "extraction",
+      "golden-candidate",
+      "hw1"
+    ],
+    "issue_type": "Bug",
+    "priority": "Medium",
+    "status": "To Do",
+    "created": "2026-10-15T20:41:18.992+0200",
+    "source": "jira",
+    "project": "BUGS"
+  },
+  {
+    "id": "BUGS-11",
+    "summary": "push notif not delivered android",
+    "description": "android push не приходят с 10:00. ios ок. FCM tokens look valid. no error in our logs. maybe google outage? check later. priority medium? or high?",
+    "text": "push notif not delivered android\n\nandroid push не приходят с 10:00. ios ок. FCM tokens look valid. no error in our logs. maybe google outage? check later. priority medium? or high?",
+    "labels": [
+      "dirty-text",
+      "extraction",
+      "hw1"
+    ],
+    "issue_type": "Bug",
+    "priority": "Medium",
+    "status": "To Do",
+    "created": "2026-10-15T20:41:20.094+0200",
+    "source": "jira",
+    "project": "BUGS"
+  },
+  {
+    "id": "BUGS-12",
+    "summary": "цена показывается в неправильной валюте",
+    "description": "юзер из DE видит USD вместо EUR. иногда после смены языка. cart totals wrong accordingly. money bug!!! critical please",
+    "text": "цена показывается в неправильной валюте\n\nюзер из DE видит USD вместо EUR. иногда после смены языка. cart totals wrong accordingly. money bug!!! critical please",
+    "labels": [
+      "dirty-text",
+      "extraction",
+      "hw1"
+    ],
+    "issue_type": "Bug",
+    "priority": "Medium",
+    "status": "To Do",
+    "created": "2026-10-15T20:41:21.102+0200",
+    "source": "jira",
+    "project": "BUGS"
+  },
+  {
+    "id": "BUGS-13",
+    "summary": "attachment upload 413",
+    "description": "нельзя прикрепить файл >4mb хотя в UI написано 25mb. nginx? api gateway? ошибка 413 request entity too large. pdf invoices broken workflow",
+    "text": "attachment upload 413\n\nнельзя прикрепить файл >4mb хотя в UI написано 25mb. nginx? api gateway? ошибка 413 request entity too large. pdf invoices broken workflow",
+    "labels": [
+      "dirty-text",
+      "extraction",
+      "hw1"
+    ],
+    "issue_type": "Bug",
+    "priority": "Medium",
+    "status": "To Do",
+    "created": "2026-10-15T20:41:22.103+0200",
+    "source": "jira",
+    "project": "BUGS"
+  },
+  {
+    "id": "BUGS-14",
+    "summary": "транслит в slug ломает урлы",
+    "description": "кириллические title → slug с %D0%.. и 404. раньше работало. seo team angry. example: /products/кофеварка → 404, /products/kofevarka works if manual",
+    "text": "транслит в slug ломает урлы\n\nкириллические title → slug с %D0%.. и 404. раньше работало. seo team angry. example: /products/кофеварка → 404, /products/kofevarka works if manual",
+    "labels": [
+      "dirty-text",
+      "extraction",
+      "hw1"
+    ],
+    "issue_type": "Bug",
+    "priority": "Medium",
+    "status": "To Do",
+    "created": "2026-10-15T20:41:23.058+0200",
+    "source": "jira",
+    "project": "BUGS"
+  },
+  {
+    "id": "BUGS-15",
+    "summary": "slow dashboard p95 8s",
+    "description": "dashboard /analytics грузится 6-10s. p95~8s. started monday. maybe n+1 query after new widgets. no error just slow. please profile",
+    "text": "slow dashboard p95 8s\n\ndashboard /analytics грузится 6-10s. p95~8s. started monday. maybe n+1 query after new widgets. no error just slow. please profile",
+    "labels": [
+      "dirty-text",
+      "extraction",
+      "hw1"
+    ],
+    "issue_type": "Bug",
+    "priority": "Medium",
+    "status": "To Do",
+    "created": "2026-10-15T20:41:23.976+0200",
+    "source": "jira",
+    "project": "BUGS"
+  },
+  {
+    "id": "BUGS-16",
+    "summary": "email template broken variables",
+    "description": "в письме 'Hello {{user_name}}' так и уходит. не рендерится. only welcome email. reset password ok. hotfix needed for onboarding",
+    "text": "email template broken variables\n\nв письме 'Hello {{user_name}}' так и уходит. не рендерится. only welcome email. reset password ok. hotfix needed for onboarding",
+    "labels": [
+      "dirty-text",
+      "extraction",
+      "hw1"
+    ],
+    "issue_type": "Bug",
+    "priority": "Medium",
+    "status": "To Do",
+    "created": "2026-10-15T20:41:25.105+0200",
+    "source": "jira",
+    "project": "BUGS"
+  },
+  {
+    "id": "BUGS-17",
+    "summary": "can't unassign assignee",
+    "description": "в UI нельзя снять assignee — только переназначить. API позволяет null. product said bug. annoying for triage",
+    "text": "can't unassign assignee\n\nв UI нельзя снять assignee — только переназначить. API позволяет null. product said bug. annoying for triage",
+    "labels": [
+      "dirty-text",
+      "extraction",
+      "hw1"
+    ],
+    "issue_type": "Bug",
+    "priority": "Medium",
+    "status": "To Do",
+    "created": "2026-10-15T20:41:26.228+0200",
+    "source": "jira",
+    "project": "BUGS"
+  },
+  {
+    "id": "BUGS-18",
+    "summary": "timezone off by 3 hours",
+    "description": "события в календаре на 3 часа раньше для KYIV. UTC stored wrong? or display. repro: create event 15:00 → shows 12:00. DST related?",
+    "text": "timezone off by 3 hours\n\nсобытия в календаре на 3 часа раньше для KYIV. UTC stored wrong? or display. repro: create event 15:00 → shows 12:00. DST related?",
+    "labels": [
+      "dirty-text",
+      "extraction",
+      "hw1"
+    ],
+    "issue_type": "Bug",
+    "priority": "Medium",
+    "status": "To Do",
+    "created": "2026-10-15T20:41:27.391+0200",
+    "source": "jira",
+    "project": "BUGS"
+  },
+  {
+    "id": "BUGS-19",
+    "summary": "oauth token refresh race",
+    "description": "иногда два refresh параллельно → invalidate session. user logged out randomly. hard to repro. maybe only slow network. stack: auth-service",
+    "text": "oauth token refresh race\n\nиногда два refresh параллельно → invalidate session. user logged out randomly. hard to repro. maybe only slow network. stack: auth-service",
+    "labels": [
+      "dirty-text",
+      "extraction",
+      "hw1"
+    ],
+    "issue_type": "Bug",
+    "priority": "Medium",
+    "status": "To Do",
+    "created": "2026-10-15T20:41:28.339+0200",
+    "source": "jira",
+    "project": "BUGS"
+  },
+  {
+    "id": "BUGS-20",
+    "summary": "report PDF missing charts",
+    "description": "pdf export of report — charts empty white boxes. html preview ok. puppeteer? fonts? started after chrome headless upgrade",
+    "text": "report PDF missing charts\n\npdf export of report — charts empty white boxes. html preview ok. puppeteer? fonts? started after chrome headless upgrade",
+    "labels": [
+      "dirty-text",
+      "extraction",
+      "hw1"
+    ],
+    "issue_type": "Bug",
+    "priority": "Medium",
+    "status": "To Do",
+    "created": "2026-10-15T20:41:29.239+0200",
+    "source": "jira",
+    "project": "BUGS"
+  },
+  {
+    "id": "BUGS-21",
+    "summary": "permissions: viewer can edit",
+    "description": "viewer role может редактировать description. reproduce on shared board. security?? please check ACL. found by customer trial",
+    "text": "permissions: viewer can edit\n\nviewer role может редактировать description. reproduce on shared board. security?? please check ACL. found by customer trial",
+    "labels": [
+      "dirty-text",
+      "extraction",
+      "hw1"
+    ],
+    "issue_type": "Bug",
+    "priority": "Medium",
+    "status": "To Do",
+    "created": "2026-10-15T20:41:30.229+0200",
+    "source": "jira",
+    "project": "BUGS"
+  },
+  {
+    "id": "BUGS-22",
+    "summary": "search autocomplete crashes ios",
+    "description": "ios app crash when typing 1 char in search. crashlytics: Swift runtime error Index out of range. version 3.12.1. 3.12.0 ok. rollback?",
+    "text": "search autocomplete crashes ios\n\nios app crash when typing 1 char in search. crashlytics: Swift runtime error Index out of range. version 3.12.1. 3.12.0 ok. rollback?",
+    "labels": [
+      "dirty-text",
+      "extraction",
+      "hw1"
+    ],
+    "issue_type": "Bug",
+    "priority": "Medium",
+    "status": "To Do",
+    "created": "2026-10-15T20:41:31.179+0200",
+    "source": "jira",
+    "project": "BUGS"
+  },
+  {
+    "id": "BUGS-23",
+    "summary": "invoice number collision",
+    "description": "два инвойса с одним номером INV-2026-0042. race on sequence. finance noticed. data fix needed + unique constraint",
+    "text": "invoice number collision\n\nдва инвойса с одним номером INV-2026-0042. race on sequence. finance noticed. data fix needed + unique constraint",
+    "labels": [
+      "dirty-text",
+      "extraction",
+      "hw1"
+    ],
+    "issue_type": "Bug",
+    "priority": "Medium",
+    "status": "To Do",
+    "created": "2026-10-15T20:41:32.095+0200",
+    "source": "jira",
+    "project": "BUGS"
+  },
+  {
+    "id": "BUGS-24",
+    "summary": "фильтры на UA/EN mixed UI",
+    "description": "часть лейблов українською, часть english after partial localization deploy. looks broken. not functional bug but release blocker for marketing",
+    "text": "фильтры на UA/EN mixed UI\n\nчасть лейблов українською, часть english after partial localization deploy. looks broken. not functional bug but release blocker for marketing",
+    "labels": [
+      "dirty-text",
+      "extraction",
+      "hw1"
+    ],
+    "issue_type": "Bug",
+    "priority": "Medium",
+    "status": "To Do",
+    "created": "2026-10-15T20:41:33.104+0200",
+    "source": "jira",
+    "project": "BUGS"
+  },
+  {
+    "id": "BUGS-25",
+    "summary": "rate limit 429 on bulk import",
+    "description": "bulk csv import dies на 500 rows with 429. no backoff in client. docs say 1000 ok. need retry-after handling",
+    "text": "rate limit 429 on bulk import\n\nbulk csv import dies на 500 rows with 429. no backoff in client. docs say 1000 ok. need retry-after handling",
+    "labels": [
+      "dirty-text",
+      "extraction",
+      "hw1"
+    ],
+    "issue_type": "Bug",
+    "priority": "Medium",
+    "status": "To Do",
+    "created": "2026-10-15T20:41:34.082+0200",
+    "source": "jira",
+    "project": "BUGS"
+  },
+  {
+    "id": "BUGS-26",
+    "summary": "comment markdown broken tables",
+    "description": "tables in comments render as raw pipes. code blocks ok. regression? or never worked. low priority but noisy support tickets",
+    "text": "comment markdown broken tables\n\ntables in comments render as raw pipes. code blocks ok. regression? or never worked. low priority but noisy support tickets",
+    "labels": [
+      "dirty-text",
+      "extraction",
+      "hw1"
+    ],
+    "issue_type": "Bug",
+    "priority": "Medium",
+    "status": "To Do",
+    "created": "2026-10-15T20:41:35.049+0200",
+    "source": "jira",
+    "project": "BUGS"
+  },
+  {
+    "id": "BUGS-27",
+    "summary": "mobile web keyboard covers input",
+    "description": "android chrome: focused input covered by keyboard on checkout address form. can't see what typing. ios safari fine",
+    "text": "mobile web keyboard covers input\n\nandroid chrome: focused input covered by keyboard on checkout address form. can't see what typing. ios safari fine",
+    "labels": [
+      "dirty-text",
+      "extraction",
+      "hw1"
+    ],
+    "issue_type": "Bug",
+    "priority": "Medium",
+    "status": "To Do",
+    "created": "2026-10-15T20:41:36.030+0200",
+    "source": "jira",
+    "project": "BUGS"
+  },
+  {
+    "id": "BUGS-28",
+    "summary": "feature flag stale after deploy",
+    "description": "after deploy flag 'new_checkout' still old value ~15min. redis cache? users see mixed UI. confusing A/B",
+    "text": "feature flag stale after deploy\n\nafter deploy flag 'new_checkout' still old value ~15min. redis cache? users see mixed UI. confusing A/B",
+    "labels": [
+      "dirty-text",
+      "extraction",
+      "hw1"
+    ],
+    "issue_type": "Bug",
+    "priority": "Medium",
+    "status": "To Do",
+    "created": "2026-10-15T20:41:37.096+0200",
+    "source": "jira",
+    "project": "BUGS"
+  },
+  {
+    "id": "BUGS-29",
+    "summary": "audit log missing deletes",
+    "description": "удаления записей не пишутся в audit log. creates/updates ok. compliance asked. must fix before audit next month",
+    "text": "audit log missing deletes\n\nудаления записей не пишутся в audit log. creates/updates ok. compliance asked. must fix before audit next month",
+    "labels": [
+      "dirty-text",
+      "extraction",
+      "hw1"
+    ],
+    "issue_type": "Bug",
+    "priority": "Medium",
+    "status": "To Do",
+    "created": "2026-10-15T20:41:38.102+0200",
+    "source": "jira",
+    "project": "BUGS"
+  },
+  {
+    "id": "BUGS-30",
+    "summary": "flaky e2e login test blaming prod?",
+    "description": "не баг прод? flaky cypress login. but sometimes users report same 'button not clickable'. maybe real race on hydration. investigating",
+    "text": "flaky e2e login test blaming prod?\n\nне баг прод? flaky cypress login. but sometimes users report same 'button not clickable'. maybe real race on hydration. investigating",
+    "labels": [
+      "dirty-text",
+      "extraction",
+      "hw1"
+    ],
+    "issue_type": "Bug",
+    "priority": "Medium",
+    "status": "To Do",
+    "created": "2026-10-15T20:41:39.145+0200",
+    "source": "jira",
+    "project": "BUGS"
+  },
+  {
+    "id": "BUGS-31",
+    "summary": "PBI sales total != DB on PROD",
+    "description": "на проде в power bi отчёт Sales Overview показывает revenue 1.24M, а select sum(amount) from fact_orders за тот же период даёт 1.31M. расхождение ~70k. pbix: Sales_Overview_v3.pbix. dataset refresh вчера 23:00. надо сверить точность данных БД vs Power BI на PROD. срочно finance",
+    "text": "PBI sales total != DB on PROD\n\nна проде в power bi отчёт Sales Overview показывает revenue 1.24M, а select sum(amount) from fact_orders за тот же период даёт 1.31M. расхождение ~70k. pbix: Sales_Overview_v3.pbix. dataset refresh вчера 23:00. надо сверить точность данных БД vs Power BI на PROD. срочно finance",
+    "labels": [
+      "data-accuracy",
+      "dirty-text",
+      "extraction",
+      "golden-candidate",
+      "hw1",
+      "power-bi"
+    ],
+    "issue_type": "Bug",
+    "priority": "Medium",
+    "status": "To Do",
+    "created": "2026-10-15T20:54:51.418+0200",
+    "source": "jira",
+    "project": "BUGS"
+  },
+  {
+    "id": "BUGS-32",
+    "summary": "dev: Power BI inventory lag vs warehouse",
+    "description": "на DEV после ETL inventory_qty в pbi на 1 день старше чем таблица wh.inventory_snapshot. файл Inventory_Dev.pbix. иногда ок после manual refresh. проверить accuracy database <-> power bi на dev окружении",
+    "text": "dev: Power BI inventory lag vs warehouse\n\nна DEV после ETL inventory_qty в pbi на 1 день старше чем таблица wh.inventory_snapshot. файл Inventory_Dev.pbix. иногда ок после manual refresh. проверить accuracy database <-> power bi на dev окружении",
+    "labels": [
+      "data-accuracy",
+      "dirty-text",
+      "extraction",
+      "golden-candidate",
+      "hw1",
+      "power-bi"
+    ],
+    "issue_type": "Bug",
+    "priority": "Medium",
+    "status": "To Do",
+    "created": "2026-10-15T20:54:52.557+0200",
+    "source": "jira",
+    "project": "BUGS"
+  },
+  {
+    "id": "BUGS-33",
+    "summary": "PROD customer count mismatch regions",
+    "description": "powerbi Customers by Region: UA=12040, DB dim_customer where country='UA' = 11802. prod. кто прав хз. dataset Customers_Prod. возможно soft-delete не фильтруется в pbi. verify data accuracy db vs pbi PROD",
+    "text": "PROD customer count mismatch regions\n\npowerbi Customers by Region: UA=12040, DB dim_customer where country='UA' = 11802. prod. кто прав хз. dataset Customers_Prod. возможно soft-delete не фильтруется в pbi. verify data accuracy db vs pbi PROD",
+    "labels": [
+      "data-accuracy",
+      "dirty-text",
+      "extraction",
+      "golden-candidate",
+      "hw1",
+      "power-bi"
+    ],
+    "issue_type": "Bug",
+    "priority": "Medium",
+    "status": "To Do",
+    "created": "2026-10-15T20:54:53.888+0200",
+    "source": "jira",
+    "project": "BUGS"
+  },
+  {
+    "id": "BUGS-34",
+    "summary": "dev refresh ok but measure wrong",
+    "description": "на деве refresh проходит без ошибок но Gross Margin % в PBI 42% а в sql (revenue-cogs)/revenue = 38%. measure DAX подозрительный. файл Finance_Dev.pbix. сверить формулы/данные БД и power bi DEV",
+    "text": "dev refresh ok but measure wrong\n\nна деве refresh проходит без ошибок но Gross Margin % в PBI 42% а в sql (revenue-cogs)/revenue = 38%. measure DAX подозрительный. файл Finance_Dev.pbix. сверить формулы/данные БД и power bi DEV",
+    "labels": [
+      "data-accuracy",
+      "dirty-text",
+      "extraction",
+      "golden-candidate",
+      "hw1",
+      "power-bi"
+    ],
+    "issue_type": "Bug",
+    "priority": "Medium",
+    "status": "To Do",
+    "created": "2026-10-15T20:54:54.920+0200",
+    "source": "jira",
+    "project": "BUGS"
+  },
+  {
+    "id": "BUGS-35",
+    "summary": "prod gateway: stale pbix after db deploy",
+    "description": "задеплоили миграцию на прод, gateway всё ещё тянет старую витрину. цифры в Executive_Dashboard.pbix не совпадают с новым mart.sales_daily. нужно проверить точность между БД и power bi файлами на PROD после деплоя",
+    "text": "prod gateway: stale pbix after db deploy\n\nзадеплоили миграцию на прод, gateway всё ещё тянет старую витрину. цифры в Executive_Dashboard.pbix не совпадают с новым mart.sales_daily. нужно проверить точность между БД и power bi файлами на PROD после деплоя",
+    "labels": [
+      "data-accuracy",
+      "dirty-text",
+      "extraction",
+      "golden-candidate",
+      "hw1",
+      "power-bi"
+    ],
+    "issue_type": "Bug",
+    "priority": "Medium",
+    "status": "To Do",
+    "created": "2026-10-15T20:54:56.048+0200",
+    "source": "jira",
+    "project": "BUGS"
+  },
+  {
+    "id": "BUGS-36",
+    "summary": "NULL vs blank in PBI vs Postgres",
+    "description": "в БД (dev) null в column discount, в PBI показывается как 0 и ломает avg discount. pbix Pricing_QA.pbix. data accuracy check DB vs PowerBI on DEV please",
+    "text": "NULL vs blank in PBI vs Postgres\n\nв БД (dev) null в column discount, в PBI показывается как 0 и ломает avg discount. pbix Pricing_QA.pbix. data accuracy check DB vs PowerBI on DEV please",
+    "labels": [
+      "data-accuracy",
+      "dirty-text",
+      "extraction",
+      "golden-candidate",
+      "hw1",
+      "power-bi"
+    ],
+    "issue_type": "Bug",
+    "priority": "Medium",
+    "status": "To Do",
+    "created": "2026-10-15T20:54:57.206+0200",
+    "source": "jira",
+    "project": "BUGS"
+  },
+  {
+    "id": "BUGS-37",
+    "summary": "currency conversion double applied prod",
+    "description": "подозрение: в fact_payments уже EUR, а PBI ещё раз * fx_rate. totals x1.08 vs DB. prod report FX_Revenue.pbix. критично для закрытия месяца. validate DB vs Power BI accuracy PROD",
+    "text": "currency conversion double applied prod\n\nподозрение: в fact_payments уже EUR, а PBI ещё раз * fx_rate. totals x1.08 vs DB. prod report FX_Revenue.pbix. критично для закрытия месяца. validate DB vs Power BI accuracy PROD",
+    "labels": [
+      "data-accuracy",
+      "dirty-text",
+      "extraction",
+      "golden-candidate",
+      "hw1",
+      "power-bi"
+    ],
+    "issue_type": "Bug",
+    "priority": "Medium",
+    "status": "To Do",
+    "created": "2026-10-15T20:54:58.365+0200",
+    "source": "jira",
+    "project": "BUGS"
+  },
+  {
+    "id": "BUGS-38",
+    "summary": "row-level security filters hide rows only in PBI",
+    "description": "на PROD sql count(*) = 5000, pbi table visual = 4200 for same analyst role. RLS? или broken relationship. dataset HR_Headcount. проверить accuracy / completeness БД vs Power BI PROD",
+    "text": "row-level security filters hide rows only in PBI\n\nна PROD sql count(*) = 5000, pbi table visual = 4200 for same analyst role. RLS? или broken relationship. dataset HR_Headcount. проверить accuracy / completeness БД vs Power BI PROD",
+    "labels": [
+      "data-accuracy",
+      "dirty-text",
+      "extraction",
+      "golden-candidate",
+      "hw1",
+      "power-bi"
+    ],
+    "issue_type": "Bug",
+    "priority": "Medium",
+    "status": "To Do",
+    "created": "2026-10-15T20:55:00.455+0200",
+    "source": "jira",
+    "project": "BUGS"
+  },
+  {
+    "id": "BUGS-39",
+    "summary": "incremental refresh skipped partitions DEV",
+    "description": "incremental refresh на DEV пропустил partition 2026-09, в DB строки есть, в PBI dataset нет. Orders_Incremental_Dev.pbix. сравнить counts by day database vs power bi DEV",
+    "text": "incremental refresh skipped partitions DEV\n\nincremental refresh на DEV пропустил partition 2026-09, в DB строки есть, в PBI dataset нет. Orders_Incremental_Dev.pbix. сравнить counts by day database vs power bi DEV",
+    "labels": [
+      "data-accuracy",
+      "dirty-text",
+      "extraction",
+      "golden-candidate",
+      "hw1",
+      "power-bi"
+    ],
+    "issue_type": "Bug",
+    "priority": "Medium",
+    "status": "To Do",
+    "created": "2026-10-15T20:55:02.803+0200",
+    "source": "jira",
+    "project": "BUGS"
+  },
+  {
+    "id": "BUGS-40",
+    "summary": "excel export from PBI != underlying DB",
+    "description": "бизнес выгружает excel из PBI prod и сверяет с выгрузкой из БД — цифры не сходятся по SKU ABC-12. возможно visual filter. всё равно: каждый такой тикет = check data accuracy between DB and Power BI on PROD",
+    "text": "excel export from PBI != underlying DB\n\nбизнес выгружает excel из PBI prod и сверяет с выгрузкой из БД — цифры не сходятся по SKU ABC-12. возможно visual filter. всё равно: каждый такой тикет = check data accuracy between DB and Power BI on PROD",
+    "labels": [
+      "data-accuracy",
+      "dirty-text",
+      "extraction",
+      "golden-candidate",
+      "hw1",
+      "power-bi"
+    ],
+    "issue_type": "Bug",
+    "priority": "Medium",
+    "status": "To Do",
+    "created": "2026-10-15T20:55:03.815+0200",
+    "source": "jira",
+    "project": "BUGS"
+  },
+  {
+    "id": "BUGS-41",
+    "summary": "PROD Sales Overview: SAP Fiori != Databricks",
+    "description": "баг по отчёту Sales Overview на PROD.\n\nв SAP Fiori app 'Manage Sales Orders' (CDS C_SALESORDER_Q1) за март revenue = 1.31M.\nв Databricks mart.fact_orders за тот же период 1.24M.\nPower BI Sales_Overview_v3.pbix показывает 1.24M (как DBX).\n\nспека SPEC-FIN-014 v1.3 — financial analyst Maria B.\nreport developer Anna K.\nData Pull: Dmytro S.\n\nнадо сверить SAP vs Databricks vs PBI vs спеку. похоже проблема на этапе Data Pull (SAP→Databricks).",
+    "text": "PROD Sales Overview: SAP Fiori != Databricks\n\nбаг по отчёту Sales Overview на PROD.\n\nв SAP Fiori app 'Manage Sales Orders' (CDS C_SALESORDER_Q1) за март revenue = 1.31M.\nв Databricks mart.fact_orders за тот же период 1.24M.\nPower BI Sales_Overview_v3.pbix показывает 1.24M (как DBX).\n\nспека SPEC-FIN-014 v1.3 — financial analyst Maria B.\nreport developer Anna K.\nData Pull: Dmytro S.\n\nнадо сверить SAP vs Databricks vs PBI vs спеку. похоже проблема на этапе Data Pull (SAP→Databricks).",
+    "labels": [
+      "dirty-text",
+      "extraction",
+      "golden-candidate",
+      "hw1",
+      "pipeline-sap"
+    ],
+    "issue_type": "Bug",
+    "priority": "Medium",
+    "status": "To Do",
+    "created": "2026-10-15T21:02:04.337+0200",
+    "source": "jira",
+    "project": "BUGS"
+  },
+  {
+    "id": "BUGS-42",
+    "summary": "DEV Gross Margin report does not match SPEC-FIN-030",
+    "description": "отчёт Finance_Dev.pbix на DEV.\nцифры Databricks mart.fact_revenue/cogs сходятся с PBI, НО расчёт Gross Margin % не по спеке SPEC-FIN-030 v1.0.\nв спеке: exclude intercompany; в отчёте intercompany включены.\n\nэто не data pull баг — отчёт не соответствует требованиям.\nFA: Ihor S, developer: Oleh P.\nсверить report vs specification обязательно.",
+    "text": "DEV Gross Margin report does not match SPEC-FIN-030\n\nотчёт Finance_Dev.pbix на DEV.\nцифры Databricks mart.fact_revenue/cogs сходятся с PBI, НО расчёт Gross Margin % не по спеке SPEC-FIN-030 v1.0.\nв спеке: exclude intercompany; в отчёте intercompany включены.\n\nэто не data pull баг — отчёт не соответствует требованиям.\nFA: Ihor S, developer: Oleh P.\nсверить report vs specification обязательно.",
+    "labels": [
+      "dirty-text",
+      "extraction",
+      "golden-candidate",
+      "hw1",
+      "pipeline-spec"
+    ],
+    "issue_type": "Bug",
+    "priority": "Medium",
+    "status": "To Do",
+    "created": "2026-10-15T21:02:05.431+0200",
+    "source": "jira",
+    "project": "BUGS"
+  },
+  {
+    "id": "BUGS-43",
+    "summary": "Data Pull missed SAP postings into Databricks DEV",
+    "description": "Inventory Snapshot DEV: в Fiori Stock Overview есть движения за вчера, в wh.inventory_snapshot их нет.\nPBI Inventory_Dev.pbix тоже пустой за вчера — просто отражает Databricks.\n\nData Pull team (Katya M) — пайплайн SAP→DBX.\nspec SPEC-OPS-007.\nсверять SAP vs Databricks на DEV; PBI вторичен.",
+    "text": "Data Pull missed SAP postings into Databricks DEV\n\nInventory Snapshot DEV: в Fiori Stock Overview есть движения за вчера, в wh.inventory_snapshot их нет.\nPBI Inventory_Dev.pbix тоже пустой за вчера — просто отражает Databricks.\n\nData Pull team (Katya M) — пайплайн SAP→DBX.\nspec SPEC-OPS-007.\nсверять SAP vs Databricks на DEV; PBI вторичен.",
+    "labels": [
+      "dirty-text",
+      "extraction",
+      "golden-candidate",
+      "hw1",
+      "pipeline-databricks"
+    ],
+    "issue_type": "Bug",
+    "priority": "Medium",
+    "status": "To Do",
+    "created": "2026-10-15T21:02:06.783+0200",
+    "source": "jira",
+    "project": "BUGS"
+  },
+  {
+    "id": "BUGS-44",
+    "summary": "PROD Customers by Region: DBX ok, PBI wrong filter",
+    "description": "mart.dim_customer на PROD = 11802 UA active.\nCustomers_Prod.pbix показывает 12040 — похоже включены soft-deleted.\nSAP Fiori Customer Master примерно как DBX.\nspec SPEC-FIN-021 говорит только active customers.\n\ndeveloper Anna K / FA Maria B / Data Pull Dmytro.\nсверить DBX vs PBI и PBI vs spec.",
+    "text": "PROD Customers by Region: DBX ok, PBI wrong filter\n\nmart.dim_customer на PROD = 11802 UA active.\nCustomers_Prod.pbix показывает 12040 — похоже включены soft-deleted.\nSAP Fiori Customer Master примерно как DBX.\nspec SPEC-FIN-021 говорит только active customers.\n\ndeveloper Anna K / FA Maria B / Data Pull Dmytro.\nсверить DBX vs PBI и PBI vs spec.",
+    "labels": [
+      "dirty-text",
+      "extraction",
+      "golden-candidate",
+      "hw1",
+      "pipeline-pbi"
+    ],
+    "issue_type": "Bug",
+    "priority": "Medium",
+    "status": "To Do",
+    "created": "2026-10-15T21:02:07.766+0200",
+    "source": "jira",
+    "project": "BUGS"
+  },
+  {
+    "id": "BUGS-45",
+    "summary": "Users compare wrong Fiori period vs report PROD",
+    "description": "бизнес смотрит в SAP Fiori другой posting period чем фильтр в FX_Revenue.pbix PROD.\nкричат что 'данные не сходятся' но возможно user error.\nвсё равно завели баг — надо пройти сверку SAP vs DBX vs PBI vs SPEC-FIN-041.\nData Pull Dmytro, FA Maria, Dev Anna.",
+    "text": "Users compare wrong Fiori period vs report PROD\n\nбизнес смотрит в SAP Fiori другой posting period чем фильтр в FX_Revenue.pbix PROD.\nкричат что 'данные не сходятся' но возможно user error.\nвсё равно завели баг — надо пройти сверку SAP vs DBX vs PBI vs SPEC-FIN-041.\nData Pull Dmytro, FA Maria, Dev Anna.",
+    "labels": [
+      "dirty-text",
+      "extraction",
+      "golden-candidate",
+      "hw1",
+      "pipeline-sap"
+    ],
+    "issue_type": "Bug",
+    "priority": "Medium",
+    "status": "To Do",
+    "created": "2026-10-15T21:02:09.045+0200",
+    "source": "jira",
+    "project": "BUGS"
+  },
+  {
+    "id": "BUGS-46",
+    "summary": "CR: add channel split to Sales Overview per new spec",
+    "description": "CHANGE REQUEST (не баг).\nотчёт Sales Overview PROD+DEV.\nфинансовые аналитики обновили SPEC-FIN-014 → нужна v1.4: разбивка revenue by channel.\nсейчас канала в PBI нет, хотя в Databricks mart.fact_orders channel уже есть (Data Pull ок).\n\nнужно: обновить спеку acceptance, доработать PBI (Anna K), FA Maria B.\nсверка после: report vs new spec; DBX vs PBI.",
+    "text": "CR: add channel split to Sales Overview per new spec\n\nCHANGE REQUEST (не баг).\nотчёт Sales Overview PROD+DEV.\nфинансовые аналитики обновили SPEC-FIN-014 → нужна v1.4: разбивка revenue by channel.\nсейчас канала в PBI нет, хотя в Databricks mart.fact_orders channel уже есть (Data Pull ок).\n\nнужно: обновить спеку acceptance, доработать PBI (Anna K), FA Maria B.\nсверка после: report vs new spec; DBX vs PBI.",
+    "labels": [
+      "change-request",
+      "dirty-text",
+      "extraction",
+      "golden-candidate",
+      "hw1"
+    ],
+    "issue_type": "Task",
+    "priority": "Medium",
+    "status": "To Do",
+    "created": "2026-10-15T21:02:10.040+0200",
+    "source": "jira",
+    "project": "BUGS"
+  },
+  {
+    "id": "BUGS-47",
+    "summary": "CR: change FX conversion timing in SPEC-FIN-041",
+    "description": "change request: аналитики хотят конвертацию на posting date вместо payment date.\nэто меняет SPEC-FIN-041 и логику и Data Pull (fx join) и PBI FX_Revenue.\nокружение: сначала DEV, потом PROD.\nowners: FA Maria, Data Pull Dmytro, Dev Anna.\nне баг — изменение требований.",
+    "text": "CR: change FX conversion timing in SPEC-FIN-041\n\nchange request: аналитики хотят конвертацию на posting date вместо payment date.\nэто меняет SPEC-FIN-041 и логику и Data Pull (fx join) и PBI FX_Revenue.\nокружение: сначала DEV, потом PROD.\nowners: FA Maria, Data Pull Dmytro, Dev Anna.\nне баг — изменение требований.",
+    "labels": [
+      "change-request",
+      "dirty-text",
+      "extraction",
+      "golden-candidate",
+      "hw1"
+    ],
+    "issue_type": "Task",
+    "priority": "Medium",
+    "status": "To Do",
+    "created": "2026-10-15T21:02:11.054+0200",
+    "source": "jira",
+    "project": "BUGS"
+  },
+  {
+    "id": "BUGS-48",
+    "summary": "CR: expose plant hierarchy from SAP to Databricks",
+    "description": "CR для Data Pull: добавить plant hierarchy из SAP Fiori Stock Overview в Databricks, чтобы Inventory report мог фильтровать по иерархии как в SPEC-OPS-007 draft v2.1.\nDEV first.\nKatya M + FA Ihor + Dev Oleh.",
+    "text": "CR: expose plant hierarchy from SAP to Databricks\n\nCR для Data Pull: добавить plant hierarchy из SAP Fiori Stock Overview в Databricks, чтобы Inventory report мог фильтровать по иерархии как в SPEC-OPS-007 draft v2.1.\nDEV first.\nKatya M + FA Ihor + Dev Oleh.",
+    "labels": [
+      "change-request",
+      "dirty-text",
+      "extraction",
+      "hw1"
+    ],
+    "issue_type": "Task",
+    "priority": "Medium",
+    "status": "To Do",
+    "created": "2026-10-15T21:02:12.239+0200",
+    "source": "jira",
+    "project": "BUGS"
+  },
+  {
+    "id": "BUGS-49",
+    "summary": "PROD FX_Revenue double FX vs SPEC-FIN-041",
+    "description": "в fact_payments уже EUR, PBI FX_Revenue.pbix ещё раз * fx_rate.\nSAP Fiori Incoming Payments в EUR.\nDatabricks ок по спеке? спека SPEC-FIN-041: convert once at payment.\nрасхождение на этапе Power BI report PROD.\nсверить все три слоя + spec. blocker month close.",
+    "text": "PROD FX_Revenue double FX vs SPEC-FIN-041\n\nв fact_payments уже EUR, PBI FX_Revenue.pbix ещё раз * fx_rate.\nSAP Fiori Incoming Payments в EUR.\nDatabricks ок по спеке? спека SPEC-FIN-041: convert once at payment.\nрасхождение на этапе Power BI report PROD.\nсверить все три слоя + spec. blocker month close.",
+    "labels": [
+      "dirty-text",
+      "extraction",
+      "golden-candidate",
+      "hw1",
+      "pipeline-pbi"
+    ],
+    "issue_type": "Bug",
+    "priority": "Medium",
+    "status": "To Do",
+    "created": "2026-10-15T21:02:13.366+0200",
+    "source": "jira",
+    "project": "BUGS"
+  },
+  {
+    "id": "BUGS-50",
+    "summary": "DEV: Databricks grain differs from Fiori CDS",
+    "description": "C_SALESORDER_Q1 возвращает header level, Data Pull собрал line level без правильной агрегации → Sales Overview DEV завышает.\nPBI просто читает mart.\nspec SPEC-FIN-014 expects header net value.\nбаг на Databricks/Data Pull этапе. Oleh/Anna/Dmytro/Maria.",
+    "text": "DEV: Databricks grain differs from Fiori CDS\n\nC_SALESORDER_Q1 возвращает header level, Data Pull собрал line level без правильной агрегации → Sales Overview DEV завышает.\nPBI просто читает mart.\nspec SPEC-FIN-014 expects header net value.\nбаг на Databricks/Data Pull этапе. Oleh/Anna/Dmytro/Maria.",
+    "labels": [
+      "dirty-text",
+      "extraction",
+      "golden-candidate",
+      "hw1",
+      "pipeline-databricks"
+    ],
+    "issue_type": "Bug",
+    "priority": "Medium",
+    "status": "To Do",
+    "created": "2026-10-15T21:02:14.443+0200",
+    "source": "jira",
+    "project": "BUGS"
+  },
+  {
+    "id": "BUGS-51",
+    "summary": "Fix for FX double-convert on DEV awaiting FA approval for PROD",
+    "description": "баг FIX уже задеплоен на DEV (FX_Revenue.pbix).\nсверка SAP / Databricks / PBI / SPEC-FIN-041 на DEV ок.\nждём аппрув financial analyst Maria B перед промоушеном на PROD.\nНЕ деплоить на прод без approval.\nowner report: Anna K, Data Pull: Dmytro.",
+    "text": "Fix for FX double-convert on DEV awaiting FA approval for PROD\n\nбаг FIX уже задеплоен на DEV (FX_Revenue.pbix).\nсверка SAP / Databricks / PBI / SPEC-FIN-041 на DEV ок.\nждём аппрув financial analyst Maria B перед промоушеном на PROD.\nНЕ деплоить на прод без approval.\nowner report: Anna K, Data Pull: Dmytro.",
+    "labels": [
+      "deployment",
+      "dirty-text",
+      "extraction",
+      "golden-candidate",
+      "hw1"
+    ],
+    "issue_type": "Bug",
+    "priority": "Medium",
+    "status": "To Do",
+    "created": "2026-10-15T21:04:56.386+0200",
+    "source": "jira",
+    "project": "BUGS"
+  },
+  {
+    "id": "BUGS-52",
+    "summary": "CR channel split: approved on DEV — schedule PROD deploy",
+    "description": "CHANGE REQUEST Sales Overview channel split.\nDEV deploy done, FA Maria approved yesterday.\nнужен PROD deploy по пайплайну: DEV → approval → PROD (approval already done).\ndeveloper Anna K.",
+    "text": "CR channel split: approved on DEV — schedule PROD deploy\n\nCHANGE REQUEST Sales Overview channel split.\nDEV deploy done, FA Maria approved yesterday.\nнужен PROD deploy по пайплайну: DEV → approval → PROD (approval already done).\ndeveloper Anna K.",
+    "labels": [
+      "change-request",
+      "deployment",
+      "dirty-text",
+      "extraction",
+      "hw1"
+    ],
+    "issue_type": "Task",
+    "priority": "Medium",
+    "status": "To Do",
+    "created": "2026-10-15T21:04:57.427+0200",
+    "source": "jira",
+    "project": "BUGS"
+  },
+  {
+    "id": "BUGS-53",
+    "summary": "Someone pushed inventory fix straight to PROD — process breach",
+    "description": "кто-то задеплоил hotfix Inventory Snapshot сразу на PROD минуя DEV и без аппрува FA.\nпроцесс нарушен: сначала DEV, потом approval, потом PROD.\nнужно откатить/повторить через правильный deployment pipeline.\nOleh / Ihor / Katya.",
+    "text": "Someone pushed inventory fix straight to PROD — process breach\n\nкто-то задеплоил hotfix Inventory Snapshot сразу на PROD минуя DEV и без аппрува FA.\nпроцесс нарушен: сначала DEV, потом approval, потом PROD.\nнужно откатить/повторить через правильный deployment pipeline.\nOleh / Ihor / Katya.",
+    "labels": [
+      "deployment",
+      "dirty-text",
+      "extraction",
+      "hw1"
+    ],
+    "issue_type": "Bug",
+    "priority": "Medium",
+    "status": "To Do",
+    "created": "2026-10-15T21:04:58.417+0200",
+    "source": "jira",
+    "project": "BUGS"
+  }
+]

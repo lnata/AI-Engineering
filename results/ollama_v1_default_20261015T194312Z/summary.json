@@ -1,0 +1,146 @@
+{
+  "created_at": "20261015T194312Z",
+  "provider": {
+    "name": "ollama",
+    "model": "llama3.2",
+    "timeout_sec": 180.0,
+    "max_retries": 2,
+    "retry_backoff_sec": 3.0
+  },
+  "prompt_version": "v1",
+  "sampling_profile": "default",
+  "count": 2,
+  "ok_count": 2,
+  "results": [
+    {
+      "id": "BUGS-41",
+      "ok": true,
+      "error": null,
+      "latency_ms": 5453.155125,
+      "model": "llama3.2",
+      "prompt_version": "v1",
+      "sampling_profile": "default",
+      "sampling": {
+        "temperature": 0.0,
+        "top_p": 1.0
+      },
+      "usage": {
+        "input_tokens": 2828,
+        "output_tokens": 327,
+        "total_tokens": 3155
+      },
+      "extraction": {
+        "ticket_type": "bug",
+        "summary": "PROD Sales Overview: SAP Fiori != Databricks",
+        "priority": "medium",
+        "issue_category": "spec_mismatch",
+        "report": {
+          "name": "Sales_Overview_v3.pbix",
+          "deploy_stage": "both",
+          "dataset_name": "unknown"
+        },
+        "sap_fiori": {
+          "app_name": "Manage Sales Orders",
+          "transaction_or_cds": "CDS C_SALESORDER_Q1"
+        },
+        "specification": {
+          "spec_id": "SPEC-FIN-014",
+          "version": "v1.3",
+          "title": "Financial specification"
+        },
+        "ownership": {
+          "report_developer": "Anna K.",
+          "financial_analyst": "Maria B.",
+          "data_pull_owner": "Dmytro S.",
+          "primary_assignee_role": "unknown"
+        },
+        "reconciliation": {
+          "compare_sap_vs_databricks": true,
+          "compare_databricks_vs_power_bi": true,
+          "compare_report_vs_spec": true,
+          "mismatch_suspected_at": "databricks",
+          "notes": null
+        },
+        "deployment": {
+          "status": "pending_approval",
+          "requires_dev_deploy_first": true,
+          "awaiting_approval": true,
+          "approved_for_prod": null,
+          "approver_role": null,
+          "deployed_to_dev": null,
+          "deployed_to_prod": null,
+          "notes": "Problem on Data Pull (SAP→Databricks)"
+        },
+        "repro_steps": [],
+        "labels": [],
+        "is_blocker": false,
+        "confidence_notes": null
+      }
+    },
+    {
+      "id": "BUGS-42",
+      "ok": true,
+      "error": null,
+      "latency_ms": 4889.758667,
+      "model": "llama3.2",
+      "prompt_version": "v1",
+      "sampling_profile": "default",
+      "sampling": {
+        "temperature": 0.0,
+        "top_p": 1.0
+      },
+      "usage": {
+        "input_tokens": 2788,
+        "output_tokens": 309,
+        "total_tokens": 3097
+      },
+      "extraction": {
+        "ticket_type": "bug",
+        "summary": "DEV Gross Margin report does not match SPEC-FIN-030",
+        "priority": "medium",
+        "issue_category": "spec_mismatch",
+        "report": {
+          "name": "Finance_Dev.pbix",
+          "deploy_stage": "both",
+          "dataset_name": null
+        },
+        "sap_fiori": {
+          "app_name": "Finance",
+          "transaction_or_cds": "mart.fact_revenue/cogs"
+        },
+        "specification": {
+          "spec_id": "SPEC-FIN-030",
+          "version": "v1.0",
+          "title": null
+        },
+        "ownership": {
+          "report_developer": "Oleh P.",
+          "financial_analyst": "Ihor S",
+          "data_pull_owner": null,
+          "primary_assignee_role": "unknown"
+        },
+        "reconciliation": {
+          "compare_sap_vs_databricks": true,
+          "compare_databricks_vs_power_bi": true,
+          "compare_report_vs_spec": true,
+          "mismatch_suspected_at": "power_bi_report",
+          "notes": null
+        },
+        "deployment": {
+          "status": "pending_approval",
+          "requires_dev_deploy_first": true,
+          "awaiting_approval": true,
+          "approved_for_prod": null,
+          "approver_role": "financial_analyst",
+          "deployed_to_dev": false,
+          "deployed_to_prod": false,
+          "notes": "Report vs specification mismatch"
+        },
+        "repro_steps": [],
+        "labels": [],
+        "is_blocker": false,
+        "confidence_notes": null
+      }
+    }
+  ]
+}

@@ -1,0 +1,75 @@
+{
+  "id": "BUGS-35",
+  "ok": true,
+  "error": null,
+  "latency_ms": 1847.404124999997,
+  "model": "gemini-3.5-flash-lite",
+  "prompt_version": "v2",
+  "sampling_profile": "default",
+  "sampling": {
+    "temperature": 0.0,
+    "top_p": 1.0
+  },
+  "usage": {
+    "input_tokens": 847,
+    "output_tokens": 510,
+    "total_tokens": 1357
+  },
+  "raw_text": "{\n  \"ticket_type\": \"bug\",\n  \"summary\": \"PROD gateway serving stale dataset after DB deploy\",\n  \"priority\": \"critical\",\n  \"issue_category\": \"data_mismatch\",\n  \"report\": {\n    \"name\": \"Executive Dashboard\",\n    \"deploy_stage\": \"prod\",\n    \"dataset_name\": \"Executive_Dashboard.pbix\"\n  },\n  \"sap_fiori\": {\n    \"app_name\": null,\n    \"transaction_or_cds\": null\n  },\n  \"specification\": {\n    \"spec_id\": null,\n    \"version\": null,\n    \"title\": null\n  },\n  \"ownership\": {\n    \"report_developer\": null,\n    \"financial_analyst\": null,\n    \"data_pull_owner\": null,\n    \"primary_assignee_role\": \"report_developer\"\n  },\n  \"reconciliation\": {\n    \"compare_sap_vs_databricks\": false,\n    \"compare_databricks_vs_power_bi\": true,\n    \"compare_report_vs_spec\": false,\n    \"mismatch_suspected_at\": \"power_bi_report\",\n    \"notes\": \"Verify accuracy between mart.sales_daily in Databricks and Power BI on PROD\"\n  },\n  \"deployment\": {\n    \"status\": \"deployed_to_prod\",\n    \"requires_dev_deploy_first\": true,\n    \"awaiting_approval\": false,\n    \"approved_for_prod\": true,\n    \"approver_role\": \"financial_analyst\",\n    \"deployed_to_dev\": true,\n    \"deployed_to_prod\": true,\n    \"notes\": \"Migration deployed to prod, gateway needs refresh/check\"\n  },\n  \"repro_steps\": [\n    \"Check PROD gateway status\",\n    \"Verify numbers in Executive Dashboard against mart.sales_daily\"\n  ],\n  \"labels\": [\n    \"prod\",\n    \"gateway\",\n    \"stale-data\",\n    \"power-bi\",\n    \"databricks\"\n  ],\n  \"is_blocker\": true,\n  \"confidence_notes\": null\n}",
+  "extraction": {
+    "ticket_type": "bug",
+    "summary": "PROD gateway serving stale dataset after DB deploy",
+    "priority": "critical",
+    "issue_category": "data_mismatch",
+    "report": {
+      "name": "Executive Dashboard",
+      "deploy_stage": "prod",
+      "dataset_name": "Executive_Dashboard.pbix"
+    },
+    "sap_fiori": {
+      "app_name": null,
+      "transaction_or_cds": null
+    },
+    "specification": {
+      "spec_id": null,
+      "version": null,
+      "title": null
+    },
+    "ownership": {
+      "report_developer": null,
+      "financial_analyst": null,
+      "data_pull_owner": null,
+      "primary_assignee_role": "report_developer"
+    },
+    "reconciliation": {
+      "compare_sap_vs_databricks": false,
+      "compare_databricks_vs_power_bi": true,
+      "compare_report_vs_spec": false,
+      "mismatch_suspected_at": "power_bi_report",
+      "notes": "Verify accuracy between mart.sales_daily in Databricks and Power BI on PROD"
+    },
+    "deployment": {
+      "status": "deployed_to_prod",
+      "requires_dev_deploy_first": true,
+      "awaiting_approval": false,
+      "approved_for_prod": true,
+      "approver_role": "financial_analyst",
+      "deployed_to_dev": true,
+      "deployed_to_prod": true,
+      "notes": "Migration deployed to prod, gateway needs refresh/check"
+    },
+    "repro_steps": [
+      "Check PROD gateway status",
+      "Verify numbers in Executive Dashboard against mart.sales_daily"
+    ],
+    "labels": [
+      "prod",
+      "gateway",
+      "stale-data",
+      "power-bi",
+      "databricks"
+    ],
+    "is_blocker": true,
+    "confidence_notes": null
+  }
+}

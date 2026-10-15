@@ -1,0 +1,19 @@
+{
+  "id": "BUGS-50",
+  "summary": "DEV: Databricks grain differs from Fiori CDS",
+  "description": "C_SALESORDER_Q1 возвращает header level, Data Pull собрал line level без правильной агрегации → Sales Overview DEV завышает.\nPBI просто читает mart.\nspec SPEC-FIN-014 expects header net value.\nбаг на Databricks/Data Pull этапе. Oleh/Anna/Dmytro/Maria.",
+  "text": "DEV: Databricks grain differs from Fiori CDS\n\nC_SALESORDER_Q1 возвращает header level, Data Pull собрал line level без правильной агрегации → Sales Overview DEV завышает.\nPBI просто читает mart.\nspec SPEC-FIN-014 expects header net value.\nбаг на Databricks/Data Pull этапе. Oleh/Anna/Dmytro/Maria.",
+  "labels": [
+    "dirty-text",
+    "extraction",
+    "golden-candidate",
+    "hw1",
+    "pipeline-databricks"
+  ],
+  "issue_type": "Bug",
+  "priority": "Medium",
+  "status": "To Do",
+  "created": "2026-10-15T21:02:14.443+0200",
+  "source": "jira",
+  "project": "BUGS"
+}

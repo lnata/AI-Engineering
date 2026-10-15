@@ -1,0 +1,75 @@
+{
+  "id": "BUGS-38",
+  "ok": true,
+  "error": null,
+  "latency_ms": 2417.9654160000014,
+  "model": "gemini-3.5-flash-lite",
+  "prompt_version": "v2",
+  "sampling_profile": "default",
+  "sampling": {
+    "temperature": 0.0,
+    "top_p": 1.0
+  },
+  "usage": {
+    "input_tokens": 841,
+    "output_tokens": 512,
+    "total_tokens": 1353
+  },
+  "raw_text": "{\n  \"ticket_type\": \"bug\",\n  \"summary\": \"Row-level security or relationship filtering hides rows in Power BI PROD\",\n  \"priority\": \"high\",\n  \"issue_category\": \"filter_rls\",\n  \"report\": {\n    \"name\": \"HR Headcount\",\n    \"deploy_stage\": \"prod\",\n    \"dataset_name\": \"HR_Headcount\"\n  },\n  \"sap_fiori\": {\n    \"app_name\": null,\n    \"transaction_or_cds\": null\n  },\n  \"specification\": {\n    \"spec_id\": null,\n    \"version\": null,\n    \"title\": null\n  },\n  \"ownership\": {\n    \"report_developer\": null,\n    \"financial_analyst\": null,\n    \"data_pull_owner\": null,\n    \"primary_assignee_role\": \"report_developer\"\n  },\n  \"reconciliation\": {\n    \"compare_sap_vs_databricks\": false,\n    \"compare_databricks_vs_power_bi\": true,\n    \"compare_report_vs_spec\": false,\n    \"mismatch_suspected_at\": \"power_bi_report\",\n    \"notes\": \"Compare Databricks SQL count vs Power BI table visual for the same analyst role\"\n  },\n  \"deployment\": {\n    \"status\": \"not_started\",\n    \"requires_dev_deploy_first\": true,\n    \"awaiting_approval\": false,\n    \"approved_for_prod\": null,\n    \"approver_role\": \"financial_analyst\",\n    \"deployed_to_dev\": null,\n    \"deployed_to_prod\": true,\n    \"notes\": \"Issue reported on PROD\"\n  },\n  \"repro_steps\": [\n    \"Check SQL count(*) on PROD database\",\n    \"Check PBI table visual for the same analyst role\",\n    \"Investigate RLS or relationship configuration\"\n  ],\n  \"labels\": [\n    \"rls\",\n    \"power-bi\",\n    \"data-mismatch\",\n    \"prod\"\n  ],\n  \"is_blocker\": false,\n  \"confidence_notes\": null\n}",
+  "extraction": {
+    "ticket_type": "bug",
+    "summary": "Row-level security or relationship filtering hides rows in Power BI PROD",
+    "priority": "high",
+    "issue_category": "filter_rls",
+    "report": {
+      "name": "HR Headcount",
+      "deploy_stage": "prod",
+      "dataset_name": "HR_Headcount"
+    },
+    "sap_fiori": {
+      "app_name": null,
+      "transaction_or_cds": null
+    },
+    "specification": {
+      "spec_id": null,
+      "version": null,
+      "title": null
+    },
+    "ownership": {
+      "report_developer": null,
+      "financial_analyst": null,
+      "data_pull_owner": null,
+      "primary_assignee_role": "report_developer"
+    },
+    "reconciliation": {
+      "compare_sap_vs_databricks": false,
+      "compare_databricks_vs_power_bi": true,
+      "compare_report_vs_spec": false,
+      "mismatch_suspected_at": "power_bi_report",
+      "notes": "Compare Databricks SQL count vs Power BI table visual for the same analyst role"
+    },
+    "deployment": {
+      "status": "not_started",
+      "requires_dev_deploy_first": true,
+      "awaiting_approval": false,
+      "approved_for_prod": null,
+      "approver_role": "financial_analyst",
+      "deployed_to_dev": null,
+      "deployed_to_prod": true,
+      "notes": "Issue reported on PROD"
+    },
+    "repro_steps": [
+      "Check SQL count(*) on PROD database",
+      "Check PBI table visual for the same analyst role",
+      "Investigate RLS or relationship configuration"
+    ],
+    "labels": [
+      "rls",
+      "power-bi",
+      "data-mismatch",
+      "prod"
+    ],
+    "is_blocker": false,
+    "confidence_notes": null
+  }
+}

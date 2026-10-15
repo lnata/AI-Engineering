@@ -1,0 +1,75 @@
+{
+  "id": "BUGS-46",
+  "ok": true,
+  "error": null,
+  "latency_ms": 1895.4848329999977,
+  "model": "gemini-3.5-flash-lite",
+  "prompt_version": "v2",
+  "sampling_profile": "default",
+  "sampling": {
+    "temperature": 0.0,
+    "top_p": 1.0
+  },
+  "usage": {
+    "input_tokens": 902,
+    "output_tokens": 552,
+    "total_tokens": 1454
+  },
+  "raw_text": "{\n  \"ticket_type\": \"change_request\",\n  \"summary\": \"Add channel split to Sales Overview per SPEC-FIN-014 v1.4\",\n  \"priority\": \"medium\",\n  \"issue_category\": \"enhancement\",\n  \"report\": {\n    \"name\": \"Sales Overview\",\n    \"deploy_stage\": \"both\",\n    \"dataset_name\": null\n  },\n  \"sap_fiori\": {\n    \"app_name\": null,\n    \"transaction_or_cds\": null\n  },\n  \"specification\": {\n    \"spec_id\": \"SPEC-FIN-014\",\n    \"version\": \"1.4\",\n    \"title\": \"revenue by channel\"\n  },\n  \"ownership\": {\n    \"report_developer\": \"Anna K\",\n    \"financial_analyst\": \"Maria B\",\n    \"data_pull_owner\": null,\n    \"primary_assignee_role\": \"report_developer\"\n  },\n  \"reconciliation\": {\n    \"compare_sap_vs_databricks\": false,\n    \"compare_databricks_vs_power_bi\": true,\n    \"compare_report_vs_spec\": true,\n    \"mismatch_suspected_at\": \"specification\",\n    \"notes\": \"Verify DBX vs PBI and report vs new spec after adding channel split\"\n  },\n  \"deployment\": {\n    \"status\": \"not_started\",\n    \"requires_dev_deploy_first\": true,\n    \"awaiting_approval\": false,\n    \"approved_for_prod\": null,\n    \"approver_role\": \"financial_analyst\",\n    \"deployed_to_dev\": false,\n    \"deployed_to_prod\": false,\n    \"notes\": \"Data Pull is already ok in Databricks mart.fact_orders; need to update PBI and deploy through DEV to PROD with FA Maria B approval.\"\n  },\n  \"repro_steps\": [\n    \"Update PBI model and visuals to include channel dimension\",\n    \"Deploy to DEV\",\n    \"Reconcile report vs new spec and DBX vs PBI\"\n  ],\n  \"labels\": [\n    \"change-request\",\n    \"sales-overview\",\n    \"dax\",\n    \"channel-split\"\n  ],\n  \"is_blocker\": false,\n  \"confidence_notes\": null\n}",
+  "extraction": {
+    "ticket_type": "change_request",
+    "summary": "Add channel split to Sales Overview per SPEC-FIN-014 v1.4",
+    "priority": "medium",
+    "issue_category": "enhancement",
+    "report": {
+      "name": "Sales Overview",
+      "deploy_stage": "both",
+      "dataset_name": null
+    },
+    "sap_fiori": {
+      "app_name": null,
+      "transaction_or_cds": null
+    },
+    "specification": {
+      "spec_id": "SPEC-FIN-014",
+      "version": "1.4",
+      "title": "revenue by channel"
+    },
+    "ownership": {
+      "report_developer": "Anna K",
+      "financial_analyst": "Maria B",
+      "data_pull_owner": null,
+      "primary_assignee_role": "report_developer"
+    },
+    "reconciliation": {
+      "compare_sap_vs_databricks": false,
+      "compare_databricks_vs_power_bi": true,
+      "compare_report_vs_spec": true,
+      "mismatch_suspected_at": "specification",
+      "notes": "Verify DBX vs PBI and report vs new spec after adding channel split"
+    },
+    "deployment": {
+      "status": "not_started",
+      "requires_dev_deploy_first": true,
+      "awaiting_approval": false,
+      "approved_for_prod": null,
+      "approver_role": "financial_analyst",
+      "deployed_to_dev": false,
+      "deployed_to_prod": false,
+      "notes": "Data Pull is already ok in Databricks mart.fact_orders; need to update PBI and deploy through DEV to PROD with FA Maria B approval."
+    },
+    "repro_steps": [
+      "Update PBI model and visuals to include channel dimension",
+      "Deploy to DEV",
+      "Reconcile report vs new spec and DBX vs PBI"
+    ],
+    "labels": [
+      "change-request",
+      "sales-overview",
+      "dax",
+      "channel-split"
+    ],
+    "is_blocker": false,
+    "confidence_notes": null
+  }
+}

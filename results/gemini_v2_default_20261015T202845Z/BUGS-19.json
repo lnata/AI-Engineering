@@ -1,0 +1,74 @@
+{
+  "id": "BUGS-19",
+  "ok": true,
+  "error": null,
+  "latency_ms": 1639.701917,
+  "model": "gemini-3.5-flash-lite",
+  "prompt_version": "v2",
+  "sampling_profile": "default",
+  "sampling": {
+    "temperature": 0.0,
+    "top_p": 1.0
+  },
+  "usage": {
+    "input_tokens": 812,
+    "output_tokens": 473,
+    "total_tokens": 1285
+  },
+  "raw_text": "{\n  \"ticket_type\": \"bug\",\n  \"summary\": \"OAuth token refresh race condition causes random user logouts\",\n  \"priority\": \"medium\",\n  \"issue_category\": \"other\",\n  \"report\": {\n    \"name\": null,\n    \"deploy_stage\": \"unknown\",\n    \"dataset_name\": null\n  },\n  \"sap_fiori\": {\n    \"app_name\": null,\n    \"transaction_or_cds\": null\n  },\n  \"specification\": {\n    \"spec_id\": null,\n    \"version\": null,\n    \"title\": null\n  },\n  \"ownership\": {\n    \"report_developer\": null,\n    \"financial_analyst\": null,\n    \"data_pull_owner\": null,\n    \"primary_assignee_role\": \"unknown\"\n  },\n  \"reconciliation\": {\n    \"compare_sap_vs_databricks\": false,\n    \"compare_databricks_vs_power_bi\": false,\n    \"compare_report_vs_spec\": false,\n    \"mismatch_suspected_at\": \"unknown\",\n    \"notes\": null\n  },\n  \"deployment\": {\n    \"status\": \"not_started\",\n    \"requires_dev_deploy_first\": true,\n    \"awaiting_approval\": false,\n    \"approved_for_prod\": null,\n    \"approver_role\": null,\n    \"deployed_to_dev\": null,\n    \"deployed_to_prod\": null,\n    \"notes\": null\n  },\n  \"repro_steps\": [\n    \"trigger two token refresh requests in parallel\",\n    \"observe session invalidation under slow network conditions\"\n  ],\n  \"labels\": [\n    \"auth-service\",\n    \"oauth\",\n    \"token-refresh\",\n    \"race-condition\"\n  ],\n  \"is_blocker\": false,\n  \"confidence_notes\": \"Ticket is about auth-service OAuth token refresh issue rather than SAP-Databricks-PowerBI pipeline.\"\n}",
+  "extraction": {
+    "ticket_type": "bug",
+    "summary": "OAuth token refresh race condition causes random user logouts",
+    "priority": "medium",
+    "issue_category": "other",
+    "report": {
+      "name": null,
+      "deploy_stage": "unknown",
+      "dataset_name": null
+    },
+    "sap_fiori": {
+      "app_name": null,
+      "transaction_or_cds": null
+    },
+    "specification": {
+      "spec_id": null,
+      "version": null,
+      "title": null
+    },
+    "ownership": {
+      "report_developer": null,
+      "financial_analyst": null,
+      "data_pull_owner": null,
+      "primary_assignee_role": "unknown"
+    },
+    "reconciliation": {
+      "compare_sap_vs_databricks": false,
+      "compare_databricks_vs_power_bi": false,
+      "compare_report_vs_spec": false,
+      "mismatch_suspected_at": "unknown",
+      "notes": null
+    },
+    "deployment": {
+      "status": "not_started",
+      "requires_dev_deploy_first": true,
+      "awaiting_approval": false,
+      "approved_for_prod": null,
+      "approver_role": null,
+      "deployed_to_dev": null,
+      "deployed_to_prod": null,
+      "notes": null
+    },
+    "repro_steps": [
+      "trigger two token refresh requests in parallel",
+      "observe session invalidation under slow network conditions"
+    ],
+    "labels": [
+      "auth-service",
+      "oauth",
+      "token-refresh",
+      "race-condition"
+    ],
+    "is_blocker": false,
+    "confidence_notes": "Ticket is about auth-service OAuth token refresh issue rather than SAP-Databricks-PowerBI pipeline."
+  }
+}

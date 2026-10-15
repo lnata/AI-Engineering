@@ -1,0 +1,17 @@
+{
+  "id": "BUGS-23",
+  "summary": "invoice number collision",
+  "description": "два инвойса с одним номером INV-2026-0042. race on sequence. finance noticed. data fix needed + unique constraint",
+  "text": "invoice number collision\n\nдва инвойса с одним номером INV-2026-0042. race on sequence. finance noticed. data fix needed + unique constraint",
+  "labels": [
+    "dirty-text",
+    "extraction",
+    "hw1"
+  ],
+  "issue_type": "Bug",
+  "priority": "Medium",
+  "status": "To Do",
+  "created": "2026-10-15T20:41:32.095+0200",
+  "source": "jira",
+  "project": "BUGS"
+}

@@ -1,0 +1,90 @@
+{
+  "created_at": "20261015T192101Z",
+  "provider": {
+    "name": "gemini",
+    "model": "gemini-3.5-flash-lite",
+    "timeout_sec": 180.0,
+    "max_retries": 2,
+    "retry_backoff_sec": 3.0
+  },
+  "prompt_version": "v1",
+  "sampling_profile": "default",
+  "count": 1,
+  "ok_count": 1,
+  "results": [
+    {
+      "id": "BUGS-41",
+      "ok": true,
+      "error": null,
+      "latency_ms": 2865.606375,
+      "model": "gemini-3.5-flash-lite",
+      "prompt_version": "v1",
+      "sampling_profile": "default",
+      "sampling": {
+        "temperature": 0.0,
+        "top_p": 1.0
+      },
+      "usage": {
+        "input_tokens": 502,
+        "output_tokens": 593,
+        "total_tokens": 1095
+      },
+      "extraction": {
+        "ticket_type": "bug",
+        "summary": "PROD Sales Overview report data mismatch between SAP Fiori and Databricks",
+        "priority": "high",
+        "issue_category": "data_mismatch",
+        "report": {
+          "name": "Sales_Overview_v3.pbix",
+          "deploy_stage": "prod",
+          "dataset_name": null
+        },
+        "sap_fiori": {
+          "app_name": "Manage Sales Orders",
+          "transaction_or_cds": "C_SALESORDER_Q1"
+        },
+        "specification": {
+          "spec_id": "SPEC-FIN-014",
+          "version": "v1.3",
+          "title": null
+        },
+        "ownership": {
+          "report_developer": "Anna K.",
+          "financial_analyst": "Maria B.",
+          "data_pull_owner": "Dmytro S.",
+          "primary_assignee_role": "data_pull"
+        },
+        "reconciliation": {
+          "compare_sap_vs_databricks": true,
+          "compare_databricks_vs_power_bi": true,
+          "compare_report_vs_spec": true,
+          "mismatch_suspected_at": "databricks",
+          "notes": "Compare SAP Fiori revenue of 1.31M vs Databricks mart.fact_orders revenue of 1.24M for March"
+        },
+        "deployment": {
+          "status": "not_started",
+          "requires_dev_deploy_first": true,
+          "awaiting_approval": false,
+          "approved_for_prod": null,
+          "approver_role": "financial_analyst",
+          "deployed_to_dev": false,
+          "deployed_to_prod": false,
+          "notes": "Must be fixed in DEV first, tested, approved, then deployed to PROD"
+        },
+        "repro_steps": [
+          "Check SAP Fiori app Manage Sales Orders CDS C_SALESORDER_Q1 for March revenue",
+          "Check Databricks mart.fact_orders for March revenue",
+          "Compare with Power BI Sales_Overview_v3.pbix"
+        ],
+        "labels": [
+          "sales-overview",
+          "data-mismatch",
+          "sap-fiori",
+          "databricks"
+        ],
+        "is_blocker": true,
+        "confidence_notes": null
+      }
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "id": "BUGS-53",
+  "summary": "Someone pushed inventory fix straight to PROD — process breach",
+  "description": "кто-то задеплоил hotfix Inventory Snapshot сразу на PROD минуя DEV и без аппрува FA.\nпроцесс нарушен: сначала DEV, потом approval, потом PROD.\nнужно откатить/повторить через правильный deployment pipeline.\nOleh / Ihor / Katya.",
+  "text": "Someone pushed inventory fix straight to PROD — process breach\n\nкто-то задеплоил hotfix Inventory Snapshot сразу на PROD минуя DEV и без аппрува FA.\nпроцесс нарушен: сначала DEV, потом approval, потом PROD.\nнужно откатить/повторить через правильный deployment pipeline.\nOleh / Ihor / Katya.",
+  "labels": [
+    "deployment",
+    "dirty-text",
+    "extraction",
+    "hw1"
+  ],
+  "issue_type": "Bug",
+  "priority": "Medium",
+  "status": "To Do",
+  "created": "2026-10-15T21:04:58.417+0200",
+  "source": "jira",
+  "project": "BUGS"
+}

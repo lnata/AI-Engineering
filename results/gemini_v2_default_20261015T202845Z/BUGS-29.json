@@ -1,0 +1,74 @@
+{
+  "id": "BUGS-29",
+  "ok": true,
+  "error": null,
+  "latency_ms": 1724.559458999991,
+  "model": "gemini-3.5-flash-lite",
+  "prompt_version": "v2",
+  "sampling_profile": "default",
+  "sampling": {
+    "temperature": 0.0,
+    "top_p": 1.0
+  },
+  "usage": {
+    "input_tokens": 808,
+    "output_tokens": 482,
+    "total_tokens": 1290
+  },
+  "raw_text": "{\n  \"ticket_type\": \"bug\",\n  \"summary\": \"Audit log missing delete operations\",\n  \"priority\": \"critical\",\n  \"issue_category\": \"transform_logic\",\n  \"report\": {\n    \"name\": null,\n    \"deploy_stage\": \"unknown\",\n    \"dataset_name\": null\n  },\n  \"sap_fiori\": {\n    \"app_name\": null,\n    \"transaction_or_cds\": null\n  },\n  \"specification\": {\n    \"spec_id\": null,\n    \"version\": null,\n    \"title\": null\n  },\n  \"ownership\": {\n    \"report_developer\": null,\n    \"financial_analyst\": null,\n    \"data_pull_owner\": null,\n    \"primary_assignee_role\": \"data_pull\"\n  },\n  \"reconciliation\": {\n    \"compare_sap_vs_databricks\": false,\n    \"compare_databricks_vs_power_bi\": false,\n    \"compare_report_vs_spec\": false,\n    \"mismatch_suspected_at\": \"databricks\",\n    \"notes\": \"Compliance issue regarding audit log missing delete records before next month audit.\"\n  },\n  \"deployment\": {\n    \"status\": \"not_started\",\n    \"requires_dev_deploy_first\": true,\n    \"awaiting_approval\": false,\n    \"approved_for_prod\": null,\n    \"approver_role\": \"financial_analyst\",\n    \"deployed_to_dev\": false,\n    \"deployed_to_prod\": false,\n    \"notes\": \"Must fix before audit next month.\"\n  },\n  \"repro_steps\": [\n    \"Perform a delete operation in the source system\",\n    \"Check audit log in Databricks for the delete record\"\n  ],\n  \"labels\": [\n    \"audit\",\n    \"compliance\",\n    \"bug\",\n    \"databricks\"\n  ],\n  \"is_blocker\": true,\n  \"confidence_notes\": \"Report name not mentioned in ticket.\"\n}",
+  "extraction": {
+    "ticket_type": "bug",
+    "summary": "Audit log missing delete operations",
+    "priority": "critical",
+    "issue_category": "transform_logic",
+    "report": {
+      "name": null,
+      "deploy_stage": "unknown",
+      "dataset_name": null
+    },
+    "sap_fiori": {
+      "app_name": null,
+      "transaction_or_cds": null
+    },
+    "specification": {
+      "spec_id": null,
+      "version": null,
+      "title": null
+    },
+    "ownership": {
+      "report_developer": null,
+      "financial_analyst": null,
+      "data_pull_owner": null,
+      "primary_assignee_role": "data_pull"
+    },
+    "reconciliation": {
+      "compare_sap_vs_databricks": false,
+      "compare_databricks_vs_power_bi": false,
+      "compare_report_vs_spec": false,
+      "mismatch_suspected_at": "databricks",
+      "notes": "Compliance issue regarding audit log missing delete records before next month audit."
+    },
+    "deployment": {
+      "status": "not_started",
+      "requires_dev_deploy_first": true,
+      "awaiting_approval": false,
+      "approved_for_prod": null,
+      "approver_role": "financial_analyst",
+      "deployed_to_dev": false,
+      "deployed_to_prod": false,
+      "notes": "Must fix before audit next month."
+    },
+    "repro_steps": [
+      "Perform a delete operation in the source system",
+      "Check audit log in Databricks for the delete record"
+    ],
+    "labels": [
+      "audit",
+      "compliance",
+      "bug",
+      "databricks"
+    ],
+    "is_blocker": true,
+    "confidence_notes": "Report name not mentioned in ticket."
+  }
+}
