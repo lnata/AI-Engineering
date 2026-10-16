@@ -4,7 +4,8 @@
 **SAP Fiori → Databricks → Power BI** (bugs + change requests), сравнивает cloud и
 локальные модели и обосновывает выбор для продакшна.
 
-Сквозной курсовой план (кейсы 1–4): [`docs/COURSE_ROADMAP.md`](docs/COURSE_ROADMAP.md)  
+Опис проєкту на курс: [`docs/PROJECT.md`](docs/PROJECT.md)  
+Сквозной план (кейсы 1–4): [`docs/COURSE_ROADMAP.md`](docs/COURSE_ROADMAP.md)  
 Домен и роли: [`docs/DOMAIN.md`](docs/DOMAIN.md)  
 Отчёт с метриками: [`REPORT.md`](REPORT.md)
 

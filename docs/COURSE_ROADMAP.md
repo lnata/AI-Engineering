@@ -1,13 +1,23 @@
 # Сквозной курсовой проект (кейсы 1–4)
 
-**Тема:** AI-система для тикетов отчётности **SAP Fiori → Databricks → Power BI**
-(баги + change requests, сверка с спецификацией, деплой DEV → approval → PROD).
+**Тема:** Analytics Ticket Copilot — AI по Jira-тикетам отчётности  
+**Цепочка данных (где может жить баг):**
+
+```
+SAP Fiori
+  → Databricks tables
+    → Parent semantic model
+      → Child model (DirectQuery + своя логика)
+        → RDL / Power BI report
+```
+
+Плюс сверка со **спецификацией** (financial analyst) и деплой **DEV → approval → PROD**.
 
 | Кейс | Что делаем | Результат |
 |------|------------|-----------|
-| **1. Structured Extraction** (сейчас) | Из «грязных» Jira-текстов → валидный JSON по Pydantic; сравнение cloud vs local; версия промптов | Этот репозиторий + `REPORT.md` |
-| **2. RAG** | Поиск по тикетам / спекам / reference-данным; ответы со ссылкой на источник; тесты качества retrieval | Индекс + QA-эндпоинт поверх `data/` |
-| **3. Agent** | Агент с инструментами: найти похожие баги, предложить assignee/роль, проверить checklist сверки, черновик deploy path | Multi-step tool loop |
-| **4. Service** | API, auth, мониторинг, учёт стоимости токенов; Demo Day | Production-like сервис |
+| **1. Structured Extraction** | Грязный Jira → JSON по Pydantic; cloud vs local; версии промптов | Этот репозиторий + `REPORT.md` |
+| **2. RAG** | Поиск по тикетам / спекам / reference; ответ со ссылкой на источник | Retrieval + QA-тесты |
+| **3. Agent** | Анализ → сверка со спекой → найти звено цепочки → черновик фикса → комментарий в Jira | Multi-step tools |
+| **4. Service** | API, auth, мониторинг, учёт стоимости | Demo Day |
 
-Домен и роли: [`DOMAIN.md`](DOMAIN.md).
+Полное описание идеи: [`PROJECT.md`](PROJECT.md) · домен: [`DOMAIN.md`](DOMAIN.md)

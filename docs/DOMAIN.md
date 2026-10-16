@@ -18,18 +18,25 @@
 ## Pipeline (where bugs can appear)
 
 ```
-SAP Fiori  →  Databricks (Data Pull)  →  Power BI report (DEV / PROD)
+SAP Fiori
+  → Databricks tables (Data Pull)
+    → Parent semantic model (from Databricks)
+      → Child model (DirectQuery to parent + own logic/build)
+        → RDL / Power BI report (design + build) on DEV / PROD
                     ↑
              Specification (financial analysts)
 ```
 
-Discrepancies can be filed at **any** stage. Root-cause analysis must reconcile:
+A bug or CR can sit in **any** link: RDL design/build, child model build,
+child↔parent DirectQuery/logic, parent↔Databricks, Databricks↔SAP, or
+**report vs specification** (numbers can match DBX and still be wrong vs spec).
+
+Root-cause checks:
 
 1. **SAP Fiori vs Databricks** — did Data Pull load correctly?
-2. **Databricks vs Power BI** — did the report/dataset transform correctly?
-3. **Power BI vs Specification** — does the report match requirements?
-
-Point 3 matters: numbers can “match the database” and still be a bug if they **do not match the spec**.
+2. **Databricks vs parent / child models** — did semantic models transform correctly?
+3. **Models vs RDL / Power BI** — did the report build/design correctly?
+4. **Power BI vs Specification** — does the report match requirements?
 
 ## Deployment pipeline (after a fix / CR)
 
