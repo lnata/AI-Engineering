@@ -14,7 +14,7 @@ sampling:
     top_p: 0.9
 
 run:
-  prompt_version: v1
+  prompt_version: v2
   sampling_profile: default
   input_index: data/raw_index.json
   output_dir: results

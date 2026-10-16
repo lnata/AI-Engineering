@@ -1,104 +1,65 @@
 # HW1 — Structured Extraction Service
 
-Extract structured JSON from dirty Jira tickets about **SAP → Databricks → Power BI** reporting (bugs + change requests), compare provider vs local models, justify production choice.
+Сервис вытягивает структурированный JSON из «грязных» Jira-тикетов про отчётность
+**SAP Fiori → Databricks → Power BI** (bugs + change requests), сравнивает cloud и
+локальные модели и обосновывает выбор для продакшна.
 
-## Domain (short)
+Сквозной курсовой план (кейсы 1–4): [`docs/COURSE_ROADMAP.md`](docs/COURSE_ROADMAP.md)  
+Домен и роли: [`docs/DOMAIN.md`](docs/DOMAIN.md)  
+Отчёт с метриками: [`REPORT.md`](REPORT.md)
 
+## Quick start (одна команда после setup)
+
+```bash
+python3.11 -m venv .venv && source .venv/bin/activate
+pip install -r requirements.txt
+cp .env.example .env   # → вписать GEMINI_API_KEY
+make run               # или: python main.py
 ```
-SAP Fiori  →  Databricks (Data Pull team)  →  Power BI report (DEV / PROD)
-                         ↑
-              Specification (financial analysts)
-```
 
-| Role | Responsibility |
-|------|----------------|
-| Financial analyst | Specification / acceptance |
-| Report developer | Power BI report & dataset |
-| Data Pull | SAP → Databricks pipelines |
+`make run` / `python main.py` гоняет **весь корпус** (53 тикета) на Gemini + prompt **v2** + sampling **default**.
 
-Every ticket belongs to a **report** on **DEV/PROD**, references **SAP Fiori** + **spec**, and must declare reconciliation checks:
+Другие цели Makefile: `make golden` · `make creative` · `make ollama` · `make lmstudio` · `make eval RUN=results/<dir>`
 
-1. SAP vs Databricks  
-2. Databricks vs Power BI  
-3. Power BI vs **specification** (spec mismatch can be the root cause)
+## Данные
 
-**Deployment rule:** fix/CR → deploy **DEV** → **approval** → deploy **PROD** (never skip).
+| Item | Value |
+|------|--------|
+| Источник | Jira `BUGS` (`nlamonova.atlassian.net`) |
+| Корпус | 53 тикета в `data/raw/` (RU+EN, опечатки, пропуски) |
+| Golden set | 10 вручную размеченных: `BUGS-41`…`BUGS-50` → `data/golden.json` |
+| Схема | `src/schema.py` (`TicketExtraction`, enums + nested objects) |
 
-Details: [`docs/DOMAIN.md`](docs/DOMAIN.md)
+## Модели
+
+| Provider | Model | Config |
+|----------|-------|--------|
+| Gemini (cloud) | `gemini-3.5-flash-lite` | `config.yaml` |
+| Ollama (local) | `llama3.2` | `config.ollama.yaml` |
+| LM Studio (local) | `llama-3.2-3b-instruct` | `config.lmstudio.yaml` |
+
+Промпты: `prompts/v1`, `prompts/v2` + [`prompts/CHANGELOG.md`](prompts/CHANGELOG.md).  
+Семплинг в конфиге: `default` (T=0.0) и `creative` (T=0.4).
 
 ## Layout
 
 ```
-data/
-  raw/                 exported Jira tickets (BUGS-1 …)
-  raw_index.json
-  golden.json          10 manually labeled tickets (draft)
-  reference/
-    teams.json         developers, FA, Data Pull
-    reports.json       reports ↔ SAP ↔ spec ↔ owners
-    pipeline.json      stages where bugs can appear
-    deployment.json    DEV → approval → PROD release path
-docs/
-  DOMAIN.md
-prompts/               prompt versions + changelog (later)
-results/               model outputs (later)
-src/
-  schema.py            Pydantic TicketExtraction
+data/raw/          исходные тикеты
+data/golden.json   golden set
+data/reference/    teams, reports, pipeline, deployment
+prompts/v1|v2/     system + user templates
+results/           выходы прогонов + метрики
+src/               schema, clients, extract, evaluate
+REPORT.md          сравнение моделей / продакшн-выбор
 ```
 
-## Data status
+## Checklist HW1
 
-- Jira project: `BUGS` on `nlamonova.atlassian.net`
-- ~50+ tickets: classic dirty bugs + Power BI mismatches + **pipeline bugs** + **change requests** + deploy/approval cases
-- Golden set: `BUGS-41` … `BUGS-50` (draft labels under new schema)
-
-## Setup
-
-```bash
-python3.11 -m venv .venv
-source .venv/bin/activate
-pip install -r requirements.txt
-cp .env.example .env
-# put GEMINI_API_KEY into .env (Google AI Studio)
-```
-
-Default provider in `config.yaml` is **Gemini** (`gemini-3.5-flash-lite`). OpenAI remains supported. For a stronger model, try `gemini-3.8-flash` or `gemini-pro-latest`.
-
-## Run
-
-```bash
-# Gemini (cloud provider) — default config.yaml
-python main.py --ids BUGS-41 BUGS-42
-
-# Ollama (local #1) — install app, then: ollama pull llama3.2
-python main.py --config config.ollama.yaml --ids BUGS-41 BUGS-42
-
-# LM Studio (local #2, later) — start server on :1234 first
-python main.py --config config.lmstudio.yaml --ids BUGS-41 BUGS-42
-
-# alternate sampling profile
-python main.py --sampling creative --limit 5
-```
-
-Outputs go to `results/<provider>_<prompt>_<sampling>_<timestamp>/`.
-
-Evaluate a run against golden set:
-
-```bash
-python -c "from src.evaluate import compare_run; from pathlib import Path; print(compare_run(Path('results/<run_dir>')))"
-```
-
-## Status
-
-- [x] Domain model + reference data (teams, reports, pipeline, deployment)
-- [x] Schema: ticket type, report DEV/PROD, SAP Fiori, spec, ownership, reconciliation, deployment
-- [x] Jira sample bugs + change requests exported to `data/raw`
-- [x] Golden set reviewed
-- [x] Baseline provider prompt + Gemini/OpenAI structured output (retry/timeout)
-- [x] Shared interface for Ollama + LM Studio (code ready)
-- [ ] Install Ollama, pull model, run local metrics
-- [ ] LM Studio run (after Ollama)
-- [x] Prompt v2 (Gemini field accuracy 79% → 89%)
-- [x] Second sampling profile (`default` vs `creative`)
-- [x] Full corpus run (53/53 valid JSON after 429 retries)
-- [x] REPORT.md final write-up
+- [x] Схема ≥6 полей, enum + nested object (`src/schema.py`)
+- [x] Baseline-промпт + provider structured output (retry/timeout)
+- [x] Локальная модель через общий интерфейс (Ollama + LM Studio)
+- [x] ≥2 профиля семплинга в конфиге
+- [x] Метрики на golden: field accuracy, % valid, latency p50/p95, cost/1k
+- [x] Промпты v1/v2 + changelog; schema repair ×1 → failed
+- [x] Лог: model, prompt version, sampling на каждый результат
+- [x] `REPORT.md` + `README.md` + `.env.example` (ключи не в git)

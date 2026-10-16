@@ -28,11 +28,15 @@ Shared interface: `src/llm/base.py` + provider clients. Local path includes one 
 
 | Model × prompt × sampling | Valid JSON | Field accuracy | Latency p50 | Latency p95 | Est. cost / 1k docs |
 |---------------------------|------------|----------------|-------------|-------------|---------------------|
-| Gemini × **v2** × **default** | **100%** | **88.6%** | ~1.9s | ~2.3–2.6s | low (Flash-lite) |
-| Gemini × v2 × creative | 100% | 88.6% | ~2.0s | ~2.3s | low |
-| Gemini × v1 × default | 100% | 79.3% | ~2.0s | ~2.6s | low |
-| Ollama × v1 × default | 90% | 51.4% | ~8.7s | ~19.5s | $0 (local) |
-| LM Studio × v1 × default | 80% | 38.6% | ~7.8s | ~18.5s | $0 (local) |
+| Gemini × **v2** × **default** | **100%** | **88.6%** | ~1.9s | ~2.3–2.6s | **~$1.62** (paid) / **$0** (free tier) |
+| Gemini × v2 × creative | 100% | 88.6% | ~2.0s | ~2.3s | ~$1.62 / $0 |
+| Gemini × v1 × default | 100% | 79.3% | ~2.0s | ~2.6s | ~$1.6 / $0 |
+| Ollama × v1 × default | 90% | 51.4% | ~8.7s | ~19.5s | **$0** (local) |
+| LM Studio × v1 × default | 80% | 38.6% | ~7.8s | ~18.5s | **$0** (local) |
+
+**Cost method (Gemini):** avg ~885 input + ~542 output tokens/ticket on golden  
+([Flash-Lite list price](https://ai.google.dev/gemini-api/docs/pricing): $0.30 / $2.50 per 1M tokens).  
+Homework runs used the **free tier** (billed **$0**); paid-tier estimate ≈ **$1.50–1.62 per 1k docs**.
 
 Field accuracy = exact match rate across scored schema paths vs `data/golden.json`
 (`ticket_type`, `priority`, `issue_category`, report/spec/ownership/reconciliation/deployment key fields, `is_blocker`).
@@ -102,20 +106,16 @@ Why: best field accuracy (88.6%), perfect schema validity on the golden set, ~2s
 ## 6. How to reproduce
 
 ```bash
-python3 -m venv .venv && source .venv/bin/activate
+python3.11 -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
 cp .env.example .env   # set GEMINI_API_KEY
 
-# Gemini v2 golden run
-python main.py --prompt-version v2 --ids BUGS-41 BUGS-42 BUGS-43 BUGS-44 BUGS-45 BUGS-46 BUGS-47 BUGS-48 BUGS-49 BUGS-50
-
-# Second sampling profile
-python main.py --prompt-version v2 --sampling creative --ids BUGS-41 BUGS-42 BUGS-43 BUGS-44 BUGS-45 BUGS-46 BUGS-47 BUGS-48 BUGS-49 BUGS-50
-
-# Full corpus
-python main.py --prompt-version v2
-
-# Local (optional)
-python main.py --config config.ollama.yaml --ids BUGS-41 BUGS-42
-python main.py --config config.lmstudio.yaml --ids BUGS-41 BUGS-42
+make run        # full corpus — Gemini × v2 × default (config default)
+make golden     # golden set only
+make creative   # golden + creative sampling
+make ollama     # local baseline
+make lmstudio   # second local baseline
+make eval RUN=results/gemini_v2_default_20261015T202136Z
 ```
+
+Default config (`config.yaml`) is already **prompt v2 + sampling default** — production choice.
