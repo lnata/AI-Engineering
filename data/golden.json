@@ -10,7 +10,7 @@
       "report": {
         "name": "Sales Overview",
         "deploy_stage": "prod",
-        "dataset_name": "Sales_Overview_Dataset"
+        "dataset_name": null
       },
       "sap_fiori": {
         "app_name": "Manage Sales Orders",
@@ -19,12 +19,12 @@
       "specification": {
         "spec_id": "SPEC-FIN-014",
         "version": "1.3",
-        "title": "Sales revenue by region and channel"
+        "title": null
       },
       "ownership": {
-        "report_developer": "anna.k",
-        "financial_analyst": "maria.b",
-        "data_pull_owner": "dmytro.s",
+        "report_developer": "Anna K.",
+        "financial_analyst": "Maria B.",
+        "data_pull_owner": "Dmytro S.",
         "primary_assignee_role": "data_pull"
       },
       "reconciliation": {
@@ -54,10 +54,10 @@
         "approver_role": "financial_analyst",
         "deployed_to_dev": false,
         "deployed_to_prod": false,
-        "notes": "Critical PROD bug — fix must go DEV → FA approve → PROD"
+        "notes": "No deploy progress in ticket; rule is DEV → FA approve → PROD"
       }
     },
-    "status": "draft"
+    "status": "reviewed"
   },
   {
     "id": "BUGS-42",
@@ -68,23 +68,23 @@
       "priority": "high",
       "issue_category": "spec_mismatch",
       "report": {
-        "name": "Gross Margin Dashboard",
+        "name": "Gross Margin",
         "deploy_stage": "dev",
-        "dataset_name": "Finance_Margin_Dataset"
+        "dataset_name": null
       },
       "sap_fiori": {
-        "app_name": "Profit Center Analysis",
-        "transaction_or_cds": "C_PROFITCENTER_Q"
+        "app_name": null,
+        "transaction_or_cds": null
       },
       "specification": {
         "spec_id": "SPEC-FIN-030",
         "version": "1.0",
-        "title": "Gross margin % calculation rules"
+        "title": null
       },
       "ownership": {
-        "report_developer": "oleh.p",
-        "financial_analyst": "ihor.s",
-        "data_pull_owner": "katya.m",
+        "report_developer": "Oleh P.",
+        "financial_analyst": "Ihor S.",
+        "data_pull_owner": null,
         "primary_assignee_role": "report_developer"
       },
       "reconciliation": {
@@ -105,17 +105,17 @@
       "is_blocker": false,
       "confidence_notes": null,
       "deployment": {
-        "status": "in_development",
+        "status": "not_started",
         "requires_dev_deploy_first": true,
         "awaiting_approval": false,
         "approved_for_prod": null,
         "approver_role": "financial_analyst",
         "deployed_to_dev": false,
         "deployed_to_prod": false,
-        "notes": "Spec mismatch fix being implemented on DEV first"
+        "notes": "Ticket describes the mismatch only; no deploy progress stated"
       }
     },
-    "status": "draft"
+    "status": "reviewed"
   },
   {
     "id": "BUGS-43",
@@ -128,21 +128,21 @@
       "report": {
         "name": "Inventory Snapshot",
         "deploy_stage": "dev",
-        "dataset_name": "Inventory_Dataset"
+        "dataset_name": null
       },
       "sap_fiori": {
         "app_name": "Stock Overview",
-        "transaction_or_cds": "C_MATERIALSTOCK_V2"
+        "transaction_or_cds": null
       },
       "specification": {
         "spec_id": "SPEC-OPS-007",
-        "version": "2.0",
-        "title": "Daily inventory by plant"
+        "version": null,
+        "title": null
       },
       "ownership": {
-        "report_developer": "oleh.p",
-        "financial_analyst": "ihor.s",
-        "data_pull_owner": "katya.m",
+        "report_developer": null,
+        "financial_analyst": null,
+        "data_pull_owner": "Katya M.",
         "primary_assignee_role": "data_pull"
       },
       "reconciliation": {
@@ -150,7 +150,7 @@
         "compare_databricks_vs_power_bi": true,
         "compare_report_vs_spec": false,
         "mismatch_suspected_at": "databricks",
-        "notes": "PBI mirrors empty DBX partition; root cause SAP→DBX"
+        "notes": "PBI mirrors empty DBX; root cause SAP→DBX"
       },
       "repro_steps": [
         "compare yesterday movements in Fiori vs wh.inventory_snapshot on DEV"
@@ -167,13 +167,13 @@
         "requires_dev_deploy_first": true,
         "awaiting_approval": false,
         "approved_for_prod": null,
-        "approver_role": "financial_analyst",
+        "approver_role": null,
         "deployed_to_dev": false,
         "deployed_to_prod": false,
-        "notes": "Data Pull fix on DEV pipeline before any PROD promote"
+        "notes": null
       }
     },
-    "status": "draft"
+    "status": "reviewed"
   },
   {
     "id": "BUGS-44",
@@ -186,21 +186,21 @@
       "report": {
         "name": "Customers by Region",
         "deploy_stage": "prod",
-        "dataset_name": "Customers_Prod"
+        "dataset_name": null
       },
       "sap_fiori": {
         "app_name": "Customer Master",
-        "transaction_or_cds": "C_CUSTOMER_MASTER"
+        "transaction_or_cds": null
       },
       "specification": {
         "spec_id": "SPEC-FIN-021",
-        "version": "1.1",
-        "title": "Active customers by country"
+        "version": null,
+        "title": null
       },
       "ownership": {
-        "report_developer": "anna.k",
-        "financial_analyst": "maria.b",
-        "data_pull_owner": "dmytro.s",
+        "report_developer": "Anna K.",
+        "financial_analyst": "Maria B.",
+        "data_pull_owner": "Dmytro",
         "primary_assignee_role": "report_developer"
       },
       "reconciliation": {
@@ -221,17 +221,17 @@
       "is_blocker": false,
       "confidence_notes": null,
       "deployment": {
-        "status": "deployed_to_dev",
+        "status": "not_started",
         "requires_dev_deploy_first": true,
-        "awaiting_approval": true,
-        "approved_for_prod": false,
+        "awaiting_approval": false,
+        "approved_for_prod": null,
         "approver_role": "financial_analyst",
-        "deployed_to_dev": true,
+        "deployed_to_dev": false,
         "deployed_to_prod": false,
-        "notes": "Filter fix on DEV; waiting FA approval for PROD"
+        "notes": "No DEV/approval progress mentioned in ticket text"
       }
     },
-    "status": "draft"
+    "status": "reviewed"
   },
   {
     "id": "BUGS-45",
@@ -244,29 +244,29 @@
       "report": {
         "name": "FX Revenue",
         "deploy_stage": "prod",
-        "dataset_name": "FX_Revenue_Dataset"
+        "dataset_name": null
       },
       "sap_fiori": {
-        "app_name": "Incoming Payments",
-        "transaction_or_cds": "C_PAYMENTDOCUMENT"
+        "app_name": null,
+        "transaction_or_cds": null
       },
       "specification": {
         "spec_id": "SPEC-FIN-041",
-        "version": "1.2",
-        "title": "FX conversion timing and rates"
+        "version": null,
+        "title": null
       },
       "ownership": {
-        "report_developer": "anna.k",
-        "financial_analyst": "maria.b",
-        "data_pull_owner": "dmytro.s",
+        "report_developer": "Anna",
+        "financial_analyst": "Maria",
+        "data_pull_owner": "Dmytro",
         "primary_assignee_role": "financial_analyst"
       },
       "reconciliation": {
         "compare_sap_vs_databricks": true,
         "compare_databricks_vs_power_bi": true,
         "compare_report_vs_spec": true,
-        "mismatch_suspected_at": "sap_fiori",
-        "notes": "Users may compare different posting periods"
+        "mismatch_suspected_at": "unknown",
+        "notes": "Users may compare different posting periods; full recon needed"
       },
       "repro_steps": [
         "align posting period in Fiori and FX_Revenue.pbix then recompare"
@@ -283,13 +283,13 @@
         "requires_dev_deploy_first": true,
         "awaiting_approval": false,
         "approved_for_prod": null,
-        "approver_role": "financial_analyst",
+        "approver_role": null,
         "deployed_to_dev": false,
         "deployed_to_prod": false,
-        "notes": "May need no deploy if confirmed user error after reconciliation"
+        "notes": null
       }
     },
-    "status": "draft"
+    "status": "reviewed"
   },
   {
     "id": "BUGS-46",
@@ -302,21 +302,21 @@
       "report": {
         "name": "Sales Overview",
         "deploy_stage": "both",
-        "dataset_name": "Sales_Overview_Dataset"
+        "dataset_name": null
       },
       "sap_fiori": {
-        "app_name": "Manage Sales Orders",
-        "transaction_or_cds": "C_SALESORDER_Q1"
+        "app_name": null,
+        "transaction_or_cds": null
       },
       "specification": {
         "spec_id": "SPEC-FIN-014",
         "version": "1.4",
-        "title": "Sales revenue by region and channel"
+        "title": null
       },
       "ownership": {
-        "report_developer": "anna.k",
-        "financial_analyst": "maria.b",
-        "data_pull_owner": "dmytro.s",
+        "report_developer": "Anna K.",
+        "financial_analyst": "Maria B.",
+        "data_pull_owner": null,
         "primary_assignee_role": "report_developer"
       },
       "reconciliation": {
@@ -335,17 +335,17 @@
       "is_blocker": false,
       "confidence_notes": null,
       "deployment": {
-        "status": "pending_approval",
+        "status": "not_started",
         "requires_dev_deploy_first": true,
-        "awaiting_approval": true,
-        "approved_for_prod": false,
+        "awaiting_approval": false,
+        "approved_for_prod": null,
         "approver_role": "financial_analyst",
-        "deployed_to_dev": true,
+        "deployed_to_dev": false,
         "deployed_to_prod": false,
-        "notes": "CR channel split on DEV; promote to PROD only after FA approval"
+        "notes": "CR mentions needed work; no DEV deploy/approval state in text"
       }
     },
-    "status": "draft"
+    "status": "reviewed"
   },
   {
     "id": "BUGS-47",
@@ -358,21 +358,21 @@
       "report": {
         "name": "FX Revenue",
         "deploy_stage": "both",
-        "dataset_name": "FX_Revenue_Dataset"
+        "dataset_name": null
       },
       "sap_fiori": {
-        "app_name": "Incoming Payments",
-        "transaction_or_cds": "C_PAYMENTDOCUMENT"
+        "app_name": null,
+        "transaction_or_cds": null
       },
       "specification": {
         "spec_id": "SPEC-FIN-041",
-        "version": "1.3",
-        "title": "FX conversion timing and rates"
+        "version": null,
+        "title": null
       },
       "ownership": {
-        "report_developer": "anna.k",
-        "financial_analyst": "maria.b",
-        "data_pull_owner": "dmytro.s",
+        "report_developer": "Anna",
+        "financial_analyst": "Maria",
+        "data_pull_owner": "Dmytro",
         "primary_assignee_role": "financial_analyst"
       },
       "reconciliation": {
@@ -380,7 +380,7 @@
         "compare_databricks_vs_power_bi": true,
         "compare_report_vs_spec": true,
         "mismatch_suspected_at": "specification",
-        "notes": "Requires coordinated FA + Data Pull + PBI changes; DEV then PROD"
+        "notes": "Requires coordinated FA + Data Pull + PBI; DEV then PROD"
       },
       "repro_steps": [],
       "labels": [
@@ -391,17 +391,17 @@
       "is_blocker": false,
       "confidence_notes": null,
       "deployment": {
-        "status": "in_development",
+        "status": "not_started",
         "requires_dev_deploy_first": true,
         "awaiting_approval": false,
         "approved_for_prod": null,
         "approver_role": "financial_analyst",
         "deployed_to_dev": false,
         "deployed_to_prod": false,
-        "notes": "CR touches Data Pull + PBI — DEV first, then approval, then PROD"
+        "notes": "Text says DEV first then PROD; no in-progress deploy stated"
       }
     },
-    "status": "draft"
+    "status": "reviewed"
   },
   {
     "id": "BUGS-48",
@@ -412,23 +412,23 @@
       "priority": "medium",
       "issue_category": "enhancement",
       "report": {
-        "name": "Inventory Snapshot",
+        "name": "Inventory report",
         "deploy_stage": "dev",
-        "dataset_name": "Inventory_Dataset"
+        "dataset_name": null
       },
       "sap_fiori": {
         "app_name": "Stock Overview",
-        "transaction_or_cds": "C_MATERIALSTOCK_V2"
+        "transaction_or_cds": null
       },
       "specification": {
         "spec_id": "SPEC-OPS-007",
         "version": "2.1",
-        "title": "Daily inventory by plant"
+        "title": null
       },
       "ownership": {
-        "report_developer": "oleh.p",
-        "financial_analyst": "ihor.s",
-        "data_pull_owner": "katya.m",
+        "report_developer": "Oleh",
+        "financial_analyst": "Ihor",
+        "data_pull_owner": "Katya M.",
         "primary_assignee_role": "data_pull"
       },
       "reconciliation": {
@@ -454,10 +454,10 @@
         "approver_role": "financial_analyst",
         "deployed_to_dev": false,
         "deployed_to_prod": false,
-        "notes": "Hierarchy CR starts on DEV Databricks"
+        "notes": "Text says DEV first; no progress beyond that"
       }
     },
-    "status": "draft"
+    "status": "reviewed"
   },
   {
     "id": "BUGS-49",
@@ -470,21 +470,21 @@
       "report": {
         "name": "FX Revenue",
         "deploy_stage": "prod",
-        "dataset_name": "FX_Revenue_Dataset"
+        "dataset_name": null
       },
       "sap_fiori": {
         "app_name": "Incoming Payments",
-        "transaction_or_cds": "C_PAYMENTDOCUMENT"
+        "transaction_or_cds": null
       },
       "specification": {
         "spec_id": "SPEC-FIN-041",
-        "version": "1.2",
-        "title": "FX conversion timing and rates"
+        "version": null,
+        "title": null
       },
       "ownership": {
-        "report_developer": "anna.k",
-        "financial_analyst": "maria.b",
-        "data_pull_owner": "dmytro.s",
+        "report_developer": null,
+        "financial_analyst": null,
+        "data_pull_owner": null,
         "primary_assignee_role": "report_developer"
       },
       "reconciliation": {
@@ -505,17 +505,17 @@
       "is_blocker": true,
       "confidence_notes": null,
       "deployment": {
-        "status": "approved_for_prod",
+        "status": "not_started",
         "requires_dev_deploy_first": true,
         "awaiting_approval": false,
-        "approved_for_prod": true,
-        "approver_role": "financial_analyst",
-        "deployed_to_dev": true,
+        "approved_for_prod": null,
+        "approver_role": null,
+        "deployed_to_dev": false,
         "deployed_to_prod": false,
-        "notes": "Double FX fix validated on DEV and approved; PROD deploy pending"
+        "notes": "Blocker month close stated; no DEV/approval progress in text"
       }
     },
-    "status": "draft"
+    "status": "reviewed"
   },
   {
     "id": "BUGS-50",
@@ -528,21 +528,21 @@
       "report": {
         "name": "Sales Overview",
         "deploy_stage": "dev",
-        "dataset_name": "Sales_Overview_Dataset"
+        "dataset_name": null
       },
       "sap_fiori": {
-        "app_name": "Manage Sales Orders",
+        "app_name": null,
         "transaction_or_cds": "C_SALESORDER_Q1"
       },
       "specification": {
         "spec_id": "SPEC-FIN-014",
-        "version": "1.3",
-        "title": "Sales revenue by region and channel"
+        "version": null,
+        "title": null
       },
       "ownership": {
-        "report_developer": "anna.k",
-        "financial_analyst": "maria.b",
-        "data_pull_owner": "dmytro.s",
+        "report_developer": "Anna",
+        "financial_analyst": "Maria",
+        "data_pull_owner": "Dmytro",
         "primary_assignee_role": "data_pull"
       },
       "reconciliation": {
@@ -561,18 +561,18 @@
         "grain"
       ],
       "is_blocker": false,
-      "confidence_notes": null,
+      "confidence_notes": "Owners listed as Oleh/Anna/Dmytro/Maria without role map",
       "deployment": {
-        "status": "deployed_to_prod",
+        "status": "not_started",
         "requires_dev_deploy_first": true,
         "awaiting_approval": false,
-        "approved_for_prod": true,
-        "approver_role": "financial_analyst",
-        "deployed_to_dev": true,
-        "deployed_to_prod": true,
-        "notes": "Grain fix already through full DEV → approval → PROD path"
+        "approved_for_prod": null,
+        "approver_role": null,
+        "deployed_to_dev": false,
+        "deployed_to_prod": false,
+        "notes": "No deploy progress in ticket; invented PROD path removed"
       }
     },
-    "status": "draft"
+    "status": "reviewed"
   }
 ]

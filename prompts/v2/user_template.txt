@@ -3,10 +3,11 @@ Extract structured fields from this Jira ticket.
 Ticket id: {{ticket_id}}
 Jira issue type (hint): {{jira_issue_type}}
 
-Pay special attention to:
-- human report.name (not .pbix file name)
-- priority using the critical/high/medium rules
-- deployment.status from any DEV / approval / PROD signals
+Rules reminder (no memorized answers — use ONLY the ticket text below):
+- report.name from human title or .pbix stem; null if absent
+- priority using critical/high/medium/low rules
+- deployment.status only if the text describes progress; else not_started
+- null for any optional field not stated in the text
 
 --- TICKET TEXT START ---
 {{ticket_text}}

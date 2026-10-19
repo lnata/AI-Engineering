@@ -1,0 +1,72 @@
+{
+  "id": "BUGS-45",
+  "ok": true,
+  "error": null,
+  "latency_ms": 7674.733707999998,
+  "model": "gemini-3.5-flash-lite",
+  "prompt_version": "v2",
+  "sampling_profile": "default",
+  "sampling": {
+    "temperature": 0.0,
+    "top_p": 1.0
+  },
+  "usage": {
+    "input_tokens": 961,
+    "output_tokens": 491,
+    "total_tokens": 1452
+  },
+  "raw_text": "{\n  \"ticket_type\": \"bug\",\n  \"summary\": \"Users compare wrong Fiori posting period against FX Revenue PROD report\",\n  \"priority\": \"medium\",\n  \"issue_category\": \"filter_rls\",\n  \"report\": {\n    \"name\": \"FX Revenue\",\n    \"deploy_stage\": \"prod\",\n    \"dataset_name\": null\n  },\n  \"sap_fiori\": {\n    \"app_name\": null,\n    \"transaction_or_cds\": null\n  },\n  \"specification\": {\n    \"spec_id\": \"SPEC-FIN-041\",\n    \"version\": null,\n    \"title\": null\n  },\n  \"ownership\": {\n    \"report_developer\": \"Anna\",\n    \"financial_analyst\": \"Maria\",\n    \"data_pull_owner\": \"Dmytro\",\n    \"primary_assignee_role\": \"financial_analyst\"\n  },\n  \"reconciliation\": {\n    \"compare_sap_vs_databricks\": true,\n    \"compare_databricks_vs_power_bi\": true,\n    \"compare_report_vs_spec\": true,\n    \"mismatch_suspected_at\": \"specification\",\n    \"notes\": \"Compare SAP vs DBX vs PBI vs SPEC-FIN-041 due to potential user error with posting period\"\n  },\n  \"deployment\": {\n    \"status\": \"not_started\",\n    \"requires_dev_deploy_first\": true,\n    \"awaiting_approval\": false,\n    \"approved_for_prod\": null,\n    \"approver_role\": null,\n    \"deployed_to_dev\": null,\n    \"deployed_to_prod\": null,\n    \"notes\": null\n  },\n  \"repro_steps\": [\n    \"Compare SAP Fiori posting period with FX_Revenue.pbix PROD filter\"\n  ],\n  \"labels\": [\n    \"user-error\",\n    \"fx-revenue\",\n    \"period-mismatch\"\n  ],\n  \"is_blocker\": false,\n  \"confidence_notes\": null\n}",
+  "extraction": {
+    "ticket_type": "bug",
+    "summary": "Users compare wrong Fiori posting period against FX Revenue PROD report",
+    "priority": "medium",
+    "issue_category": "filter_rls",
+    "report": {
+      "name": "FX Revenue",
+      "deploy_stage": "prod",
+      "dataset_name": null
+    },
+    "sap_fiori": {
+      "app_name": null,
+      "transaction_or_cds": null
+    },
+    "specification": {
+      "spec_id": "SPEC-FIN-041",
+      "version": null,
+      "title": null
+    },
+    "ownership": {
+      "report_developer": "Anna",
+      "financial_analyst": "Maria",
+      "data_pull_owner": "Dmytro",
+      "primary_assignee_role": "financial_analyst"
+    },
+    "reconciliation": {
+      "compare_sap_vs_databricks": true,
+      "compare_databricks_vs_power_bi": true,
+      "compare_report_vs_spec": true,
+      "mismatch_suspected_at": "specification",
+      "notes": "Compare SAP vs DBX vs PBI vs SPEC-FIN-041 due to potential user error with posting period"
+    },
+    "deployment": {
+      "status": "not_started",
+      "requires_dev_deploy_first": true,
+      "awaiting_approval": false,
+      "approved_for_prod": null,
+      "approver_role": null,
+      "deployed_to_dev": null,
+      "deployed_to_prod": null,
+      "notes": null
+    },
+    "repro_steps": [
+      "Compare SAP Fiori posting period with FX_Revenue.pbix PROD filter"
+    ],
+    "labels": [
+      "user-error",
+      "fx-revenue",
+      "period-mismatch"
+    ],
+    "is_blocker": false,
+    "confidence_notes": null
+  }
+}

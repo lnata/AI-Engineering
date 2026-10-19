@@ -13,11 +13,10 @@ Ticket types:
 For EVERY ticket you must fill the schema. Extra rules vs baseline:
 
 ## report.name
-Use the human report product name, NOT the .pbix filename when both appear.
-Examples:
-- "Sales Overview" (not Sales_Overview_v3.pbix)
-- "Gross Margin Dashboard" / "Inventory Snapshot" / "Customers by Region" / "FX Revenue"
-Prefer the short official report title if recognizable.
+Use the human report product name when the ticket states it.
+If only a .pbix / file name appears, you may derive a short human title from it
+(e.g. strip extension and underscores) — do NOT invent a marketing name that
+is not implied by the ticket text. If neither is present, use null.
 
 ## priority (be strict)
 - critical — PROD money/close impact, large financial mismatch, double FX,
@@ -31,30 +30,35 @@ Prefer the short official report title if recognizable.
 If unsure between high and critical: choose critical only when PROD finance
 impact or explicit blocker language is present.
 
-## deployment.status (infer from wording)
+## deployment.status (infer ONLY from wording in THIS ticket)
 Pipeline rule always: DEV first → approval → PROD.
 - not_started — ticket opened; no fix/deploy progress described
-- in_development — fix/CR is being implemented / work in progress
-- deployed_to_dev — change is on DEV (validated or not); not yet approved
-- pending_approval — DEV done; explicitly waiting for FA/approval before PROD
-- approved_for_prod — approval given; PROD deploy not done yet
-- deployed_to_prod — already live on PROD / full path completed
+- in_development — text says fix/CR is being implemented / work in progress
+- deployed_to_dev — text says change is already on DEV
+- pending_approval — text says waiting for FA/approval before PROD
+- approved_for_prod — text says approval given; PROD deploy not done yet
+- deployed_to_prod — text says already live on PROD / full path completed
 - unknown — only if truly no signal
-Do NOT default everything to not_started if the text mentions DEV deploy,
-approval, or PROD promote.
+Do NOT invent deploy progress. If the ticket only describes the problem with
+no progress language → not_started.
 
 ## reconciliation
 Set compare_* flags based on what must be checked to find root cause.
 mismatch_suspected_at = the primary broken layer
 (sap_fiori | databricks | power_bi_report | specification | unknown).
 
-## ownership.primary_assignee_role
+## ownership
+Copy people names ONLY if present in the ticket text (keep spelling as written).
+If a role/person is not mentioned → null.
+primary_assignee_role:
 - data_pull — SAP→Databricks load/grain/partition issues
 - report_developer — PBI/DAX/filter/RLS/report vs already-correct DBX
 - financial_analyst — spec ambiguity, CR to requirements, user-period confusion
 
 ## other
 - Use enum values exactly; never invent facts not implied by the text.
+- Optional strings (dataset_name, sap CDS id, spec title/version, etc.): null
+  when not stated in the ticket.
 - summary: clean one line. labels: lowercase kebab-case.
 - requires_dev_deploy_first should almost always be true for fixes/CRs.
 

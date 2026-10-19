@@ -1,0 +1,70 @@
+{
+  "id": "BUGS-47",
+  "ok": true,
+  "error": null,
+  "latency_ms": 3979.069542000001,
+  "model": "gemini-3.5-flash-lite",
+  "prompt_version": "v2",
+  "sampling_profile": "default",
+  "sampling": {
+    "temperature": 0.0,
+    "top_p": 1.0
+  },
+  "usage": {
+    "input_tokens": 960,
+    "output_tokens": 483,
+    "total_tokens": 1443
+  },
+  "raw_text": "{\n  \"ticket_type\": \"change_request\",\n  \"summary\": \"CR: change FX conversion timing in SPEC-FIN-041\",\n  \"priority\": \"medium\",\n  \"issue_category\": \"enhancement\",\n  \"report\": {\n    \"name\": \"FX Revenue\",\n    \"deploy_stage\": \"both\",\n    \"dataset_name\": null\n  },\n  \"sap_fiori\": {\n    \"app_name\": null,\n    \"transaction_or_cds\": null\n  },\n  \"specification\": {\n    \"spec_id\": \"SPEC-FIN-041\",\n    \"version\": null,\n    \"title\": null\n  },\n  \"ownership\": {\n    \"report_developer\": \"Anna\",\n    \"financial_analyst\": \"Maria\",\n    \"data_pull_owner\": \"Dmytro\",\n    \"primary_assignee_role\": \"financial_analyst\"\n  },\n  \"reconciliation\": {\n    \"compare_sap_vs_databricks\": true,\n    \"compare_databricks_vs_power_bi\": true,\n    \"compare_report_vs_spec\": true,\n    \"mismatch_suspected_at\": \"specification\",\n    \"notes\": \"Change FX conversion from payment date to posting date affecting spec, data pull fx join, and report logic\"\n  },\n  \"deployment\": {\n    \"status\": \"not_started\",\n    \"requires_dev_deploy_first\": true,\n    \"awaiting_approval\": false,\n    \"approved_for_prod\": null,\n    \"approver_role\": \"financial_analyst\",\n    \"deployed_to_dev\": null,\n    \"deployed_to_prod\": null,\n    \"notes\": \"окружение: сначала DEV, потом PROD.\"\n  },\n  \"repro_steps\": [],\n  \"labels\": [\n    \"fx-conversion\",\n    \"change-request\",\n    \"spec-fin-041\"\n  ],\n  \"is_blocker\": false,\n  \"confidence_notes\": null\n}",
+  "extraction": {
+    "ticket_type": "change_request",
+    "summary": "CR: change FX conversion timing in SPEC-FIN-041",
+    "priority": "medium",
+    "issue_category": "enhancement",
+    "report": {
+      "name": "FX Revenue",
+      "deploy_stage": "both",
+      "dataset_name": null
+    },
+    "sap_fiori": {
+      "app_name": null,
+      "transaction_or_cds": null
+    },
+    "specification": {
+      "spec_id": "SPEC-FIN-041",
+      "version": null,
+      "title": null
+    },
+    "ownership": {
+      "report_developer": "Anna",
+      "financial_analyst": "Maria",
+      "data_pull_owner": "Dmytro",
+      "primary_assignee_role": "financial_analyst"
+    },
+    "reconciliation": {
+      "compare_sap_vs_databricks": true,
+      "compare_databricks_vs_power_bi": true,
+      "compare_report_vs_spec": true,
+      "mismatch_suspected_at": "specification",
+      "notes": "Change FX conversion from payment date to posting date affecting spec, data pull fx join, and report logic"
+    },
+    "deployment": {
+      "status": "not_started",
+      "requires_dev_deploy_first": true,
+      "awaiting_approval": false,
+      "approved_for_prod": null,
+      "approver_role": "financial_analyst",
+      "deployed_to_dev": null,
+      "deployed_to_prod": null,
+      "notes": "окружение: сначала DEV, потом PROD."
+    },
+    "repro_steps": [],
+    "labels": [
+      "fx-conversion",
+      "change-request",
+      "spec-fin-041"
+    ],
+    "is_blocker": false,
+    "confidence_notes": null
+  }
+}

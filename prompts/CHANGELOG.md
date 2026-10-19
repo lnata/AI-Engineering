@@ -1,5 +1,13 @@
 # Prompt changelog
 
+## v2.1 — 2026-10-19 (review fix)
+
+- Removed concrete report-name examples that overlapped the golden set
+  (`Sales Overview`, `Gross Margin Dashboard`, etc.) — risk of answer leakage.
+- Clarified: invent nothing; optional fields → `null` if absent from ticket text.
+- Clarified: `deployment.status` only from progress wording in THIS ticket.
+- Ownership: copy names as written; null if role not mentioned.
+
 ## v2 — 2026-10-15
 
 - Tightened `priority` rules (critical only for PROD finance / explicit blockers).

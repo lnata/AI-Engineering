@@ -1,5 +1,27 @@
 # REPORT — Structured Extraction Service (HW1)
 
+## 0. Review notes (2026-10-19)
+
+Feedback from course review — what we found and fixed:
+
+1. **Golden / schema inventing facts** — yes, earlier golden had fields the model
+   cannot take from the ticket (`dataset_name`, invented CDS ids, spec titles,
+   normalized `anna.k` logins, deploy statuses with no progress in text).  
+   **Fix:** `data/golden.json` cleaned to only grounded labels; optional unknowns → `null`;
+   status `reviewed`.
+
+2. **Prompt v2 leaking golden answers** — yes: v2 listed concrete report titles
+   that appear in the golden set.  
+   **Fix:** `prompts/v2` rewritten (v2.1) without those examples; rules say “only this ticket”.
+
+3. **Unequal model comparison** — partially true:
+   - Fair table (`results/comparison_v1.json`): Gemini / Ollama / LM Studio all on **prompt v1**.
+   - Production pick used Gemini **v2**, while local configs still defaulted to **v1**.
+   - Schema delivery differs by stack: Gemini = native `response_json_schema`;
+     local = compact JSON contract in the user message + `json_object` / plain JSON
+     (full JSON Schema hangs small local models). Same Pydantic validation after parse.  
+   **Fix:** local configs now default to **v2**; this caveat documented below.
+
 ## 1. Task & data
 
 Domain: Jira tickets about **SAP Fiori → Databricks (Data Pull) → Power BI** reporting, plus **specification** ownership and **DEV → approval → PROD** deployment.
@@ -26,13 +48,19 @@ Shared interface: `src/llm/base.py` + provider clients. Local path includes one 
 
 ### 3.1 Model × prompt × sampling
 
-| Model × prompt × sampling | Valid JSON | Field accuracy | Latency p50 | Latency p95 | Est. cost / 1k docs |
-|---------------------------|------------|----------------|-------------|-------------|---------------------|
-| Gemini × **v2** × **default** | **100%** | **88.6%** | ~1.9s | ~2.3–2.6s | **~$1.62** (paid) / **$0** (free tier) |
-| Gemini × v2 × creative | 100% | 88.6% | ~2.0s | ~2.3s | ~$1.62 / $0 |
-| Gemini × v1 × default | 100% | 79.3% | ~2.0s | ~2.6s | ~$1.6 / $0 |
-| Ollama × v1 × default | 90% | 51.4% | ~8.7s | ~19.5s | **$0** (local) |
-| LM Studio × v1 × default | 80% | 38.6% | ~7.8s | ~18.5s | **$0** (local) |
+> **Fair provider comparison (same prompt v1):** `results/comparison_v1.json`.  
+> **After review cleanup (golden + prompt v2.1):** Gemini re-run below. Local models not re-run in this session (need Ollama/LM Studio up); configs now default to **v2**.
+
+| Model × prompt × sampling | Valid JSON | Field accuracy | Latency p50 | Latency p95 | Est. cost / 1k docs | Same prompt? | Schema path |
+|---------------------------|------------|----------------|-------------|-------------|---------------------|--------------|-------------|
+| Gemini × **v2.1** × **default** (post-review) | **100%** | **93.6%** | ~2.5s | ~7.7s | ~$1.6 / $0 free | — | native JSON Schema |
+| Gemini × v2 × default (pre-review) | 100% | 88.6% | ~1.9s | ~2.3–2.6s | ~$1.62 / $0 | vs local: no* | native JSON Schema |
+| Gemini × v1 × default | 100% | 79.3% | ~2.0s | ~2.6s | ~$1.6 / $0 | **yes** | native JSON Schema |
+| Ollama × v1 × default | 90% | 51.4% | ~8.7s | ~19.5s | **$0** | **yes** | compact contract + json_object |
+| LM Studio × v1 × default | 80% | 38.6% | ~7.8s | ~18.5s | **$0** | **yes** | compact contract + plain JSON |
+
+\*Local configs previously stayed on v1 while production pick used Gemini v2 — fixed in `config.ollama.yaml` / `config.lmstudio.yaml`.  
+Post-review run folder: `results/gemini_v2_default_20261019T163625Z/` · metrics: `results/prompt_v2_after_review.json`.
 
 **Cost method (Gemini):** avg ~885 input + ~542 output tokens/ticket on golden  
 ([Flash-Lite list price](https://ai.google.dev/gemini-api/docs/pricing): $0.30 / $2.50 per 1M tokens).  
@@ -94,9 +122,9 @@ Note: Free-tier Gemini rate limits appear under burst load; client now backs off
 
 ## 5. Production choice
 
-**Ship Gemini (`gemini-3.5-flash-lite`) + prompt `v2` + sampling `default` (temperature 0).**
+**Ship Gemini (`gemini-3.5-flash-lite`) + prompt `v2`/`v2.1` + sampling `default` (temperature 0).**
 
-Why: best field accuracy (88.6%), perfect schema validity on the golden set, ~2s latency, and acceptable API cost for this ticket volume. Local Llama 3.2 variants are too weak on a deep nested schema for unsupervised production extraction.
+Why: best field accuracy (**93.6%** after grounded golden; 88.6% pre-review), perfect schema validity on the golden set, ~2–3s latency, and acceptable API cost. On the **same prompt v1**, Gemini still beats Ollama/LM Studio (79% vs 51%/39%). Schema wiring is not identical (native JSON Schema vs compact contract) — a known platform limit for small local models; validation target is still the same Pydantic model.
 
 **I would change this decision if:**
 - we must run fully offline / air-gapped → then Ollama with a larger instruct model (8B+) and stricter post-validation;
