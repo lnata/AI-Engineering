@@ -1,0 +1,26 @@
+{
+  "gemini": {
+    "dir": "results/gemini_v2_default_20261019T163625Z",
+    "prompt_version": "v2",
+    "valid_json_pct": 1.0,
+    "overall_field_accuracy": 0.9357142857142857,
+    "latency_p50_ms": 2495.77975,
+    "latency_p95_ms": 7674.733707999998,
+    "ok_tickets": 10,
+    "scored": 10
+  },
+  "ollama": {
+    "dir": "results/ollama_v2_default_20261027T103403Z",
+    "prompt_version": "v2",
+    "valid_json_pct": 1.0,
+    "overall_field_accuracy": 0.6214285714285714,
+    "latency_p50_ms": 39381.396010000004,
+    "latency_p95_ms": 42499.77616199999,
+    "ok_tickets": 10,
+    "scored": 10
+  },
+  "lmstudio": {
+    "dir": null,
+    "note": "not re-run: LM Studio is a desktop GUI app, no headless run on the review VM"
+  }
+}

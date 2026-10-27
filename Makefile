@@ -1,4 +1,4 @@
-.PHONY: setup run golden creative ollama lmstudio eval help
+.PHONY: setup run golden creative ollama lmstudio eval test help
 
 PYTHON ?= .venv/bin/python
 PIP ?= .venv/bin/pip
@@ -11,6 +11,7 @@ help:
 	@echo "make ollama    — local Ollama on golden set"
 	@echo "make lmstudio  — local LM Studio on golden set"
 	@echo "make eval RUN=results/<dir>  — score a run vs golden.json"
+	@echo "make test      — unit tests"
 
 setup:
 	python3.11 -m venv .venv || python3 -m venv .venv
@@ -36,3 +37,6 @@ lmstudio:
 eval:
 	@test -n "$(RUN)" || (echo "Usage: make eval RUN=results/<dir>"; exit 1)
 	$(PYTHON) -c "from pathlib import Path; from src.evaluate import compare_run; import json; print(json.dumps(compare_run(Path('$(RUN)')), indent=2))"
+
+test:
+	$(PYTHON) -m pytest tests -q

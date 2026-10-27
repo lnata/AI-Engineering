@@ -22,6 +22,17 @@ Feedback from course review — what we found and fixed:
      (full JSON Schema hangs small local models). Same Pydantic validation after parse.  
    **Fix:** local configs now default to **v2**; this caveat documented below.
 
+## 0.1 Review notes (2026-10-27)
+
+1. **Gemini repair was a blind retry (−1)** — on `ValidationError` the same request was re-sent.  
+   **Fix:** `src/llm/gemini_client.py` now makes exactly one repair call with the original request,
+   the invalid JSON and the validation errors; a second failure is final (`repair failed: ...`).
+   Backoff retries remain only for `429` / quota / timeout / unavailable. Tests: `make test`.
+2. **Gemini `timeout_sec` ignored** — **Fix:** passed to the SDK via `HttpOptions(timeout=ms)`.
+3. **Local models not re-run on v2.1** — **Fix (Ollama):** re-run on golden with prompt v2.1
+   (`results/ollama_v2_default_20261027T103403Z/`, side-by-side in `results/comparison_v2_1.json`).
+   LM Studio is a desktop GUI app and was not re-run on the headless review VM; its row stays on v1.
+
 ## 1. Task & data
 
 Domain: Jira tickets about **SAP Fiori → Databricks (Data Pull) → Power BI** reporting, plus **specification** ownership and **DEV → approval → PROD** deployment.
@@ -42,25 +53,27 @@ Domain: Jira tickets about **SAP Fiori → Databricks (Data Pull) → Power BI**
 | Ollama `llama3.2` | local | `config.ollama.yaml` | v1 | `default` |
 | LM Studio `llama-3.2-3b-instruct` | local `:1235` | `config.lmstudio.yaml` | v1 | `default` |
 
-Shared interface: `src/llm/base.py` + provider clients. Local path includes one schema-repair attempt on validation failure.
+Shared interface: `src/llm/base.py` + provider clients. Gemini and local clients make exactly one schema-repair attempt on validation failure: the follow-up prompt contains the original request, the model's invalid JSON and the Pydantic validation errors; if the repaired output is still invalid the ticket is recorded as failed (`repair failed: ...`). Transient errors (`429`, timeouts) are still retried with backoff. Covered by `tests/test_gemini_repair.py`.
 
 ## 3. Metrics on golden set
 
 ### 3.1 Model × prompt × sampling
 
 > **Fair provider comparison (same prompt v1):** `results/comparison_v1.json`.  
-> **After review cleanup (golden + prompt v2.1):** Gemini re-run below. Local models not re-run in this session (need Ollama/LM Studio up); configs now default to **v2**.
+> **After review cleanup (golden + prompt v2.1):** Gemini and Ollama re-run below (`results/comparison_v2_1.json`). LM Studio not re-run (GUI app, no headless host); its config defaults to **v2**.
 
 | Model × prompt × sampling | Valid JSON | Field accuracy | Latency p50 | Latency p95 | Est. cost / 1k docs | Same prompt? | Schema path |
 |---------------------------|------------|----------------|-------------|-------------|---------------------|--------------|-------------|
 | Gemini × **v2.1** × **default** (post-review) | **100%** | **93.6%** | ~2.5s | ~7.7s | ~$1.6 / $0 free | — | native JSON Schema |
+| Ollama × **v2.1** × default (2026-10-27) | **100%** | **62.1%** | ~39.4s† | ~42.5s† | **$0** | yes (vs Gemini v2.1) | compact contract + json_object |
 | Gemini × v2 × default (pre-review) | 100% | 88.6% | ~1.9s | ~2.3–2.6s | ~$1.62 / $0 | vs local: no* | native JSON Schema |
 | Gemini × v1 × default | 100% | 79.3% | ~2.0s | ~2.6s | ~$1.6 / $0 | **yes** | native JSON Schema |
 | Ollama × v1 × default | 90% | 51.4% | ~8.7s | ~19.5s | **$0** | **yes** | compact contract + json_object |
 | LM Studio × v1 × default | 80% | 38.6% | ~7.8s | ~18.5s | **$0** | **yes** | compact contract + plain JSON |
 
 \*Local configs previously stayed on v1 while production pick used Gemini v2 — fixed in `config.ollama.yaml` / `config.lmstudio.yaml`.  
-Post-review run folder: `results/gemini_v2_default_20261019T163625Z/` · metrics: `results/prompt_v2_after_review.json`.
+Post-review run folder: `results/gemini_v2_default_20261019T163625Z/` · metrics: `results/prompt_v2_after_review.json`.  
+†Ollama v2.1 ran CPU-only (4 vCPU, no GPU) on the review VM, so its latency is not comparable to the earlier v1 local runs. v1 rows were scored against the pre-cleanup golden set (rescored on the current golden: Gemini v1 85.0%, Ollama v1 50.0%).
 
 **Cost method (Gemini):** avg ~885 input + ~542 output tokens/ticket on golden  
 ([Flash-Lite list price](https://ai.google.dev/gemini-api/docs/pricing): $0.30 / $2.50 per 1M tokens).  
@@ -124,7 +137,7 @@ Note: Free-tier Gemini rate limits appear under burst load; client now backs off
 
 **Ship Gemini (`gemini-3.5-flash-lite`) + prompt `v2`/`v2.1` + sampling `default` (temperature 0).**
 
-Why: best field accuracy (**93.6%** after grounded golden; 88.6% pre-review), perfect schema validity on the golden set, ~2–3s latency, and acceptable API cost. On the **same prompt v1**, Gemini still beats Ollama/LM Studio (79% vs 51%/39%). Schema wiring is not identical (native JSON Schema vs compact contract) — a known platform limit for small local models; validation target is still the same Pydantic model.
+Why: best field accuracy (**93.6%** after grounded golden; 88.6% pre-review), perfect schema validity on the golden set, ~2–3s latency, and acceptable API cost. On the **same prompt v1**, Gemini still beats Ollama/LM Studio (79% vs 51%/39%); on the **same prompt v2.1**, Gemini beats Ollama 93.6% vs 62.1% (both 100% valid JSON). Schema wiring is not identical (native JSON Schema vs compact contract) — a known platform limit for small local models; validation target is still the same Pydantic model.
 
 **I would change this decision if:**
 - we must run fully offline / air-gapped → then Ollama with a larger instruct model (8B+) and stricter post-validation;

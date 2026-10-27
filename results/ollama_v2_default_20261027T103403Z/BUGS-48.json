@@ -1,0 +1,66 @@
+{
+  "id": "BUGS-48",
+  "ok": true,
+  "error": null,
+  "latency_ms": 36524.63198800001,
+  "model": "llama3.2",
+  "prompt_version": "v2",
+  "sampling_profile": "default",
+  "sampling": {
+    "temperature": 0.0,
+    "top_p": 1.0
+  },
+  "usage": {
+    "input_tokens": 1185,
+    "output_tokens": 363,
+    "total_tokens": 1548
+  },
+  "raw_text": "{\n  \"ticket_type\": \"change_request\",\n  \"summary\": \"expose plant hierarchy from SAP to Databricks\",\n  \"priority\": \"high\",\n  \"issue_category\": \"spec_mismatch\",\n  \"report\": {\n    \"name\": \"Inventory report\",\n    \"deploy_stage\": \"both\",\n    \"dataset_name\": null\n  },\n  \"sap_fiori\": {\n    \"app_name\": \"Stock Overview\",\n    \"transaction_or_cds\": \"SPEC-OPS-007 draft v2.1\"\n  },\n  \"specification\": {\n    \"spec_id\": null,\n    \"version\": \"draft v2.1\",\n    \"title\": \"SPEC-OPS-007\"\n  },\n  \"ownership\": {\n    \"report_developer\": \"Katya M\",\n    \"financial_analyst\": \"Ihor\",\n    \"data_pull_owner\": \"Oleh\",\n    \"primary_assignee_role\": \"report_developer\"\n  },\n  \"reconciliation\": {\n    \"compare_sap_vs_databricks\": true,\n    \"compare_databricks_vs_power_bi\": false,\n    \"compare_report_vs_spec\": true,\n    \"mismatch_suspected_at\": \"sap_fiori\",\n    \"notes\": null\n  },\n  \"deployment\": {\n    \"status\": \"in_development\",\n    \"requires_dev_deploy_first\": true,\n    \"awaiting_approval\": false,\n    \"approved_for_prod\": false,\n    \"approver_role\": null,\n    \"deployed_to_dev\": true,\n    \"deployed_to_prod\": false,\n    \"notes\": null\n  },\n  \"repro_steps\": [],\n  \"labels\": [],\n  \"is_blocker\": false,\n  \"confidence_notes\": null\n}",
+  "extraction": {
+    "ticket_type": "change_request",
+    "summary": "expose plant hierarchy from SAP to Databricks",
+    "priority": "high",
+    "issue_category": "spec_mismatch",
+    "report": {
+      "name": "Inventory report",
+      "deploy_stage": "both",
+      "dataset_name": null
+    },
+    "sap_fiori": {
+      "app_name": "Stock Overview",
+      "transaction_or_cds": "SPEC-OPS-007 draft v2.1"
+    },
+    "specification": {
+      "spec_id": null,
+      "version": "draft v2.1",
+      "title": "SPEC-OPS-007"
+    },
+    "ownership": {
+      "report_developer": "Katya M",
+      "financial_analyst": "Ihor",
+      "data_pull_owner": "Oleh",
+      "primary_assignee_role": "report_developer"
+    },
+    "reconciliation": {
+      "compare_sap_vs_databricks": true,
+      "compare_databricks_vs_power_bi": false,
+      "compare_report_vs_spec": true,
+      "mismatch_suspected_at": "sap_fiori",
+      "notes": null
+    },
+    "deployment": {
+      "status": "in_development",
+      "requires_dev_deploy_first": true,
+      "awaiting_approval": false,
+      "approved_for_prod": false,
+      "approver_role": null,
+      "deployed_to_dev": true,
+      "deployed_to_prod": false,
+      "notes": null
+    },
+    "repro_steps": [],
+    "labels": [],
+    "is_blocker": false,
+    "confidence_notes": null
+  }
+}
