@@ -69,34 +69,32 @@ class GeminiClient(LLMClient):
         total_usage: dict[str, Any] = {}
         last_raw: str | None = None
 
-        def call(prompt: str) -> T:
-            nonlocal total_latency, last_raw
-            raw_text, usage, latency_ms = self._generate(
-                system_prompt=system_prompt,
-                user_prompt=prompt,
-                schema=schema,
-                sampling=sampling,
-            )
+        def accumulate(usage: dict[str, Any], latency_ms: float) -> None:
+            nonlocal total_latency
             total_latency += latency_ms
             for k, v in usage.items():
                 if isinstance(v, (int, float)):
                     total_usage[k] = total_usage.get(k, 0) + v
-            last_raw = raw_text
-            return schema.model_validate_json(raw_text)
-
-        def success(parsed: T) -> ExtractionResult:
-            return ExtractionResult(
-                ok=True,
-                data=parsed.model_dump(mode="json"),
-                raw_text=last_raw,
-                latency_ms=total_latency,
-                model=self.provider.model,
-                usage=total_usage,
-            )
 
         for attempt in range(1, self.provider.max_retries + 1):
             try:
-                return success(call(user_prompt))
+                raw_text, usage, latency_ms = self._generate(
+                    system_prompt=system_prompt,
+                    user_prompt=user_prompt,
+                    schema=schema,
+                    sampling=sampling,
+                )
+                accumulate(usage, latency_ms)
+                last_raw = raw_text
+                parsed = schema.model_validate_json(raw_text)
+                return ExtractionResult(
+                    ok=True,
+                    data=parsed.model_dump(mode="json"),
+                    raw_text=raw_text,
+                    latency_ms=total_latency,
+                    model=self.provider.model,
+                    usage=total_usage,
+                )
             except (ValidationError, json.JSONDecodeError) as exc:
                 last_error = f"{type(exc).__name__}: {exc}"
                 # Exactly one schema-repair attempt with validation feedback (HW requirement)
@@ -106,11 +104,29 @@ class GeminiClient(LLMClient):
                         "Your previous JSON failed schema validation.\n"
                         f"Validation errors:\n{exc}\n\n"
                         f"Previous JSON:\n{last_raw}\n\n"
-                        "Return a corrected FULL JSON object that matches the schema."
+                        "Return a corrected FULL JSON object that matches the schema. "
+                        "Use null for unknown optional fields."
                     )
-                    return success(call(repair_user))
+                    raw_text, usage, latency_ms = self._generate(
+                        system_prompt=system_prompt,
+                        user_prompt=repair_user,
+                        schema=schema,
+                        sampling=sampling,
+                    )
+                    accumulate(usage, latency_ms)
+                    last_raw = raw_text
+                    parsed = schema.model_validate_json(raw_text)
+                    return ExtractionResult(
+                        ok=True,
+                        data=parsed.model_dump(mode="json"),
+                        raw_text=raw_text,
+                        latency_ms=total_latency,
+                        model=self.provider.model,
+                        usage=total_usage,
+                    )
                 except Exception as repair_exc:  # noqa: BLE001
                     last_error = f"repair failed: {type(repair_exc).__name__}: {repair_exc}"
+                # No blind retry of the same prompt after a failed repair
                 break
             except TimeoutError as exc:
                 last_error = f"{type(exc).__name__}: {exc}"
