@@ -51,6 +51,7 @@ data/reference/    teams, reports, pipeline, deployment
 prompts/v1|v2/     system + user templates
 results/           выходы прогонов + метрики
 src/               schema, clients, extract, evaluate
+tests/             pytest (Gemini schema repair)
 REPORT.md          сравнение моделей / продакшн-выбор
 ```
 
@@ -61,6 +62,8 @@ REPORT.md          сравнение моделей / продакшн-выбо
 - [x] Локальная модель через общий интерфейс (Ollama + LM Studio)
 - [x] ≥2 профиля семплинга в конфиге
 - [x] Метрики на golden: field accuracy, % valid, latency p50/p95, cost/1k
-- [x] Промпты v1/v2 + changelog; schema repair ×1 → failed
+- [x] Промпты v1/v2 + changelog; schema repair ×1 → failed (Gemini и локальные модели:
+  при `ValidationError` модели уходит исходный запрос + её невалидный JSON + текст ошибки;
+  вторая неудача → `ok=false`). Тесты: `make test` (`tests/test_gemini_repair.py`)
 - [x] Лог: model, prompt version, sampling на каждый результат
 - [x] `REPORT.md` + `README.md` + `.env.example` (ключи не в git)

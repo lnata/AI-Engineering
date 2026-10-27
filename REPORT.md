@@ -42,7 +42,7 @@ Domain: Jira tickets about **SAP Fiori → Databricks (Data Pull) → Power BI**
 | Ollama `llama3.2` | local | `config.ollama.yaml` | v1 | `default` |
 | LM Studio `llama-3.2-3b-instruct` | local `:1235` | `config.lmstudio.yaml` | v1 | `default` |
 
-Shared interface: `src/llm/base.py` + provider clients. Local path includes one schema-repair attempt on validation failure.
+Shared interface: `src/llm/base.py` + provider clients. Gemini and local clients make exactly one schema-repair attempt on validation failure: the follow-up prompt contains the original request, the model's invalid JSON and the Pydantic validation errors; if the repaired output is still invalid the ticket is recorded as failed (`repair failed: ...`). Transient errors (`429`, timeouts) are still retried with backoff. Covered by `tests/test_gemini_repair.py`.
 
 ## 3. Metrics on golden set
 
