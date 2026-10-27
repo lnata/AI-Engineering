@@ -77,5 +77,18 @@ def test_invalid_twice_is_final_failure():
     assert len(fake.prompts) == 2
 
 
+def test_client_uses_timeout_from_config(monkeypatch):
+    captured = {}
+
+    def fake_client(**kwargs):
+        captured.update(kwargs)
+        return SimpleNamespace(models=None)
+
+    monkeypatch.setattr("src.llm.gemini_client.genai.Client", fake_client)
+    GeminiClient(ProviderConfig(name="gemini", model="fake", timeout_sec=180), api_key="test")
+    assert captured["api_key"] == "test"
+    assert captured["http_options"].timeout == 180_000
+
+
 if __name__ == "__main__":
     raise SystemExit(pytest.main([__file__, "-v"]))

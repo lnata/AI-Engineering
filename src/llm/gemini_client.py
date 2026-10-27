@@ -23,7 +23,11 @@ class GeminiClient(LLMClient):
         if not key:
             raise RuntimeError("GEMINI_API_KEY is missing. Put it in .env")
         self.provider = provider
-        self.client = genai.Client(api_key=key)
+        self.client = genai.Client(
+            api_key=key,
+            # SDK expects milliseconds; config is in seconds
+            http_options=types.HttpOptions(timeout=int(provider.timeout_sec * 1000)),
+        )
 
     def _generate(
         self,
