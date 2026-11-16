@@ -129,3 +129,52 @@ data/hw2_corpus/raw/ (PDF / DOCX / HTML / MD)
 
 Приклад реального дефекту `fixed-size` на `ADR-002_single_fx_conversion_in_databricks.md#01`: вікно токенів обриває українське слово на початку (`«рхітектурний інваріант...»`) і розрізає шапку таблиці посередині (`«| Критерій | Перерахунок у DAX (Від»`), а рядки таблиці опиняються в наступному чанку `#02` вже без заголовків колонок.
 
+---
+
+## HW2 — Крок 2. Індекс, Hybrid Search, Reranking та фільтри метаданих
+
+Другий крок (чекпоінт Блоку 2) будує поверх `data/hw2_corpus/chunks.jsonl` (`79` чанків) повноцінний двоступеневий гібридний пошук із локальними багатомовними ONNX-моделями (**$0.00 / 1000 запитів**, без платних API-ключів).
+
+### Швидкий запуск HW2 Step 2 (однією командою)
+
+```bash
+make hw2-step2
+# або окремими командами:
+python -m src.hw2.index
+python -m src.hw2.search --query "Який поріг звірки у чинній SPEC-FIN-030?" --mode hybrid_rerank --only-latest
+python -m src.hw2.eval_retrieval
+make test
+```
+
+### Архітектура Індексу та Пошуку (`src/hw2/`)
+
+1. **Dense Vector DB (`Qdrant` + багатомовні embeddings):**
+   - Векторна база `qdrant-client` (локальна персистентна колекція `data/hw2_index/qdrant` + `:memory:` для швидких тестів; бінарне сховище в `.gitignore`, детермінований паспорт індексу в `data/hw2_index/index_meta.json`).
+   - Модель ембеддингів: `sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2` (`384`-dim ONNX через `fastembed`, налаштовується через `HW2_EMBEDDING_MODEL`, також підтримуються `e5-*` префікси `query: ` / `passage: `).
+   - У `payload` кожної точки Qdrant зберігаються текст і всі поля метаданих (`chunk_id`, `source`, `title`, `section`, `date`, `version`, `doc_hash`, `doc_type`, `format`, `report_id`, `is_latest`, `token_count`).
+2. **Lexical Search (`BM25Okapi` з доменним токенізатором):**
+   - Кастомний токенізатор `src/hw2/bm25_index.py` зберігає неподільними технічні ідентифікатори (`SPEC-FIN-030`, `mart.fact_revenue`, `DM_GWPipeline_Gateway_Timeout`, `v1.3`) разом із їхніми складовими та легким стемінгом українських/англійських слів.
+3. **Reciprocal Rank Fusion (`RRF`, `k = 60`):**
+   - Об'єднує ранги `Qdrant` та `BM25` за формулою \(\sum \frac{1}{60 + \text{rank}}\) і повертає прозорі оцінки кожного етапу (`vector_score`, `bm25_score`, `rrf_score`, `rerank_score`).
+4. **Багатомовний Cross-Encoder Reranker + Фільтри метаданих (`SearchFilters`):**
+   - Щоб уникнути пастки англомовних `ms-marco` моделей на кирилиці, використано багатомовний крос-енкодер **`BAAI/bge-reranker-v2-m3-int8`** (`fastembed` ONNX, налаштовується через `HW2_RERANKER_MODEL`).
+   - Фільтри `SearchFilters` (`is_latest`, `doc_type`, `format`, `report_id`, `source`, `date_from`, `date_to`) застосовуються **синхронно і в Qdrant (`FieldCondition`), і в `BM25`** ще до `RRF`. Фільтр `is_latest=True` повністю відсікає архівні документи `v1.0` (`SPEC-FIN-030 v1.0`, `SPEC-FIN-041 v1.0`, `SPEC-OPS-007 v1.0`, `POL-DEP-001 v1.0`).
+
+### Оцінка якості Retrieval на 15 питаннях (`evals/hw2_retrieval_evalset.json` → `evals/hw2_retrieval_results.json`)
+
+Набір із **15 вручну перевірених питань** охоплює 4 класи запитів: українські семантичні перефразування без точних кодів (`RET-01..03`), точні ідентифікатори SAP/Databricks/Gateway (`RET-04..07`), табличні KPI/SLA пороги (`RET-08..11`) та версіоновані специфікації з пастками `v1.0` vs `v1.2/v1.3/v2.0` (`RET-12..15`).
+
+| Конфігурація | `Recall@1` | `Recall@3` | `Recall@5` | `MRR@5` | `Ver-Recall@1` (4 питання) | `Legacy v1.0 у Top-3` |
+|--------------|-----------|-----------|-----------|--------|----------------------------|-----------------------|
+| `vector_only` | 0.267 | 0.533 | 0.600 | 0.406 | 0.500 | 75.0% |
+| `bm25_only` | 0.800 | 1.000 | 1.000 | 0.889 | 0.500 | 100.0% |
+| `hybrid_rrf` | 0.533 | 0.667 | 1.000 | 0.680 | 0.500 | 100.0% |
+| `hybrid_rrf_rerank` | 0.867 | 1.000 | 1.000 | 0.933 | 0.500 | 75.0% |
+| **`hybrid_rrf_rerank_latest` (`is_latest=True`)** | **1.000** | **1.000** | **1.000** | **1.000** | **1.000** | **0.0%** |
+
+**Ключові висновки з експерименту:**
+- Тільки векторний пошук (`vector_only`) втрачає точні коди помилок і полів (`DM_GWPipeline_Gateway_Timeout`, `LOEVM`, `BO01`), даючи `Recall@5 = 0.600`.
+- `hybrid_rrf` піднімає повноту кандидатів `Recall@5` до **`1.000`**, а багатомовний `BAAI/bge-reranker-v2-m3-int8` (`hybrid_rrf_rerank`) піднімає `MRR@5` з `0.680` до **`0.933`** (випереджаючи і чистий векторний пошук, і чистий `BM25`).
+- Без фільтра метаданих застарілі редакції `v1.0` потрапляють у Top-3 у `75%–100%` версіонованих запитів. Додавання `is_latest=True` (`hybrid_rrf_rerank_latest`) знижує забруднення застарілими версіями до **`0.0%`** і доводить `Recall@1` та `MRR@5` до **`1.000`**.
+
+
