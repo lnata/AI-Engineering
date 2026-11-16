@@ -1,0 +1,15 @@
+<!DOCTYPE html><html lang='uk'><head><meta charset='utf-8'>
+<title>INCIDENT-POSTMORTEM-002: Double FX Conversion in FX_Revenue.pbix (BUGS-49)</title>
+<style>body{font-family:sans-serif} .cookie-banner{background:#eee}</style>
+<script>window.__PORTAL_TELEMETRY__={env:'internal',track:true};</script></head><body>
+<header class='portal-topbar'>INTERNAL ANALYTICS PORTAL | Navigation: Home / Runbooks / Lineage</header>
+<nav class='sidebar-nav'><ul><li>Dashboard Catalog</li><li>Airflow Status</li><li>Sign Out</li></ul></nav>
+<aside class='cookie-banner'>Internal SSO session active. Cookie policy accepted.</aside>
+<main><article data-doc-id='INCIDENT-POSTMORTEM-002' data-version='1.0'>
+<h1>INCIDENT-POSTMORTEM-002: Double FX Conversion in FX_Revenue.pbix (BUGS-49)</h1>
+<p class='doc-meta'>Doc ID: INCIDENT-POSTMORTEM-002 | Version: 1.0 | Effective Date: 2025-04-09 | Type: postmortem | Report: RPT-FX-005 | Status: ACTIVE</p>
+<h2>1. Розбір критичного блокера закриття місяця BUGS-49</h2>
+<p>Під час квітневого закриття періоду виявлено викривлення сум у звіті FX_Revenue.pbix на PROD: вітрина mart.fact_payments вже містила сконвертовані суми в EUR, проте застаріла DAX-міра спадщини SPEC-FIN-041 v1.0 повторно множила суму на курс із ref.fx_rates.</p>
+<p>Згідно з регламентом POL-DEP-001 v1.3 виправлення DAX-міри було спочатку розгорнуто на DEV, звірено фінансовим аналітиком проти SAP Fiori Incoming Payments і лише після затвердження перенесено на PROD.</p>
+<table><thead><tr><th>Етап реагування</th><th>Фактичний час</th><th>Результат перевірки</th></tr></thead><tbody><tr><td>Локалізація шару</td><td>20 хвилин</td><td>SAP = Databricks (EUR), дефект у Power BI DAX</td></tr><tr><td>Деплой фіксу на DEV + звірка FA</td><td>55 хвилин</td><td>Повний збіг 0.00 EUR з C_PAYMENTDOCUMENT</td></tr><tr><td>Промоушен на PROD</td><td>15 хвилин після апруву</td><td>Інцидент закрито без порушення POL-DEP-001 v1.3</td></tr></tbody></table>
+</article></main><footer class='portal-footer'>© 2025 Internal Analytics Platform KB — All rights reserved</footer></body></html>

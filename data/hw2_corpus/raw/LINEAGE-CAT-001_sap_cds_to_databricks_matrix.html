@@ -1,0 +1,14 @@
+<!DOCTYPE html><html lang='uk'><head><meta charset='utf-8'>
+<title>LINEAGE-CAT-001: End-to-End Lineage Matrix (SAP Fiori -&gt; Databricks -&gt; Power BI)</title>
+<style>body{font-family:sans-serif} .cookie-banner{background:#eee}</style>
+<script>window.__PORTAL_TELEMETRY__={env:'internal',track:true};</script></head><body>
+<header class='portal-topbar'>INTERNAL ANALYTICS PORTAL | Navigation: Home / Runbooks / Lineage</header>
+<nav class='sidebar-nav'><ul><li>Dashboard Catalog</li><li>Airflow Status</li><li>Sign Out</li></ul></nav>
+<aside class='cookie-banner'>Internal SSO session active. Cookie policy accepted.</aside>
+<main><article data-doc-id='LINEAGE-CAT-001' data-version='1.5'>
+<h1>LINEAGE-CAT-001: End-to-End Lineage Matrix (SAP Fiori -&gt; Databricks -&gt; Power BI)</h1>
+<p class='doc-meta'>Doc ID: LINEAGE-CAT-001 | Version: 1.5 | Effective Date: 2025-04-10 | Type: lineage | Report: PLATFORM-WIDE | Status: ACTIVE</p>
+<h2>1. Канонічний реєстр залежностей п&#x27;яти базових звітів</h2>
+<p>Матриця нижче є єдиним довідником трасування об&#x27;єктів між SAP Fiori CDS views, таблицями Databricks, датасетами Power BI та затвердженими специфікаціями.</p>
+<table><thead><tr><th>Код звіту</th><th>SAP Fiori / CDS</th><th>Об&#x27;єкти Databricks</th><th>PBIX / Dataset</th><th>Чинна SPEC</th></tr></thead><tbody><tr><td>RPT-SALES-001</td><td>Manage Sales Orders (C_SALESORDER_Q1)</td><td>mart.fact_orders, mart.dim_region</td><td>Sales_Overview_v3.pbix / Sales_Overview_Dataset</td><td>SPEC-FIN-014 v1.3</td></tr><tr><td>RPT-INV-002</td><td>Stock Overview (C_MATERIALSTOCK_V2)</td><td>wh.inventory_snapshot</td><td>Inventory_Dev.pbix / Inventory_Dataset</td><td>SPEC-OPS-007 v2.0</td></tr><tr><td>RPT-CUST-003</td><td>Customer Master (C_CUSTOMER_MASTER)</td><td>mart.dim_customer</td><td>Customers_Prod.pbix / Customers_Prod</td><td>SPEC-FIN-021 v1.1</td></tr><tr><td>RPT-FIN-004</td><td>Profit Center Analysis (C_PROFITCENTER_Q)</td><td>mart.fact_revenue, mart.fact_cogs</td><td>Finance_Dev.pbix / Finance_Margin_Dataset</td><td>SPEC-FIN-030 v1.3</td></tr><tr><td>RPT-FX-005</td><td>Incoming Payments (C_PAYMENTDOCUMENT)</td><td>mart.fact_payments, ref.fx_rates</td><td>FX_Revenue.pbix / FX_Revenue_Dataset</td><td>SPEC-FIN-041 v1.2</td></tr></tbody></table>
+</article></main><footer class='portal-footer'>© 2025 Internal Analytics Platform KB — All rights reserved</footer></body></html>

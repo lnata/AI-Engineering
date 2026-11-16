@@ -1,0 +1,15 @@
+<!DOCTYPE html><html lang='uk'><head><meta charset='utf-8'>
+<title>RUNBOOK-DBX-005: Incoming Payments and ECB FX Rates Pipeline</title>
+<style>body{font-family:sans-serif} .cookie-banner{background:#eee}</style>
+<script>window.__PORTAL_TELEMETRY__={env:'internal',track:true};</script></head><body>
+<header class='portal-topbar'>INTERNAL ANALYTICS PORTAL | Navigation: Home / Runbooks / Lineage</header>
+<nav class='sidebar-nav'><ul><li>Dashboard Catalog</li><li>Airflow Status</li><li>Sign Out</li></ul></nav>
+<aside class='cookie-banner'>Internal SSO session active. Cookie policy accepted.</aside>
+<main><article data-doc-id='RUNBOOK-DBX-005' data-version='1.2'>
+<h1>RUNBOOK-DBX-005: Incoming Payments and ECB FX Rates Pipeline</h1>
+<p class='doc-meta'>Doc ID: RUNBOOK-DBX-005 | Version: 1.2 | Effective Date: 2025-04-06 | Type: runbook | Report: RPT-FX-005 | Status: ACTIVE</p>
+<h2>1. Одноразова конвертація валют у dag_sap_payments_fx</h2>
+<p>Пайплайн dag_sap_payments_fx спочатку оновлює довідник курсів ЄЦБ ref.fx_rates о 04:00 UTC, після чого приєднує курс за датою оплати payment_date до вивантаження C_PAYMENTDOCUMENT.</p>
+<p>Для вихідних та святкових днів застосовується останній доступний робочий курс (LOCF window lookback до 5 днів). Результат записується в mart.fact_payments.amount_eur.</p>
+<ul><li>Якщо документ у SAP вже проведений у валюті EUR, коефіцієнт fx_rate_to_eur примусово дорівнює 1.000000.</li><li>Будь-яка спроба повторного множення на fx_rate у шарі Power BI порушує інваріант SPEC-FIN-041 v1.2.</li></ul>
+</article></main><footer class='portal-footer'>© 2025 Internal Analytics Platform KB — All rights reserved</footer></body></html>
