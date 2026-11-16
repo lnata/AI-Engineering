@@ -1,4 +1,4 @@
-.PHONY: setup run golden creative ollama lmstudio eval hw2-corpus hw2-ingest hw2-step1 hw2-index hw2-eval-retrieval hw2-step2 test help
+.PHONY: setup run golden creative ollama lmstudio eval hw2-corpus hw2-ingest hw2-step1 hw2-index hw2-eval-retrieval hw2-step2 hw2-rag-demo hw2-step3 test help
 
 PYTHON ?= .venv/bin/python
 PIP ?= .venv/bin/pip
@@ -17,7 +17,9 @@ help:
 	@echo "make hw2-index          — HW2 build persistent local Qdrant vector index"
 	@echo "make hw2-eval-retrieval — HW2 run 15-query retrieval benchmark (5 configs)"
 	@echo "make hw2-step2          — HW2 full Step 2 pipeline (index + retrieval eval)"
-	@echo "make test               — run all HW1 + HW2 Step 1–2 pytest suites"
+	@echo "make hw2-rag-demo       — HW2 Step 3 cited RAG demo -> data/hw2_rag/sample_answers.json"
+	@echo "make hw2-step3          — HW2 full Step 3 pipeline (index + cited RAG demo)"
+	@echo "make test               — run all HW1 + HW2 Step 1–3 pytest suites"
 
 setup:
 	python3.11 -m venv .venv || python3 -m venv .venv
@@ -59,6 +61,11 @@ hw2-eval-retrieval:
 	$(PYTHON) -m src.hw2.eval_retrieval
 
 hw2-step2: hw2-index hw2-eval-retrieval
+
+hw2-rag-demo:
+	$(PYTHON) -m src.hw2.rag --demo
+
+hw2-step3: hw2-index hw2-rag-demo
 
 test:
 	$(PYTHON) -m pytest tests -q
