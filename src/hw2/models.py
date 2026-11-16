@@ -117,3 +117,54 @@ class ChunkingComparison(BaseModel):
     structure_aware: ChunkStrategyMetrics
     fixed_size_baseline: ChunkStrategyMetrics
     fixed_size_defect_samples: list[SampleChunkDefect] = Field(default_factory=list)
+
+
+class SearchFilters(BaseModel):
+    """Structured metadata filters applied consistently in Qdrant and BM25."""
+
+    is_latest: bool | None = None
+    doc_type: str | list[str] | None = None
+    format: str | list[str] | None = None
+    report_id: str | list[str] | None = None
+    source: str | list[str] | None = None
+    date_from: str | None = None  # ISO YYYY-MM-DD inclusive
+    date_to: str | None = None  # ISO YYYY-MM-DD inclusive
+
+
+class SearchHit(BaseModel):
+    """Unified retrieval result carrying per-stage ranks, scores, and chunk payload."""
+
+    rank: int
+    score: float
+    chunk_id: str
+    source: str
+    title: str
+    section: str
+    date: str
+    version: str
+    doc_hash: str
+    doc_type: str
+    format: str
+    report_id: str | None = None
+    is_latest: bool = True
+    token_count: int
+    text: str
+    vector_rank: int | None = None
+    vector_score: float | None = None
+    bm25_rank: int | None = None
+    bm25_score: float | None = None
+    rrf_score: float | None = None
+    rerank_score: float | None = None
+
+
+class IndexMeta(BaseModel):
+    """Metadata describing a built Qdrant + BM25 index."""
+
+    pipeline_version: str = "hw2-step2-v1.0"
+    built_at: str
+    collection_name: str
+    embedding_model: str
+    embedding_dim: int
+    chunks_count: int
+    chunks_sha256: str
+
