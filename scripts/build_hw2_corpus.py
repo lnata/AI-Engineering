@@ -98,7 +98,8 @@ def render_pdf(spec: CorpusDocSpec, out_path: Path) -> None:
                 y += h - 4.0
             if sec.table_headers:
                 y = _draw_pdf_table(page, y + 4.0, sec)
-    doc.save(out_path)
+    doc.subset_fonts()
+    doc.save(out_path, garbage=4, deflate=True)
     doc.close()
 
 
