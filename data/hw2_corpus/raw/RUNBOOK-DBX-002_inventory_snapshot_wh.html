@@ -1,0 +1,17 @@
+<!DOCTYPE html><html lang='uk'><head><meta charset='utf-8'>
+<title>RUNBOOK-DBX-002: Daily Inventory Snapshot Pipeline (wh.inventory_snapshot)</title>
+<style>body{font-family:sans-serif} .cookie-banner{background:#eee}</style>
+<script>window.__PORTAL_TELEMETRY__={env:'internal',track:true};</script></head><body>
+<header class='portal-topbar'>INTERNAL ANALYTICS PORTAL | Navigation: Home / Runbooks / Lineage</header>
+<nav class='sidebar-nav'><ul><li>Dashboard Catalog</li><li>Airflow Status</li><li>Sign Out</li></ul></nav>
+<aside class='cookie-banner'>Internal SSO session active. Cookie policy accepted.</aside>
+<main><article data-doc-id='RUNBOOK-DBX-002' data-version='2.0'>
+<h1>RUNBOOK-DBX-002: Daily Inventory Snapshot Pipeline (wh.inventory_snapshot)</h1>
+<p class='doc-meta'>Doc ID: RUNBOOK-DBX-002 | Version: 2.0 | Effective Date: 2025-03-24 | Type: runbook | Report: RPT-INV-002 | Status: ACTIVE</p>
+<h2>1. Архітектура DAG dag_sap_inventory_daily</h2>
+<p>Пайплайн dag_sap_inventory_daily реалізує специфікацію SPEC-OPS-007 v2.0 і формує щоденні партиції snapshot_date у таблиці wh.inventory_snapshot на основі CDS C_MATERIALSTOCK_V2.</p>
+<p>Старт екстракту о 04:45 UTC, жорсткий дедлайн запису партиції — 05:30 UTC (максимальний SLA відновлення — 2 години).</p>
+<h2>2. Відновлення пропущених рухів запасів (Late SAP Postings)</h2>
+<p>При зверненні типу BUGS-43 (у Fiori Stock Overview є вчорашні рухи, а wh.inventory_snapshot порожній за вчора) черговий інженер Data Pull виконує перевірку водяного знака екстрактора OData.</p>
+<table><thead><tr><th>Крок Runbook</th><th>Команда / Перевірка</th><th>Очікуваний результат</th></tr></thead><tbody><tr><td>1. Перевірка партиції</td><td>SHOW PARTITIONS wh.inventory_snapshot</td><td>Присутня дата current_date - 1</td></tr><tr><td>2. Перевірка stg шару</td><td>SELECT count(*) FROM stg.sap_mard_marc WHERE load_date = current_date</td><td>Кількість рядків &gt; 0 по всіх активних WERKS</td></tr><tr><td>3. Ручний Backfill</td><td>airflow dags trigger dag_sap_inventory_daily --conf &#x27;{&quot;snapshot_date&quot;:&quot;YYYY-MM-DD&quot;}&#x27;</td><td>Партиція записана, рефреш Inventory_Dataset виконано</td></tr></tbody></table>
+</article></main><footer class='portal-footer'>© 2025 Internal Analytics Platform KB — All rights reserved</footer></body></html>

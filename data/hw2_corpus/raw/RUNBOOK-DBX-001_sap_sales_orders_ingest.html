@@ -1,0 +1,19 @@
+<!DOCTYPE html><html lang='uk'><head><meta charset='utf-8'>
+<title>RUNBOOK-DBX-001: Airflow &amp; Databricks Pipeline — SAP Sales Orders</title>
+<style>body{font-family:sans-serif} .cookie-banner{background:#eee}</style>
+<script>window.__PORTAL_TELEMETRY__={env:'internal',track:true};</script></head><body>
+<header class='portal-topbar'>INTERNAL ANALYTICS PORTAL | Navigation: Home / Runbooks / Lineage</header>
+<nav class='sidebar-nav'><ul><li>Dashboard Catalog</li><li>Airflow Status</li><li>Sign Out</li></ul></nav>
+<aside class='cookie-banner'>Internal SSO session active. Cookie policy accepted.</aside>
+<main><article data-doc-id='RUNBOOK-DBX-001' data-version='1.4'>
+<h1>RUNBOOK-DBX-001: Airflow &amp; Databricks Pipeline — SAP Sales Orders</h1>
+<p class='doc-meta'>Doc ID: RUNBOOK-DBX-001 | Version: 1.4 | Effective Date: 2025-03-12 | Type: runbook | Report: RPT-SALES-001 | Status: ACTIVE</p>
+<h2>1. Конфігурація пайплайну dag_sap_sales_orders_cdpos</h2>
+<p>Пайплайн dag_sap_sales_orders_cdpos оркеструє щоденне інкрементальне вивантаження замовлень із SAP S/4HANA CDS C_SALESORDER_Q1 у шар stg.sap_vbak_vbap та фінальну вітрину mart.fact_orders.</p>
+<p>Розклад запуску в Airflow: щодня о 05:15 UTC, цільовий час готовності вітрини до 06:00 UTC для оновлення Sales_Overview_Dataset.</p>
+<ul><li>Ключ дедуплікації у Delta MERGE: order_id (рівень заголовка замовлення VBAK).</li><li>Вікно інкрементального захоплення змін (lookback window): останні 3 доби за полем LastChangeDateTime.</li></ul>
+<h2>2. Діагностика розбіжностей гранулярності та затримок партицій</h2>
+<p>Якщо сума виторгу в mart.fact_orders нижча за SAP Fiori Manage Sales Orders (кейс BUGS-41), інженер Data Pull перевіряє статус таски extract_sap_odata_delta та повноту партицій posting_month.</p>
+<p>Якщо сума на DEV завищена у декілька разів (кейс BUGS-50), перевіряється відсутність некоректного join із позиціями VBAP без попередньої агрегації до order_id.</p>
+<table><thead><tr><th>Симптом інциденту</th><th>SQL перевірка у Databricks</th><th>Дія відновлення (Remediation)</th></tr></thead><tbody><tr><td>Заниження виторгу за місяць</td><td>SELECT max(_ingested_at), count(*) FROM mart.fact_orders WHERE posting_ym=&#x27;2025-03&#x27;</td><td>Перезапуск backfill за діапазон дат у Airflow</td></tr><tr><td>Дублікати order_id після join</td><td>SELECT order_id, count(*) FROM mart.fact_orders GROUP BY 1 HAVING count(*)&gt;1</td><td>Відкат коміту трансформації на DEV та MERGE по заголовку</td></tr></tbody></table>
+</article></main><footer class='portal-footer'>© 2025 Internal Analytics Platform KB — All rights reserved</footer></body></html>

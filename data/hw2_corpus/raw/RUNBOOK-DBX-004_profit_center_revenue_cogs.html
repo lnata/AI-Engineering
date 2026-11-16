@@ -1,0 +1,15 @@
+<!DOCTYPE html><html lang='uk'><head><meta charset='utf-8'>
+<title>RUNBOOK-DBX-004: Profit Center Revenue &amp; COGS Marts Pipeline</title>
+<style>body{font-family:sans-serif} .cookie-banner{background:#eee}</style>
+<script>window.__PORTAL_TELEMETRY__={env:'internal',track:true};</script></head><body>
+<header class='portal-topbar'>INTERNAL ANALYTICS PORTAL | Navigation: Home / Runbooks / Lineage</header>
+<nav class='sidebar-nav'><ul><li>Dashboard Catalog</li><li>Airflow Status</li><li>Sign Out</li></ul></nav>
+<aside class='cookie-banner'>Internal SSO session active. Cookie policy accepted.</aside>
+<main><article data-doc-id='RUNBOOK-DBX-004' data-version='1.3'>
+<h1>RUNBOOK-DBX-004: Profit Center Revenue &amp; COGS Marts Pipeline</h1>
+<p class='doc-meta'>Doc ID: RUNBOOK-DBX-004 | Version: 1.3 | Effective Date: 2025-03-19 | Type: runbook | Report: RPT-FIN-004 | Status: ACTIVE</p>
+<h2>1. Формування mart.fact_revenue та mart.fact_cogs</h2>
+<p>Пайплайн dag_sap_fi_margin_marts завантажує проводки Головної книги ACDOCA через C_PROFITCENTER_Q та розділяє їх на вітрини виторгу й собівартості відповідно до SPEC-FIN-030 v1.3.</p>
+<p>Ключове правило класифікації: якщо поле TradingPartner (VBUND) у проводці SAP непорожнє, рядок маркується is_intercompany = true.</p>
+<table><thead><tr><th>Діапазон рахунків GL</th><th>Цільова таблиця</th><th>Класифікація cost_type / rev_type</th></tr></thead><tbody><tr><td>400000–489999</td><td>mart.fact_revenue</td><td>GROSS_REVENUE та SALES_DEDUCTIONS</td></tr><tr><td>500000–549999</td><td>mart.fact_cogs</td><td>DIRECT (пряма собівартість реалізації)</td></tr><tr><td>551000–552999</td><td>mart.fact_cogs</td><td>INBOUND_FREIGHT_EUR (додано до COGS у v1.3)</td></tr></tbody></table>
+</article></main><footer class='portal-footer'>© 2025 Internal Analytics Platform KB — All rights reserved</footer></body></html>

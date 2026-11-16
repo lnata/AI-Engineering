@@ -1,0 +1,15 @@
+<!DOCTYPE html><html lang='uk'><head><meta charset='utf-8'>
+<title>RUNBOOK-PBI-006: Power BI Gateway and Semantic Model Refresh Runbook</title>
+<style>body{font-family:sans-serif} .cookie-banner{background:#eee}</style>
+<script>window.__PORTAL_TELEMETRY__={env:'internal',track:true};</script></head><body>
+<header class='portal-topbar'>INTERNAL ANALYTICS PORTAL | Navigation: Home / Runbooks / Lineage</header>
+<nav class='sidebar-nav'><ul><li>Dashboard Catalog</li><li>Airflow Status</li><li>Sign Out</li></ul></nav>
+<aside class='cookie-banner'>Internal SSO session active. Cookie policy accepted.</aside>
+<main><article data-doc-id='RUNBOOK-PBI-006' data-version='1.3'>
+<h1>RUNBOOK-PBI-006: Power BI Gateway and Semantic Model Refresh Runbook</h1>
+<p class='doc-meta'>Doc ID: RUNBOOK-PBI-006 | Version: 1.3 | Effective Date: 2025-03-08 | Type: runbook | Report: PLATFORM-WIDE | Status: ACTIVE</p>
+<h2>1. Діагностика помилок оновлення Parent та Child датасетів</h2>
+<p>Оновлення корпоративних Parent семантичних моделей стартує автоматично через REST webhook із Airflow після успішного завершення вітрин mart.* та wh.* у Databricks SQL Warehouse.</p>
+<p>Якщо бізнес бачить застарілі вчорашні цифри в Power BI при коректних даних у Databricks, черговий розробник перевіряє історію рефрешу кластера On-Premises / VNet Data Gateway.</p>
+<table><thead><tr><th>Код помилки PBI</th><th>Причина збою</th><th>Стандартна дія усунення</th></tr></thead><tbody><tr><td>DM_GWPipeline_Gateway_Timeout</td><td>Запит імпорту перевищив 120 хв на великій партиції</td><td>Увімкнути Incremental Refresh та перевірити Photon cluster</td></tr><tr><td>OAuthTokenRefreshFailed</td><td>Прострочений токен сервіс-принципала Databricks</td><td>Оновити секрет у KeyVault та перезапустити рефреш</td></tr><tr><td>DirectQuery_MaxRowsExceeded</td><td>Візуал Child моделі запитує &gt; 1 млн рядків без фільтра</td><td>Додати обов&#x27;язковий фільтр періоду або агрегат у Parent</td></tr></tbody></table>
+</article></main><footer class='portal-footer'>© 2025 Internal Analytics Platform KB — All rights reserved</footer></body></html>

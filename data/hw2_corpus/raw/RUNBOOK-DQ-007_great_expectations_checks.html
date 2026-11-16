@@ -1,0 +1,14 @@
+<!DOCTYPE html><html lang='uk'><head><meta charset='utf-8'>
+<title>RUNBOOK-DQ-007: Automated Data Quality Gates before Semantic Refresh</title>
+<style>body{font-family:sans-serif} .cookie-banner{background:#eee}</style>
+<script>window.__PORTAL_TELEMETRY__={env:'internal',track:true};</script></head><body>
+<header class='portal-topbar'>INTERNAL ANALYTICS PORTAL | Navigation: Home / Runbooks / Lineage</header>
+<nav class='sidebar-nav'><ul><li>Dashboard Catalog</li><li>Airflow Status</li><li>Sign Out</li></ul></nav>
+<aside class='cookie-banner'>Internal SSO session active. Cookie policy accepted.</aside>
+<main><article data-doc-id='RUNBOOK-DQ-007' data-version='1.1'>
+<h1>RUNBOOK-DQ-007: Automated Data Quality Gates before Semantic Refresh</h1>
+<p class='doc-meta'>Doc ID: RUNBOOK-DQ-007 | Version: 1.1 | Effective Date: 2025-03-31 | Type: runbook | Report: PLATFORM-WIDE | Status: ACTIVE</p>
+<h2>1. Блокуючі перевірки якості даних (Circuit Breakers)</h2>
+<p>Щоб не поширювати порожні партиції або дублікати у звіти Power BI, кожен DAG у Airflow запускає набір блокуючих dbt та Lakehouse Monitoring тестів перед викликом рефрешу датасету.</p>
+<table><thead><tr><th>Назва перевірки</th><th>Цільова вітрина</th><th>Умова падіння пайплайну</th></tr></thead><tbody><tr><td>chk_orders_header_unique</td><td>mart.fact_orders</td><td>Знайдено хоча б один неунікальний order_id</td></tr><tr><td>chk_inventory_rowcount_nonzero</td><td>wh.inventory_snapshot</td><td>Кількість рядків за current_date - 1 дорівнює 0</td></tr><tr><td>chk_fx_rate_positive</td><td>ref.fx_rates</td><td>Пропущений або нульовий курс для активної валюти</td></tr><tr><td>chk_margin_sap_delta</td><td>mart.fact_revenue</td><td>Відхилення суми від SAP control total &gt; 0.15%</td></tr></tbody></table>
+</article></main><footer class='portal-footer'>© 2025 Internal Analytics Platform KB — All rights reserved</footer></body></html>

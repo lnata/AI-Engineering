@@ -1,0 +1,15 @@
+<!DOCTYPE html><html lang='uk'><head><meta charset='utf-8'>
+<title>INCIDENT-POSTMORTEM-001: March Sales Discrepancy &amp; Line-Grain Regression</title>
+<style>body{font-family:sans-serif} .cookie-banner{background:#eee}</style>
+<script>window.__PORTAL_TELEMETRY__={env:'internal',track:true};</script></head><body>
+<header class='portal-topbar'>INTERNAL ANALYTICS PORTAL | Navigation: Home / Runbooks / Lineage</header>
+<nav class='sidebar-nav'><ul><li>Dashboard Catalog</li><li>Airflow Status</li><li>Sign Out</li></ul></nav>
+<aside class='cookie-banner'>Internal SSO session active. Cookie policy accepted.</aside>
+<main><article data-doc-id='INCIDENT-POSTMORTEM-001' data-version='1.0'>
+<h1>INCIDENT-POSTMORTEM-001: March Sales Discrepancy &amp; Line-Grain Regression</h1>
+<p class='doc-meta'>Doc ID: INCIDENT-POSTMORTEM-001 | Version: 1.0 | Effective Date: 2025-03-29 | Type: postmortem | Report: RPT-SALES-001 | Status: ACTIVE</p>
+<h2>1. Хронологія інцидентів BUGS-41 та BUGS-50 у звіті Sales Overview</h2>
+<p>У березні 2025 року зафіксовано два пов&#x27;язані дефекти у пайплайні звіту RPT-SALES-001: на PROD виторг за березень у mart.fact_orders становив 1.24M EUR проти 1.31M EUR у SAP Fiori Manage Sales Orders (BUGS-41) через пропущену дельта-партицію від 28 березня.</p>
+<p>Під час підготовки патчу на DEV розробник Data Pull помилково приєднав позиції замовлень VBAP без групування до заголовка замовлення, що викликало завищення сум відносно C_SALESORDER_Q1 (BUGS-50).</p>
+<ul><li>Першопричина PROD (BUGS-41): обрив OData пагінації при ротації сертифіката SAP Gateway.</li><li>Першопричина DEV (BUGS-50): порушення гранулярності header net value зі спеки SPEC-FIN-014 v1.3.</li><li>Запобіжник: додано dbt-тест unique(order_id) на mart.fact_orders перед публікацією на DEV.</li></ul>
+</article></main><footer class='portal-footer'>© 2025 Internal Analytics Platform KB — All rights reserved</footer></body></html>

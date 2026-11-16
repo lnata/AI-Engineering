@@ -1,0 +1,15 @@
+<!DOCTYPE html><html lang='uk'><head><meta charset='utf-8'>
+<title>RUNBOOK-DBX-003: Customer Master Sync and Soft-Delete Mapping</title>
+<style>body{font-family:sans-serif} .cookie-banner{background:#eee}</style>
+<script>window.__PORTAL_TELEMETRY__={env:'internal',track:true};</script></head><body>
+<header class='portal-topbar'>INTERNAL ANALYTICS PORTAL | Navigation: Home / Runbooks / Lineage</header>
+<nav class='sidebar-nav'><ul><li>Dashboard Catalog</li><li>Airflow Status</li><li>Sign Out</li></ul></nav>
+<aside class='cookie-banner'>Internal SSO session active. Cookie policy accepted.</aside>
+<main><article data-doc-id='RUNBOOK-DBX-003' data-version='1.2'>
+<h1>RUNBOOK-DBX-003: Customer Master Sync and Soft-Delete Mapping</h1>
+<p class='doc-meta'>Doc ID: RUNBOOK-DBX-003 | Version: 1.2 | Effective Date: 2025-02-14 | Type: runbook | Report: RPT-CUST-003 | Status: ACTIVE</p>
+<h2>1. Правила синхронізації C_CUSTOMER_MASTER -&gt; mart.dim_customer</h2>
+<p>Таблиця виміру mart.dim_customer оновлюється пайплайном dag_sap_customer_master щоночі о 03:30 UTC з підтримкою прапорця м&#x27;якого видалення is_deleted.</p>
+<p>Записи ніколи не видаляються фізично (DELETE заборонено), щоб зберегти цілісність зовнішніх ключів в історичних фактах продажів.</p>
+<table><thead><tr><th>Поле SAP KNA1 / CDS</th><th>Поле mart.dim_customer</th><th>Логіка трансформації</th></tr></thead><tbody><tr><td>KUNNR</td><td>customer_id</td><td>Нормалізація ведучих нулів (LPAD 10)</td></tr><tr><td>LOEVM / CentralDeletionFlag</td><td>is_deleted</td><td>CASE WHEN LOEVM = &#x27;X&#x27; THEN true ELSE false END</td></tr><tr><td>LAND1</td><td>country_code</td><td>ISO-2 код країни для звіту Customers by Region</td></tr></tbody></table>
+</article></main><footer class='portal-footer'>© 2025 Internal Analytics Platform KB — All rights reserved</footer></body></html>
