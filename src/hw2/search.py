@@ -155,7 +155,7 @@ class HybridSearchEngine:
         query: str,
         mode: SearchMode = "hybrid_rerank",
         top_k: int = 5,
-        candidate_pool: int = 20,
+        candidate_pool: int = 12,
         filters: SearchFilters | None = None,
     ) -> list[SearchHit]:
         pool_k = max(top_k, candidate_pool)
