@@ -1,0 +1,71 @@
+{
+  "tokenizer": "cl100k_base",
+  "evaluated_documents": 36,
+  "structure_aware": {
+    "strategy": "structure_aware",
+    "parameters": {
+      "max_tokens": 360,
+      "overlap_tokens": 45,
+      "table_atomic": "true"
+    },
+    "chunk_count": 79,
+    "avg_tokens": 258.97,
+    "min_tokens": 121,
+    "max_tokens": 353,
+    "p50_tokens": 260,
+    "p95_tokens": 345,
+    "broken_table_count": 0,
+    "mid_sentence_split_count": 0,
+    "mid_sentence_split_rate": 0.0,
+    "cross_section_bleed_count": 0
+  },
+  "fixed_size_baseline": {
+    "strategy": "fixed_size",
+    "parameters": {
+      "chunk_tokens": 240,
+      "overlap_tokens": 40
+    },
+    "chunk_count": 110,
+    "avg_tokens": 201.03,
+    "min_tokens": 41,
+    "max_tokens": 241,
+    "p50_tokens": 240,
+    "p95_tokens": 240,
+    "broken_table_count": 52,
+    "mid_sentence_split_count": 79,
+    "mid_sentence_split_rate": 0.7182,
+    "cross_section_bleed_count": 18
+  },
+  "fixed_size_defect_samples": [
+    {
+      "source": "data/hw2_corpus/raw/ADR-002_single_fx_conversion_in_databricks.md",
+      "chunk_id": "ADR-002_single_fx_conversion_in_databricks.md#01",
+      "defect_type": "broken_table",
+      "excerpt": "рхітектурний інваріант: перерахунок у EUR виконується один раз у шарі mart.* Databricks на основі таблиці ref.fx_rates. Усі семантичні моделі Power BI споживають готові колонки *_eur. ⏎  ⏎ | Критерій | Перерахунок у DAX (Від"
+    },
+    {
+      "source": "data/hw2_corpus/raw/ADR-002_single_fx_conversion_in_databricks.md",
+      "chunk_id": "ADR-002_single_fx_conversion_in_databricks.md#02",
+      "defect_type": "broken_table",
+      "excerpt": "Power BI | Повільна ітерація SUMX по днях | Миттєвий SUM по преагрегованій колонці |"
+    },
+    {
+      "source": "data/hw2_corpus/raw/GLOSSARY-001_analytics_reporting_terms.md",
+      "chunk_id": "GLOSSARY-001_analytics_reporting_terms.md#00",
+      "defect_type": "broken_table",
+      "excerpt": "# GLOSSARY-001: Analytics Ticket Copilot Domain Glossary ⏎  ⏎ Doc ID: GLOSSARY-001 | Version: 2.0 | Effective Date: 2025-04-14 | Type: glossary | Report: PLATFORM-WIDE | Status: ACTIVE ⏎  ⏎ ## 1. Основні терміни, абревіатури та "
+    },
+    {
+      "source": "data/hw2_corpus/raw/GLOSSARY-001_analytics_reporting_terms.md",
+      "chunk_id": "GLOSSARY-001_analytics_reporting_terms.md#01",
+      "defect_type": "broken_table",
+      "excerpt": "| Інтерфейс користувача та шар представлень S/4HANA (наприклад, C_SALESORDER_Q1, C_PROFITCENTER_Q) | ⏎ | Data Pull | Інженерна команда, відповідальна за інтеграцію SAP -> Databricks (Airflow + Spark Delta) | ⏎ | Parent / Chi"
+    },
+    {
+      "source": "data/hw2_corpus/raw/GLOSSARY-001_analytics_reporting_terms.md",
+      "chunk_id": "GLOSSARY-001_analytics_reporting_terms.md#02",
+      "defect_type": "broken_table",
+      "excerpt": "ній звіт') | ⏎ | 4-Way Reconciliation | Обов'язкова звірка SAP vs Databricks vs Semantic Model vs Power BI проти чинної SPEC-* |"
+    }
+  ]
+}

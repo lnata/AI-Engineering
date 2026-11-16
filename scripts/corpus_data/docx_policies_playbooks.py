@@ -109,7 +109,7 @@ DOCX_POLICIES_PLAYBOOKS: list[CorpusDocSpec] = [
         sections=_TRIAGE_SECTIONS,
     ),
     CorpusDocSpec(
-        filename="PLAYBOOK-TRIAGE-001_v2.1_jira_bug_vs_cr_backup.docx",
+        filename="PLAYBOOK-TRIAGE-001_v2.1_jira_bug_vs_cr_triage_backup.docx",
         fmt="docx",
         doc_id="PLAYBOOK-TRIAGE-001",
         title="PLAYBOOK-TRIAGE-001: Jira Ticket Triage — Bug vs Change Request",
