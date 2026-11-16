@@ -168,3 +168,91 @@ class IndexMeta(BaseModel):
     chunks_count: int
     chunks_sha256: str
 
+
+class PackedSource(BaseModel):
+    """One numbered [Si] context block packed within the token budget."""
+
+    source_id: str
+    chunk_id: str
+    source: str
+    title: str
+    section: str
+    version: str
+    date: str
+    is_latest: bool
+    score: float
+    rerank_score: float | None = None
+    packed_tokens: int
+    formatted_block: str
+
+
+class PackedContext(BaseModel):
+    """Telemetry and formatted context produced by deterministic context packing."""
+
+    budget_tokens: int
+    used_tokens: int
+    gate_passed: bool
+    gate_reason: str | None = None
+    included_sources: list[PackedSource] = Field(default_factory=list)
+    dropped_for_budget: list[str] = Field(default_factory=list)
+    dropped_for_low_relevance: list[str] = Field(default_factory=list)
+    context_text: str = ""
+
+
+class RAGClaim(BaseModel):
+    """Single factual statement grounded in one or more packed [Si] sources."""
+
+    statement: str
+    source_ids: list[str] = Field(default_factory=list)
+
+
+class RAGCitation(BaseModel):
+    """Resolved source document + section citation attached to a RAGAnswer."""
+
+    source_id: str
+    chunk_id: str
+    source: str
+    title: str
+    section: str
+    version: str
+    date: str
+    is_latest: bool
+
+
+class RAGLLMResponse(BaseModel):
+    """Strict structured output contract requested from the LLM generator."""
+
+    abstained: bool
+    abstain_reason: str | None = None
+    answer: str
+    claims: list[RAGClaim] = Field(default_factory=list)
+
+
+class RAGAnswer(BaseModel):
+    """Verified, citation-resolved RAG answer."""
+
+    abstained: bool
+    abstain_reason: str | None = None
+    answer: str
+    claims: list[RAGClaim] = Field(default_factory=list)
+    citations: list[RAGCitation] = Field(default_factory=list)
+    prompt_version: str
+
+
+class RAGRunResult(BaseModel):
+    """Full end-to-end execution trace for one RAG question."""
+
+    ok: bool
+    question: str
+    provider: str
+    model: str
+    prompt_version: str
+    repair_used: bool = False
+    error: str | None = None
+    latency_ms: float = 0.0
+    usage: dict[str, int] = Field(default_factory=dict)
+    estimated_cost_per_1k_usd: float = 0.0
+    context: PackedContext
+    rag_answer: RAGAnswer | None = None
+
+

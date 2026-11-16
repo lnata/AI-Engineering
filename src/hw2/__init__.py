@@ -1,4 +1,4 @@
-"""HW2 Step 1–2: Multi-format ingestion, chunking, Qdrant + BM25 hybrid search, and reranking."""
+"""HW2 Steps 1–3: Ingestion, chunking, Qdrant+BM25 hybrid search, and cited RAG."""
 
 from src.hw2.models import (
     ChunkingComparison,
@@ -7,6 +7,13 @@ from src.hw2.models import (
     CorpusManifest,
     ExtractedDocument,
     IndexMeta,
+    PackedContext,
+    PackedSource,
+    RAGAnswer,
+    RAGCitation,
+    RAGClaim,
+    RAGLLMResponse,
+    RAGRunResult,
     SearchFilters,
     SearchHit,
 )
@@ -18,6 +25,13 @@ __all__ = [
     "CorpusManifest",
     "ExtractedDocument",
     "IndexMeta",
+    "PackedContext",
+    "PackedSource",
+    "RAGAnswer",
+    "RAGCitation",
+    "RAGClaim",
+    "RAGLLMResponse",
+    "RAGRunResult",
     "SearchFilters",
     "SearchHit",
 ]
