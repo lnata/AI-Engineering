@@ -1,5 +1,7 @@
 # Prompt changelog
 
+> **HW2 RAG prompts:** see [`prompts/rag/CHANGELOG.md`](rag/CHANGELOG.md) (`prompts/rag/v1`, `prompts/rag/v2`).
+
 ## v2.1 — 2026-10-19 (review fix)
 
 - Removed concrete report-name examples that overlapped the golden set
