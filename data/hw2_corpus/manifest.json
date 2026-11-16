@@ -1,6 +1,6 @@
 {
   "pipeline_version": "hw2-step1-v1.0",
-  "generated_at": "2026-11-16T13:55:11Z",
+  "generated_at": "2026-11-16T13:57:23Z",
   "total_raw_files": 38,
   "unique_ingested_docs": 36,
   "skipped_duplicates_count": 2,
@@ -21,14 +21,14 @@
     {
       "source": "data/hw2_corpus/raw/PLAYBOOK-TRIAGE-001_v2.1_jira_bug_vs_cr_triage_backup.docx",
       "format": "docx",
-      "raw_hash": "7b5b903ce687e7fca8687e30dcf323094e4489dc263e28b18df300fc4f7a1f75",
+      "raw_hash": "5e437227e8177cc22ad5b1e91010164df17228806bf536e2b74f0720908982eb",
       "doc_hash": "2b6d6b16a2e4489d997f7de3dd30d2fcfc5e6826354114b98bfb62ff3efbc651",
       "canonical_source": "data/hw2_corpus/raw/PLAYBOOK-TRIAGE-001_v2.1_jira_bug_vs_cr_triage.docx"
     },
     {
       "source": "data/hw2_corpus/raw/SPEC-FIN-030_v1.3_gross_margin_rules_mirror.pdf",
       "format": "pdf",
-      "raw_hash": "737ee864b83ed3af3db67699da00c37f0d365f12a76f4e1c82521b166762e168",
+      "raw_hash": "6c884e00da65ea80400ac99faeefff315dd250a651a53e6c408775e0cc6a0b65",
       "doc_hash": "c77ca164b14051a699fbde6c0cf840ebd98bb81a7270160657058b9845a037f2",
       "canonical_source": "data/hw2_corpus/raw/SPEC-FIN-030_v1.3_gross_margin_rules.pdf"
     }
@@ -119,7 +119,7 @@
       "date": "2025-03-05",
       "report_id": "RPT-SALES-001",
       "is_latest": true,
-      "raw_hash": "283bccada18ed38537d260128062ff1deba05ed4e752d8112f836d2faf481b70",
+      "raw_hash": "9c7109ee8a2adb114efa5b2031c63b1951ef6afb75325bf72b83d57c02cf311a",
       "doc_hash": "d34024164426aa71687597ecf22812ca0aec4bf1f2d3f8c61cd8b84d6646afd4",
       "char_count": 1387,
       "chunk_count": 2
@@ -134,7 +134,7 @@
       "date": "2025-03-25",
       "report_id": "RPT-FIN-004",
       "is_latest": true,
-      "raw_hash": "27668e07cc275fb6c4bc3970bc4c8fde3e9c47eb55775c43ab983beb183391bc",
+      "raw_hash": "75e98cb4df3ddc36f03950335e53a99ed06cc9fe936badf508d061a562d20dc5",
       "doc_hash": "652e31fa7c0a5d63acada8faa3e3502a101ca139be32f154875d376366fe7835",
       "char_count": 1302,
       "chunk_count": 2
@@ -149,7 +149,7 @@
       "date": "2025-04-08",
       "report_id": "RPT-FX-005",
       "is_latest": true,
-      "raw_hash": "47c024d6335d872b093ecbeac8f496f0d2ad128ac8b1f9df7377d9038d9e3e6d",
+      "raw_hash": "017c0b4bf9af9c132ba9a5cbe711e361d9ff6ebb2a48f17cad189f805d2a5131",
       "doc_hash": "ac6690dc8b4ee1bdfebc50b22ec07af045b3ed8a61b5b42403e980ff134915f7",
       "char_count": 836,
       "chunk_count": 1
@@ -164,7 +164,7 @@
       "date": "2025-03-28",
       "report_id": null,
       "is_latest": true,
-      "raw_hash": "c7a02814e04f1714ec0d056a578d9a4986a14180f687c4fb7216e3f5e9f305fc",
+      "raw_hash": "b8b78f739a0ffa7b33138c84238f6f093ceaed8c600af2f14f3ccd9bf105aadf",
       "doc_hash": "b9d906abe9be709786e02a558f086f0fa676a45feff0db3b405c54202302e86f",
       "char_count": 1101,
       "chunk_count": 2
@@ -224,7 +224,7 @@
       "date": "2025-03-18",
       "report_id": null,
       "is_latest": true,
-      "raw_hash": "aeec5be8809ffc7130eb092c6ac771b4da7dec9aa18c542f0656d5383e796cf9",
+      "raw_hash": "4fc2361c1e9385b40021593828a993d57d7bab29110520c25ad8847c426d6e2f",
       "doc_hash": "949f45664579f0d82445352c26db9339401c18a905c06bc5eba443c032d0d755",
       "char_count": 1047,
       "chunk_count": 2
@@ -239,7 +239,7 @@
       "date": "2025-02-20",
       "report_id": null,
       "is_latest": true,
-      "raw_hash": "6762232c39a0a832567cc2d96b6765f959dfafab8b23b51589df52348a386922",
+      "raw_hash": "a1237b0b277d33d24035178349fbc5b6db81a164ea9b5c19e416ba9a00efa3a2",
       "doc_hash": "35fc274e18a57ab985263a204865079adfbe3854a17274be1d370abe76ee7dce",
       "char_count": 848,
       "chunk_count": 2
@@ -254,7 +254,7 @@
       "date": "2025-03-10",
       "report_id": null,
       "is_latest": true,
-      "raw_hash": "94bf0d06cbe07cddbc1a926313070190611654254ff548b7f3d6537a6b99f88b",
+      "raw_hash": "56949b1eef04c24ac61265f7ef9e96a41ab68b8144953a4183fdb565c5d4f8e1",
       "doc_hash": "2b6d6b16a2e4489d997f7de3dd30d2fcfc5e6826354114b98bfb62ff3efbc651",
       "char_count": 1675,
       "chunk_count": 3
@@ -269,7 +269,7 @@
       "date": "2024-01-15",
       "report_id": null,
       "is_latest": false,
-      "raw_hash": "bf92bbbdc0d3ee496a70083e32210e2bc52455d84e8ab6e7abe17ef9db1160a0",
+      "raw_hash": "02d4ca1f26173dd7157e5ab37da5e635bffe6dcb1895d3332a6da52078cc0b19",
       "doc_hash": "ab4cd92fc4c11f0f4c83a78fa78defa7b9e0fbce895a73048bed92c2142e80c8",
       "char_count": 805,
       "chunk_count": 2
@@ -284,7 +284,7 @@
       "date": "2025-04-01",
       "report_id": null,
       "is_latest": true,
-      "raw_hash": "48fb453f7ce59791896f565594c7d29fb36d492eb8234cd90dce59316da4f6bf",
+      "raw_hash": "94a871ee1bd775cf70cc49cb51d6901c84c576f364cb090b1e01308f4e018b58",
       "doc_hash": "f3a3eb33aee1b210be53bb69d0899913af9b569276ed6faea662c0168eec2943",
       "char_count": 1563,
       "chunk_count": 3
@@ -419,7 +419,7 @@
       "date": "2025-02-15",
       "report_id": "RPT-SALES-001",
       "is_latest": true,
-      "raw_hash": "50a36a2f00974d30fc2093e499c5ea24de135ecff8c73c0d16a0d4496b6c669b",
+      "raw_hash": "74b534ac1c46062172c0d5601b8b8569b479a98683a5b36240941e2e2eea232e",
       "doc_hash": "da68e530fdcc58643c84f634e217a449841670006b6674f5fb64fdbf4621c2aa",
       "char_count": 2240,
       "chunk_count": 4
@@ -434,7 +434,7 @@
       "date": "2025-01-25",
       "report_id": "RPT-CUST-003",
       "is_latest": true,
-      "raw_hash": "1650ff27e8e7b99a714f1e76b9f96a1992522b7e160dff9b9cc794a9222cb9ea",
+      "raw_hash": "c40136905648b15ce7e0c3b7fecf3f5e8da4a6c41545644b5c05321e6b45bf8e",
       "doc_hash": "89bbd56b33cbc89a5c7130f1c0610aea21e8c1f72addda0a25e582853036f225",
       "char_count": 1720,
       "chunk_count": 3
@@ -449,7 +449,7 @@
       "date": "2024-04-10",
       "report_id": "RPT-FIN-004",
       "is_latest": false,
-      "raw_hash": "63a96b4d406601fcf386db4612e34817459ab33a3c835fa85039e0a41a3514be",
+      "raw_hash": "d295c7ace71b4cc3845e0b63a1e67d006ff41ecffc824880c70b7747e56598e5",
       "doc_hash": "c78445f8734914c06a9440193d78fbbf32ac905dd389df9807a21a2fe4f74ac9",
       "char_count": 1471,
       "chunk_count": 3
@@ -464,7 +464,7 @@
       "date": "2025-03-15",
       "report_id": "RPT-FIN-004",
       "is_latest": true,
-      "raw_hash": "7818186eb22524d55800f482212593159dcc0860c8b6d427f6980294cb8129c8",
+      "raw_hash": "9dab05c363f4841b57d20b11af47428b3f2d322099d63db599120210023ad516",
       "doc_hash": "c77ca164b14051a699fbde6c0cf840ebd98bb81a7270160657058b9845a037f2",
       "char_count": 2774,
       "chunk_count": 5
@@ -479,7 +479,7 @@
       "date": "2024-05-20",
       "report_id": "RPT-FX-005",
       "is_latest": false,
-      "raw_hash": "f99409d4adaf61f935b560a93abee5c036431b6e9537d99fc2cc089f36f8a62c",
+      "raw_hash": "d52e489a70fbe30d4f9051bbc1c169508bf825de1394796255cb2be7c82f6ae9",
       "doc_hash": "d81cfb592068ac28f28494fcd83a0ecfae1c34cfbc149e0a91dbb687021c7a8e",
       "char_count": 1309,
       "chunk_count": 3
@@ -494,7 +494,7 @@
       "date": "2025-04-05",
       "report_id": "RPT-FX-005",
       "is_latest": true,
-      "raw_hash": "6b165e7f6a10265f9e51af51bb08cffff15e3883a0a7ddbda4d51ef85f42ed4a",
+      "raw_hash": "3f0d160ea18b5c7ed6decb5277f804423b772c821a69023a0a25790e226617df",
       "doc_hash": "868fd26e10c632945d3263f339dfba73cb759c05b5dfeb825eae01bf6a7ac4fb",
       "char_count": 1775,
       "chunk_count": 3
@@ -509,7 +509,7 @@
       "date": "2024-02-18",
       "report_id": "RPT-INV-002",
       "is_latest": false,
-      "raw_hash": "ef557bb85851ab797fe8c5c62ae32ca1d25f404983e99f90b12af7542ad20f07",
+      "raw_hash": "1331bd7c96254bf866d6b179956a0b0a18181aa7942b391e8c29bc4fc4852a3e",
       "doc_hash": "cf54bb6934632cb0147835a7d1c468f4be1775c7b6d6eea9c7a674d820f3c0f0",
       "char_count": 910,
       "chunk_count": 2
@@ -524,7 +524,7 @@
       "date": "2025-03-22",
       "report_id": "RPT-INV-002",
       "is_latest": true,
-      "raw_hash": "83ad7463c622fce55cfe1a36486da19f1c34e891db6dbb479edadfaf5ab15b08",
+      "raw_hash": "069a6dba8a5d214b644adc7c415082268240d9f7e11a9bc2fe8e6822df715386",
       "doc_hash": "e9473ed8f60af4ff81eda1979e324d2a5b5c141b770e6ecd9d890a67eb413298",
       "char_count": 1635,
       "chunk_count": 3
@@ -539,7 +539,7 @@
       "date": "2025-02-28",
       "report_id": "RPT-OPS-006",
       "is_latest": true,
-      "raw_hash": "31ff578855242df3e1100ebedfc84cf2ad2d2caad06145b1492330bbcab62d34",
+      "raw_hash": "e185229c360cea17e48e5aa686e22098514068fd6aa526a7acf26369fb28af8c",
       "doc_hash": "2cf4e9886af6a4124c3a0ce2978065dfdf2d5bd1e0d0d92775c3b192672a71ff",
       "char_count": 919,
       "chunk_count": 2
@@ -554,7 +554,7 @@
       "date": "2025-03-30",
       "report_id": "RPT-REV-007",
       "is_latest": true,
-      "raw_hash": "21da7c2e68aaec47f53b9f9fb6e0590a73716d6fb815d27e009b39b81cbe7e82",
+      "raw_hash": "0481a3e86f07d72732be2263e7abfd531e959802bbaecc82850eb998d7f84455",
       "doc_hash": "d8903e7beee127cad3e41b96e620cd8bb921f7d5ce681d24f74aba1aa96b1e45",
       "char_count": 1137,
       "chunk_count": 2
@@ -569,7 +569,7 @@
       "date": "2025-04-12",
       "report_id": "RPT-REV-008",
       "is_latest": true,
-      "raw_hash": "8802b6b93cf91e1fa7c1e5a46ed1f3e6547ef02bdc9a8e990e9020ca8df6441e",
+      "raw_hash": "d06e9452c631e3832fe54266644742a27fc2ede787947c2f7e7988f02bfa097f",
       "doc_hash": "6255121bf64bdb872e32193a3144040216b593b0e52351ded578d98f58f24186",
       "char_count": 950,
       "chunk_count": 1

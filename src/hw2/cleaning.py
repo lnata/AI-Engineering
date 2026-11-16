@@ -55,13 +55,16 @@ _PHONE_RE = re.compile(
 
 
 def decode_text_bytes(raw_bytes: bytes) -> str:
-    """Decode bytes safely with BOM handling and charset-normalizer fallback."""
+    """Decode bytes safely with BOM handling and Cyrillic-aware charset-normalizer fallback."""
     if raw_bytes.startswith(b"\xef\xbb\xbf"):
         return raw_bytes.decode("utf-8-sig")
     try:
         return raw_bytes.decode("utf-8")
     except UnicodeDecodeError:
-        best = from_bytes(raw_bytes).best()
+        best = from_bytes(
+            raw_bytes,
+            cp_isolation=["utf_8", "cp1251", "koi8_u", "iso8859_5", "latin_1"],
+        ).best()
         if best is not None:
             return str(best)
         return raw_bytes.decode("cp1251", errors="replace")
