@@ -138,7 +138,7 @@ def main() -> None:
     parser = argparse.ArgumentParser(description="Calibrate HW2 LLM-as-a-Judge on human labels")
     parser.add_argument("--calib-set", type=Path, default=DEFAULT_CALIB_PATH)
     parser.add_argument("--out", type=Path, default=DEFAULT_CALIB_OUT)
-    parser.add_argument("--judge-provider", choices=["auto", "rubric", "gemini", "openai", "openrouter"], default="auto")
+    parser.add_argument("--judge-provider", choices=["auto", "cloud", "rubric", "gemini", "openai", "openrouter"], default="auto")
     parser.add_argument("--min-agreement", type=float, default=0.85)
     args = parser.parse_args()
 

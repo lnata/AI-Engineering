@@ -92,7 +92,7 @@ def test_bm25_tokenizer_preserves_technical_identifiers(corpus_chunks: list[Chun
 
 def test_qdrant_indexing_and_consistent_metadata_filters(memory_engine: HybridSearchEngine):
     count = memory_engine.client.count(collection_name="test_hw2_chunks").count
-    assert count == len(memory_engine.chunks) == 79
+    assert count == len(memory_engine.chunks) == 97
 
     # Legacy filter check: without filter, legacy v1.0 appears; with is_latest=True, zero legacy hits
     unfiltered = memory_engine.search(
@@ -178,7 +178,7 @@ def test_real_multilingual_embedder_and_reranker_on_ukrainian_query(corpus_chunk
 def test_evalset_integrity_and_saved_benchmark_metrics(corpus_chunks: list[ChunkRecord]):
     known_ids = {c.chunk_id for c in corpus_chunks}
     questions = load_evalset(DEFAULT_EVALSET_PATH)
-    assert len(questions) == 15
+    assert len(questions) == 18
     assert sum(q.version_sensitive for q in questions) >= 4
     for q in questions:
         assert q.expected_chunk_ids

@@ -1,26 +1,26 @@
 {
-  "generated_at": "2026-11-16T17:41:58Z",
+  "generated_at": "2026-11-17T21:36:02Z",
   "prompt_version": "v2",
   "max_context_tokens": 1200,
-  "total_questions": 6,
+  "total_questions": 8,
   "results": [
     {
       "id": "DEMO-01",
       "kind": "versioned_spec_latest",
       "ok": true,
       "question": "Як обліковуються витрати на вхідну доставку inbound_freight_eur та який поріг звірки SAP проти Databricks діє у чинній специфікації SPEC-FIN-030?",
-      "provider": "extractive",
-      "model": "deterministic-grounded-extractive-v1",
+      "provider": "gemini",
+      "model": "gemini-3.5-flash-lite",
       "prompt_version": "v2",
       "repair_used": false,
       "error": null,
-      "latency_ms": 2.31,
+      "latency_ms": 1739.63,
       "usage": {
-        "input_tokens": 2532,
-        "output_tokens": 588,
-        "total_tokens": 3120
+        "input_tokens": 1987,
+        "output_tokens": 306,
+        "total_tokens": 2293
       },
-      "estimated_cost_per_1k_usd": 0.0,
+      "estimated_cost_per_1k_usd": 1.3611,
       "context": {
         "budget_tokens": 1200,
         "used_tokens": 933,
@@ -36,8 +36,8 @@
             "version": "1.3",
             "date": "2025-03-15",
             "is_latest": true,
-            "score": 3.830074,
-            "rerank_score": 3.830074,
+            "score": 4.198267,
+            "rerank_score": 4.198267,
             "packed_tokens": 375,
             "formatted_block": "[S1] source=data/hw2_corpus/raw/SPEC-FIN-030_v1.3_gross_margin_rules.pdf | title=SPEC-FIN-030: Gross Margin % Calculation Rules | section=2. Формула Gross Margin % та виключення оборотів | version=1.3 | date=2025-03-15 | is_latest=true\nУ версії 1.3 діє жорстке правило очищення виторгу та собівартості від внутрішньогрупових операцій: усі intercompany проводки (прапорець is_intercompany = true або заповнений код партнера VBUND у SAP) підлягають повному виключенню до агрегації.\n\nНа відміну від застарілої редакції v1.0, у собівартість реалізованої продукції (COGS) обов'язково включаються витрати на вхідну логістику (inbound_freight_eur), а допустиме відхилення звірки SAP проти Databricks зменшено з 1.0% до 0.15%. Показник класифікується як управлінська non-GAAP метрика."
           },
@@ -50,8 +50,8 @@
             "version": "1.0",
             "date": "2025-04-02",
             "is_latest": true,
-            "score": 2.287786,
-            "rerank_score": 2.287786,
+            "score": 2.622719,
+            "rerank_score": 2.622719,
             "packed_tokens": 377,
             "formatted_block": "[S2] source=data/hw2_corpus/raw/RELEASE-NOTES-2025-Q1_reporting_platform.md | title=RELEASE-NOTES-2025-Q1: Analytics Reporting Platform Quarterly Changes | section=1. Зведення оновлених специфікацій та регламентів у Q1 2025 | version=1.0 | date=2025-04-02 | is_latest=true\n| Документ | Застаріла версія | Чинна версія | Ключова зміна |\n| --- | --- | --- | --- |\n| SPEC-FIN-030 | v1.0 (2024-04-10) | v1.3 (2025-03-15) | Додано inbound_freight_eur до COGS; поріг звірки 0.15% |\n| SPEC-OPS-007 | v1.0 (2024-02-18) | v2.0 (2025-03-22) | Ранковий зріз 05:30 UTC, додано in_transit_qty, SLA 2 год |\n| POL-DEP-001 | v1.0 (2024-01-15) | v1.3 (2025-04-01) | Повна заборона прямих hotfix у PROD без DEV та FA апруву |\n| SPEC-FIN-041 | v1.0 (2024-05-20) | v1.2 (2025-04-05) | Одноразова конвертація EUR на payment_date у Databricks |"
           },
@@ -64,15 +64,15 @@
             "version": "1.3",
             "date": "2025-03-15",
             "is_latest": true,
-            "score": 0.698356,
-            "rerank_score": 0.698356,
+            "score": 0.450022,
+            "rerank_score": 0.450022,
             "packed_tokens": 181,
             "formatted_block": "[S3] source=data/hw2_corpus/raw/SPEC-FIN-030_v1.3_gross_margin_rules.pdf | title=SPEC-FIN-030: Gross Margin % Calculation Rules | section=3. Критерії приймання та типові помилки звірки | version=1.3 | date=2025-03-15 | is_latest=true\n- Розбіжність між Databricks та Power BI при однакових фільтрах періоду: строго 0.00 EUR.\n\n- Заборонено деплоїти виправлення DAX-міри напряму у PROD без регресійної звірки на DEV."
           }
         ],
         "dropped_for_budget": [
-          "SPEC-FIN-030_v1.3_gross_margin_rules.pdf#00",
-          "SPEC-FIN-030_v1.3_gross_margin_rules.pdf#02"
+          "SPEC-FIN-030_v1.3_gross_margin_rules.pdf#02",
+          "PLAYBOOK-RECON-002_v1.4_sap_dbx_pbi_reconciliation.docx#01"
         ],
         "dropped_for_low_relevance": [],
         "context_text": "[S1] source=data/hw2_corpus/raw/SPEC-FIN-030_v1.3_gross_margin_rules.pdf | title=SPEC-FIN-030: Gross Margin % Calculation Rules | section=2. Формула Gross Margin % та виключення оборотів | version=1.3 | date=2025-03-15 | is_latest=true\nУ версії 1.3 діє жорстке правило очищення виторгу та собівартості від внутрішньогрупових операцій: усі intercompany проводки (прапорець is_intercompany = true або заповнений код партнера VBUND у SAP) підлягають повному виключенню до агрегації.\n\nНа відміну від застарілої редакції v1.0, у собівартість реалізованої продукції (COGS) обов'язково включаються витрати на вхідну логістику (inbound_freight_eur), а допустиме відхилення звірки SAP проти Databricks зменшено з 1.0% до 0.15%. Показник класифікується як управлінська non-GAAP метрика.\n\n[S2] source=data/hw2_corpus/raw/RELEASE-NOTES-2025-Q1_reporting_platform.md | title=RELEASE-NOTES-2025-Q1: Analytics Reporting Platform Quarterly Changes | section=1. Зведення оновлених специфікацій та регламентів у Q1 2025 | version=1.0 | date=2025-04-02 | is_latest=true\n| Документ | Застаріла версія | Чинна версія | Ключова зміна |\n| --- | --- | --- | --- |\n| SPEC-FIN-030 | v1.0 (2024-04-10) | v1.3 (2025-03-15) | Додано inbound_freight_eur до COGS; поріг звірки 0.15% |\n| SPEC-OPS-007 | v1.0 (2024-02-18) | v2.0 (2025-03-22) | Ранковий зріз 05:30 UTC, додано in_transit_qty, SLA 2 год |\n| POL-DEP-001 | v1.0 (2024-01-15) | v1.3 (2025-04-01) | Повна заборона прямих hotfix у PROD без DEV та FA апруву |\n| SPEC-FIN-041 | v1.0 (2024-05-20) | v1.2 (2025-04-05) | Одноразова конвертація EUR на payment_date у Databricks |\n\n[S3] source=data/hw2_corpus/raw/SPEC-FIN-030_v1.3_gross_margin_rules.pdf | title=SPEC-FIN-030: Gross Margin % Calculation Rules | section=3. Критерії приймання та типові помилки звірки | version=1.3 | date=2025-03-15 | is_latest=true\n- Розбіжність між Databricks та Power BI при однакових фільтрах періоду: строго 0.00 EUR.\n\n- Заборонено деплоїти виправлення DAX-міри напряму у PROD без регресійної звірки на DEV."
@@ -80,18 +80,18 @@
       "rag_answer": {
         "abstained": false,
         "abstain_reason": null,
-        "answer": "На відміну від застарілої редакції v1.0, у собівартість реалізованої продукції (COGS) обов'язково включаються витрати на вхідну логістику (inbound_freight_eur), а допустиме відхилення звірки SAP проти Databricks зменшено з 1.0% до 0.15% [S1] (SPEC-FIN-030_v1.3_gross_margin_rules.pdf — 2. Формула Gross Margin % та виключення оборотів). Документ: SPEC-FIN-030; Застаріла версія: v1.0 (2024-04-10); Чинна версія: v1.3 (2025-03-15); Ключова зміна: Додано inbound_freight_eur до COGS; поріг звірки 0.15% [S2] (RELEASE-NOTES-2025-Q1_reporting_platform.md — 1. Зведення оновлених специфікацій та регламентів у Q1 2025).",
+        "answer": "У чинній специфікації SPEC-FIN-030 витрати на вхідну логістику (inbound_freight_eur) обов'язково включаються у собівартість реалізованої продукції (COGS) [S1] (SPEC-FIN-030: Gross Margin % Calculation Rules — 2. Формула Gross Margin % та виключення оборотів), а допустиме відхилення звірки SAP проти Databricks зменшено до 0.15% [S1] (SPEC-FIN-030: Gross Margin % Calculation Rules — 2. Формула Gross Margin % та виключення оборотів).",
         "claims": [
           {
-            "statement": "На відміну від застарілої редакції v1.0, у собівартість реалізованої продукції (COGS) обов'язково включаються витрати на вхідну логістику (inbound_freight_eur), а допустиме відхилення звірки SAP проти Databricks зменшено з 1.0% до 0.15%",
+            "statement": "У собівартість реалізованої продукції (COGS) обов'язково включаються витрати на вхідну логістику (inbound_freight_eur).",
             "source_ids": [
               "S1"
             ]
           },
           {
-            "statement": "Документ: SPEC-FIN-030; Застаріла версія: v1.0 (2024-04-10); Чинна версія: v1.3 (2025-03-15); Ключова зміна: Додано inbound_freight_eur до COGS; поріг звірки 0.15%",
+            "statement": "Допустиме відхилення звірки SAP проти Databricks становить 0.15%.",
             "source_ids": [
-              "S2"
+              "S1"
             ]
           }
         ],
@@ -105,16 +105,6 @@
             "version": "1.3",
             "date": "2025-03-15",
             "is_latest": true
-          },
-          {
-            "source_id": "S2",
-            "chunk_id": "RELEASE-NOTES-2025-Q1_reporting_platform.md#01",
-            "source": "data/hw2_corpus/raw/RELEASE-NOTES-2025-Q1_reporting_platform.md",
-            "title": "RELEASE-NOTES-2025-Q1: Analytics Reporting Platform Quarterly Changes",
-            "section": "1. Зведення оновлених специфікацій та регламентів у Q1 2025",
-            "version": "1.0",
-            "date": "2025-04-02",
-            "is_latest": true
           }
         ],
         "prompt_version": "v2"
@@ -125,21 +115,21 @@
       "kind": "multi_chunk_table_runbook",
       "ok": true,
       "question": "Що означає помилка DM_GWPipeline_Gateway_Timeout і як її усунути при оновленні датасету Power BI?",
-      "provider": "extractive",
-      "model": "deterministic-grounded-extractive-v1",
+      "provider": "gemini",
+      "model": "gemini-3.5-flash-lite",
       "prompt_version": "v2",
       "repair_used": false,
       "error": null,
-      "latency_ms": 2.07,
+      "latency_ms": 1469.72,
       "usage": {
-        "input_tokens": 2491,
-        "output_tokens": 497,
-        "total_tokens": 2988
+        "input_tokens": 1390,
+        "output_tokens": 321,
+        "total_tokens": 1711
       },
-      "estimated_cost_per_1k_usd": 0.0,
+      "estimated_cost_per_1k_usd": 1.2195,
       "context": {
         "budget_tokens": 1200,
-        "used_tokens": 920,
+        "used_tokens": 311,
         "gate_passed": true,
         "gate_reason": null,
         "included_sources": [
@@ -152,62 +142,36 @@
             "version": "1.3",
             "date": "2025-03-08",
             "is_latest": true,
-            "score": 3.036801,
-            "rerank_score": 3.036801,
+            "score": 3.065078,
+            "rerank_score": 3.065078,
             "packed_tokens": 311,
             "formatted_block": "[S1] source=data/hw2_corpus/raw/RUNBOOK-PBI-006_gateway_and_dataset_refresh.html | title=RUNBOOK-PBI-006: Power BI Gateway and Semantic Model Refresh Runbook | section=1. Діагностика помилок оновлення Parent та Child датасетів | version=1.3 | date=2025-03-08 | is_latest=true\n| Код помилки PBI | Причина збою | Стандартна дія усунення |\n| --- | --- | --- |\n| DM_GWPipeline_Gateway_Timeout | Запит імпорту перевищив 120 хв на великій партиції | Увімкнути Incremental Refresh та перевірити Photon cluster |\n| OAuthTokenRefreshFailed | Прострочений токен сервіс-принципала Databricks | Оновити секрет у KeyVault та перезапустити рефреш |\n| DirectQuery_MaxRowsExceeded | Візуал Child моделі запитує > 1 млн рядків без фільтра | Додати обов'язковий фільтр періоду або агрегат у Parent |"
-          },
-          {
-            "source_id": "S2",
-            "chunk_id": "RUNBOOK-PBI-006_gateway_and_dataset_refresh.html#00",
-            "source": "data/hw2_corpus/raw/RUNBOOK-PBI-006_gateway_and_dataset_refresh.html",
-            "title": "RUNBOOK-PBI-006: Power BI Gateway and Semantic Model Refresh Runbook",
-            "section": "1. Діагностика помилок оновлення Parent та Child датасетів",
-            "version": "1.3",
-            "date": "2025-03-08",
-            "is_latest": true,
-            "score": -4.149726,
-            "rerank_score": -4.149726,
-            "packed_tokens": 243,
-            "formatted_block": "[S2] source=data/hw2_corpus/raw/RUNBOOK-PBI-006_gateway_and_dataset_refresh.html | title=RUNBOOK-PBI-006: Power BI Gateway and Semantic Model Refresh Runbook | section=1. Діагностика помилок оновлення Parent та Child датасетів | version=1.3 | date=2025-03-08 | is_latest=true\nОновлення корпоративних Parent семантичних моделей стартує автоматично через REST webhook із Airflow після успішного завершення вітрин mart.* та wh.* у Databricks SQL Warehouse.\n\nЯкщо бізнес бачить застарілі вчорашні цифри в Power BI при коректних даних у Databricks, черговий розробник перевіряє історію рефрешу кластера On-Premises / VNet Data Gateway."
-          },
-          {
-            "source_id": "S3",
-            "chunk_id": "RUNBOOK-DQ-007_great_expectations_checks.html#00",
-            "source": "data/hw2_corpus/raw/RUNBOOK-DQ-007_great_expectations_checks.html",
-            "title": "RUNBOOK-DQ-007: Automated Data Quality Gates before Semantic Refresh",
-            "section": "1. Блокуючі перевірки якості даних (Circuit Breakers)",
-            "version": "1.1",
-            "date": "2025-03-31",
-            "is_latest": true,
-            "score": -4.204254,
-            "rerank_score": -4.204254,
-            "packed_tokens": 366,
-            "formatted_block": "[S3] source=data/hw2_corpus/raw/RUNBOOK-DQ-007_great_expectations_checks.html | title=RUNBOOK-DQ-007: Automated Data Quality Gates before Semantic Refresh | section=1. Блокуючі перевірки якості даних (Circuit Breakers) | version=1.1 | date=2025-03-31 | is_latest=true\nЩоб не поширювати порожні партиції або дублікати у звіти Power BI, кожен DAG у Airflow запускає набір блокуючих dbt та Lakehouse Monitoring тестів перед викликом рефрешу датасету.\n\n| Назва перевірки | Цільова вітрина | Умова падіння пайплайну |\n| --- | --- | --- |\n| chk_orders_header_unique | mart.fact_orders | Знайдено хоча б один неунікальний order_id |\n| chk_inventory_rowcount_nonzero | wh.inventory_snapshot | Кількість рядків за current_date - 1 дорівнює 0 |\n| chk_fx_rate_positive | ref.fx_rates | Пропущений або нульовий курс для активної валюти |\n| chk_margin_sap_delta | mart.fact_revenue | Відхилення суми від SAP control total > 0.15% |"
           }
         ],
         "dropped_for_budget": [],
         "dropped_for_low_relevance": [
+          "RUNBOOK-PBI-006_gateway_and_dataset_refresh.html#00",
           "GUIDE-SEMANTIC-004_v2.0_parent_child_directquery_rls.docx#01",
-          "PLAYBOOK-RECON-002_v1.4_sap_dbx_pbi_reconciliation.docx#01"
+          "PLAYBOOK-RECON-002_v1.4_sap_dbx_pbi_reconciliation.docx#01",
+          "GUIDE-PBI-001_v1.5_sales_overview_dashboard.docx#00"
         ],
-        "context_text": "[S1] source=data/hw2_corpus/raw/RUNBOOK-PBI-006_gateway_and_dataset_refresh.html | title=RUNBOOK-PBI-006: Power BI Gateway and Semantic Model Refresh Runbook | section=1. Діагностика помилок оновлення Parent та Child датасетів | version=1.3 | date=2025-03-08 | is_latest=true\n| Код помилки PBI | Причина збою | Стандартна дія усунення |\n| --- | --- | --- |\n| DM_GWPipeline_Gateway_Timeout | Запит імпорту перевищив 120 хв на великій партиції | Увімкнути Incremental Refresh та перевірити Photon cluster |\n| OAuthTokenRefreshFailed | Прострочений токен сервіс-принципала Databricks | Оновити секрет у KeyVault та перезапустити рефреш |\n| DirectQuery_MaxRowsExceeded | Візуал Child моделі запитує > 1 млн рядків без фільтра | Додати обов'язковий фільтр періоду або агрегат у Parent |\n\n[S2] source=data/hw2_corpus/raw/RUNBOOK-PBI-006_gateway_and_dataset_refresh.html | title=RUNBOOK-PBI-006: Power BI Gateway and Semantic Model Refresh Runbook | section=1. Діагностика помилок оновлення Parent та Child датасетів | version=1.3 | date=2025-03-08 | is_latest=true\nОновлення корпоративних Parent семантичних моделей стартує автоматично через REST webhook із Airflow після успішного завершення вітрин mart.* та wh.* у Databricks SQL Warehouse.\n\nЯкщо бізнес бачить застарілі вчорашні цифри в Power BI при коректних даних у Databricks, черговий розробник перевіряє історію рефрешу кластера On-Premises / VNet Data Gateway.\n\n[S3] source=data/hw2_corpus/raw/RUNBOOK-DQ-007_great_expectations_checks.html | title=RUNBOOK-DQ-007: Automated Data Quality Gates before Semantic Refresh | section=1. Блокуючі перевірки якості даних (Circuit Breakers) | version=1.1 | date=2025-03-31 | is_latest=true\nЩоб не поширювати порожні партиції або дублікати у звіти Power BI, кожен DAG у Airflow запускає набір блокуючих dbt та Lakehouse Monitoring тестів перед викликом рефрешу датасету.\n\n| Назва перевірки | Цільова вітрина | Умова падіння пайплайну |\n| --- | --- | --- |\n| chk_orders_header_unique | mart.fact_orders | Знайдено хоча б один неунікальний order_id |\n| chk_inventory_rowcount_nonzero | wh.inventory_snapshot | Кількість рядків за current_date - 1 дорівнює 0 |\n| chk_fx_rate_positive | ref.fx_rates | Пропущений або нульовий курс для активної валюти |\n| chk_margin_sap_delta | mart.fact_revenue | Відхилення суми від SAP control total > 0.15% |"
+        "context_text": "[S1] source=data/hw2_corpus/raw/RUNBOOK-PBI-006_gateway_and_dataset_refresh.html | title=RUNBOOK-PBI-006: Power BI Gateway and Semantic Model Refresh Runbook | section=1. Діагностика помилок оновлення Parent та Child датасетів | version=1.3 | date=2025-03-08 | is_latest=true\n| Код помилки PBI | Причина збою | Стандартна дія усунення |\n| --- | --- | --- |\n| DM_GWPipeline_Gateway_Timeout | Запит імпорту перевищив 120 хв на великій партиції | Увімкнути Incremental Refresh та перевірити Photon cluster |\n| OAuthTokenRefreshFailed | Прострочений токен сервіс-принципала Databricks | Оновити секрет у KeyVault та перезапустити рефреш |\n| DirectQuery_MaxRowsExceeded | Візуал Child моделі запитує > 1 млн рядків без фільтра | Додати обов'язковий фільтр періоду або агрегат у Parent |"
       },
       "rag_answer": {
         "abstained": false,
         "abstain_reason": null,
-        "answer": "Код помилки PBI: DM_GWPipeline_Gateway_Timeout; Причина збою: Запит імпорту перевищив 120 хв на великій партиції; Стандартна дія усунення: Увімкнути Incremental Refresh та перевірити Photon cluster [S1] (RUNBOOK-PBI-006_gateway_and_dataset_refresh.html — 1. Діагностика помилок оновлення Parent та Child датасетів). Щоб не поширювати порожні партиції або дублікати у звіти Power BI, кожен DAG у Airflow запускає набір блокуючих dbt та Lakehouse Monitoring тестів перед викликом рефрешу датасету [S3] (RUNBOOK-DQ-007_great_expectations_checks.html — 1. Блокуючі перевірки якості даних (Circuit Breakers)).",
+        "answer": "Помилка DM_GWPipeline_Gateway_Timeout означає, що запит імпорту перевищив 120 хв на великій партиції [S1] (RUNBOOK-PBI-006: Power BI Gateway and Semantic Model Refresh Runbook — 1. Діагностика помилок оновлення Parent та Child датасетів). Стандартна дія для її усунення — увімкнути Incremental Refresh та перевірити Photon cluster [S1] (RUNBOOK-PBI-006: Power BI Gateway and Semantic Model Refresh Runbook — 1. Діагностика помилок оновлення Parent та Child датасетів).",
         "claims": [
           {
-            "statement": "Код помилки PBI: DM_GWPipeline_Gateway_Timeout; Причина збою: Запит імпорту перевищив 120 хв на великій партиції; Стандартна дія усунення: Увімкнути Incremental Refresh та перевірити Photon cluster",
+            "statement": "Помилка DM_GWPipeline_Gateway_Timeout означає, що запит імпорту перевищив 120 хв на великій партиції.",
             "source_ids": [
               "S1"
             ]
           },
           {
-            "statement": "Щоб не поширювати порожні партиції або дублікати у звіти Power BI, кожен DAG у Airflow запускає набір блокуючих dbt та Lakehouse Monitoring тестів перед викликом рефрешу датасету",
+            "statement": "Стандартна дія усунення помилки DM_GWPipeline_Gateway_Timeout полягає в тому, щоб увімкнути Incremental Refresh та перевірити Photon cluster.",
             "source_ids": [
-              "S3"
+              "S1"
             ]
           }
         ],
@@ -221,16 +185,6 @@
             "version": "1.3",
             "date": "2025-03-08",
             "is_latest": true
-          },
-          {
-            "source_id": "S3",
-            "chunk_id": "RUNBOOK-DQ-007_great_expectations_checks.html#00",
-            "source": "data/hw2_corpus/raw/RUNBOOK-DQ-007_great_expectations_checks.html",
-            "title": "RUNBOOK-DQ-007: Automated Data Quality Gates before Semantic Refresh",
-            "section": "1. Блокуючі перевірки якості даних (Circuit Breakers)",
-            "version": "1.1",
-            "date": "2025-03-31",
-            "is_latest": true
           }
         ],
         "prompt_version": "v2"
@@ -241,21 +195,21 @@
       "kind": "sla_table_lookup",
       "ok": true,
       "question": "Який час першої реакції та цільовий час фіксу на DEV для Critical Blocker інцидентів під час закриття місяця WD1–WD5?",
-      "provider": "extractive",
-      "model": "deterministic-grounded-extractive-v1",
+      "provider": "gemini",
+      "model": "gemini-3.5-flash-lite",
       "prompt_version": "v2",
       "repair_used": false,
       "error": null,
-      "latency_ms": 2.42,
+      "latency_ms": 10983.16,
       "usage": {
-        "input_tokens": 2727,
-        "output_tokens": 545,
-        "total_tokens": 3272
+        "input_tokens": 2118,
+        "output_tokens": 215,
+        "total_tokens": 2333
       },
-      "estimated_cost_per_1k_usd": 0.0,
+      "estimated_cost_per_1k_usd": 1.1729,
       "context": {
         "budget_tokens": 1200,
-        "used_tokens": 1131,
+        "used_tokens": 1163,
         "gate_passed": true,
         "gate_reason": null,
         "included_sources": [
@@ -268,8 +222,8 @@
             "version": "1.2",
             "date": "2025-02-20",
             "is_latest": true,
-            "score": 5.391195,
-            "rerank_score": 5.391195,
+            "score": 5.574819,
+            "rerank_score": 5.574819,
             "packed_tokens": 301,
             "formatted_block": "[S1] source=data/hw2_corpus/raw/PLAYBOOK-SLA-003_v1.2_incident_severity_month_close.docx | title=PLAYBOOK-SLA-003: Incident Severity and Month-End Close SLA | section=1. Рівні пріоритетів та режим закриття періоду (Month-End Close) | version=1.2 | date=2025-02-20 | is_latest=true\n| Пріоритет | Час першої реакції | Цільовий час фіксу на DEV | Умова присвоєння |\n| --- | --- | --- | --- |\n| Critical (Blocker) | 15 хвилин | 2 години | Викривлення фінансових цифр на PROD у WD1–WD5 |\n| High | 1 година | 6 годин | Помилка фільтрації або пропущений інкремент даних |\n| Medium | 4 години | 2 робочі дні | Плановий Change Request або помилка фільтра користувача |"
           },
@@ -282,8 +236,8 @@
             "version": "1.0",
             "date": "2025-04-09",
             "is_latest": true,
-            "score": 0.667685,
-            "rerank_score": 0.667685,
+            "score": 0.691564,
+            "rerank_score": 0.691564,
             "packed_tokens": 282,
             "formatted_block": "[S2] source=data/hw2_corpus/raw/INCIDENT-POSTMORTEM-002_fx_double_conversion.html | title=INCIDENT-POSTMORTEM-002: Double FX Conversion in FX_Revenue.pbix (BUGS-49) | section=1. Розбір критичного блокера закриття місяця BUGS-49 | version=1.0 | date=2025-04-09 | is_latest=true\n| Етап реагування | Фактичний час | Результат перевірки |\n| --- | --- | --- |\n| Локалізація шару | 20 хвилин | SAP = Databricks (EUR), дефект у Power BI DAX |\n| Деплой фіксу на DEV + звірка FA | 55 хвилин | Повний збіг 0.00 EUR з C_PAYMENTDOCUMENT |\n| Промоушен на PROD | 15 хвилин після апруву | Інцидент закрито без порушення POL-DEP-001 v1.3 |"
           },
@@ -296,45 +250,39 @@
             "version": "1.2",
             "date": "2025-02-20",
             "is_latest": true,
-            "score": -0.819422,
-            "rerank_score": -0.819422,
+            "score": -0.688051,
+            "rerank_score": -0.688051,
             "packed_tokens": 220,
             "formatted_block": "[S3] source=data/hw2_corpus/raw/PLAYBOOK-SLA-003_v1.2_incident_severity_month_close.docx | title=PLAYBOOK-SLA-003: Incident Severity and Month-End Close SLA | section=1. Рівні пріоритетів та режим закриття періоду (Month-End Close) | version=1.2 | date=2025-02-20 | is_latest=true\nУ робочі дні WD1–WD5 триває фінансове закриття місяця. Будь-яке викривлення сум на PROD у фінансових звітах RPT-SALES-001, RPT-FIN-004 або RPT-FX-005 отримує прапорець is_blocker = true та пріоритет Critical."
           },
           {
             "source_id": "S4",
-            "chunk_id": "INCIDENT-POSTMORTEM-002_fx_double_conversion.html#00",
-            "source": "data/hw2_corpus/raw/INCIDENT-POSTMORTEM-002_fx_double_conversion.html",
-            "title": "INCIDENT-POSTMORTEM-002: Double FX Conversion in FX_Revenue.pbix (BUGS-49)",
-            "section": "1. Розбір критичного блокера закриття місяця BUGS-49",
-            "version": "1.0",
-            "date": "2025-04-09",
+            "chunk_id": "POL-DEP-001_v1.3_deployment_and_reconciliation_policy.docx#00",
+            "source": "data/hw2_corpus/raw/POL-DEP-001_v1.3_deployment_and_reconciliation_policy.docx",
+            "title": "POL-DEP-001: Deployment and Reconciliation Governance Policy",
+            "section": "1. Обов'язковий маршрут релізу змін (DEV -> Approval -> PROD)",
+            "version": "1.3",
+            "date": "2025-04-01",
             "is_latest": true,
-            "score": -3.973149,
-            "rerank_score": -3.973149,
-            "packed_tokens": 328,
-            "formatted_block": "[S4] source=data/hw2_corpus/raw/INCIDENT-POSTMORTEM-002_fx_double_conversion.html | title=INCIDENT-POSTMORTEM-002: Double FX Conversion in FX_Revenue.pbix (BUGS-49) | section=1. Розбір критичного блокера закриття місяця BUGS-49 | version=1.0 | date=2025-04-09 | is_latest=true\nПід час квітневого закриття періоду виявлено викривлення сум у звіті FX_Revenue.pbix на PROD: вітрина mart.fact_payments вже містила сконвертовані суми в EUR, проте застаріла DAX-міра спадщини SPEC-FIN-041 v1.0 повторно множила суму на курс із ref.fx_rates.\n\nЗгідно з регламентом POL-DEP-001 v1.3 виправлення DAX-міри було спочатку розгорнуто на DEV, звірено фінансовим аналітиком проти SAP Fiori Incoming Payments і лише після затвердження перенесено на PROD."
+            "score": -3.987904,
+            "rerank_score": -3.987904,
+            "packed_tokens": 360,
+            "formatted_block": "[S4] source=data/hw2_corpus/raw/POL-DEP-001_v1.3_deployment_and_reconciliation_policy.docx | title=POL-DEP-001: Deployment and Reconciliation Governance Policy | section=1. Обов'язковий маршрут релізу змін (DEV -> Approval -> PROD) | version=1.3 | date=2025-04-01 | is_latest=true\nРегламент POL-DEP-001 (версія 1.3) встановлює безальтернативний порядок викатки виправлень багів та Change Requests для всіх звітів Power BI, семантичних моделей і пайплайнів Databricks.\n\nЖодна зміна не може бути опублікована напряму в PROD в обхід середовища DEV або без зафіксованого погодження фінансового аналітика — навіть під час закриття місяця.\n\n- Крок 1 (in_development): розробка фіксу у гілці або тестовому датасеті.\n\n- Крок 2 (deployed_to_dev): публікація на DEV та прогін контрольних звірок."
           }
         ],
         "dropped_for_budget": [
-          "POL-DEP-001_v1.3_deployment_and_reconciliation_policy.docx#00"
+          "INCIDENT-POSTMORTEM-002_fx_double_conversion.html#00"
         ],
         "dropped_for_low_relevance": [],
-        "context_text": "[S1] source=data/hw2_corpus/raw/PLAYBOOK-SLA-003_v1.2_incident_severity_month_close.docx | title=PLAYBOOK-SLA-003: Incident Severity and Month-End Close SLA | section=1. Рівні пріоритетів та режим закриття періоду (Month-End Close) | version=1.2 | date=2025-02-20 | is_latest=true\n| Пріоритет | Час першої реакції | Цільовий час фіксу на DEV | Умова присвоєння |\n| --- | --- | --- | --- |\n| Critical (Blocker) | 15 хвилин | 2 години | Викривлення фінансових цифр на PROD у WD1–WD5 |\n| High | 1 година | 6 годин | Помилка фільтрації або пропущений інкремент даних |\n| Medium | 4 години | 2 робочі дні | Плановий Change Request або помилка фільтра користувача |\n\n[S2] source=data/hw2_corpus/raw/INCIDENT-POSTMORTEM-002_fx_double_conversion.html | title=INCIDENT-POSTMORTEM-002: Double FX Conversion in FX_Revenue.pbix (BUGS-49) | section=1. Розбір критичного блокера закриття місяця BUGS-49 | version=1.0 | date=2025-04-09 | is_latest=true\n| Етап реагування | Фактичний час | Результат перевірки |\n| --- | --- | --- |\n| Локалізація шару | 20 хвилин | SAP = Databricks (EUR), дефект у Power BI DAX |\n| Деплой фіксу на DEV + звірка FA | 55 хвилин | Повний збіг 0.00 EUR з C_PAYMENTDOCUMENT |\n| Промоушен на PROD | 15 хвилин після апруву | Інцидент закрито без порушення POL-DEP-001 v1.3 |\n\n[S3] source=data/hw2_corpus/raw/PLAYBOOK-SLA-003_v1.2_incident_severity_month_close.docx | title=PLAYBOOK-SLA-003: Incident Severity and Month-End Close SLA | section=1. Рівні пріоритетів та режим закриття періоду (Month-End Close) | version=1.2 | date=2025-02-20 | is_latest=true\nУ робочі дні WD1–WD5 триває фінансове закриття місяця. Будь-яке викривлення сум на PROD у фінансових звітах RPT-SALES-001, RPT-FIN-004 або RPT-FX-005 отримує прапорець is_blocker = true та пріоритет Critical.\n\n[S4] source=data/hw2_corpus/raw/INCIDENT-POSTMORTEM-002_fx_double_conversion.html | title=INCIDENT-POSTMORTEM-002: Double FX Conversion in FX_Revenue.pbix (BUGS-49) | section=1. Розбір критичного блокера закриття місяця BUGS-49 | version=1.0 | date=2025-04-09 | is_latest=true\nПід час квітневого закриття періоду виявлено викривлення сум у звіті FX_Revenue.pbix на PROD: вітрина mart.fact_payments вже містила сконвертовані суми в EUR, проте застаріла DAX-міра спадщини SPEC-FIN-041 v1.0 повторно множила суму на курс із ref.fx_rates.\n\nЗгідно з регламентом POL-DEP-001 v1.3 виправлення DAX-міри було спочатку розгорнуто на DEV, звірено фінансовим аналітиком проти SAP Fiori Incoming Payments і лише після затвердження перенесено на PROD."
+        "context_text": "[S1] source=data/hw2_corpus/raw/PLAYBOOK-SLA-003_v1.2_incident_severity_month_close.docx | title=PLAYBOOK-SLA-003: Incident Severity and Month-End Close SLA | section=1. Рівні пріоритетів та режим закриття періоду (Month-End Close) | version=1.2 | date=2025-02-20 | is_latest=true\n| Пріоритет | Час першої реакції | Цільовий час фіксу на DEV | Умова присвоєння |\n| --- | --- | --- | --- |\n| Critical (Blocker) | 15 хвилин | 2 години | Викривлення фінансових цифр на PROD у WD1–WD5 |\n| High | 1 година | 6 годин | Помилка фільтрації або пропущений інкремент даних |\n| Medium | 4 години | 2 робочі дні | Плановий Change Request або помилка фільтра користувача |\n\n[S2] source=data/hw2_corpus/raw/INCIDENT-POSTMORTEM-002_fx_double_conversion.html | title=INCIDENT-POSTMORTEM-002: Double FX Conversion in FX_Revenue.pbix (BUGS-49) | section=1. Розбір критичного блокера закриття місяця BUGS-49 | version=1.0 | date=2025-04-09 | is_latest=true\n| Етап реагування | Фактичний час | Результат перевірки |\n| --- | --- | --- |\n| Локалізація шару | 20 хвилин | SAP = Databricks (EUR), дефект у Power BI DAX |\n| Деплой фіксу на DEV + звірка FA | 55 хвилин | Повний збіг 0.00 EUR з C_PAYMENTDOCUMENT |\n| Промоушен на PROD | 15 хвилин після апруву | Інцидент закрито без порушення POL-DEP-001 v1.3 |\n\n[S3] source=data/hw2_corpus/raw/PLAYBOOK-SLA-003_v1.2_incident_severity_month_close.docx | title=PLAYBOOK-SLA-003: Incident Severity and Month-End Close SLA | section=1. Рівні пріоритетів та режим закриття періоду (Month-End Close) | version=1.2 | date=2025-02-20 | is_latest=true\nУ робочі дні WD1–WD5 триває фінансове закриття місяця. Будь-яке викривлення сум на PROD у фінансових звітах RPT-SALES-001, RPT-FIN-004 або RPT-FX-005 отримує прапорець is_blocker = true та пріоритет Critical.\n\n[S4] source=data/hw2_corpus/raw/POL-DEP-001_v1.3_deployment_and_reconciliation_policy.docx | title=POL-DEP-001: Deployment and Reconciliation Governance Policy | section=1. Обов'язковий маршрут релізу змін (DEV -> Approval -> PROD) | version=1.3 | date=2025-04-01 | is_latest=true\nРегламент POL-DEP-001 (версія 1.3) встановлює безальтернативний порядок викатки виправлень багів та Change Requests для всіх звітів Power BI, семантичних моделей і пайплайнів Databricks.\n\nЖодна зміна не може бути опублікована напряму в PROD в обхід середовища DEV або без зафіксованого погодження фінансового аналітика — навіть під час закриття місяця.\n\n- Крок 1 (in_development): розробка фіксу у гілці або тестовому датасеті.\n\n- Крок 2 (deployed_to_dev): публікація на DEV та прогін контрольних звірок."
       },
       "rag_answer": {
         "abstained": false,
         "abstain_reason": null,
-        "answer": "Пріоритет: Critical (Blocker); Час першої реакції: 15 хвилин; Цільовий час фіксу на DEV: 2 години; Умова присвоєння: Викривлення фінансових цифр на PROD у WD1–WD5 [S1] (PLAYBOOK-SLA-003_v1.2_incident_severity_month_close.docx — 1. Рівні пріоритетів та режим закриття періоду (Month-End Close)). Пріоритет: High; Час першої реакції: 1 година; Цільовий час фіксу на DEV: 6 годин; Умова присвоєння: Помилка фільтрації або пропущений інкремент даних [S1] (PLAYBOOK-SLA-003_v1.2_incident_severity_month_close.docx — 1. Рівні пріоритетів та режим закриття періоду (Month-End Close)).",
+        "answer": "Для інцидентів рівня Critical (Blocker) під час закриття місяця WD1–WD5 час першої реакції становить 15 хвилин, а цільовий час фіксу на DEV — 2 години [S1] (PLAYBOOK-SLA-003: Incident Severity and Month-End Close SLA — 1. Рівні пріоритетів та режим закриття періоду (Month-End Close)).",
         "claims": [
           {
-            "statement": "Пріоритет: Critical (Blocker); Час першої реакції: 15 хвилин; Цільовий час фіксу на DEV: 2 години; Умова присвоєння: Викривлення фінансових цифр на PROD у WD1–WD5",
-            "source_ids": [
-              "S1"
-            ]
-          },
-          {
-            "statement": "Пріоритет: High; Час першої реакції: 1 година; Цільовий час фіксу на DEV: 6 годин; Умова присвоєння: Помилка фільтрації або пропущений інкремент даних",
+            "statement": "Для інцидентів рівня Critical (Blocker) під час закриття місяця WD1–WD5 час першої реакції становить 15 хвилин, а цільовий час фіксу на DEV — 2 години.",
             "source_ids": [
               "S1"
             ]
@@ -360,18 +308,18 @@
       "kind": "fx_architecture_invariant",
       "ok": true,
       "question": "На якому шарі та за якою датою виконується валютна конвертація у EUR за діючим стандартом SPEC-FIN-041?",
-      "provider": "extractive",
-      "model": "deterministic-grounded-extractive-v1",
+      "provider": "gemini",
+      "model": "gemini-3.5-flash-lite",
       "prompt_version": "v2",
       "repair_used": false,
       "error": null,
-      "latency_ms": 2.29,
+      "latency_ms": 7035.87,
       "usage": {
-        "input_tokens": 2673,
-        "output_tokens": 418,
-        "total_tokens": 3091
+        "input_tokens": 2143,
+        "output_tokens": 264,
+        "total_tokens": 2407
       },
-      "estimated_cost_per_1k_usd": 0.0,
+      "estimated_cost_per_1k_usd": 1.3029,
       "context": {
         "budget_tokens": 1200,
         "used_tokens": 1095,
@@ -387,8 +335,8 @@
             "version": "1.2",
             "date": "2025-04-05",
             "is_latest": true,
-            "score": 3.084263,
-            "rerank_score": 3.084263,
+            "score": 2.917907,
+            "rerank_score": 2.917907,
             "packed_tokens": 370,
             "formatted_block": "[S1] source=data/hw2_corpus/raw/SPEC-FIN-041_v1.2_fx_conversion_timing_rates.pdf | title=SPEC-FIN-041: FX Conversion Timing and Rates | section=1. Єдиний стандарт валютної конвертації у FX Revenue | version=1.2 | date=2025-04-05 | is_latest=true\nСпецифікація SPEC-FIN-041 (версія 1.2) визначає правила перерахунку вхідних платежів у звіті FX Revenue (FX_Revenue.pbix, датасет FX_Revenue_Dataset, код RPT-FX-005).\n\nПервинні документи надходять із SAP Fiori застосунку Incoming Payments (CDS view C_PAYMENTDOCUMENT) та збагачуються курсами з довідника ref.fx_rates при формуванні вітрини mart.fact_payments.\n\n- Конвертація в базову валюту EUR виконується РІВНО ОДИН РАЗ на етапі побудови mart.fact_payments.\n\n- Курс визначається за датою фактичної оплати (payment_date / AUGDT), а не за датою виставлення інвойсу (якщо не затверджено окремий CR, див. BUGS-47)."
           },
@@ -401,8 +349,8 @@
             "version": "1.0",
             "date": "2025-04-02",
             "is_latest": true,
-            "score": 1.435586,
-            "rerank_score": 1.435586,
+            "score": 1.560539,
+            "rerank_score": 1.560539,
             "packed_tokens": 377,
             "formatted_block": "[S2] source=data/hw2_corpus/raw/RELEASE-NOTES-2025-Q1_reporting_platform.md | title=RELEASE-NOTES-2025-Q1: Analytics Reporting Platform Quarterly Changes | section=1. Зведення оновлених специфікацій та регламентів у Q1 2025 | version=1.0 | date=2025-04-02 | is_latest=true\n| Документ | Застаріла версія | Чинна версія | Ключова зміна |\n| --- | --- | --- | --- |\n| SPEC-FIN-030 | v1.0 (2024-04-10) | v1.3 (2025-03-15) | Додано inbound_freight_eur до COGS; поріг звірки 0.15% |\n| SPEC-OPS-007 | v1.0 (2024-02-18) | v2.0 (2025-03-22) | Ранковий зріз 05:30 UTC, додано in_transit_qty, SLA 2 год |\n| POL-DEP-001 | v1.0 (2024-01-15) | v1.3 (2025-04-01) | Повна заборона прямих hotfix у PROD без DEV та FA апруву |\n| SPEC-FIN-041 | v1.0 (2024-05-20) | v1.2 (2025-04-05) | Одноразова конвертація EUR на payment_date у Databricks |"
           },
@@ -415,15 +363,15 @@
             "version": "1.2",
             "date": "2025-04-06",
             "is_latest": true,
-            "score": 1.046821,
-            "rerank_score": 1.046821,
+            "score": 0.747682,
+            "rerank_score": 0.747682,
             "packed_tokens": 348,
             "formatted_block": "[S3] source=data/hw2_corpus/raw/RUNBOOK-DBX-005_fx_rates_and_payments.html | title=RUNBOOK-DBX-005: Incoming Payments and ECB FX Rates Pipeline | section=1. Одноразова конвертація валют у dag_sap_payments_fx | version=1.2 | date=2025-04-06 | is_latest=true\nПайплайн dag_sap_payments_fx спочатку оновлює довідник курсів ЄЦБ ref.fx_rates о 04:00 UTC, після чого приєднує курс за датою оплати payment_date до вивантаження C_PAYMENTDOCUMENT.\n\nДля вихідних та святкових днів застосовується останній доступний робочий курс (LOCF window lookback до 5 днів). Результат записується в mart.fact_payments.amount_eur.\n\n- Якщо документ у SAP вже проведений у валюті EUR, коефіцієнт fx_rate_to_eur примусово дорівнює 1.000000.\n- Будь-яка спроба повторного множення на fx_rate у шарі Power BI порушує інваріант SPEC-FIN-041 v1.2."
           }
         ],
         "dropped_for_budget": [
-          "ADR-002_single_fx_conversion_in_databricks.md#00",
-          "SPEC-FIN-041_v1.2_fx_conversion_timing_rates.pdf#02"
+          "SPEC-FIN-041_v1.2_fx_conversion_timing_rates.pdf#02",
+          "BUGS-47.json#00"
         ],
         "dropped_for_low_relevance": [],
         "context_text": "[S1] source=data/hw2_corpus/raw/SPEC-FIN-041_v1.2_fx_conversion_timing_rates.pdf | title=SPEC-FIN-041: FX Conversion Timing and Rates | section=1. Єдиний стандарт валютної конвертації у FX Revenue | version=1.2 | date=2025-04-05 | is_latest=true\nСпецифікація SPEC-FIN-041 (версія 1.2) визначає правила перерахунку вхідних платежів у звіті FX Revenue (FX_Revenue.pbix, датасет FX_Revenue_Dataset, код RPT-FX-005).\n\nПервинні документи надходять із SAP Fiori застосунку Incoming Payments (CDS view C_PAYMENTDOCUMENT) та збагачуються курсами з довідника ref.fx_rates при формуванні вітрини mart.fact_payments.\n\n- Конвертація в базову валюту EUR виконується РІВНО ОДИН РАЗ на етапі побудови mart.fact_payments.\n\n- Курс визначається за датою фактичної оплати (payment_date / AUGDT), а не за датою виставлення інвойсу (якщо не затверджено окремий CR, див. BUGS-47).\n\n[S2] source=data/hw2_corpus/raw/RELEASE-NOTES-2025-Q1_reporting_platform.md | title=RELEASE-NOTES-2025-Q1: Analytics Reporting Platform Quarterly Changes | section=1. Зведення оновлених специфікацій та регламентів у Q1 2025 | version=1.0 | date=2025-04-02 | is_latest=true\n| Документ | Застаріла версія | Чинна версія | Ключова зміна |\n| --- | --- | --- | --- |\n| SPEC-FIN-030 | v1.0 (2024-04-10) | v1.3 (2025-03-15) | Додано inbound_freight_eur до COGS; поріг звірки 0.15% |\n| SPEC-OPS-007 | v1.0 (2024-02-18) | v2.0 (2025-03-22) | Ранковий зріз 05:30 UTC, додано in_transit_qty, SLA 2 год |\n| POL-DEP-001 | v1.0 (2024-01-15) | v1.3 (2025-04-01) | Повна заборона прямих hotfix у PROD без DEV та FA апруву |\n| SPEC-FIN-041 | v1.0 (2024-05-20) | v1.2 (2025-04-05) | Одноразова конвертація EUR на payment_date у Databricks |\n\n[S3] source=data/hw2_corpus/raw/RUNBOOK-DBX-005_fx_rates_and_payments.html | title=RUNBOOK-DBX-005: Incoming Payments and ECB FX Rates Pipeline | section=1. Одноразова конвертація валют у dag_sap_payments_fx | version=1.2 | date=2025-04-06 | is_latest=true\nПайплайн dag_sap_payments_fx спочатку оновлює довідник курсів ЄЦБ ref.fx_rates о 04:00 UTC, після чого приєднує курс за датою оплати payment_date до вивантаження C_PAYMENTDOCUMENT.\n\nДля вихідних та святкових днів застосовується останній доступний робочий курс (LOCF window lookback до 5 днів). Результат записується в mart.fact_payments.amount_eur.\n\n- Якщо документ у SAP вже проведений у валюті EUR, коефіцієнт fx_rate_to_eur примусово дорівнює 1.000000.\n- Будь-яка спроба повторного множення на fx_rate у шарі Power BI порушує інваріант SPEC-FIN-041 v1.2."
@@ -431,32 +379,22 @@
       "rag_answer": {
         "abstained": false,
         "abstain_reason": null,
-        "answer": "Документ: SPEC-FIN-041; Застаріла версія: v1.0 (2024-05-20); Чинна версія: v1.2 (2025-04-05); Ключова зміна: Одноразова конвертація EUR на payment_date у Databricks [S2] (RELEASE-NOTES-2025-Q1_reporting_platform.md — 1. Зведення оновлених специфікацій та регламентів у Q1 2025). Конвертація в базову валюту EUR виконується РІВНО ОДИН РАЗ на етапі побудови mart.fact_payments [S1] (SPEC-FIN-041_v1.2_fx_conversion_timing_rates.pdf — 1. Єдиний стандарт валютної конвертації у FX Revenue).",
+        "answer": "Конвертація в базову валюту EUR виконується рівно один раз на етапі побудови mart.fact_payments [S1] (SPEC-FIN-041: FX Conversion Timing and Rates — 1. Єдиний стандарт валютної конвертації у FX Revenue). Курс визначається за датою фактичної оплати (payment_date / AUGDT) [S1] (SPEC-FIN-041: FX Conversion Timing and Rates — 1. Єдиний стандарт валютної конвертації у FX Revenue).",
         "claims": [
           {
-            "statement": "Документ: SPEC-FIN-041; Застаріла версія: v1.0 (2024-05-20); Чинна версія: v1.2 (2025-04-05); Ключова зміна: Одноразова конвертація EUR на payment_date у Databricks",
+            "statement": "Конвертація в базову валюту EUR виконується рівно один раз на етапі побудови mart.fact_payments.",
             "source_ids": [
-              "S2"
+              "S1"
             ]
           },
           {
-            "statement": "Конвертація в базову валюту EUR виконується РІВНО ОДИН РАЗ на етапі побудови mart.fact_payments",
+            "statement": "Курс визначається за датою фактичної оплати (payment_date / AUGDT).",
             "source_ids": [
               "S1"
             ]
           }
         ],
         "citations": [
-          {
-            "source_id": "S2",
-            "chunk_id": "RELEASE-NOTES-2025-Q1_reporting_platform.md#01",
-            "source": "data/hw2_corpus/raw/RELEASE-NOTES-2025-Q1_reporting_platform.md",
-            "title": "RELEASE-NOTES-2025-Q1: Analytics Reporting Platform Quarterly Changes",
-            "section": "1. Зведення оновлених специфікацій та регламентів у Q1 2025",
-            "version": "1.0",
-            "date": "2025-04-02",
-            "is_latest": true
-          },
           {
             "source_id": "S1",
             "chunk_id": "SPEC-FIN-041_v1.2_fx_conversion_timing_rates.pdf#00",
@@ -496,11 +434,11 @@
         "included_sources": [],
         "dropped_for_budget": [],
         "dropped_for_low_relevance": [
-          "SPEC-FIN-014_v1.3_sales_revenue_region_channel.pdf#02",
           "RELEASE-NOTES-2025-Q1_reporting_platform.md#01",
+          "SPEC-FIN-014_v1.3_sales_revenue_region_channel.pdf#02",
           "GUIDE-PBI-001_v1.5_sales_overview_dashboard.docx#01",
           "INCIDENT-POSTMORTEM-001_march_sales_discrepancy.html#00",
-          "RUNBOOK-DBX-001_sap_sales_orders_ingest.html#02"
+          "RELEASE-NOTES-2025-Q1_reporting_platform.md#00"
         ],
         "context_text": ""
       },
@@ -518,21 +456,21 @@
       "kind": "abstain_gate2_in_domain_trap",
       "ok": true,
       "question": "Яка ставка податку на прибуток підприємств закладена у формулу SPEC-FIN-030?",
-      "provider": "extractive",
-      "model": "deterministic-grounded-extractive-v1",
+      "provider": "gemini",
+      "model": "gemini-3.5-flash-lite",
       "prompt_version": "v2",
       "repair_used": false,
       "error": null,
-      "latency_ms": 1.41,
+      "latency_ms": 6450.88,
       "usage": {
-        "input_tokens": 2592,
-        "output_tokens": 56,
-        "total_tokens": 2648
+        "input_tokens": 1991,
+        "output_tokens": 48,
+        "total_tokens": 2039
       },
-      "estimated_cost_per_1k_usd": 0.0,
+      "estimated_cost_per_1k_usd": 0.7173,
       "context": {
         "budget_tokens": 1200,
-        "used_tokens": 1031,
+        "used_tokens": 951,
         "gate_passed": true,
         "gate_reason": null,
         "included_sources": [
@@ -545,8 +483,8 @@
             "version": "1.3",
             "date": "2025-03-15",
             "is_latest": true,
-            "score": 0.487632,
-            "rerank_score": 0.487632,
+            "score": 0.761037,
+            "rerank_score": 0.761037,
             "packed_tokens": 372,
             "formatted_block": "[S1] source=data/hw2_corpus/raw/SPEC-FIN-030_v1.3_gross_margin_rules.pdf | title=SPEC-FIN-030: Gross Margin % Calculation Rules | section=1. Призначення та контур звітності | version=1.3 | date=2025-03-15 | is_latest=true\nСпецифікація SPEC-FIN-030 (версія 1.3) визначає єдиний корпоративний регламент розрахунку показника Gross Margin % у звіті Gross Margin Dashboard (Finance_Dev.pbix / Finance_Margin_Dataset, код звіту RPT-FIN-004).\n\nДжерелом первинних проводок є SAP Fiori застосунок Profit Center Analysis (CDS view C_PROFITCENTER_Q). Вивантаження у Databricks виконує команда Data Pull у вітрини mart.fact_revenue та mart.fact_cogs.\n\n- Власник специфікації (Financial Analyst): фінансовий контролінг маржинальності.\n\n- Технічний власник вітрин: команда Data Pull (пайплайн dag_sap_fi_margin_marts).\n\n- Контур публікації: обов'язкова валідація на DEV перед промоушеном на PROD."
           },
@@ -559,24 +497,24 @@
             "version": "1.3",
             "date": "2025-03-15",
             "is_latest": true,
-            "score": -0.761826,
-            "rerank_score": -0.761826,
+            "score": -0.471878,
+            "rerank_score": -0.471878,
             "packed_tokens": 310,
             "formatted_block": "[S2] source=data/hw2_corpus/raw/SPEC-FIN-030_v1.3_gross_margin_rules.pdf | title=SPEC-FIN-030: Gross Margin % Calculation Rules | section=2. Формула Gross Margin % та виключення оборотів | version=1.3 | date=2025-03-15 | is_latest=true\nПоказник класифікується як управлінська non-GAAP метрика.\n\n| Компонент | Об'єкт Databricks | Фільтр / Правило | Роль у формулі |\n| --- | --- | --- | --- |\n| Net External Revenue | mart.fact_revenue | is_intercompany = false AND doc_status = 'POSTED' | Чисельник та знаменник |\n| Direct COGS | mart.fact_cogs | is_intercompany = false AND cost_type = 'DIRECT' | Віднімається у чисельнику |\n| Inbound Freight | mart.fact_cogs | cost_type = 'INBOUND_FREIGHT_EUR' | Додається до COGS у v1.3 |\n| Gross Margin % | Finance_Margin_Dataset | DIVIDE(Revenue - Total_COGS, Revenue) | Цільовий KPI звіту |"
           },
           {
             "source_id": "S3",
-            "chunk_id": "LINEAGE-CAT-001_sap_cds_to_databricks_matrix.html#01",
-            "source": "data/hw2_corpus/raw/LINEAGE-CAT-001_sap_cds_to_databricks_matrix.html",
-            "title": "LINEAGE-CAT-001: End-to-End Lineage Matrix (SAP Fiori -> Databricks -> Power BI)",
-            "section": "1. Канонічний реєстр залежностей п'яти базових звітів",
-            "version": "1.5",
-            "date": "2025-04-10",
+            "chunk_id": "BUGS-42.json#00",
+            "source": "data/raw/BUGS-42.json",
+            "title": "BUGS-42: DEV Gross Margin report does not match SPEC-FIN-030",
+            "section": "1. Картка та опис Jira-тікета BUGS-42",
+            "version": "1.0",
+            "date": "2025-04-15",
             "is_latest": true,
-            "score": -0.976513,
-            "rerank_score": -0.976513,
-            "packed_tokens": 349,
-            "formatted_block": "[S3] source=data/hw2_corpus/raw/LINEAGE-CAT-001_sap_cds_to_databricks_matrix.html | title=LINEAGE-CAT-001: End-to-End Lineage Matrix (SAP Fiori -> Databricks -> Power BI) | section=1. Канонічний реєстр залежностей п'яти базових звітів | version=1.5 | date=2025-04-10 | is_latest=true\n| Код звіту | SAP Fiori / CDS | Об'єкти Databricks | PBIX / Dataset | Чинна SPEC |\n| --- | --- | --- | --- | --- |\n| RPT-SALES-001 | Manage Sales Orders (C_SALESORDER_Q1) | mart.fact_orders, mart.dim_region | Sales_Overview_v3.pbix / Sales_Overview_Dataset | SPEC-FIN-014 v1.3 |\n| RPT-INV-002 | Stock Overview (C_MATERIALSTOCK_V2) | wh.inventory_snapshot | Inventory_Dev.pbix / Inventory_Dataset | SPEC-OPS-007 v2.0 |\n| RPT-CUST-003 | Customer Master (C_CUSTOMER_MASTER) | mart.dim_customer | Customers_Prod.pbix / Customers_Prod | SPEC-FIN-021 v1.1 |\n| RPT-FIN-004 | Profit Center Analysis (C_PROFITCENTER_Q) | mart.fact_revenue, mart.fact_cogs | Finance_Dev.pbix / Finance_Margin_Dataset | SPEC-FIN-030 v1.3 |"
+            "score": -0.957188,
+            "rerank_score": -0.957188,
+            "packed_tokens": 269,
+            "formatted_block": "[S3] source=data/raw/BUGS-42.json | title=BUGS-42: DEV Gross Margin report does not match SPEC-FIN-030 | section=1. Картка та опис Jira-тікета BUGS-42 | version=1.0 | date=2025-04-15 | is_latest=true\n| Ticket ID | Issue Type | Status | Linked Report | Linked Specs | Labels |\n| --- | --- | --- | --- | --- | --- |\n| BUGS-42 | Bug | To Do | RPT-FIN-004 | SPEC-FIN-030 | dirty-text, extraction, golden-candidate, hw1, pipeline-spec |\n\nОтчёт Finance_Dev.pbix на DEV. цифры Databricks mart.fact_revenue/cogs сходятся с PBI, НО расчёт Gross Margin % не по спеке SPEC-FIN-030 v1.0. в спеке: exclude intercompany; в отчёте intercompany включены.\n\nЭто не data pull баг — отчёт не соответствует требованиям. FA: FA-02, developer: RD-02. сверить report vs specification обязательно."
           }
         ],
         "dropped_for_budget": [
@@ -584,7 +522,231 @@
           "SPEC-FIN-030_v1.3_gross_margin_rules.pdf#01"
         ],
         "dropped_for_low_relevance": [],
-        "context_text": "[S1] source=data/hw2_corpus/raw/SPEC-FIN-030_v1.3_gross_margin_rules.pdf | title=SPEC-FIN-030: Gross Margin % Calculation Rules | section=1. Призначення та контур звітності | version=1.3 | date=2025-03-15 | is_latest=true\nСпецифікація SPEC-FIN-030 (версія 1.3) визначає єдиний корпоративний регламент розрахунку показника Gross Margin % у звіті Gross Margin Dashboard (Finance_Dev.pbix / Finance_Margin_Dataset, код звіту RPT-FIN-004).\n\nДжерелом первинних проводок є SAP Fiori застосунок Profit Center Analysis (CDS view C_PROFITCENTER_Q). Вивантаження у Databricks виконує команда Data Pull у вітрини mart.fact_revenue та mart.fact_cogs.\n\n- Власник специфікації (Financial Analyst): фінансовий контролінг маржинальності.\n\n- Технічний власник вітрин: команда Data Pull (пайплайн dag_sap_fi_margin_marts).\n\n- Контур публікації: обов'язкова валідація на DEV перед промоушеном на PROD.\n\n[S2] source=data/hw2_corpus/raw/SPEC-FIN-030_v1.3_gross_margin_rules.pdf | title=SPEC-FIN-030: Gross Margin % Calculation Rules | section=2. Формула Gross Margin % та виключення оборотів | version=1.3 | date=2025-03-15 | is_latest=true\nПоказник класифікується як управлінська non-GAAP метрика.\n\n| Компонент | Об'єкт Databricks | Фільтр / Правило | Роль у формулі |\n| --- | --- | --- | --- |\n| Net External Revenue | mart.fact_revenue | is_intercompany = false AND doc_status = 'POSTED' | Чисельник та знаменник |\n| Direct COGS | mart.fact_cogs | is_intercompany = false AND cost_type = 'DIRECT' | Віднімається у чисельнику |\n| Inbound Freight | mart.fact_cogs | cost_type = 'INBOUND_FREIGHT_EUR' | Додається до COGS у v1.3 |\n| Gross Margin % | Finance_Margin_Dataset | DIVIDE(Revenue - Total_COGS, Revenue) | Цільовий KPI звіту |\n\n[S3] source=data/hw2_corpus/raw/LINEAGE-CAT-001_sap_cds_to_databricks_matrix.html | title=LINEAGE-CAT-001: End-to-End Lineage Matrix (SAP Fiori -> Databricks -> Power BI) | section=1. Канонічний реєстр залежностей п'яти базових звітів | version=1.5 | date=2025-04-10 | is_latest=true\n| Код звіту | SAP Fiori / CDS | Об'єкти Databricks | PBIX / Dataset | Чинна SPEC |\n| --- | --- | --- | --- | --- |\n| RPT-SALES-001 | Manage Sales Orders (C_SALESORDER_Q1) | mart.fact_orders, mart.dim_region | Sales_Overview_v3.pbix / Sales_Overview_Dataset | SPEC-FIN-014 v1.3 |\n| RPT-INV-002 | Stock Overview (C_MATERIALSTOCK_V2) | wh.inventory_snapshot | Inventory_Dev.pbix / Inventory_Dataset | SPEC-OPS-007 v2.0 |\n| RPT-CUST-003 | Customer Master (C_CUSTOMER_MASTER) | mart.dim_customer | Customers_Prod.pbix / Customers_Prod | SPEC-FIN-021 v1.1 |\n| RPT-FIN-004 | Profit Center Analysis (C_PROFITCENTER_Q) | mart.fact_revenue, mart.fact_cogs | Finance_Dev.pbix / Finance_Margin_Dataset | SPEC-FIN-030 v1.3 |"
+        "context_text": "[S1] source=data/hw2_corpus/raw/SPEC-FIN-030_v1.3_gross_margin_rules.pdf | title=SPEC-FIN-030: Gross Margin % Calculation Rules | section=1. Призначення та контур звітності | version=1.3 | date=2025-03-15 | is_latest=true\nСпецифікація SPEC-FIN-030 (версія 1.3) визначає єдиний корпоративний регламент розрахунку показника Gross Margin % у звіті Gross Margin Dashboard (Finance_Dev.pbix / Finance_Margin_Dataset, код звіту RPT-FIN-004).\n\nДжерелом первинних проводок є SAP Fiori застосунок Profit Center Analysis (CDS view C_PROFITCENTER_Q). Вивантаження у Databricks виконує команда Data Pull у вітрини mart.fact_revenue та mart.fact_cogs.\n\n- Власник специфікації (Financial Analyst): фінансовий контролінг маржинальності.\n\n- Технічний власник вітрин: команда Data Pull (пайплайн dag_sap_fi_margin_marts).\n\n- Контур публікації: обов'язкова валідація на DEV перед промоушеном на PROD.\n\n[S2] source=data/hw2_corpus/raw/SPEC-FIN-030_v1.3_gross_margin_rules.pdf | title=SPEC-FIN-030: Gross Margin % Calculation Rules | section=2. Формула Gross Margin % та виключення оборотів | version=1.3 | date=2025-03-15 | is_latest=true\nПоказник класифікується як управлінська non-GAAP метрика.\n\n| Компонент | Об'єкт Databricks | Фільтр / Правило | Роль у формулі |\n| --- | --- | --- | --- |\n| Net External Revenue | mart.fact_revenue | is_intercompany = false AND doc_status = 'POSTED' | Чисельник та знаменник |\n| Direct COGS | mart.fact_cogs | is_intercompany = false AND cost_type = 'DIRECT' | Віднімається у чисельнику |\n| Inbound Freight | mart.fact_cogs | cost_type = 'INBOUND_FREIGHT_EUR' | Додається до COGS у v1.3 |\n| Gross Margin % | Finance_Margin_Dataset | DIVIDE(Revenue - Total_COGS, Revenue) | Цільовий KPI звіту |\n\n[S3] source=data/raw/BUGS-42.json | title=BUGS-42: DEV Gross Margin report does not match SPEC-FIN-030 | section=1. Картка та опис Jira-тікета BUGS-42 | version=1.0 | date=2025-04-15 | is_latest=true\n| Ticket ID | Issue Type | Status | Linked Report | Linked Specs | Labels |\n| --- | --- | --- | --- | --- | --- |\n| BUGS-42 | Bug | To Do | RPT-FIN-004 | SPEC-FIN-030 | dirty-text, extraction, golden-candidate, hw1, pipeline-spec |\n\nОтчёт Finance_Dev.pbix на DEV. цифры Databricks mart.fact_revenue/cogs сходятся с PBI, НО расчёт Gross Margin % не по спеке SPEC-FIN-030 v1.0. в спеке: exclude intercompany; в отчёте intercompany включены.\n\nЭто не data pull баг — отчёт не соответствует требованиям. FA: FA-02, developer: RD-02. сверить report vs specification обязательно."
+      },
+      "rag_answer": {
+        "abstained": true,
+        "abstain_reason": "missing_in_corpus",
+        "answer": "У наданих документах цієї інформації немає.",
+        "claims": [],
+        "citations": [],
+        "prompt_version": "v2"
+      }
+    },
+    {
+      "id": "DEMO-07",
+      "kind": "cross_source_hw1_ticket_and_spec",
+      "ok": true,
+      "question": "Які цифри по країні UA наведено у тікеті BUGS-44 для Customers_Prod.pbix проти mart.dim_customer, і яку умову фільтрації soft-deleted записів встановлює специфікація SPEC-FIN-021?",
+      "provider": "gemini",
+      "model": "gemini-3.5-flash-lite",
+      "prompt_version": "v2",
+      "repair_used": false,
+      "error": null,
+      "latency_ms": 2202.14,
+      "usage": {
+        "input_tokens": 2176,
+        "output_tokens": 447,
+        "total_tokens": 2623
+      },
+      "estimated_cost_per_1k_usd": 1.7703,
+      "context": {
+        "budget_tokens": 1200,
+        "used_tokens": 1104,
+        "gate_passed": true,
+        "gate_reason": null,
+        "included_sources": [
+          {
+            "source_id": "S1",
+            "chunk_id": "BUGS-44.json#00",
+            "source": "data/raw/BUGS-44.json",
+            "title": "BUGS-44: PROD Customers by Region: DBX ok, PBI wrong filter",
+            "section": "1. Картка та опис Jira-тікета BUGS-44",
+            "version": "1.0",
+            "date": "2025-04-15",
+            "is_latest": true,
+            "score": 4.69348,
+            "rerank_score": 4.69348,
+            "packed_tokens": 241,
+            "formatted_block": "[S1] source=data/raw/BUGS-44.json | title=BUGS-44: PROD Customers by Region: DBX ok, PBI wrong filter | section=1. Картка та опис Jira-тікета BUGS-44 | version=1.0 | date=2025-04-15 | is_latest=true\n| Ticket ID | Issue Type | Status | Linked Report | Linked Specs | Labels |\n| --- | --- | --- | --- | --- | --- |\n| BUGS-44 | Bug | To Do | RPT-CUST-003 | SPEC-FIN-021 | dirty-text, extraction, golden-candidate, hw1, pipeline-pbi |\n\nMart.dim_customer на PROD = 11802 UA active. Customers_Prod.pbix показывает 12040 — похоже включены soft-deleted. SAP Fiori Customer Master примерно как DBX. spec SPEC-FIN-021 говорит только active customers.\n\nDeveloper RD-01 / FA FA-01 / Data Pull DP-01. сверить DBX vs PBI и PBI vs spec."
+          },
+          {
+            "source_id": "S2",
+            "chunk_id": "SPEC-FIN-021_v1.1_active_customers_by_country.pdf#01",
+            "source": "data/hw2_corpus/raw/SPEC-FIN-021_v1.1_active_customers_by_country.pdf",
+            "title": "SPEC-FIN-021: Active Customers by Country",
+            "section": "2. Фільтрація soft-deleted записів у Databricks та Power BI",
+            "version": "1.1",
+            "date": "2025-01-25",
+            "is_latest": true,
+            "score": 4.239569,
+            "rerank_score": 4.239569,
+            "packed_tokens": 295,
+            "formatted_block": "[S2] source=data/hw2_corpus/raw/SPEC-FIN-021_v1.1_active_customers_by_country.pdf | title=SPEC-FIN-021: Active Customers by Country | section=2. Фільтрація soft-deleted записів у Databricks та Power BI | version=1.1 | date=2025-01-25 | is_latest=true\nВітрина mart.dim_customer зберігає повну історію клієнтів включно із soft-deleted записами для ретроспективних фінансових звітів. Тому семантична модель Customers_Prod та DAX-міра Active_Customer_Count зобов'язані явно накладати фільтр is_deleted = FALSE.\n\nВідсутність цього фільтра у Power BI призводить до завищення кількості клієнтів на PROD відносно SAP Fiori та Databricks (типовий дефект описано в BUGS-44: 12040 замість 11802 по країні UA)."
+          },
+          {
+            "source_id": "S3",
+            "chunk_id": "SPEC-FIN-021_v1.1_active_customers_by_country.pdf#00",
+            "source": "data/hw2_corpus/raw/SPEC-FIN-021_v1.1_active_customers_by_country.pdf",
+            "title": "SPEC-FIN-021: Active Customers by Country",
+            "section": "1. Визначення активної клієнтської бази",
+            "version": "1.1",
+            "date": "2025-01-25",
+            "is_latest": true,
+            "score": 2.872174,
+            "rerank_score": 2.872174,
+            "packed_tokens": 348,
+            "formatted_block": "[S3] source=data/hw2_corpus/raw/SPEC-FIN-021_v1.1_active_customers_by_country.pdf | title=SPEC-FIN-021: Active Customers by Country | section=1. Визначення активної клієнтської бази | version=1.1 | date=2025-01-25 | is_latest=true\nСпецифікація SPEC-FIN-021 (версія 1.1) встановлює правила підрахунку активних клієнтів за країнами у звіті Customers by Region (Customers_Prod.pbix, датасет Customers_Prod, код RPT-CUST-003).\n\nДжерелом майстер-даних є SAP Fiori застосунок Customer Master (CDS view C_CUSTOMER_MASTER), який синхронізується у таблицю виміру mart.dim_customer.\n\n- Активним вважається клієнт із прапорцем is_deleted = false та відсутнім блокуванням центрального архіву (LOEVM = '').\n\n- Технічні одноразові рахунки групи CPD (account_group = 'ZCPD') не входять до KPI Active Customers."
+          },
+          {
+            "source_id": "S4",
+            "chunk_id": "SPEC-FIN-021_v1.1_active_customers_by_country.pdf#02",
+            "source": "data/hw2_corpus/raw/SPEC-FIN-021_v1.1_active_customers_by_country.pdf",
+            "title": "SPEC-FIN-021: Active Customers by Country",
+            "section": "2. Фільтрація soft-deleted записів у Databricks та Power BI",
+            "version": "1.1",
+            "date": "2025-01-25",
+            "is_latest": true,
+            "score": 1.114082,
+            "rerank_score": 1.114082,
+            "packed_tokens": 220,
+            "formatted_block": "[S4] source=data/hw2_corpus/raw/SPEC-FIN-021_v1.1_active_customers_by_country.pdf | title=SPEC-FIN-021: Active Customers by Country | section=2. Фільтрація soft-deleted записів у Databricks та Power BI | version=1.1 | date=2025-01-25 | is_latest=true\n| Шар системи | Об'єкт / Міра | Обов'язкова умова активності | Відповідальна роль |\n| --- | --- | --- | --- |\n| SAP Fiori | C_CUSTOMER_MASTER | DeletionIndicator IS INITIAL AND BlockingCode = '' | Financial Analyst |\n| Databricks | mart.dim_customer | is_deleted = false AND account_group <> 'ZCPD' | Data Pull |\n| Power BI | Customers_Prod.pbix | CALCULATE(DISTINCTCOUNT(cu stomer_id), is_deleted = FALSE()) | Report Developer |"
+          }
+        ],
+        "dropped_for_budget": [
+          "reports.json#00"
+        ],
+        "dropped_for_low_relevance": [],
+        "context_text": "[S1] source=data/raw/BUGS-44.json | title=BUGS-44: PROD Customers by Region: DBX ok, PBI wrong filter | section=1. Картка та опис Jira-тікета BUGS-44 | version=1.0 | date=2025-04-15 | is_latest=true\n| Ticket ID | Issue Type | Status | Linked Report | Linked Specs | Labels |\n| --- | --- | --- | --- | --- | --- |\n| BUGS-44 | Bug | To Do | RPT-CUST-003 | SPEC-FIN-021 | dirty-text, extraction, golden-candidate, hw1, pipeline-pbi |\n\nMart.dim_customer на PROD = 11802 UA active. Customers_Prod.pbix показывает 12040 — похоже включены soft-deleted. SAP Fiori Customer Master примерно как DBX. spec SPEC-FIN-021 говорит только active customers.\n\nDeveloper RD-01 / FA FA-01 / Data Pull DP-01. сверить DBX vs PBI и PBI vs spec.\n\n[S2] source=data/hw2_corpus/raw/SPEC-FIN-021_v1.1_active_customers_by_country.pdf | title=SPEC-FIN-021: Active Customers by Country | section=2. Фільтрація soft-deleted записів у Databricks та Power BI | version=1.1 | date=2025-01-25 | is_latest=true\nВітрина mart.dim_customer зберігає повну історію клієнтів включно із soft-deleted записами для ретроспективних фінансових звітів. Тому семантична модель Customers_Prod та DAX-міра Active_Customer_Count зобов'язані явно накладати фільтр is_deleted = FALSE.\n\nВідсутність цього фільтра у Power BI призводить до завищення кількості клієнтів на PROD відносно SAP Fiori та Databricks (типовий дефект описано в BUGS-44: 12040 замість 11802 по країні UA).\n\n[S3] source=data/hw2_corpus/raw/SPEC-FIN-021_v1.1_active_customers_by_country.pdf | title=SPEC-FIN-021: Active Customers by Country | section=1. Визначення активної клієнтської бази | version=1.1 | date=2025-01-25 | is_latest=true\nСпецифікація SPEC-FIN-021 (версія 1.1) встановлює правила підрахунку активних клієнтів за країнами у звіті Customers by Region (Customers_Prod.pbix, датасет Customers_Prod, код RPT-CUST-003).\n\nДжерелом майстер-даних є SAP Fiori застосунок Customer Master (CDS view C_CUSTOMER_MASTER), який синхронізується у таблицю виміру mart.dim_customer.\n\n- Активним вважається клієнт із прапорцем is_deleted = false та відсутнім блокуванням центрального архіву (LOEVM = '').\n\n- Технічні одноразові рахунки групи CPD (account_group = 'ZCPD') не входять до KPI Active Customers.\n\n[S4] source=data/hw2_corpus/raw/SPEC-FIN-021_v1.1_active_customers_by_country.pdf | title=SPEC-FIN-021: Active Customers by Country | section=2. Фільтрація soft-deleted записів у Databricks та Power BI | version=1.1 | date=2025-01-25 | is_latest=true\n| Шар системи | Об'єкт / Міра | Обов'язкова умова активності | Відповідальна роль |\n| --- | --- | --- | --- |\n| SAP Fiori | C_CUSTOMER_MASTER | DeletionIndicator IS INITIAL AND BlockingCode = '' | Financial Analyst |\n| Databricks | mart.dim_customer | is_deleted = false AND account_group <> 'ZCPD' | Data Pull |\n| Power BI | Customers_Prod.pbix | CALCULATE(DISTINCTCOUNT(cu stomer_id), is_deleted = FALSE()) | Report Developer |"
+      },
+      "rag_answer": {
+        "abstained": false,
+        "abstain_reason": null,
+        "answer": "У тікеті BUGS-44 зазначено цифри по країні UA для звіту Customers_Prod.pbix (12040) проти вітрини mart.dim_customer на PROD (11802 UA active) [S1] (BUGS-44: PROD Customers by Region: DBX ok, PBI wrong filter — 1. Картка та опис Jira-тікета BUGS-44). Специфікація SPEC-FIN-021 встановлює, що вітрина mart.dim_customer зберігає повну історію клієнтів включно із soft-deleted записами для ретроспективних фінансових звітів, тому семантична модель Customers_Prod та DAX-міра Active_Customer_Count зобов'язані явно накладати фільтр is_deleted = FALSE [S2] (SPEC-FIN-021: Active Customers by Country — 2. Фільтрація soft-deleted записів у Databricks та Power BI).",
+        "claims": [
+          {
+            "statement": "У тікеті BUGS-44 наведено показник 12040 для Customers_Prod.pbix та 11802 UA active для mart.dim_customer на PROD по країні UA.",
+            "source_ids": [
+              "S1"
+            ]
+          },
+          {
+            "statement": "Вітрина mart.dim_customer зберігає повну історію клієнтів включно із soft-deleted записами для ретроспективних фінансових звітів, тому семантична модель Customers_Prod та DAX-міра Active_Customer_Count зобов'язані явно накладати фільтр is_deleted = FALSE.",
+            "source_ids": [
+              "S2"
+            ]
+          }
+        ],
+        "citations": [
+          {
+            "source_id": "S1",
+            "chunk_id": "BUGS-44.json#00",
+            "source": "data/raw/BUGS-44.json",
+            "title": "BUGS-44: PROD Customers by Region: DBX ok, PBI wrong filter",
+            "section": "1. Картка та опис Jira-тікета BUGS-44",
+            "version": "1.0",
+            "date": "2025-04-15",
+            "is_latest": true
+          },
+          {
+            "source_id": "S2",
+            "chunk_id": "SPEC-FIN-021_v1.1_active_customers_by_country.pdf#01",
+            "source": "data/hw2_corpus/raw/SPEC-FIN-021_v1.1_active_customers_by_country.pdf",
+            "title": "SPEC-FIN-021: Active Customers by Country",
+            "section": "2. Фільтрація soft-deleted записів у Databricks та Power BI",
+            "version": "1.1",
+            "date": "2025-01-25",
+            "is_latest": true
+          }
+        ],
+        "prompt_version": "v2"
+      }
+    },
+    {
+      "id": "DEMO-08",
+      "kind": "cross_source_hw1_ticket_and_policy",
+      "ok": true,
+      "question": "Яке порушення процесу деплою для звіту Inventory Snapshot описано в тікеті BUGS-53 і який обов'язковий маршрут викатки встановлюють регламент POL-DEP-001 v1.3 та довідник deployment.json?",
+      "provider": "gemini",
+      "model": "gemini-3.5-flash-lite",
+      "prompt_version": "v2",
+      "repair_used": false,
+      "error": null,
+      "latency_ms": 1192.4,
+      "usage": {
+        "input_tokens": 2131,
+        "output_tokens": 48,
+        "total_tokens": 2179
+      },
+      "estimated_cost_per_1k_usd": 0.7593,
+      "context": {
+        "budget_tokens": 1200,
+        "used_tokens": 1139,
+        "gate_passed": true,
+        "gate_reason": null,
+        "included_sources": [
+          {
+            "source_id": "S1",
+            "chunk_id": "POL-DEP-001_v1.3_deployment_and_reconciliation_policy.docx#00",
+            "source": "data/hw2_corpus/raw/POL-DEP-001_v1.3_deployment_and_reconciliation_policy.docx",
+            "title": "POL-DEP-001: Deployment and Reconciliation Governance Policy",
+            "section": "1. Обов'язковий маршрут релізу змін (DEV -> Approval -> PROD)",
+            "version": "1.3",
+            "date": "2025-04-01",
+            "is_latest": true,
+            "score": 4.250344,
+            "rerank_score": 4.250344,
+            "packed_tokens": 360,
+            "formatted_block": "[S1] source=data/hw2_corpus/raw/POL-DEP-001_v1.3_deployment_and_reconciliation_policy.docx | title=POL-DEP-001: Deployment and Reconciliation Governance Policy | section=1. Обов'язковий маршрут релізу змін (DEV -> Approval -> PROD) | version=1.3 | date=2025-04-01 | is_latest=true\nРегламент POL-DEP-001 (версія 1.3) встановлює безальтернативний порядок викатки виправлень багів та Change Requests для всіх звітів Power BI, семантичних моделей і пайплайнів Databricks.\n\nЖодна зміна не може бути опублікована напряму в PROD в обхід середовища DEV або без зафіксованого погодження фінансового аналітика — навіть під час закриття місяця.\n\n- Крок 1 (in_development): розробка фіксу у гілці або тестовому датасеті.\n\n- Крок 2 (deployed_to_dev): публікація на DEV та прогін контрольних звірок."
+          },
+          {
+            "source_id": "S2",
+            "chunk_id": "BUGS-53.json#00",
+            "source": "data/raw/BUGS-53.json",
+            "title": "BUGS-53: Someone pushed inventory fix straight to PROD — process breach",
+            "section": "1. Картка та опис Jira-тікета BUGS-53",
+            "version": "1.0",
+            "date": "2025-04-15",
+            "is_latest": true,
+            "score": 1.89086,
+            "rerank_score": 1.89086,
+            "packed_tokens": 218,
+            "formatted_block": "[S2] source=data/raw/BUGS-53.json | title=BUGS-53: Someone pushed inventory fix straight to PROD — process breach | section=1. Картка та опис Jira-тікета BUGS-53 | version=1.0 | date=2025-04-15 | is_latest=true\n| Ticket ID | Issue Type | Status | Linked Report | Linked Specs | Labels |\n| --- | --- | --- | --- | --- | --- |\n| BUGS-53 | Bug | To Do | RPT-INV-002 | - | deployment, dirty-text, extraction, hw1 |\n\nКто-то задеплоил hotfix Inventory Snapshot сразу на PROD минуя DEV и без аппрува FA. процесс нарушен: сначала DEV, потом approval, потом PROD. нужно откатить/повторить через правильный deployment pipeline. RD-02 / FA-02 / DP-02."
+          },
+          {
+            "source_id": "S3",
+            "chunk_id": "POL-DEP-001_v1.3_deployment_and_reconciliation_policy.docx#01",
+            "source": "data/hw2_corpus/raw/POL-DEP-001_v1.3_deployment_and_reconciliation_policy.docx",
+            "title": "POL-DEP-001: Deployment and Reconciliation Governance Policy",
+            "section": "1. Обов'язковий маршрут релізу змін (DEV -> Approval -> PROD)",
+            "version": "1.3",
+            "date": "2025-04-01",
+            "is_latest": true,
+            "score": 0.230409,
+            "rerank_score": 0.230409,
+            "packed_tokens": 220,
+            "formatted_block": "[S3] source=data/hw2_corpus/raw/POL-DEP-001_v1.3_deployment_and_reconciliation_policy.docx | title=POL-DEP-001: Deployment and Reconciliation Governance Policy | section=1. Обов'язковий маршрут релізу змін (DEV -> Approval -> PROD) | version=1.3 | date=2025-04-01 | is_latest=true\n- Крок 2 (deployed_to_dev): публікація на DEV та прогін контрольних звірок.\n\n- Крок 3 (pending_approval -> approved_for_prod): верифікація цифр Financial Analyst проти специфікації.\n\n- Крок 4 (deployed_to_prod): реліз у PROD із фінальною пост-деплойною звіркою."
+          },
+          {
+            "source_id": "S4",
+            "chunk_id": "POL-DEP-001_v1.3_deployment_and_reconciliation_policy.docx#02",
+            "source": "data/hw2_corpus/raw/POL-DEP-001_v1.3_deployment_and_reconciliation_policy.docx",
+            "title": "POL-DEP-001: Deployment and Reconciliation Governance Policy",
+            "section": "2. Контрольні критерії виходу з кожного етапу",
+            "version": "1.3",
+            "date": "2025-04-01",
+            "is_latest": true,
+            "score": -2.77635,
+            "rerank_score": -2.77635,
+            "packed_tokens": 341,
+            "formatted_block": "[S4] source=data/hw2_corpus/raw/POL-DEP-001_v1.3_deployment_and_reconciliation_policy.docx | title=POL-DEP-001: Deployment and Reconciliation Governance Policy | section=2. Контрольні критерії виходу з кожного етапу | version=1.3 | date=2025-04-01 | is_latest=true\nПерехід між етапами фіксується у Jira-тікеті з прикріпленням протоколу звірки на DEV.\n\n| Етап | Середовище | Власник етапу | Критерій завершення (Exit Criteria) |\n| --- | --- | --- | --- |\n| in_development | feature/local | report_developer / data_pull | Код і міри готові до публікації на DEV |\n| deployed_to_dev | dev | report_developer | Зміни доступні на DEV; звірка виконана |\n| approved_for_prod | dev | financial_analyst | Явний апрув відповідності цифр спеці SPEC-* |\n| deployed_to_prod | prod | report_developer | Реліз у PROD та контрольна перевірка візуалів |"
+          }
+        ],
+        "dropped_for_budget": [
+          "INCIDENT-POSTMORTEM-002_fx_double_conversion.html#01"
+        ],
+        "dropped_for_low_relevance": [],
+        "context_text": "[S1] source=data/hw2_corpus/raw/POL-DEP-001_v1.3_deployment_and_reconciliation_policy.docx | title=POL-DEP-001: Deployment and Reconciliation Governance Policy | section=1. Обов'язковий маршрут релізу змін (DEV -> Approval -> PROD) | version=1.3 | date=2025-04-01 | is_latest=true\nРегламент POL-DEP-001 (версія 1.3) встановлює безальтернативний порядок викатки виправлень багів та Change Requests для всіх звітів Power BI, семантичних моделей і пайплайнів Databricks.\n\nЖодна зміна не може бути опублікована напряму в PROD в обхід середовища DEV або без зафіксованого погодження фінансового аналітика — навіть під час закриття місяця.\n\n- Крок 1 (in_development): розробка фіксу у гілці або тестовому датасеті.\n\n- Крок 2 (deployed_to_dev): публікація на DEV та прогін контрольних звірок.\n\n[S2] source=data/raw/BUGS-53.json | title=BUGS-53: Someone pushed inventory fix straight to PROD — process breach | section=1. Картка та опис Jira-тікета BUGS-53 | version=1.0 | date=2025-04-15 | is_latest=true\n| Ticket ID | Issue Type | Status | Linked Report | Linked Specs | Labels |\n| --- | --- | --- | --- | --- | --- |\n| BUGS-53 | Bug | To Do | RPT-INV-002 | - | deployment, dirty-text, extraction, hw1 |\n\nКто-то задеплоил hotfix Inventory Snapshot сразу на PROD минуя DEV и без аппрува FA. процесс нарушен: сначала DEV, потом approval, потом PROD. нужно откатить/повторить через правильный deployment pipeline. RD-02 / FA-02 / DP-02.\n\n[S3] source=data/hw2_corpus/raw/POL-DEP-001_v1.3_deployment_and_reconciliation_policy.docx | title=POL-DEP-001: Deployment and Reconciliation Governance Policy | section=1. Обов'язковий маршрут релізу змін (DEV -> Approval -> PROD) | version=1.3 | date=2025-04-01 | is_latest=true\n- Крок 2 (deployed_to_dev): публікація на DEV та прогін контрольних звірок.\n\n- Крок 3 (pending_approval -> approved_for_prod): верифікація цифр Financial Analyst проти специфікації.\n\n- Крок 4 (deployed_to_prod): реліз у PROD із фінальною пост-деплойною звіркою.\n\n[S4] source=data/hw2_corpus/raw/POL-DEP-001_v1.3_deployment_and_reconciliation_policy.docx | title=POL-DEP-001: Deployment and Reconciliation Governance Policy | section=2. Контрольні критерії виходу з кожного етапу | version=1.3 | date=2025-04-01 | is_latest=true\nПерехід між етапами фіксується у Jira-тікеті з прикріпленням протоколу звірки на DEV.\n\n| Етап | Середовище | Власник етапу | Критерій завершення (Exit Criteria) |\n| --- | --- | --- | --- |\n| in_development | feature/local | report_developer / data_pull | Код і міри готові до публікації на DEV |\n| deployed_to_dev | dev | report_developer | Зміни доступні на DEV; звірка виконана |\n| approved_for_prod | dev | financial_analyst | Явний апрув відповідності цифр спеці SPEC-* |\n| deployed_to_prod | prod | report_developer | Реліз у PROD та контрольна перевірка візуалів |"
       },
       "rag_answer": {
         "abstained": true,

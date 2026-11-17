@@ -2,9 +2,9 @@ name: HW2 RAG Evals & Quality Gate
 
 on:
   push:
-    branches: ["**"]
+    branches: ["hw2", "main", "**"]
   pull_request:
-    branches: ["**"]
+    branches: ["hw2", "main", "**"]
 
 env:
   FASTEMBED_CACHE_PATH: ~/.cache/fastembed
@@ -52,7 +52,7 @@ jobs:
 
       - name: Run calibrated judge & end-to-end RAG CI quality gate
         run: |
-          python -m src.hw2.eval_rag \
+          python -m evals.run_evals \
             --min-overall-score 0.85 \
             --min-faithfulness 0.90 \
             --min-abstention-accuracy 0.90 \

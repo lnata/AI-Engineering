@@ -20,6 +20,7 @@ from src.hw2.cleaning import (
     repair_hyphenation,
     strip_pdf_headers_footers,
 )
+from src.hw2.json_extractor import extract_json
 
 _BOILERPLATE_TAGS = ("script", "style", "nav", "header", "footer", "aside", "noscript")
 _BOILERPLATE_CLASSES = {"portal-topbar", "sidebar-nav", "cookie-banner", "portal-footer"}
@@ -202,6 +203,7 @@ def extract_document_markdown(path: Path) -> str:
         "html": extract_html,
         "htm": extract_html,
         "md": extract_md,
+        "json": extract_json,
     }
     if ext not in dispatch:
         raise ValueError(f"Unsupported document format: {path}")

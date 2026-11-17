@@ -1,9 +1,9 @@
 {
   "pipeline_version": "hw2-step2-v1.0",
-  "built_at": "2026-11-16T15:32:22Z",
+  "built_at": "2026-11-17T19:54:02Z",
   "collection_name": "hw2_analytics_chunks",
   "embedding_model": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
   "embedding_dim": 384,
-  "chunks_count": 79,
-  "chunks_sha256": "96b94d88a900686ba815d0894f29b016bd45c267710d7fc685ae4970dc195e0c"
+  "chunks_count": 97,
+  "chunks_sha256": "b8855920f532e311337d0c1a03cdd57488bfbb8b0eaae49aaba31e00ad982129"
 }

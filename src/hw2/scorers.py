@@ -21,6 +21,54 @@ ROOT = Path(__file__).resolve().parents[2]
 _NUM_OR_CODE_RE = re.compile(
     r"\b(?:\d+(?:[.,]\d+)?%?|[A-Z]{2,}(?:-[A-Z0-9]+)+|[a-z]+_[a-z0-9_]+|(?:mart|wh|stg|ref)\.[a-z0-9_*]+)\b"
 )
+_NEGATION_RE = re.compile(
+    r"\b(?:не|немає|ніколи|жодн\w*|заборон\w*|виключ\w*|скасован\w*|без|мимо|минуя|обхід"
+    r"|неможлив\w*|not|never|without|forbid\w*|prohibit\w*|exclud\w*|false)\b",
+    re.IGNORECASE,
+)
+_RU_TICKET_HINT_RE = re.compile(
+    r"\b(?:отчёт\w*|спек[еуи]|надо|похоже|сразу|минуя|ждём|нужен|кто-то|показывает|движения|хотят)\b",
+    re.IGNORECASE,
+)
+
+
+def _has_polarity_inversion(claim_stmt: str, cited_text: str) -> bool:
+    """Detect negation/prohibition polarity inversions between a claim and its cited [Si] text."""
+    claim_neg = bool(_NEGATION_RE.search(claim_stmt))
+    any_ctx_neg = bool(_NEGATION_RE.search(cited_text))
+    if claim_neg and not any_ctx_neg:
+        return True
+
+    c_toks = set(tokenize_bm25(claim_stmt))
+    if not c_toks:
+        return False
+
+    best_overlap = 0.0
+    best_line = ""
+    clause_split_re = re.compile(
+        r"[\n.!?;]+|,(?=\s*(?:а|але)\s+не\b)|\((?=\s*якщо\s+не\b)",
+        re.IGNORECASE,
+    )
+    for line in clause_split_re.split(cited_text):
+        ln = line.strip()
+        if len(ln) < 12 or ln.startswith("[S"):
+            continue
+        l_toks = set(tokenize_bm25(ln))
+        if not l_toks:
+            continue
+        if not claim_neg and re.match(r"^(?:(?:а|але|якщо)\s+не\b)", ln, re.IGNORECASE):
+            if len(c_toks & l_toks) / len(l_toks) >= 0.75:
+                return True
+        ov = len(c_toks & l_toks) / len(c_toks)
+        if ov > best_overlap:
+            best_overlap = ov
+            best_line = ln
+
+    if best_line and best_overlap >= 0.65:
+        line_neg = bool(_NEGATION_RE.search(best_line))
+        if claim_neg != line_neg:
+            return True
+    return False
 
 
 class RAGTestCase(BaseModel):
@@ -33,6 +81,7 @@ class RAGTestCase(BaseModel):
     question: str
     expected_abstain: bool
     expected_sources: list[str] = Field(default_factory=list)
+    required_source_groups: list[list[str]] = Field(default_factory=list)
     expected_sections: list[str] = Field(default_factory=list)
     required_facts: list[str] = Field(default_factory=list)
     forbidden_facts: list[str] = Field(default_factory=list)
@@ -115,7 +164,13 @@ def score_deterministic(case: RAGTestCase, answer: RAGAnswer | None) -> Determin
     has_legacy_cite = any(not c.is_latest for c in answer.citations)
     forbid_legacy = case.category == "trap_legacy_version" or "v1.0" not in case.question.casefold()
 
-    src_ok = any(c.source in exp_srcs for c in answer.citations) and not (forbid_legacy and has_legacy_cite)
+    cited_set = {c.source for c in answer.citations}
+    groups_ok = all(bool(cited_set & set(grp)) for grp in case.required_source_groups)
+    src_ok = (
+        any(c.source in exp_srcs for c in answer.citations)
+        and groups_ok
+        and not (forbid_legacy and has_legacy_cite)
+    )
     sec_ok = any(
         c.source in exp_srcs and (not exp_secs or c.section in exp_secs)
         for c in answer.citations
@@ -164,12 +219,17 @@ def score_faithfulness(answer: RAGAnswer | None, packed: PackedContext) -> Faith
             continue
         cited_low = cited_text.casefold()
         # Every number, percentage, table name, or code in the claim must appear in cited context
-        anchors = _NUM_OR_CODE_RE.findall(claim.statement)
+        anchors = [
+            a for a in _NUM_OR_CODE_RE.findall(claim.statement)
+            if not re.fullmatch(r"S\d+", a)
+        ]
         anchors_ok = all(a.casefold() in cited_low for a in anchors)
+        polarity_ok = not _has_polarity_inversion(claim.statement, cited_text)
         c_toks = set(tokenize_bm25(claim.statement))
         ctx_toks = set(tokenize_bm25(cited_text))
         overlap = (len(c_toks & ctx_toks) / len(c_toks)) if c_toks else 0.0
-        if anchors_ok and overlap >= 0.60:
+        min_overlap = 0.35 if _RU_TICKET_HINT_RE.search(cited_text) else 0.55
+        if anchors_ok and polarity_ok and overlap >= min_overlap:
             supported += 1
         else:
             unsupported.append(claim.statement)

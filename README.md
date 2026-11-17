@@ -1,24 +1,43 @@
-# HW1 — Structured Extraction Service
+# Analytics Ticket Copilot — HW2 (RAG на власних даних + Evals) & HW1
 
-Сервис вытягивает структурированный JSON из «грязных» Jira-тикетов про отчётность
-**SAP Fiori → Databricks → Power BI** (bugs + change requests), сравнивает cloud и
-локальные модели и обосновывает выбор для продакшна.
+Наскрізний проєкт курсу **AI Engineering (потік 2)** для аналітичної платформи звітності **`SAP Fiori → Databricks → Parent/Child Semantic Models → Power BI + SPEC-*`**.
 
-Опис проєкту на курс: [`docs/PROJECT.md`](docs/PROJECT.md)  
-Сквозной план (кейсы 1–4): [`docs/COURSE_ROADMAP.md`](docs/COURSE_ROADMAP.md)  
-Домен и роли: [`docs/DOMAIN.md`](docs/DOMAIN.md)  
-Отчёт с метриками: [`REPORT.md`](REPORT.md)
+- **Гілка [`hw2`](https://github.com/lnata/AI-Engineering/tree/hw2) (поточна):** повна реалізація **Домашнього завдання 2 (Кейс 2: RAG + Evals у CI)** зі збереженням усього коду й даних ДЗ-1.
+- **Гілка [`main`](https://github.com/lnata/AI-Engineering/tree/main):** первинна здача **Домашнього завдання 1 (Кейс 1: Structured Extraction Service)** без змін.
+- **Підсумковий звіт метрик і розбір помилок:** [`REPORT.md`](REPORT.md) · Опис домену: [`docs/DOMAIN.md`](docs/DOMAIN.md) · Дорожня карта: [`docs/COURSE_ROADMAP.md`](docs/COURSE_ROADMAP.md)
 
-## Quick start (одна команда после setup)
+## Quick Start — HW2 (гілка `hw2`, запуск однією командою)
 
 ```bash
+git clone -b hw2 https://github.com/lnata/AI-Engineering.git
+cd AI-Engineering
 python3.11 -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-cp .env.example .env   # → вписать GEMINI_API_KEY
-make run               # или: python main.py
+cp .env.example .env   # опційно впишіть GEMINI_API_KEY для live LLM-режиму; без ключа працює локально ($0)
+
+make run               # або: python main.py  (за замовчуванням на гілці hw2 запускає пайплайн HW2 RAG + Evals)
+make hw2-llm           # або: python main.py --hw2-llm  (повний live-прогін RAG + LLM-as-a-Judge із GEMINI_API_KEY)
+make hw2-all           # повна перезбірка Кроків 1–4 з сирих документів (corpus → ingest → index → evals)
+python main.py --hw2-rag --question "Який поріг звірки діє у чинній SPEC-FIN-030?"
+make test              # усі unit + integration тести HW1 + HW2
 ```
 
-`make run` / `python main.py` гоняет **весь корпус** (53 тикета) на Gemini + prompt **v2** + sampling **default**.
+> Якщо репозиторій уже склоновано, перемкніться командою `git fetch origin hw2 && git checkout hw2`. Live-команда `make hw2-llm` автоматично підхоплює `GEMINI_API_KEY` (та `GEMINI_MODEL`) із вашого `.env`, має exponential backoff на `429`/`503` і кешує відповіді у `.cache/hw2_llm/`.
+
+---
+
+## HW1 — Structured Extraction Service (збережено на `main` і доступно через `--hw1`)
+
+Сервіс витягує структурований JSON із «брудних» Jira-тікетів про звітність **SAP Fiori → Databricks → Power BI** (bugs + change requests), порівнює хмарні та локальні моделі й обґрунтовує вибір для продакшна.
+
+### Quick start HW1
+
+```bash
+cp .env.example .env   # → вписати GEMINI_API_KEY
+make hw1-run           # або: python main.py --hw1  (на гілці main — просто make run / python main.py)
+```
+
+`make hw1-run` / `python main.py --hw1` ганяє **весь корпус** (53 тікети) на Gemini + prompt **v2** + sampling **default**.
 
 Другие цели Makefile: `make golden` · `make creative` · `make ollama` · `make lmstudio` · `make eval RUN=results/<dir>`
 
@@ -84,7 +103,9 @@ python -m src.hw2.ingest
 make test
 ```
 
-### Склад корпусу (`data/hw2_corpus/raw/` — 38 файлів → 36 унікальних у 4 форматах, 0 PII)
+### Склад об'єднаного корпусу HW1 + HW2 (`55` файлів → `53` унікальні у 5 форматах, `97` чанків, 0 PII)
+
+Згідно з наскрізним планом [`docs/COURSE_ROADMAP.md`](docs/COURSE_ROADMAP.md) (*«Пошук по тікетах / спеках / reference; відповідь з посиланням на джерело»*), корпус об'єднує технічні специфікації/ранбуки HW2 та канонічні Jira-тікети й довідники з HW1 (без жодних змін сирих файлів `data/raw/` чи `data/reference/`):
 
 | Формат | Сирих файлів | Унікальних | Що входить у корпус |
 |--------|--------------|------------|---------------------|
@@ -92,13 +113,14 @@ make test
 | `DOCX` | 10 | 9 | Регламент релізів `POL-DEP-001` (`v1.0` + `v1.3`), playbooks тріажу `BUGS` (`+ backup`), 4-рівневої звірки та SLA закриття місяця, гайди Power BI / Parent-Child моделей |
 | `HTML` | 10 | 10 | Внутрішній портал runbooks Airflow/Databricks (`dag_sap_*`), Power BI Gateway, каталог Data Lineage, postmortems інцидентів (`BUGS-41/49/50`), DQ gates |
 | `MD` | 6 | 6 | Архітектурні рішення `ADR-001..003`, доменний глосарій, Release Notes Q1 2025, FAQ аналітиків |
-| **Разом** | **38** | **36** | **2 точні дублікати** відсіяно за `SHA-256 doc_hash`; **4 версіоновані пари** (`v1.0` deprecated проти актуальної `v1.2`/`v1.3`/`v2.0`) |
+| `JSON` *(HW1)* | 17 | 17 | Канонічні аналітичні Jira-тікети `data/raw/BUGS-41..53.json` (`doc_type="jira_ticket"`, із анонімізацією імен у ролі `RD-01`/`FA-01`/`DP-01`) + довідники `data/reference/{reports,pipeline,deployment,teams}.json` (`doc_type="reference"`) |
+| **Разом** | **55** | **53** | **2 точні дублікати** відсіяно за `SHA-256 doc_hash`; **4 версіоновані пари** (`v1.0` deprecated проти актуальної `v1.2`/`v1.3`/`v2.0`) |
 
 ### Архітектура Ingestion та очищення (`src/hw2/`)
 
 ```text
-data/hw2_corpus/raw/ (PDF / DOCX / HTML / MD)
-  → src/hw2/extractors.py   (заголовки #, списки, таблиці у GFM Markdown | col |)
+data/hw2_corpus/raw/ (PDF/DOCX/HTML/MD) + data/raw/BUGS-41..53.json + data/reference/*.json
+  → src/hw2/extractors.py + json_extractor.py (заголовки #, списки, таблиці | col |, анонімізація ролей)
   → src/hw2/cleaning.py     (Unicode NFKC, cp1251/BOM, strip PDF headers/footers & HTML chrome,
                              склеювання переносів зі збереженням SPEC-FIN-030 / non-GAAP, PII masking)
   → src/hw2/ingest.py       (SHA-256 raw_hash + канонічний doc_hash дедуплікатор → manifest.json)
@@ -116,15 +138,15 @@ data/hw2_corpus/raw/ (PDF / DOCX / HTML / MD)
 2. **Атомарність таблиць:** усі таблиці мапінгу полів SAP ↔ Databricks і правил DAX мають обсяг `102–298` токенів. Бюджет `360` токенів дозволяє зберігати кожну Markdown-таблицю цілісною разом із її шапкою `| --- |`, тоді як `fixed-size` розриває майже половину чанків посеред таблиці, відриваючи назву метрики від формули.
 3. **Contextual Header (`[Title | vX.Y (Date) | Section]`):** кожен чанк отримує префікс із кодом документа, версією, датою чинності та розділом. Завдяки цьому короткий абзац про `inbound_freight_eur` або `in_transit_qty` не втрачає прив'язки до `SPEC-FIN-030 v1.3` під час векторного та BM25-пошуку.
 
-#### Кількісне порівняння на всіх 36 унікальних документах (`data/hw2_corpus/chunking_comparison.json`)
+#### Кількісне порівняння на всіх 53 унікальних документах (`data/hw2_corpus/chunking_comparison.json`)
 
 | Метрика (`cl100k_base`) | Structure-Aware (`max=360, overlap=45`) | Fixed-Size Baseline (`size=240, overlap=40`) |
 |-------------------------|-----------------------------------------|----------------------------------------------|
-| Кількість чанків | **79** | 110 |
-| Середній розмір (токенів) | **258.97** | 201.03 |
-| Min / P50 / P95 / Max токенів | **121 / 260 / 345 / 353** | 41 / 240 / 240 / 241 |
-| Розірвані таблиці (`broken_table_count`) | **0** | 52 (47.3% чанків) |
-| Розрив посеред речення/слова (`mid_sentence_split_rate`) | **0.0% (0 / 79)** | 71.8% (79 / 110) |
+| Кількість чанків | **97** | 141 |
+| Середній розмір (токенів) | **253.98** | 193.60 |
+| Min / P50 / P95 / Max токенів | **121 / 252 / 345 / 353** | 41 / 240 / 240 / 241 |
+| Розірвані таблиці (`broken_table_count`) | **0** | 59 (41.8% чанків) |
+| Розрив посеред речення/слова (`mid_sentence_split_rate`) | **0.0% (0 / 97)** | 65.2% (92 / 141) |
 | Змішування розділів (`cross_section_bleed_count`) | **0** | 18 |
 
 Приклад реального дефекту `fixed-size` на `ADR-002_single_fx_conversion_in_databricks.md#01`: вікно токенів обриває українське слово на початку (`«рхітектурний інваріант...»`) і розрізає шапку таблиці посередині (`«| Критерій | Перерахунок у DAX (Від»`), а рядки таблиці опиняються в наступному чанку `#02` вже без заголовків колонок.
@@ -160,16 +182,16 @@ make test
    - Щоб уникнути пастки англомовних `ms-marco` моделей на кирилиці, використано багатомовний крос-енкодер **`BAAI/bge-reranker-v2-m3-int8`** (`fastembed` ONNX, налаштовується через `HW2_RERANKER_MODEL`).
    - Фільтри `SearchFilters` (`is_latest`, `doc_type`, `format`, `report_id`, `source`, `date_from`, `date_to`) застосовуються **синхронно і в Qdrant (`FieldCondition`), і в `BM25`** ще до `RRF`. Фільтр `is_latest=True` повністю відсікає архівні документи `v1.0` (`SPEC-FIN-030 v1.0`, `SPEC-FIN-041 v1.0`, `SPEC-OPS-007 v1.0`, `POL-DEP-001 v1.0`).
 
-### Оцінка якості Retrieval на 15 питаннях (`evals/hw2_retrieval_evalset.json` → `evals/hw2_retrieval_results.json`)
+### Оцінка якості Retrieval на 18 питаннях (`evals/hw2_retrieval_evalset.json` → `evals/hw2_retrieval_results.json`)
 
-Набір із **15 вручну перевірених питань** охоплює 4 класи запитів: українські семантичні перефразування без точних кодів (`RET-01..03`), точні ідентифікатори SAP/Databricks/Gateway (`RET-04..07`), табличні KPI/SLA пороги (`RET-08..11`) та версіоновані специфікації з пастками `v1.0` vs `v1.2/v1.3/v2.0` (`RET-12..15`).
+Набір із **18 вручну перевірених питань** охоплює семантичні перефразування (`RET-01..03`), точні ідентифікатори SAP/Databricks/Gateway (`RET-04..07`), табличні KPI/SLA пороги (`RET-08..11`), версіоновані пастки `v1.0` vs `v1.2/v1.3/v2.0` (`RET-12..15`) та пошук історичних Jira-тікетів `BUGS-*` і довідників `data/reference/` (`RET-16..18`).
 
 | Конфігурація | `Recall@1` | `Recall@3` | `Recall@5` | `MRR@5` | `Ver-Recall@1` (4 питання) | `Legacy v1.0 у Top-3` |
 |--------------|-----------|-----------|-----------|--------|----------------------------|-----------------------|
-| `vector_only` | 0.267 | 0.533 | 0.600 | 0.406 | 0.500 | 75.0% |
-| `bm25_only` | 0.800 | 1.000 | 1.000 | 0.889 | 0.500 | 100.0% |
-| `hybrid_rrf` | 0.533 | 0.667 | 1.000 | 0.680 | 0.500 | 100.0% |
-| `hybrid_rrf_rerank` | 0.867 | 1.000 | 1.000 | 0.933 | 0.500 | 75.0% |
+| `vector_only` | 0.333 | 0.556 | 0.611 | 0.440 | 0.500 | 75.0% |
+| `bm25_only` | 0.833 | 1.000 | 1.000 | 0.907 | 0.500 | 100.0% |
+| `hybrid_rrf` | 0.611 | 0.778 | 0.944 | 0.727 | 0.500 | 100.0% |
+| `hybrid_rrf_rerank` | 0.889 | 1.000 | 1.000 | 0.944 | 0.500 | 100.0% |
 | **`hybrid_rrf_rerank_latest` (`is_latest=True`)** | **1.000** | **1.000** | **1.000** | **1.000** | **1.000** | **0.0%** |
 
 **Ключові висновки з експерименту:**
@@ -213,14 +235,14 @@ make test
 
 ### Економіка токенів та вартість на 1000 запитань
 
-На демо-прогоні (`data/hw2_rag/sample_answers.json`, бюджет контексту `1200` токенів, `prompt v2`) середній обсяг запиту, що доходить до генератора, становить **~2 603 вхідних** (`system + <context> + <question>`) та **~421 вихідний** токен (а Gate-1 відсікання позадоменних питань коштує **0 токенів**):
+На live демо-прогоні `gemini:gemini-3.5-flash-lite` (`data/hw2_rag/sample_answers.json`, бюджет контексту `1200` токенів, `prompt v2`) середній обсяг запиту, що доходить до генератора, становить **~1 991 вхідний** (`system + <context> + <question>`) та **~236 вихідних** токенів (а Gate-1 відсікання позадоменних питань коштує **0 токенів**):
 
 | Режим / Модель | Embeddings + Reranker | Тариф LLM (Input / Output за 1M) | Оцінка вартості на **1000 питань** |
 |----------------|-----------------------|----------------------------------|------------------------------------|
 | Local `extractive` + `fastembed` ONNX | Локально ONNX ($0) | $0 / $0 | **$0.00** |
 | Cloud `gemini-3.5-flash-lite` (Free Tier) | Локально ONNX ($0) | Free tier ($0) | **$0.00** |
-| Cloud `gemini-3.5-flash-lite` (Paid Tier) | Локально ONNX ($0) | $0.30 / $2.50 | **~$1.83 / 1k питань** |
-| Cloud `gpt-4o-mini` (OpenAI / OpenRouter) | Локально ONNX ($0) | $0.15 / $0.60 | **~$0.64 / 1k питань** |
+| Cloud `gemini-3.5-flash-lite` (Paid Tier) | Локально ONNX ($0) | $0.30 / $2.50 | **~$1.19 / 1k питань** |
+| Cloud `gpt-4o-mini` (OpenAI / OpenRouter) | Локально ONNX ($0) | $0.15 / $0.60 | **~$0.44 / 1k питань** |
 
 ---
 
@@ -240,21 +262,22 @@ make test
 
 ### Склад Eval-пайплайну (`evals/` + `src/hw2/`)
 
-1. **Тестсет із 24 вручну перевірених питань (`evals/hw2_rag_testset.json`):**
+1. **Тестсет із 28 вручну перевірених питань (`evals/hw2_rag_testset.json`):**
    - `12` стандартних і табличних питань (`PDF`, `DOCX`, `HTML`, `MD`),
    - `5` питань без відповіді в корпусі («не знаю»: `3` позадоменні + `2` внутрішньодоменні пастки зі справжніми кодами `SPEC-FIN-030` / `RUNBOOK-DBX-001`),
-   - `7` питань із пастками (`4` версіоновані пастки `v1.0` vs `v1.2/v1.3/v2.0` із `forbidden_facts` + `3` пастки на схожі документи виторгу й SLA).
+   - `7` питань із пастками (`4` версіоновані пастки `v1.0` vs `v1.2/v1.3/v2.0` із `forbidden_facts` + `3` пастки на схожі документи виторгу й SLA),
+   - `4` наскрізні **cross-source HW1 + HW2** питання (`QA-25..28`), що вимагають одночасно процитувати історичний Jira-тікет (`BUGS-41`, `BUGS-44`, `BUGS-47`, `BUGS-53`) та відповідну специфікацію/регламент (`SPEC-FIN-014`, `SPEC-FIN-021`, `SPEC-FIN-041`, `POL-DEP-001` / `deployment.json`).
 2. **Три рівні Scoring-функцій (`src/hw2/scorers.py`, `src/hw2/judge.py`, `src/hw2/calibrate_judge.py`):**
-   - **Детерміновані метрики:** `abstention_accuracy`, `citation_source_hit`, `citation_section_hit`, `fact_coverage`, `no_forbidden_facts`.
-   - **LLM-as-a-Judge (`prompts/judge/v1/`) з калібруванням на 14 ручних прикладах (`evals/hw2_judge_calibration.json`):** точний збіг із ручною розміткою **`92.9%` (`13/14`)**, Каппа Коена **$\kappa = 0.887$** (`evals/hw2_judge_calibration_results.json`).
-   - **Faithfulness (`score_faithfulness`):** перевіряє кожне окреме твердження в `claims` (числа, коди об'єктів, лексичне підґрунтя) проти процитованого блока `[Si]`.
-3. **Результати на 24 питаннях (`evals/hw2_rag_eval_results.json`) та CI Gate:**
+   - **Детерміновані метрики:** `abstention_accuracy`, `citation_source_hit` (включно з обов'язковими групами джерел `required_source_groups`), `citation_section_hit`, `fact_coverage`, `no_forbidden_facts`.
+   - **LLM-as-a-Judge (`prompts/judge/v1/`, `gemini:gemini-3.5-flash-lite`) з калібруванням на 14 ручних прикладах (`evals/hw2_judge_calibration.json`):** точний збіг із ручною розміткою **`92.9%` (`13/14`)**, Каппа Коена **$\kappa = 0.879$** (`evals/hw2_judge_calibration_results.json`).
+   - **Faithfulness (`score_faithfulness`):** перевіряє кожне окреме твердження в `claims` (числа, коди об'єктів, полярність заперечень та лексичне підґрунтя) проти процитованого блока `[Si]`.
+3. **Результати на 28 питаннях (`evals/hw2_rag_eval_results.json`, `rag_provider = gemini:gemini-3.5-flash-lite`, `judge_name = gemini:gemini-3.5-flash-lite`) та CI Gate:**
 
-| Конфігурація | Overall | Abstention | Cite Source | Fact Coverage | No Forbidden (`v1.0`) | Faithfulness | Judge Score |
-|--------------|---------|------------|-------------|---------------|-----------------------|--------------|-------------|
-| `baseline_unfiltered_v1` | 0.585 | 0.875 | 0.500 | 0.194 | 0.958 | 1.000 | 0.167 |
-| **`production_filtered_v2`** | **0.950** | **1.000** | **1.000** | **0.861** | **1.000** | **1.000** | **0.854** |
-| *Поріг падіння у CI (`exit 1`)* | `>= 0.85` | `>= 0.90` | — | — | — | `>= 0.90` | Agreement `>= 0.85` |
+| Конфігурація | Overall | Abstention | Cite Source | Cite Section | Fact Coverage | No Forbidden (`v1.0`) | Faithfulness | Judge Score |
+|--------------|---------|------------|-------------|--------------|---------------|-----------------------|--------------|-------------|
+| `baseline_unfiltered_v1` | 0.597 | 0.893 | 0.429 | 0.500 | 0.217 | 0.964 | 1.000 | 0.286 |
+| **`production_filtered_v2`** | **0.962** | **0.964** | **0.964** | **0.964** | **0.923** | **1.000** | **1.000** | **0.946** |
+| *Поріг падіння у CI (`exit 1`)* | `>= 0.85` | `>= 0.90` | — | — | — | — | `>= 0.90` | Agreement `>= 0.85` |
 
 Повний розбір метрик і 4 характерних помилок див. у [`REPORT.md`](REPORT.md).
 

@@ -12,6 +12,7 @@ import re
 from src.hw2.cleaning import compute_doc_hash, compute_raw_hash
 from src.hw2.comparison import compare_chunking_strategies
 from src.hw2.extractors import extract_document_markdown
+from src.hw2.json_extractor import is_analytics_domain_ticket
 from src.hw2.models import (
     ChunkingComparison,
     ChunkRecord,
@@ -23,8 +24,10 @@ from src.hw2.models import (
 
 ROOT = Path(__file__).resolve().parents[2]
 DEFAULT_RAW_DIR = ROOT / "data" / "hw2_corpus" / "raw"
+DEFAULT_HW1_TICKETS_DIR = ROOT / "data" / "raw"
+DEFAULT_HW1_REF_DIR = ROOT / "data" / "reference"
 DEFAULT_OUT_DIR = ROOT / "data" / "hw2_corpus"
-SUPPORTED_EXTS = {".pdf", ".docx", ".html", ".htm", ".md"}
+SUPPORTED_EXTS = {".pdf", ".docx", ".html", ".htm", ".md", ".json"}
 
 _META_LINE_RE = re.compile(
     r"Doc ID:\s*(?P<doc_id>[^|]+?)\s*\|\s*Version:\s*(?P<version>[^|]+?)\s*\|\s*"
@@ -86,17 +89,45 @@ def parse_document_metadata(path: Path, cleaned_md: str) -> dict[str, str | bool
     }
 
 
+def _discover_hw1_json_sources(
+    tickets_dir: Path = DEFAULT_HW1_TICKETS_DIR,
+    ref_dir: Path = DEFAULT_HW1_REF_DIR,
+) -> list[Path]:
+    """Collect Analytics domain Jira tickets (BUGS-41..53) and reference JSON catalogs."""
+    found: list[Path] = []
+    if ref_dir.is_dir():
+        found.extend(sorted(ref_dir.glob("*.json")))
+    if tickets_dir.is_dir():
+        ticket_paths = sorted(
+            tickets_dir.glob("BUGS-*.json"),
+            key=lambda p: int(p.stem.split("-")[1]) if p.stem.split("-")[1].isdigit() else 9999,
+        )
+        for tp in ticket_paths:
+            data = json.loads(tp.read_text(encoding="utf-8"))
+            if isinstance(data, dict) and is_analytics_domain_ticket(data):
+                found.append(tp)
+    return found
+
+
 def run_ingestion(
     raw_dir: Path = DEFAULT_RAW_DIR,
     out_dir: Path = DEFAULT_OUT_DIR,
     max_tokens: int = 360,
     overlap_tokens: int = 45,
+    include_hw1_sources: bool | None = None,
 ) -> tuple[CorpusManifest, list[ChunkRecord], ChunkingComparison]:
-    """Ingest raw multi-format corpus, deduplicate by SHA-256 doc_hash, and chunk."""
+    """Ingest raw multi-format corpus + HW1 Jira/reference JSONs, deduplicate, and chunk."""
     raw_files = sorted(
         (p for p in raw_dir.rglob("*") if p.is_file() and p.suffix.lower() in SUPPORTED_EXTS),
         key=_sort_key_canonical_first,
     )
+    use_hw1 = (
+        (raw_dir.resolve() == DEFAULT_RAW_DIR.resolve())
+        if include_hw1_sources is None
+        else include_hw1_sources
+    )
+    if use_hw1:
+        raw_files.extend(_discover_hw1_json_sources())
     if not raw_files:
         raise FileNotFoundError(f"No supported corpus files found in {raw_dir}")
 

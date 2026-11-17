@@ -20,6 +20,7 @@ from src.hw2.generator import (
     RAGGeneratorProtocol,
 )
 from src.hw2.index import DEFAULT_QDRANT_PATH, ROOT
+from src.hw2.llm_runtime import resolve_cloud_provider, resolve_gemini_model
 from src.hw2.models import (
     PackedContext,
     RAGAnswer,
@@ -37,7 +38,7 @@ from src.hw2.verifier import (
     verify_and_resolve_rag_output,
 )
 
-ProviderChoice = Literal["auto", "extractive", "gemini", "openai", "openrouter"]
+ProviderChoice = Literal["auto", "cloud", "extractive", "gemini", "openai", "openrouter"]
 DEFAULT_DEMO_OUT = ROOT / "data" / "hw2_rag" / "sample_answers.json"
 
 DEMO_QUESTIONS: list[dict[str, str]] = [
@@ -70,6 +71,16 @@ DEMO_QUESTIONS: list[dict[str, str]] = [
         "id": "DEMO-06",
         "kind": "abstain_gate2_in_domain_trap",
         "question": "Яка ставка податку на прибуток підприємств закладена у формулу SPEC-FIN-030?",
+    },
+    {
+        "id": "DEMO-07",
+        "kind": "cross_source_hw1_ticket_and_spec",
+        "question": "Які цифри по країні UA наведено у тікеті BUGS-44 для Customers_Prod.pbix проти mart.dim_customer, і яку умову фільтрації soft-deleted записів встановлює специфікація SPEC-FIN-021?",
+    },
+    {
+        "id": "DEMO-08",
+        "kind": "cross_source_hw1_ticket_and_policy",
+        "question": "Яке порушення процесу деплою для звіту Inventory Snapshot описано в тікеті BUGS-53 і який обов'язковий маршрут викатки встановлюють регламент POL-DEP-001 v1.3 та довідник deployment.json?",
     },
 ]
 
@@ -140,28 +151,20 @@ def build_rag_generator(
     packed: PackedContext,
     question: str,
     model_override: str | None = None,
-    timeout_sec: float = 90.0,
+    timeout_sec: float = 120.0,
 ) -> RAGGeneratorProtocol:
     """Resolve cloud LLM generator from .env or fall back to deterministic extractive mode."""
-    chosen = provider
-    if chosen == "auto":
-        if os.getenv("GEMINI_API_KEY") or os.getenv("GOOGLE_API_KEY"):
-            chosen = "gemini"
-        elif os.getenv("OPENAI_API_KEY"):
-            chosen = "openai"
-        elif os.getenv("OPENROUTER_API_KEY"):
-            chosen = "openrouter"
-        else:
-            chosen = "extractive"
+    resolved = resolve_cloud_provider(provider, require_cloud=(provider == "cloud"))
+    chosen = "extractive" if resolved == "auto" else resolved
 
     if chosen == "gemini":
-        model = model_override or os.getenv("HW2_RAG_MODEL", "gemini-3.5-flash-lite")
+        model = resolve_gemini_model(model_override, env_var="HW2_RAG_MODEL")
         return GeminiRAGGenerator(model_name=model, timeout_sec=timeout_sec)
     if chosen == "openai":
-        model = model_override or os.getenv("HW2_RAG_MODEL", "gpt-4o-mini")
+        model = model_override or os.getenv("HW2_RAG_MODEL") or "gpt-4o-mini"
         return OpenAIRAGGenerator(provider_name="openai", model_name=model, timeout_sec=timeout_sec)
     if chosen == "openrouter":
-        model = model_override or os.getenv("HW2_RAG_MODEL", "openai/gpt-4o-mini")
+        model = model_override or os.getenv("HW2_RAG_MODEL") or "openai/gpt-4o-mini"
         return OpenAIRAGGenerator(provider_name="openrouter", model_name=model, timeout_sec=timeout_sec)
     return ExtractiveRAGGenerator(packed=packed, question=question)
 
@@ -285,7 +288,7 @@ def main() -> None:
     parser = argparse.ArgumentParser(description="HW2 Step 3 Grounded RAG with Citations CLI")
     parser.add_argument("--question", default=None, help="Single question to answer")
     parser.add_argument("--demo", action="store_true", help="Run 6-question demo suite -> sample_answers.json")
-    parser.add_argument("--provider", choices=["auto", "extractive", "gemini", "openai", "openrouter"], default="auto")
+    parser.add_argument("--provider", choices=["auto", "cloud", "extractive", "gemini", "openai", "openrouter"], default="auto")
     parser.add_argument("--model", default=None, help="Optional cloud model override")
     parser.add_argument("--prompt-version", default=os.getenv("HW2_RAG_PROMPT_VERSION", "v2"))
     parser.add_argument("--max-context-tokens", type=int, default=int(os.getenv("HW2_MAX_CONTEXT_TOKENS", "1200")))

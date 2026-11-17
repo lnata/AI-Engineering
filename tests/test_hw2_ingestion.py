@@ -24,12 +24,12 @@ RAW_DIR = CORPUS_DIR / "raw"
 
 def test_generated_corpus_inventory_and_versioned_pairs():
     manifest = json.loads((CORPUS_DIR / "manifest.json").read_text(encoding="utf-8"))
-    assert 36 <= manifest["total_raw_files"] <= 38
-    assert manifest["unique_ingested_docs"] >= 30
+    assert manifest["total_raw_files"] == 55
+    assert manifest["unique_ingested_docs"] == 53
     assert manifest["skipped_duplicates_count"] >= 2
 
     fmts = manifest["format_counts_unique"]
-    for required_fmt in ("pdf", "docx", "html", "md"):
+    for required_fmt in ("pdf", "docx", "html", "md", "json"):
         assert fmts.get(required_fmt, 0) >= 5
 
     # Verify >= 3 versioned pairs (legacy v1.0 is_latest=False vs current is_latest=True)
