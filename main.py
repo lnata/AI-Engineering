@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Run HW1 structured extraction (default) or HW2 grounded RAG (`--hw2-rag`)."""
+"""Run HW1 structured extraction (default) or HW2 RAG & Evals (`--hw2-rag` / `--hw2-eval`)."""
 
 from __future__ import annotations
 
@@ -41,8 +41,29 @@ def main() -> None:
         action="store_true",
         help="Run HW2 Step 3 grounded RAG pipeline instead of HW1 ticket extraction",
     )
+    parser.add_argument(
+        "--hw2-eval",
+        action="store_true",
+        help="Run HW2 Step 4 judge calibration + 24-question end-to-end RAG evaluation",
+    )
     parser.add_argument("--question", default=None, help="Question for --hw2-rag mode")
     args = parser.parse_args()
+
+    if args.hw2_eval:
+        import sys
+        from src.hw2.eval_rag import check_ci_thresholds, run_end_to_end_rag_eval
+
+        report, calib = run_end_to_end_rag_eval()
+        prod = report.configurations[-1]
+        print(
+            f"HW2 RAG Eval: overall={prod.overall_composite_score:.3f}, "
+            f"faithfulness={prod.faithfulness_mean:.3f}, abstention={prod.abstention_accuracy:.3f}, "
+            f"judge_agreement={calib.agreement_rate:.1%}"
+        )
+        failures = check_ci_thresholds(prod, calib)
+        if failures:
+            raise SystemExit(1)
+        sys.exit(0)
 
     if args.hw2_rag:
         from src.hw2.models import SearchFilters

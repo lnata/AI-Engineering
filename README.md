@@ -222,5 +222,42 @@ make test
 | Cloud `gemini-3.5-flash-lite` (Paid Tier) | Локально ONNX ($0) | $0.30 / $2.50 | **~$1.83 / 1k питань** |
 | Cloud `gpt-4o-mini` (OpenAI / OpenRouter) | Локально ONNX ($0) | $0.15 / $0.60 | **~$0.64 / 1k питань** |
 
+---
+
+## HW2 — Крок 4. Тестсет, Evals, Калібрування Судді та CI Gate
+
+Четвертий крок замикає інженерний контур автоматичною оцінкою якості RAG у GitHub Actions CI ([`.github/workflows/hw2-evals.yml`](.github/workflows/hw2-evals.yml)) із блокуючим порогом (`exit 1`) та підсумковим звітом у [`REPORT.md`](REPORT.md).
+
+### Повний запуск усього ДЗ-2 однією командою
+
+```bash
+make hw2-all          # Кроки 1–4: корпус → ingestion/chunks → Qdrant індекс → retrieval eval → RAG demo → RAG CI gate
+# або лише Крок 4 + тести:
+make hw2-step4
+python main.py --hw2-eval
+make test
+```
+
+### Склад Eval-пайплайну (`evals/` + `src/hw2/`)
+
+1. **Тестсет із 24 вручну перевірених питань (`evals/hw2_rag_testset.json`):**
+   - `12` стандартних і табличних питань (`PDF`, `DOCX`, `HTML`, `MD`),
+   - `5` питань без відповіді в корпусі («не знаю»: `3` позадоменні + `2` внутрішньодоменні пастки зі справжніми кодами `SPEC-FIN-030` / `RUNBOOK-DBX-001`),
+   - `7` питань із пастками (`4` версіоновані пастки `v1.0` vs `v1.2/v1.3/v2.0` із `forbidden_facts` + `3` пастки на схожі документи виторгу й SLA).
+2. **Три рівні Scoring-функцій (`src/hw2/scorers.py`, `src/hw2/judge.py`, `src/hw2/calibrate_judge.py`):**
+   - **Детерміновані метрики:** `abstention_accuracy`, `citation_source_hit`, `citation_section_hit`, `fact_coverage`, `no_forbidden_facts`.
+   - **LLM-as-a-Judge (`prompts/judge/v1/`) з калібруванням на 14 ручних прикладах (`evals/hw2_judge_calibration.json`):** точний збіг із ручною розміткою **`92.9%` (`13/14`)**, Каппа Коена **$\kappa = 0.887$** (`evals/hw2_judge_calibration_results.json`).
+   - **Faithfulness (`score_faithfulness`):** перевіряє кожне окреме твердження в `claims` (числа, коди об'єктів, лексичне підґрунтя) проти процитованого блока `[Si]`.
+3. **Результати на 24 питаннях (`evals/hw2_rag_eval_results.json`) та CI Gate:**
+
+| Конфігурація | Overall | Abstention | Cite Source | Fact Coverage | No Forbidden (`v1.0`) | Faithfulness | Judge Score |
+|--------------|---------|------------|-------------|---------------|-----------------------|--------------|-------------|
+| `baseline_unfiltered_v1` | 0.585 | 0.875 | 0.500 | 0.194 | 0.958 | 1.000 | 0.167 |
+| **`production_filtered_v2`** | **0.950** | **1.000** | **1.000** | **0.861** | **1.000** | **1.000** | **0.854** |
+| *Поріг падіння у CI (`exit 1`)* | `>= 0.85` | `>= 0.90` | — | — | — | `>= 0.90` | Agreement `>= 0.85` |
+
+Повний розбір метрик і 4 характерних помилок див. у [`REPORT.md`](REPORT.md).
+
+
 
 
