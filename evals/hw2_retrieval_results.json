@@ -1,0 +1,1439 @@
+{
+  "evaluated_at": "2026-11-16T15:38:38Z",
+  "embedding_model": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+  "reranker_model": "BAAI/bge-reranker-v2-m3-int8",
+  "total_chunks_indexed": 79,
+  "evalset_size": 15,
+  "configurations": [
+    {
+      "config_name": "vector_only",
+      "mode": "vector",
+      "only_latest": false,
+      "total_queries": 15,
+      "recall_at_1": 0.2667,
+      "recall_at_3": 0.5333,
+      "recall_at_5": 0.6,
+      "mrr_at_5": 0.4056,
+      "version_sensitive_queries": 4,
+      "version_sensitive_recall_at_1": 0.5,
+      "version_sensitive_mrr_at_5": 0.5833,
+      "version_sensitive_legacy_top3_rate": 0.75,
+      "per_query": [
+        {
+          "id": "RET-01",
+          "category": "semantic_paraphrase",
+          "version_sensitive": false,
+          "first_relevant_rank": null,
+          "hit_at_1": false,
+          "hit_at_3": false,
+          "hit_at_5": false,
+          "reciprocal_rank_at_5": 0.0,
+          "legacy_in_top_3": false,
+          "top_5_chunk_ids": [
+            "SPEC-FIN-021_v1.1_active_customers_by_country.pdf#01",
+            "RUNBOOK-DBX-003_customer_master_scd2.html#00",
+            "RUNBOOK-DQ-007_great_expectations_checks.html#00",
+            "SPEC-FIN-021_v1.1_active_customers_by_country.pdf#02",
+            "SPEC-FIN-014_v1.3_sales_revenue_region_channel.pdf#01"
+          ]
+        },
+        {
+          "id": "RET-02",
+          "category": "semantic_paraphrase",
+          "version_sensitive": false,
+          "first_relevant_rank": null,
+          "hit_at_1": false,
+          "hit_at_3": false,
+          "hit_at_5": false,
+          "reciprocal_rank_at_5": 0.0,
+          "legacy_in_top_3": false,
+          "top_5_chunk_ids": [
+            "SPEC-FIN-014_v1.3_sales_revenue_region_channel.pdf#01",
+            "GUIDE-PBI-002_v1.3_gross_margin_dashboard.docx#01",
+            "SPEC-FIN-021_v1.1_active_customers_by_country.pdf#01",
+            "SPEC-FIN-030_v1.3_gross_margin_rules.pdf#02",
+            "SPEC-FIN-030_v1.3_gross_margin_rules.pdf#04"
+          ]
+        },
+        {
+          "id": "RET-03",
+          "category": "semantic_paraphrase",
+          "version_sensitive": false,
+          "first_relevant_rank": 1,
+          "hit_at_1": true,
+          "hit_at_3": true,
+          "hit_at_5": true,
+          "reciprocal_rank_at_5": 1.0,
+          "legacy_in_top_3": false,
+          "top_5_chunk_ids": [
+            "FAQ-ANALYSTS-001_common_fiori_vs_pbi_questions.md#01",
+            "SPEC-REV-019_v1.1_deferred_revenue_recognition.pdf#00",
+            "SPEC-FIN-014_v1.3_sales_revenue_region_channel.pdf#03",
+            "GUIDE-PBI-003_v1.2_fx_revenue_and_customers.docx#00",
+            "FAQ-ANALYSTS-001_common_fiori_vs_pbi_questions.md#00"
+          ]
+        },
+        {
+          "id": "RET-04",
+          "category": "exact_identifier",
+          "version_sensitive": false,
+          "first_relevant_rank": 2,
+          "hit_at_1": false,
+          "hit_at_3": true,
+          "hit_at_5": true,
+          "reciprocal_rank_at_5": 0.5,
+          "legacy_in_top_3": false,
+          "top_5_chunk_ids": [
+            "RUNBOOK-DBX-003_customer_master_scd2.html#00",
+            "RUNBOOK-PBI-006_gateway_and_dataset_refresh.html#01",
+            "RUNBOOK-DBX-002_inventory_snapshot_wh.html#01",
+            "RUNBOOK-DQ-007_great_expectations_checks.html#00",
+            "SPEC-FIN-041_v1.0_fx_conversion_legacy.pdf#02"
+          ]
+        },
+        {
+          "id": "RET-05",
+          "category": "exact_identifier",
+          "version_sensitive": false,
+          "first_relevant_rank": 4,
+          "hit_at_1": false,
+          "hit_at_3": false,
+          "hit_at_5": true,
+          "reciprocal_rank_at_5": 0.25,
+          "legacy_in_top_3": false,
+          "top_5_chunk_ids": [
+            "SPEC-FIN-014_v1.3_sales_revenue_region_channel.pdf#01",
+            "GUIDE-PBI-002_v1.3_gross_margin_dashboard.docx#01",
+            "SPEC-FIN-021_v1.1_active_customers_by_country.pdf#01",
+            "RUNBOOK-DQ-007_great_expectations_checks.html#00",
+            "SPEC-FIN-021_v1.1_active_customers_by_country.pdf#02"
+          ]
+        },
+        {
+          "id": "RET-06",
+          "category": "exact_identifier",
+          "version_sensitive": false,
+          "first_relevant_rank": null,
+          "hit_at_1": false,
+          "hit_at_3": false,
+          "hit_at_5": false,
+          "reciprocal_rank_at_5": 0.0,
+          "legacy_in_top_3": true,
+          "top_5_chunk_ids": [
+            "SPEC-FIN-030_v1.3_gross_margin_rules.pdf#00",
+            "SPEC-FIN-030_v1.0_gross_margin_rules_legacy.pdf#02",
+            "SPEC-FIN-030_v1.0_gross_margin_rules_legacy.pdf#00",
+            "SPEC-FIN-030_v1.3_gross_margin_rules.pdf#03",
+            "SPEC-FIN-030_v1.3_gross_margin_rules.pdf#02"
+          ]
+        },
+        {
+          "id": "RET-07",
+          "category": "exact_identifier",
+          "version_sensitive": false,
+          "first_relevant_rank": null,
+          "hit_at_1": false,
+          "hit_at_3": false,
+          "hit_at_5": false,
+          "reciprocal_rank_at_5": 0.0,
+          "legacy_in_top_3": false,
+          "top_5_chunk_ids": [
+            "ADR-003_soft_delete_and_intercompany_flags.md#00",
+            "LINEAGE-CAT-001_sap_cds_to_databricks_matrix.html#00",
+            "SPEC-FIN-030_v1.3_gross_margin_rules.pdf#01",
+            "SPEC-REV-019_v1.1_deferred_revenue_recognition.pdf#00",
+            "SPEC-OPS-007_v2.0_daily_inventory_by_plant.pdf#00"
+          ]
+        },
+        {
+          "id": "RET-08",
+          "category": "kpi_table_lookup",
+          "version_sensitive": false,
+          "first_relevant_rank": null,
+          "hit_at_1": false,
+          "hit_at_3": false,
+          "hit_at_5": false,
+          "reciprocal_rank_at_5": 0.0,
+          "legacy_in_top_3": false,
+          "top_5_chunk_ids": [
+            "ADR-003_soft_delete_and_intercompany_flags.md#00",
+            "SPEC-FIN-030_v1.3_gross_margin_rules.pdf#01",
+            "SPEC-REV-019_v1.1_deferred_revenue_recognition.pdf#00",
+            "SPEC-OPS-011_v1.2_order_fulfillment_otif.pdf#00",
+            "SPEC-REV-012_v1.4_net_revenue_waterfall.pdf#00"
+          ]
+        },
+        {
+          "id": "RET-09",
+          "category": "kpi_table_lookup",
+          "version_sensitive": false,
+          "first_relevant_rank": 1,
+          "hit_at_1": true,
+          "hit_at_3": true,
+          "hit_at_5": true,
+          "reciprocal_rank_at_5": 1.0,
+          "legacy_in_top_3": false,
+          "top_5_chunk_ids": [
+            "SPEC-OPS-011_v1.2_order_fulfillment_otif.pdf#01",
+            "SPEC-OPS-011_v1.2_order_fulfillment_otif.pdf#00",
+            "SPEC-FIN-030_v1.3_gross_margin_rules.pdf#02",
+            "RELEASE-NOTES-2025-Q1_reporting_platform.md#01",
+            "SPEC-FIN-030_v1.3_gross_margin_rules.pdf#03"
+          ]
+        },
+        {
+          "id": "RET-10",
+          "category": "kpi_table_lookup",
+          "version_sensitive": false,
+          "first_relevant_rank": 2,
+          "hit_at_1": false,
+          "hit_at_3": true,
+          "hit_at_5": true,
+          "reciprocal_rank_at_5": 0.5,
+          "legacy_in_top_3": true,
+          "top_5_chunk_ids": [
+            "PLAYBOOK-SLA-003_v1.2_incident_severity_month_close.docx#00",
+            "PLAYBOOK-SLA-003_v1.2_incident_severity_month_close.docx#01",
+            "SPEC-OPS-007_v1.0_daily_inventory_legacy.pdf#01",
+            "POL-DEP-001_v1.3_deployment_and_reconciliation_policy.docx#02",
+            "RUNBOOK-DBX-002_inventory_snapshot_wh.html#00"
+          ]
+        },
+        {
+          "id": "RET-11",
+          "category": "kpi_table_lookup",
+          "version_sensitive": false,
+          "first_relevant_rank": 2,
+          "hit_at_1": false,
+          "hit_at_3": true,
+          "hit_at_5": true,
+          "reciprocal_rank_at_5": 0.5,
+          "legacy_in_top_3": false,
+          "top_5_chunk_ids": [
+            "RUNBOOK-DBX-001_sap_sales_orders_ingest.html#02",
+            "RUNBOOK-DBX-002_inventory_snapshot_wh.html#01",
+            "SPEC-OPS-007_v2.0_daily_inventory_by_plant.pdf#02",
+            "RUNBOOK-DBX-001_sap_sales_orders_ingest.html#00",
+            "RUNBOOK-DBX-001_sap_sales_orders_ingest.html#01"
+          ]
+        },
+        {
+          "id": "RET-12",
+          "category": "versioned_spec",
+          "version_sensitive": true,
+          "first_relevant_rank": 3,
+          "hit_at_1": false,
+          "hit_at_3": true,
+          "hit_at_5": true,
+          "reciprocal_rank_at_5": 0.3333,
+          "legacy_in_top_3": false,
+          "top_5_chunk_ids": [
+            "RUNBOOK-DBX-001_sap_sales_orders_ingest.html#01",
+            "SPEC-FIN-014_v1.3_sales_revenue_region_channel.pdf#03",
+            "SPEC-FIN-030_v1.3_gross_margin_rules.pdf#01",
+            "RUNBOOK-DBX-004_profit_center_revenue_cogs.html#00",
+            "SPEC-FIN-030_v1.0_gross_margin_rules_legacy.pdf#01"
+          ]
+        },
+        {
+          "id": "RET-13",
+          "category": "versioned_spec",
+          "version_sensitive": true,
+          "first_relevant_rank": 1,
+          "hit_at_1": true,
+          "hit_at_3": true,
+          "hit_at_5": true,
+          "reciprocal_rank_at_5": 1.0,
+          "legacy_in_top_3": true,
+          "top_5_chunk_ids": [
+            "SPEC-FIN-041_v1.2_fx_conversion_timing_rates.pdf#00",
+            "SPEC-FIN-041_v1.0_fx_conversion_legacy.pdf#01",
+            "SPEC-FIN-041_v1.0_fx_conversion_legacy.pdf#00",
+            "SPEC-FIN-041_v1.2_fx_conversion_timing_rates.pdf#01",
+            "GUIDE-PBI-003_v1.2_fx_revenue_and_customers.docx#00"
+          ]
+        },
+        {
+          "id": "RET-14",
+          "category": "versioned_spec",
+          "version_sensitive": true,
+          "first_relevant_rank": null,
+          "hit_at_1": false,
+          "hit_at_3": false,
+          "hit_at_5": false,
+          "reciprocal_rank_at_5": 0.0,
+          "legacy_in_top_3": true,
+          "top_5_chunk_ids": [
+            "SPEC-OPS-007_v1.0_daily_inventory_legacy.pdf#01",
+            "RUNBOOK-DBX-002_inventory_snapshot_wh.html#00",
+            "SPEC-OPS-011_v1.2_order_fulfillment_otif.pdf#01",
+            "SPEC-OPS-007_v1.0_daily_inventory_legacy.pdf#00",
+            "SPEC-OPS-011_v1.2_order_fulfillment_otif.pdf#00"
+          ]
+        },
+        {
+          "id": "RET-15",
+          "category": "versioned_spec",
+          "version_sensitive": true,
+          "first_relevant_rank": 1,
+          "hit_at_1": true,
+          "hit_at_3": true,
+          "hit_at_5": true,
+          "reciprocal_rank_at_5": 1.0,
+          "legacy_in_top_3": true,
+          "top_5_chunk_ids": [
+            "POL-DEP-001_v1.3_deployment_and_reconciliation_policy.docx#00",
+            "POL-DEP-001_v1.0_deployment_policy_legacy.docx#00",
+            "POL-DEP-001_v1.0_deployment_policy_legacy.docx#01",
+            "POL-DEP-001_v1.3_deployment_and_reconciliation_policy.docx#01",
+            "SPEC-FIN-030_v1.3_gross_margin_rules.pdf#03"
+          ]
+        }
+      ]
+    },
+    {
+      "config_name": "bm25_only",
+      "mode": "bm25",
+      "only_latest": false,
+      "total_queries": 15,
+      "recall_at_1": 0.8,
+      "recall_at_3": 1.0,
+      "recall_at_5": 1.0,
+      "mrr_at_5": 0.8889,
+      "version_sensitive_queries": 4,
+      "version_sensitive_recall_at_1": 0.5,
+      "version_sensitive_mrr_at_5": 0.7083,
+      "version_sensitive_legacy_top3_rate": 1.0,
+      "per_query": [
+        {
+          "id": "RET-01",
+          "category": "semantic_paraphrase",
+          "version_sensitive": false,
+          "first_relevant_rank": 1,
+          "hit_at_1": true,
+          "hit_at_3": true,
+          "hit_at_5": true,
+          "reciprocal_rank_at_5": 1.0,
+          "legacy_in_top_3": false,
+          "top_5_chunk_ids": [
+            "GLOSSARY-001_analytics_reporting_terms.md#01",
+            "GUIDE-PBI-002_v1.3_gross_margin_dashboard.docx#01",
+            "FAQ-ANALYSTS-001_common_fiori_vs_pbi_questions.md#00",
+            "FAQ-ANALYSTS-001_common_fiori_vs_pbi_questions.md#01",
+            "GUIDE-PBI-001_v1.5_sales_overview_dashboard.docx#01"
+          ]
+        },
+        {
+          "id": "RET-02",
+          "category": "semantic_paraphrase",
+          "version_sensitive": false,
+          "first_relevant_rank": 2,
+          "hit_at_1": false,
+          "hit_at_3": true,
+          "hit_at_5": true,
+          "reciprocal_rank_at_5": 0.5,
+          "legacy_in_top_3": false,
+          "top_5_chunk_ids": [
+            "GUIDE-PBI-002_v1.3_gross_margin_dashboard.docx#00",
+            "ADR-001_semantic_model_parent_child_split.md#00",
+            "RUNBOOK-PBI-006_gateway_and_dataset_refresh.html#01",
+            "PLAYBOOK-RECON-002_v1.4_sap_dbx_pbi_reconciliation.docx#01",
+            "GUIDE-PBI-001_v1.5_sales_overview_dashboard.docx#00"
+          ]
+        },
+        {
+          "id": "RET-03",
+          "category": "semantic_paraphrase",
+          "version_sensitive": false,
+          "first_relevant_rank": 1,
+          "hit_at_1": true,
+          "hit_at_3": true,
+          "hit_at_5": true,
+          "reciprocal_rank_at_5": 1.0,
+          "legacy_in_top_3": false,
+          "top_5_chunk_ids": [
+            "GUIDE-PBI-003_v1.2_fx_revenue_and_customers.docx#00",
+            "FAQ-ANALYSTS-001_common_fiori_vs_pbi_questions.md#01",
+            "FAQ-ANALYSTS-001_common_fiori_vs_pbi_questions.md#00",
+            "SPEC-FIN-014_v1.3_sales_revenue_region_channel.pdf#03",
+            "RUNBOOK-PBI-006_gateway_and_dataset_refresh.html#00"
+          ]
+        },
+        {
+          "id": "RET-04",
+          "category": "exact_identifier",
+          "version_sensitive": false,
+          "first_relevant_rank": 1,
+          "hit_at_1": true,
+          "hit_at_3": true,
+          "hit_at_5": true,
+          "reciprocal_rank_at_5": 1.0,
+          "legacy_in_top_3": false,
+          "top_5_chunk_ids": [
+            "RUNBOOK-PBI-006_gateway_and_dataset_refresh.html#01",
+            "PLAYBOOK-SLA-003_v1.2_incident_severity_month_close.docx#01",
+            "RUNBOOK-PBI-006_gateway_and_dataset_refresh.html#00",
+            "GLOSSARY-001_analytics_reporting_terms.md#01",
+            "PLAYBOOK-RECON-002_v1.4_sap_dbx_pbi_reconciliation.docx#01"
+          ]
+        },
+        {
+          "id": "RET-05",
+          "category": "exact_identifier",
+          "version_sensitive": false,
+          "first_relevant_rank": 1,
+          "hit_at_1": true,
+          "hit_at_3": true,
+          "hit_at_5": true,
+          "reciprocal_rank_at_5": 1.0,
+          "legacy_in_top_3": false,
+          "top_5_chunk_ids": [
+            "RUNBOOK-DQ-007_great_expectations_checks.html#00",
+            "INCIDENT-POSTMORTEM-001_march_sales_discrepancy.html#01",
+            "SPEC-FIN-014_v1.3_sales_revenue_region_channel.pdf#02",
+            "RUNBOOK-DBX-001_sap_sales_orders_ingest.html#02",
+            "SPEC-FIN-014_v1.3_sales_revenue_region_channel.pdf#00"
+          ]
+        },
+        {
+          "id": "RET-06",
+          "category": "exact_identifier",
+          "version_sensitive": false,
+          "first_relevant_rank": 1,
+          "hit_at_1": true,
+          "hit_at_3": true,
+          "hit_at_5": true,
+          "reciprocal_rank_at_5": 1.0,
+          "legacy_in_top_3": false,
+          "top_5_chunk_ids": [
+            "RUNBOOK-DBX-004_profit_center_revenue_cogs.html#00",
+            "SPEC-FIN-030_v1.3_gross_margin_rules.pdf#00",
+            "SPEC-FIN-030_v1.3_gross_margin_rules.pdf#01",
+            "SPEC-FIN-030_v1.3_gross_margin_rules.pdf#02",
+            "SPEC-FIN-030_v1.0_gross_margin_rules_legacy.pdf#01"
+          ]
+        },
+        {
+          "id": "RET-07",
+          "category": "exact_identifier",
+          "version_sensitive": false,
+          "first_relevant_rank": 1,
+          "hit_at_1": true,
+          "hit_at_3": true,
+          "hit_at_5": true,
+          "reciprocal_rank_at_5": 1.0,
+          "legacy_in_top_3": false,
+          "top_5_chunk_ids": [
+            "RUNBOOK-DBX-003_customer_master_scd2.html#00",
+            "SPEC-FIN-021_v1.1_active_customers_by_country.pdf#00",
+            "SPEC-FIN-021_v1.1_active_customers_by_country.pdf#02",
+            "ADR-003_soft_delete_and_intercompany_flags.md#00",
+            "SPEC-FIN-021_v1.1_active_customers_by_country.pdf#01"
+          ]
+        },
+        {
+          "id": "RET-08",
+          "category": "kpi_table_lookup",
+          "version_sensitive": false,
+          "first_relevant_rank": 1,
+          "hit_at_1": true,
+          "hit_at_3": true,
+          "hit_at_5": true,
+          "reciprocal_rank_at_5": 1.0,
+          "legacy_in_top_3": false,
+          "top_5_chunk_ids": [
+            "SPEC-REV-012_v1.4_net_revenue_waterfall.pdf#01",
+            "SPEC-REV-012_v1.4_net_revenue_waterfall.pdf#00",
+            "SPEC-REV-019_v1.1_deferred_revenue_recognition.pdf#00",
+            "SPEC-OPS-011_v1.2_order_fulfillment_otif.pdf#00",
+            "ADR-003_soft_delete_and_intercompany_flags.md#00"
+          ]
+        },
+        {
+          "id": "RET-09",
+          "category": "kpi_table_lookup",
+          "version_sensitive": false,
+          "first_relevant_rank": 1,
+          "hit_at_1": true,
+          "hit_at_3": true,
+          "hit_at_5": true,
+          "reciprocal_rank_at_5": 1.0,
+          "legacy_in_top_3": false,
+          "top_5_chunk_ids": [
+            "SPEC-OPS-011_v1.2_order_fulfillment_otif.pdf#01",
+            "SPEC-OPS-011_v1.2_order_fulfillment_otif.pdf#00",
+            "RUNBOOK-DBX-002_inventory_snapshot_wh.html#00",
+            "SPEC-FIN-030_v1.3_gross_margin_rules.pdf#02",
+            "ADR-002_single_fx_conversion_in_databricks.md#00"
+          ]
+        },
+        {
+          "id": "RET-10",
+          "category": "kpi_table_lookup",
+          "version_sensitive": false,
+          "first_relevant_rank": 1,
+          "hit_at_1": true,
+          "hit_at_3": true,
+          "hit_at_5": true,
+          "reciprocal_rank_at_5": 1.0,
+          "legacy_in_top_3": false,
+          "top_5_chunk_ids": [
+            "PLAYBOOK-SLA-003_v1.2_incident_severity_month_close.docx#01",
+            "PLAYBOOK-SLA-003_v1.2_incident_severity_month_close.docx#00",
+            "INCIDENT-POSTMORTEM-002_fx_double_conversion.html#01",
+            "POL-DEP-001_v1.3_deployment_and_reconciliation_policy.docx#00",
+            "INCIDENT-POSTMORTEM-002_fx_double_conversion.html#00"
+          ]
+        },
+        {
+          "id": "RET-11",
+          "category": "kpi_table_lookup",
+          "version_sensitive": false,
+          "first_relevant_rank": 1,
+          "hit_at_1": true,
+          "hit_at_3": true,
+          "hit_at_5": true,
+          "reciprocal_rank_at_5": 1.0,
+          "legacy_in_top_3": false,
+          "top_5_chunk_ids": [
+            "RUNBOOK-DBX-002_inventory_snapshot_wh.html#01",
+            "RUNBOOK-DBX-002_inventory_snapshot_wh.html#00",
+            "RUNBOOK-DBX-001_sap_sales_orders_ingest.html#02",
+            "SPEC-OPS-007_v2.0_daily_inventory_by_plant.pdf#01",
+            "SPEC-OPS-007_v2.0_daily_inventory_by_plant.pdf#02"
+          ]
+        },
+        {
+          "id": "RET-12",
+          "category": "versioned_spec",
+          "version_sensitive": true,
+          "first_relevant_rank": 1,
+          "hit_at_1": true,
+          "hit_at_3": true,
+          "hit_at_5": true,
+          "reciprocal_rank_at_5": 1.0,
+          "legacy_in_top_3": true,
+          "top_5_chunk_ids": [
+            "SPEC-FIN-030_v1.3_gross_margin_rules.pdf#01",
+            "SPEC-FIN-030_v1.0_gross_margin_rules_legacy.pdf#01",
+            "RUNBOOK-DBX-004_profit_center_revenue_cogs.html#00",
+            "SPEC-FIN-030_v1.0_gross_margin_rules_legacy.pdf#02",
+            "RELEASE-NOTES-2025-Q1_reporting_platform.md#01"
+          ]
+        },
+        {
+          "id": "RET-13",
+          "category": "versioned_spec",
+          "version_sensitive": true,
+          "first_relevant_rank": 1,
+          "hit_at_1": true,
+          "hit_at_3": true,
+          "hit_at_5": true,
+          "reciprocal_rank_at_5": 1.0,
+          "legacy_in_top_3": true,
+          "top_5_chunk_ids": [
+            "SPEC-FIN-041_v1.2_fx_conversion_timing_rates.pdf#00",
+            "SPEC-FIN-041_v1.0_fx_conversion_legacy.pdf#01",
+            "RUNBOOK-DBX-005_fx_rates_and_payments.html#00",
+            "ADR-002_single_fx_conversion_in_databricks.md#00",
+            "GUIDE-PBI-003_v1.2_fx_revenue_and_customers.docx#00"
+          ]
+        },
+        {
+          "id": "RET-14",
+          "category": "versioned_spec",
+          "version_sensitive": true,
+          "first_relevant_rank": 3,
+          "hit_at_1": false,
+          "hit_at_3": true,
+          "hit_at_5": true,
+          "reciprocal_rank_at_5": 0.3333,
+          "legacy_in_top_3": true,
+          "top_5_chunk_ids": [
+            "SPEC-OPS-007_v1.0_daily_inventory_legacy.pdf#01",
+            "SPEC-OPS-007_v1.0_daily_inventory_legacy.pdf#00",
+            "SPEC-OPS-007_v2.0_daily_inventory_by_plant.pdf#00",
+            "RUNBOOK-DBX-002_inventory_snapshot_wh.html#00",
+            "SPEC-OPS-007_v2.0_daily_inventory_by_plant.pdf#01"
+          ]
+        },
+        {
+          "id": "RET-15",
+          "category": "versioned_spec",
+          "version_sensitive": true,
+          "first_relevant_rank": 2,
+          "hit_at_1": false,
+          "hit_at_3": true,
+          "hit_at_5": true,
+          "reciprocal_rank_at_5": 0.5,
+          "legacy_in_top_3": true,
+          "top_5_chunk_ids": [
+            "POL-DEP-001_v1.0_deployment_policy_legacy.docx#00",
+            "POL-DEP-001_v1.3_deployment_and_reconciliation_policy.docx#00",
+            "INCIDENT-POSTMORTEM-002_fx_double_conversion.html#01",
+            "POL-DEP-001_v1.3_deployment_and_reconciliation_policy.docx#02",
+            "POL-DEP-001_v1.0_deployment_policy_legacy.docx#01"
+          ]
+        }
+      ]
+    },
+    {
+      "config_name": "hybrid_rrf",
+      "mode": "hybrid",
+      "only_latest": false,
+      "total_queries": 15,
+      "recall_at_1": 0.5333,
+      "recall_at_3": 0.6667,
+      "recall_at_5": 1.0,
+      "mrr_at_5": 0.68,
+      "version_sensitive_queries": 4,
+      "version_sensitive_recall_at_1": 0.5,
+      "version_sensitive_mrr_at_5": 0.6875,
+      "version_sensitive_legacy_top3_rate": 1.0,
+      "per_query": [
+        {
+          "id": "RET-01",
+          "category": "semantic_paraphrase",
+          "version_sensitive": false,
+          "first_relevant_rank": 1,
+          "hit_at_1": true,
+          "hit_at_3": true,
+          "hit_at_5": true,
+          "reciprocal_rank_at_5": 1.0,
+          "legacy_in_top_3": false,
+          "top_5_chunk_ids": [
+            "GUIDE-PBI-002_v1.3_gross_margin_dashboard.docx#01",
+            "GLOSSARY-001_analytics_reporting_terms.md#01",
+            "FAQ-ANALYSTS-001_common_fiori_vs_pbi_questions.md#00",
+            "LINEAGE-CAT-001_sap_cds_to_databricks_matrix.html#00",
+            "SPEC-FIN-021_v1.1_active_customers_by_country.pdf#01"
+          ]
+        },
+        {
+          "id": "RET-02",
+          "category": "semantic_paraphrase",
+          "version_sensitive": false,
+          "first_relevant_rank": 4,
+          "hit_at_1": false,
+          "hit_at_3": false,
+          "hit_at_5": true,
+          "reciprocal_rank_at_5": 0.25,
+          "legacy_in_top_3": false,
+          "top_5_chunk_ids": [
+            "SPEC-FIN-030_v1.3_gross_margin_rules.pdf#03",
+            "GUIDE-PBI-002_v1.3_gross_margin_dashboard.docx#00",
+            "SPEC-FIN-014_v1.3_sales_revenue_region_channel.pdf#01",
+            "ADR-001_semantic_model_parent_child_split.md#00",
+            "GUIDE-PBI-002_v1.3_gross_margin_dashboard.docx#01"
+          ]
+        },
+        {
+          "id": "RET-03",
+          "category": "semantic_paraphrase",
+          "version_sensitive": false,
+          "first_relevant_rank": 1,
+          "hit_at_1": true,
+          "hit_at_3": true,
+          "hit_at_5": true,
+          "reciprocal_rank_at_5": 1.0,
+          "legacy_in_top_3": false,
+          "top_5_chunk_ids": [
+            "FAQ-ANALYSTS-001_common_fiori_vs_pbi_questions.md#01",
+            "GUIDE-PBI-003_v1.2_fx_revenue_and_customers.docx#00",
+            "SPEC-FIN-014_v1.3_sales_revenue_region_channel.pdf#03",
+            "FAQ-ANALYSTS-001_common_fiori_vs_pbi_questions.md#00",
+            "SPEC-FIN-030_v1.3_gross_margin_rules.pdf#01"
+          ]
+        },
+        {
+          "id": "RET-04",
+          "category": "exact_identifier",
+          "version_sensitive": false,
+          "first_relevant_rank": 1,
+          "hit_at_1": true,
+          "hit_at_3": true,
+          "hit_at_5": true,
+          "reciprocal_rank_at_5": 1.0,
+          "legacy_in_top_3": false,
+          "top_5_chunk_ids": [
+            "RUNBOOK-PBI-006_gateway_and_dataset_refresh.html#01",
+            "RUNBOOK-DQ-007_great_expectations_checks.html#00",
+            "ADR-003_soft_delete_and_intercompany_flags.md#00",
+            "RUNBOOK-DBX-003_customer_master_scd2.html#00",
+            "PLAYBOOK-SLA-003_v1.2_incident_severity_month_close.docx#01"
+          ]
+        },
+        {
+          "id": "RET-05",
+          "category": "exact_identifier",
+          "version_sensitive": false,
+          "first_relevant_rank": 1,
+          "hit_at_1": true,
+          "hit_at_3": true,
+          "hit_at_5": true,
+          "reciprocal_rank_at_5": 1.0,
+          "legacy_in_top_3": false,
+          "top_5_chunk_ids": [
+            "RUNBOOK-DQ-007_great_expectations_checks.html#00",
+            "RUNBOOK-DBX-001_sap_sales_orders_ingest.html#02",
+            "SPEC-FIN-014_v1.3_sales_revenue_region_channel.pdf#01",
+            "GUIDE-PBI-002_v1.3_gross_margin_dashboard.docx#01",
+            "INCIDENT-POSTMORTEM-001_march_sales_discrepancy.html#01"
+          ]
+        },
+        {
+          "id": "RET-06",
+          "category": "exact_identifier",
+          "version_sensitive": false,
+          "first_relevant_rank": 4,
+          "hit_at_1": false,
+          "hit_at_3": false,
+          "hit_at_5": true,
+          "reciprocal_rank_at_5": 0.25,
+          "legacy_in_top_3": true,
+          "top_5_chunk_ids": [
+            "SPEC-FIN-030_v1.3_gross_margin_rules.pdf#00",
+            "SPEC-FIN-030_v1.0_gross_margin_rules_legacy.pdf#02",
+            "SPEC-FIN-030_v1.3_gross_margin_rules.pdf#02",
+            "RUNBOOK-DBX-004_profit_center_revenue_cogs.html#00",
+            "SPEC-FIN-030_v1.0_gross_margin_rules_legacy.pdf#01"
+          ]
+        },
+        {
+          "id": "RET-07",
+          "category": "exact_identifier",
+          "version_sensitive": false,
+          "first_relevant_rank": 4,
+          "hit_at_1": false,
+          "hit_at_3": false,
+          "hit_at_5": true,
+          "reciprocal_rank_at_5": 0.25,
+          "legacy_in_top_3": false,
+          "top_5_chunk_ids": [
+            "ADR-003_soft_delete_and_intercompany_flags.md#00",
+            "RUNBOOK-DBX-001_sap_sales_orders_ingest.html#00",
+            "LINEAGE-CAT-001_sap_cds_to_databricks_matrix.html#01",
+            "RUNBOOK-DBX-003_customer_master_scd2.html#00",
+            "LINEAGE-CAT-001_sap_cds_to_databricks_matrix.html#00"
+          ]
+        },
+        {
+          "id": "RET-08",
+          "category": "kpi_table_lookup",
+          "version_sensitive": false,
+          "first_relevant_rank": 5,
+          "hit_at_1": false,
+          "hit_at_3": false,
+          "hit_at_5": true,
+          "reciprocal_rank_at_5": 0.2,
+          "legacy_in_top_3": false,
+          "top_5_chunk_ids": [
+            "ADR-003_soft_delete_and_intercompany_flags.md#00",
+            "SPEC-REV-019_v1.1_deferred_revenue_recognition.pdf#00",
+            "SPEC-REV-012_v1.4_net_revenue_waterfall.pdf#00",
+            "SPEC-OPS-011_v1.2_order_fulfillment_otif.pdf#00",
+            "SPEC-REV-012_v1.4_net_revenue_waterfall.pdf#01"
+          ]
+        },
+        {
+          "id": "RET-09",
+          "category": "kpi_table_lookup",
+          "version_sensitive": false,
+          "first_relevant_rank": 1,
+          "hit_at_1": true,
+          "hit_at_3": true,
+          "hit_at_5": true,
+          "reciprocal_rank_at_5": 1.0,
+          "legacy_in_top_3": false,
+          "top_5_chunk_ids": [
+            "SPEC-OPS-011_v1.2_order_fulfillment_otif.pdf#01",
+            "SPEC-OPS-011_v1.2_order_fulfillment_otif.pdf#00",
+            "SPEC-FIN-030_v1.3_gross_margin_rules.pdf#02",
+            "RELEASE-NOTES-2025-Q1_reporting_platform.md#01",
+            "SPEC-FIN-030_v1.3_gross_margin_rules.pdf#00"
+          ]
+        },
+        {
+          "id": "RET-10",
+          "category": "kpi_table_lookup",
+          "version_sensitive": false,
+          "first_relevant_rank": 2,
+          "hit_at_1": false,
+          "hit_at_3": true,
+          "hit_at_5": true,
+          "reciprocal_rank_at_5": 0.5,
+          "legacy_in_top_3": false,
+          "top_5_chunk_ids": [
+            "PLAYBOOK-SLA-003_v1.2_incident_severity_month_close.docx#00",
+            "PLAYBOOK-SLA-003_v1.2_incident_severity_month_close.docx#01",
+            "INCIDENT-POSTMORTEM-002_fx_double_conversion.html#01",
+            "SPEC-OPS-007_v1.0_daily_inventory_legacy.pdf#01",
+            "POL-DEP-001_v1.3_deployment_and_reconciliation_policy.docx#00"
+          ]
+        },
+        {
+          "id": "RET-11",
+          "category": "kpi_table_lookup",
+          "version_sensitive": false,
+          "first_relevant_rank": 1,
+          "hit_at_1": true,
+          "hit_at_3": true,
+          "hit_at_5": true,
+          "reciprocal_rank_at_5": 1.0,
+          "legacy_in_top_3": false,
+          "top_5_chunk_ids": [
+            "RUNBOOK-DBX-002_inventory_snapshot_wh.html#01",
+            "RUNBOOK-DBX-001_sap_sales_orders_ingest.html#02",
+            "SPEC-OPS-007_v2.0_daily_inventory_by_plant.pdf#02",
+            "RUNBOOK-DBX-002_inventory_snapshot_wh.html#00",
+            "RUNBOOK-DQ-007_great_expectations_checks.html#00"
+          ]
+        },
+        {
+          "id": "RET-12",
+          "category": "versioned_spec",
+          "version_sensitive": true,
+          "first_relevant_rank": 1,
+          "hit_at_1": true,
+          "hit_at_3": true,
+          "hit_at_5": true,
+          "reciprocal_rank_at_5": 1.0,
+          "legacy_in_top_3": true,
+          "top_5_chunk_ids": [
+            "SPEC-FIN-030_v1.3_gross_margin_rules.pdf#01",
+            "SPEC-FIN-030_v1.0_gross_margin_rules_legacy.pdf#01",
+            "RUNBOOK-DBX-004_profit_center_revenue_cogs.html#00",
+            "SPEC-FIN-030_v1.0_gross_margin_rules_legacy.pdf#02",
+            "SPEC-REV-012_v1.4_net_revenue_waterfall.pdf#00"
+          ]
+        },
+        {
+          "id": "RET-13",
+          "category": "versioned_spec",
+          "version_sensitive": true,
+          "first_relevant_rank": 1,
+          "hit_at_1": true,
+          "hit_at_3": true,
+          "hit_at_5": true,
+          "reciprocal_rank_at_5": 1.0,
+          "legacy_in_top_3": true,
+          "top_5_chunk_ids": [
+            "SPEC-FIN-041_v1.2_fx_conversion_timing_rates.pdf#00",
+            "SPEC-FIN-041_v1.0_fx_conversion_legacy.pdf#01",
+            "RUNBOOK-DBX-005_fx_rates_and_payments.html#00",
+            "SPEC-FIN-041_v1.0_fx_conversion_legacy.pdf#00",
+            "GUIDE-PBI-003_v1.2_fx_revenue_and_customers.docx#00"
+          ]
+        },
+        {
+          "id": "RET-14",
+          "category": "versioned_spec",
+          "version_sensitive": true,
+          "first_relevant_rank": 4,
+          "hit_at_1": false,
+          "hit_at_3": false,
+          "hit_at_5": true,
+          "reciprocal_rank_at_5": 0.25,
+          "legacy_in_top_3": true,
+          "top_5_chunk_ids": [
+            "SPEC-OPS-007_v1.0_daily_inventory_legacy.pdf#01",
+            "RUNBOOK-DBX-002_inventory_snapshot_wh.html#00",
+            "SPEC-OPS-007_v1.0_daily_inventory_legacy.pdf#00",
+            "SPEC-OPS-007_v2.0_daily_inventory_by_plant.pdf#00",
+            "SPEC-OPS-011_v1.2_order_fulfillment_otif.pdf#01"
+          ]
+        },
+        {
+          "id": "RET-15",
+          "category": "versioned_spec",
+          "version_sensitive": true,
+          "first_relevant_rank": 2,
+          "hit_at_1": false,
+          "hit_at_3": true,
+          "hit_at_5": true,
+          "reciprocal_rank_at_5": 0.5,
+          "legacy_in_top_3": true,
+          "top_5_chunk_ids": [
+            "POL-DEP-001_v1.0_deployment_policy_legacy.docx#00",
+            "POL-DEP-001_v1.3_deployment_and_reconciliation_policy.docx#00",
+            "POL-DEP-001_v1.0_deployment_policy_legacy.docx#01",
+            "POL-DEP-001_v1.3_deployment_and_reconciliation_policy.docx#01",
+            "POL-DEP-001_v1.3_deployment_and_reconciliation_policy.docx#02"
+          ]
+        }
+      ]
+    },
+    {
+      "config_name": "hybrid_rrf_rerank",
+      "mode": "hybrid_rerank",
+      "only_latest": false,
+      "total_queries": 15,
+      "recall_at_1": 0.8667,
+      "recall_at_3": 1.0,
+      "recall_at_5": 1.0,
+      "mrr_at_5": 0.9333,
+      "version_sensitive_queries": 4,
+      "version_sensitive_recall_at_1": 0.5,
+      "version_sensitive_mrr_at_5": 0.75,
+      "version_sensitive_legacy_top3_rate": 0.75,
+      "per_query": [
+        {
+          "id": "RET-01",
+          "category": "semantic_paraphrase",
+          "version_sensitive": false,
+          "first_relevant_rank": 1,
+          "hit_at_1": true,
+          "hit_at_3": true,
+          "hit_at_5": true,
+          "reciprocal_rank_at_5": 1.0,
+          "legacy_in_top_3": false,
+          "top_5_chunk_ids": [
+            "GLOSSARY-001_analytics_reporting_terms.md#01",
+            "RUNBOOK-DQ-007_great_expectations_checks.html#00",
+            "GUIDE-PBI-002_v1.3_gross_margin_dashboard.docx#01",
+            "SPEC-FIN-021_v1.1_active_customers_by_country.pdf#02",
+            "RUNBOOK-DBX-003_customer_master_scd2.html#00"
+          ]
+        },
+        {
+          "id": "RET-02",
+          "category": "semantic_paraphrase",
+          "version_sensitive": false,
+          "first_relevant_rank": 1,
+          "hit_at_1": true,
+          "hit_at_3": true,
+          "hit_at_5": true,
+          "reciprocal_rank_at_5": 1.0,
+          "legacy_in_top_3": false,
+          "top_5_chunk_ids": [
+            "ADR-001_semantic_model_parent_child_split.md#00",
+            "PLAYBOOK-RECON-002_v1.4_sap_dbx_pbi_reconciliation.docx#01",
+            "GUIDE-PBI-001_v1.5_sales_overview_dashboard.docx#00",
+            "GUIDE-PBI-002_v1.3_gross_margin_dashboard.docx#00",
+            "GUIDE-PBI-002_v1.3_gross_margin_dashboard.docx#01"
+          ]
+        },
+        {
+          "id": "RET-03",
+          "category": "semantic_paraphrase",
+          "version_sensitive": false,
+          "first_relevant_rank": 1,
+          "hit_at_1": true,
+          "hit_at_3": true,
+          "hit_at_5": true,
+          "reciprocal_rank_at_5": 1.0,
+          "legacy_in_top_3": false,
+          "top_5_chunk_ids": [
+            "GUIDE-PBI-003_v1.2_fx_revenue_and_customers.docx#00",
+            "FAQ-ANALYSTS-001_common_fiori_vs_pbi_questions.md#01",
+            "SPEC-FIN-014_v1.3_sales_revenue_region_channel.pdf#03",
+            "FAQ-ANALYSTS-001_common_fiori_vs_pbi_questions.md#00",
+            "ADR-002_single_fx_conversion_in_databricks.md#00"
+          ]
+        },
+        {
+          "id": "RET-04",
+          "category": "exact_identifier",
+          "version_sensitive": false,
+          "first_relevant_rank": 1,
+          "hit_at_1": true,
+          "hit_at_3": true,
+          "hit_at_5": true,
+          "reciprocal_rank_at_5": 1.0,
+          "legacy_in_top_3": false,
+          "top_5_chunk_ids": [
+            "RUNBOOK-PBI-006_gateway_and_dataset_refresh.html#01",
+            "RUNBOOK-DBX-002_inventory_snapshot_wh.html#01",
+            "RUNBOOK-DQ-007_great_expectations_checks.html#00",
+            "RUNBOOK-PBI-006_gateway_and_dataset_refresh.html#00",
+            "PLAYBOOK-RECON-002_v1.4_sap_dbx_pbi_reconciliation.docx#01"
+          ]
+        },
+        {
+          "id": "RET-05",
+          "category": "exact_identifier",
+          "version_sensitive": false,
+          "first_relevant_rank": 1,
+          "hit_at_1": true,
+          "hit_at_3": true,
+          "hit_at_5": true,
+          "reciprocal_rank_at_5": 1.0,
+          "legacy_in_top_3": false,
+          "top_5_chunk_ids": [
+            "RUNBOOK-DQ-007_great_expectations_checks.html#00",
+            "INCIDENT-POSTMORTEM-001_march_sales_discrepancy.html#01",
+            "SPEC-FIN-014_v1.3_sales_revenue_region_channel.pdf#02",
+            "RUNBOOK-DBX-001_sap_sales_orders_ingest.html#02",
+            "SPEC-FIN-014_v1.3_sales_revenue_region_channel.pdf#01"
+          ]
+        },
+        {
+          "id": "RET-06",
+          "category": "exact_identifier",
+          "version_sensitive": false,
+          "first_relevant_rank": 1,
+          "hit_at_1": true,
+          "hit_at_3": true,
+          "hit_at_5": true,
+          "reciprocal_rank_at_5": 1.0,
+          "legacy_in_top_3": true,
+          "top_5_chunk_ids": [
+            "RUNBOOK-DBX-004_profit_center_revenue_cogs.html#00",
+            "SPEC-FIN-030_v1.3_gross_margin_rules.pdf#02",
+            "SPEC-FIN-030_v1.0_gross_margin_rules_legacy.pdf#02",
+            "SPEC-FIN-030_v1.0_gross_margin_rules_legacy.pdf#01",
+            "SPEC-FIN-030_v1.3_gross_margin_rules.pdf#00"
+          ]
+        },
+        {
+          "id": "RET-07",
+          "category": "exact_identifier",
+          "version_sensitive": false,
+          "first_relevant_rank": 1,
+          "hit_at_1": true,
+          "hit_at_3": true,
+          "hit_at_5": true,
+          "reciprocal_rank_at_5": 1.0,
+          "legacy_in_top_3": false,
+          "top_5_chunk_ids": [
+            "RUNBOOK-DBX-003_customer_master_scd2.html#00",
+            "ADR-003_soft_delete_and_intercompany_flags.md#00",
+            "SPEC-FIN-021_v1.1_active_customers_by_country.pdf#00",
+            "SPEC-FIN-021_v1.1_active_customers_by_country.pdf#02",
+            "SPEC-FIN-021_v1.1_active_customers_by_country.pdf#01"
+          ]
+        },
+        {
+          "id": "RET-08",
+          "category": "kpi_table_lookup",
+          "version_sensitive": false,
+          "first_relevant_rank": 1,
+          "hit_at_1": true,
+          "hit_at_3": true,
+          "hit_at_5": true,
+          "reciprocal_rank_at_5": 1.0,
+          "legacy_in_top_3": false,
+          "top_5_chunk_ids": [
+            "SPEC-REV-012_v1.4_net_revenue_waterfall.pdf#01",
+            "SPEC-REV-012_v1.4_net_revenue_waterfall.pdf#00",
+            "LINEAGE-CAT-001_sap_cds_to_databricks_matrix.html#01",
+            "LINEAGE-CAT-001_sap_cds_to_databricks_matrix.html#02",
+            "SPEC-REV-019_v1.1_deferred_revenue_recognition.pdf#00"
+          ]
+        },
+        {
+          "id": "RET-09",
+          "category": "kpi_table_lookup",
+          "version_sensitive": false,
+          "first_relevant_rank": 1,
+          "hit_at_1": true,
+          "hit_at_3": true,
+          "hit_at_5": true,
+          "reciprocal_rank_at_5": 1.0,
+          "legacy_in_top_3": false,
+          "top_5_chunk_ids": [
+            "SPEC-OPS-011_v1.2_order_fulfillment_otif.pdf#01",
+            "SPEC-OPS-011_v1.2_order_fulfillment_otif.pdf#00",
+            "RELEASE-NOTES-2025-Q1_reporting_platform.md#01",
+            "SPEC-FIN-030_v1.3_gross_margin_rules.pdf#02",
+            "PLAYBOOK-SLA-003_v1.2_incident_severity_month_close.docx#01"
+          ]
+        },
+        {
+          "id": "RET-10",
+          "category": "kpi_table_lookup",
+          "version_sensitive": false,
+          "first_relevant_rank": 1,
+          "hit_at_1": true,
+          "hit_at_3": true,
+          "hit_at_5": true,
+          "reciprocal_rank_at_5": 1.0,
+          "legacy_in_top_3": false,
+          "top_5_chunk_ids": [
+            "PLAYBOOK-SLA-003_v1.2_incident_severity_month_close.docx#01",
+            "INCIDENT-POSTMORTEM-002_fx_double_conversion.html#01",
+            "PLAYBOOK-SLA-003_v1.2_incident_severity_month_close.docx#00",
+            "POL-DEP-001_v1.3_deployment_and_reconciliation_policy.docx#00",
+            "INCIDENT-POSTMORTEM-002_fx_double_conversion.html#00"
+          ]
+        },
+        {
+          "id": "RET-11",
+          "category": "kpi_table_lookup",
+          "version_sensitive": false,
+          "first_relevant_rank": 1,
+          "hit_at_1": true,
+          "hit_at_3": true,
+          "hit_at_5": true,
+          "reciprocal_rank_at_5": 1.0,
+          "legacy_in_top_3": false,
+          "top_5_chunk_ids": [
+            "RUNBOOK-DBX-002_inventory_snapshot_wh.html#01",
+            "RUNBOOK-DBX-001_sap_sales_orders_ingest.html#02",
+            "SPEC-OPS-007_v2.0_daily_inventory_by_plant.pdf#02",
+            "RUNBOOK-DQ-007_great_expectations_checks.html#00",
+            "PLAYBOOK-RECON-002_v1.4_sap_dbx_pbi_reconciliation.docx#01"
+          ]
+        },
+        {
+          "id": "RET-12",
+          "category": "versioned_spec",
+          "version_sensitive": true,
+          "first_relevant_rank": 2,
+          "hit_at_1": false,
+          "hit_at_3": true,
+          "hit_at_5": true,
+          "reciprocal_rank_at_5": 0.5,
+          "legacy_in_top_3": true,
+          "top_5_chunk_ids": [
+            "SPEC-FIN-030_v1.0_gross_margin_rules_legacy.pdf#01",
+            "SPEC-FIN-030_v1.3_gross_margin_rules.pdf#01",
+            "RELEASE-NOTES-2025-Q1_reporting_platform.md#01",
+            "SPEC-FIN-030_v1.0_gross_margin_rules_legacy.pdf#02",
+            "SPEC-FIN-030_v1.3_gross_margin_rules.pdf#02"
+          ]
+        },
+        {
+          "id": "RET-13",
+          "category": "versioned_spec",
+          "version_sensitive": true,
+          "first_relevant_rank": 1,
+          "hit_at_1": true,
+          "hit_at_3": true,
+          "hit_at_5": true,
+          "reciprocal_rank_at_5": 1.0,
+          "legacy_in_top_3": false,
+          "top_5_chunk_ids": [
+            "SPEC-FIN-041_v1.2_fx_conversion_timing_rates.pdf#00",
+            "RELEASE-NOTES-2025-Q1_reporting_platform.md#01",
+            "RUNBOOK-DBX-005_fx_rates_and_payments.html#00",
+            "SPEC-FIN-041_v1.0_fx_conversion_legacy.pdf#00",
+            "SPEC-FIN-041_v1.0_fx_conversion_legacy.pdf#01"
+          ]
+        },
+        {
+          "id": "RET-14",
+          "category": "versioned_spec",
+          "version_sensitive": true,
+          "first_relevant_rank": 1,
+          "hit_at_1": true,
+          "hit_at_3": true,
+          "hit_at_5": true,
+          "reciprocal_rank_at_5": 1.0,
+          "legacy_in_top_3": true,
+          "top_5_chunk_ids": [
+            "SPEC-OPS-007_v2.0_daily_inventory_by_plant.pdf#00",
+            "SPEC-OPS-007_v1.0_daily_inventory_legacy.pdf#01",
+            "SPEC-OPS-007_v1.0_daily_inventory_legacy.pdf#00",
+            "RUNBOOK-DBX-002_inventory_snapshot_wh.html#00",
+            "RELEASE-NOTES-2025-Q1_reporting_platform.md#01"
+          ]
+        },
+        {
+          "id": "RET-15",
+          "category": "versioned_spec",
+          "version_sensitive": true,
+          "first_relevant_rank": 2,
+          "hit_at_1": false,
+          "hit_at_3": true,
+          "hit_at_5": true,
+          "reciprocal_rank_at_5": 0.5,
+          "legacy_in_top_3": true,
+          "top_5_chunk_ids": [
+            "POL-DEP-001_v1.0_deployment_policy_legacy.docx#00",
+            "POL-DEP-001_v1.3_deployment_and_reconciliation_policy.docx#00",
+            "RELEASE-NOTES-2025-Q1_reporting_platform.md#01",
+            "POL-DEP-001_v1.0_deployment_policy_legacy.docx#01",
+            "POL-DEP-001_v1.3_deployment_and_reconciliation_policy.docx#01"
+          ]
+        }
+      ]
+    },
+    {
+      "config_name": "hybrid_rrf_rerank_latest",
+      "mode": "hybrid_rerank",
+      "only_latest": true,
+      "total_queries": 15,
+      "recall_at_1": 1.0,
+      "recall_at_3": 1.0,
+      "recall_at_5": 1.0,
+      "mrr_at_5": 1.0,
+      "version_sensitive_queries": 4,
+      "version_sensitive_recall_at_1": 1.0,
+      "version_sensitive_mrr_at_5": 1.0,
+      "version_sensitive_legacy_top3_rate": 0.0,
+      "per_query": [
+        {
+          "id": "RET-01",
+          "category": "semantic_paraphrase",
+          "version_sensitive": false,
+          "first_relevant_rank": 1,
+          "hit_at_1": true,
+          "hit_at_3": true,
+          "hit_at_5": true,
+          "reciprocal_rank_at_5": 1.0,
+          "legacy_in_top_3": false,
+          "top_5_chunk_ids": [
+            "GLOSSARY-001_analytics_reporting_terms.md#01",
+            "RUNBOOK-DQ-007_great_expectations_checks.html#00",
+            "GUIDE-PBI-002_v1.3_gross_margin_dashboard.docx#01",
+            "SPEC-FIN-021_v1.1_active_customers_by_country.pdf#02",
+            "RUNBOOK-DBX-003_customer_master_scd2.html#00"
+          ]
+        },
+        {
+          "id": "RET-02",
+          "category": "semantic_paraphrase",
+          "version_sensitive": false,
+          "first_relevant_rank": 1,
+          "hit_at_1": true,
+          "hit_at_3": true,
+          "hit_at_5": true,
+          "reciprocal_rank_at_5": 1.0,
+          "legacy_in_top_3": false,
+          "top_5_chunk_ids": [
+            "ADR-001_semantic_model_parent_child_split.md#00",
+            "PLAYBOOK-RECON-002_v1.4_sap_dbx_pbi_reconciliation.docx#01",
+            "GUIDE-PBI-001_v1.5_sales_overview_dashboard.docx#00",
+            "GUIDE-PBI-002_v1.3_gross_margin_dashboard.docx#00",
+            "GUIDE-PBI-002_v1.3_gross_margin_dashboard.docx#01"
+          ]
+        },
+        {
+          "id": "RET-03",
+          "category": "semantic_paraphrase",
+          "version_sensitive": false,
+          "first_relevant_rank": 1,
+          "hit_at_1": true,
+          "hit_at_3": true,
+          "hit_at_5": true,
+          "reciprocal_rank_at_5": 1.0,
+          "legacy_in_top_3": false,
+          "top_5_chunk_ids": [
+            "GUIDE-PBI-003_v1.2_fx_revenue_and_customers.docx#00",
+            "FAQ-ANALYSTS-001_common_fiori_vs_pbi_questions.md#01",
+            "SPEC-FIN-014_v1.3_sales_revenue_region_channel.pdf#03",
+            "FAQ-ANALYSTS-001_common_fiori_vs_pbi_questions.md#00",
+            "ADR-002_single_fx_conversion_in_databricks.md#00"
+          ]
+        },
+        {
+          "id": "RET-04",
+          "category": "exact_identifier",
+          "version_sensitive": false,
+          "first_relevant_rank": 1,
+          "hit_at_1": true,
+          "hit_at_3": true,
+          "hit_at_5": true,
+          "reciprocal_rank_at_5": 1.0,
+          "legacy_in_top_3": false,
+          "top_5_chunk_ids": [
+            "RUNBOOK-PBI-006_gateway_and_dataset_refresh.html#01",
+            "RUNBOOK-DBX-002_inventory_snapshot_wh.html#01",
+            "RUNBOOK-PBI-006_gateway_and_dataset_refresh.html#00",
+            "RUNBOOK-DQ-007_great_expectations_checks.html#00",
+            "PLAYBOOK-RECON-002_v1.4_sap_dbx_pbi_reconciliation.docx#01"
+          ]
+        },
+        {
+          "id": "RET-05",
+          "category": "exact_identifier",
+          "version_sensitive": false,
+          "first_relevant_rank": 1,
+          "hit_at_1": true,
+          "hit_at_3": true,
+          "hit_at_5": true,
+          "reciprocal_rank_at_5": 1.0,
+          "legacy_in_top_3": false,
+          "top_5_chunk_ids": [
+            "RUNBOOK-DQ-007_great_expectations_checks.html#00",
+            "INCIDENT-POSTMORTEM-001_march_sales_discrepancy.html#01",
+            "SPEC-FIN-014_v1.3_sales_revenue_region_channel.pdf#02",
+            "RUNBOOK-DBX-001_sap_sales_orders_ingest.html#02",
+            "SPEC-FIN-014_v1.3_sales_revenue_region_channel.pdf#01"
+          ]
+        },
+        {
+          "id": "RET-06",
+          "category": "exact_identifier",
+          "version_sensitive": false,
+          "first_relevant_rank": 1,
+          "hit_at_1": true,
+          "hit_at_3": true,
+          "hit_at_5": true,
+          "reciprocal_rank_at_5": 1.0,
+          "legacy_in_top_3": false,
+          "top_5_chunk_ids": [
+            "RUNBOOK-DBX-004_profit_center_revenue_cogs.html#00",
+            "SPEC-FIN-030_v1.3_gross_margin_rules.pdf#02",
+            "SPEC-FIN-030_v1.3_gross_margin_rules.pdf#00",
+            "SPEC-FIN-030_v1.3_gross_margin_rules.pdf#01",
+            "SPEC-FIN-041_v1.2_fx_conversion_timing_rates.pdf#02"
+          ]
+        },
+        {
+          "id": "RET-07",
+          "category": "exact_identifier",
+          "version_sensitive": false,
+          "first_relevant_rank": 1,
+          "hit_at_1": true,
+          "hit_at_3": true,
+          "hit_at_5": true,
+          "reciprocal_rank_at_5": 1.0,
+          "legacy_in_top_3": false,
+          "top_5_chunk_ids": [
+            "RUNBOOK-DBX-003_customer_master_scd2.html#00",
+            "ADR-003_soft_delete_and_intercompany_flags.md#00",
+            "SPEC-FIN-021_v1.1_active_customers_by_country.pdf#00",
+            "SPEC-FIN-021_v1.1_active_customers_by_country.pdf#02",
+            "SPEC-FIN-021_v1.1_active_customers_by_country.pdf#01"
+          ]
+        },
+        {
+          "id": "RET-08",
+          "category": "kpi_table_lookup",
+          "version_sensitive": false,
+          "first_relevant_rank": 1,
+          "hit_at_1": true,
+          "hit_at_3": true,
+          "hit_at_5": true,
+          "reciprocal_rank_at_5": 1.0,
+          "legacy_in_top_3": false,
+          "top_5_chunk_ids": [
+            "SPEC-REV-012_v1.4_net_revenue_waterfall.pdf#01",
+            "SPEC-REV-012_v1.4_net_revenue_waterfall.pdf#00",
+            "LINEAGE-CAT-001_sap_cds_to_databricks_matrix.html#01",
+            "LINEAGE-CAT-001_sap_cds_to_databricks_matrix.html#02",
+            "SPEC-REV-019_v1.1_deferred_revenue_recognition.pdf#00"
+          ]
+        },
+        {
+          "id": "RET-09",
+          "category": "kpi_table_lookup",
+          "version_sensitive": false,
+          "first_relevant_rank": 1,
+          "hit_at_1": true,
+          "hit_at_3": true,
+          "hit_at_5": true,
+          "reciprocal_rank_at_5": 1.0,
+          "legacy_in_top_3": false,
+          "top_5_chunk_ids": [
+            "SPEC-OPS-011_v1.2_order_fulfillment_otif.pdf#01",
+            "SPEC-OPS-011_v1.2_order_fulfillment_otif.pdf#00",
+            "RELEASE-NOTES-2025-Q1_reporting_platform.md#01",
+            "SPEC-FIN-030_v1.3_gross_margin_rules.pdf#02",
+            "PLAYBOOK-SLA-003_v1.2_incident_severity_month_close.docx#01"
+          ]
+        },
+        {
+          "id": "RET-10",
+          "category": "kpi_table_lookup",
+          "version_sensitive": false,
+          "first_relevant_rank": 1,
+          "hit_at_1": true,
+          "hit_at_3": true,
+          "hit_at_5": true,
+          "reciprocal_rank_at_5": 1.0,
+          "legacy_in_top_3": false,
+          "top_5_chunk_ids": [
+            "PLAYBOOK-SLA-003_v1.2_incident_severity_month_close.docx#01",
+            "INCIDENT-POSTMORTEM-002_fx_double_conversion.html#01",
+            "PLAYBOOK-SLA-003_v1.2_incident_severity_month_close.docx#00",
+            "INCIDENT-POSTMORTEM-002_fx_double_conversion.html#00",
+            "POL-DEP-001_v1.3_deployment_and_reconciliation_policy.docx#00"
+          ]
+        },
+        {
+          "id": "RET-11",
+          "category": "kpi_table_lookup",
+          "version_sensitive": false,
+          "first_relevant_rank": 1,
+          "hit_at_1": true,
+          "hit_at_3": true,
+          "hit_at_5": true,
+          "reciprocal_rank_at_5": 1.0,
+          "legacy_in_top_3": false,
+          "top_5_chunk_ids": [
+            "RUNBOOK-DBX-002_inventory_snapshot_wh.html#01",
+            "RUNBOOK-DBX-001_sap_sales_orders_ingest.html#02",
+            "SPEC-OPS-007_v2.0_daily_inventory_by_plant.pdf#02",
+            "RUNBOOK-DQ-007_great_expectations_checks.html#00",
+            "PLAYBOOK-RECON-002_v1.4_sap_dbx_pbi_reconciliation.docx#01"
+          ]
+        },
+        {
+          "id": "RET-12",
+          "category": "versioned_spec",
+          "version_sensitive": true,
+          "first_relevant_rank": 1,
+          "hit_at_1": true,
+          "hit_at_3": true,
+          "hit_at_5": true,
+          "reciprocal_rank_at_5": 1.0,
+          "legacy_in_top_3": false,
+          "top_5_chunk_ids": [
+            "SPEC-FIN-030_v1.3_gross_margin_rules.pdf#01",
+            "RELEASE-NOTES-2025-Q1_reporting_platform.md#01",
+            "SPEC-FIN-030_v1.3_gross_margin_rules.pdf#02",
+            "SPEC-FIN-030_v1.3_gross_margin_rules.pdf#00",
+            "RUNBOOK-DBX-004_profit_center_revenue_cogs.html#00"
+          ]
+        },
+        {
+          "id": "RET-13",
+          "category": "versioned_spec",
+          "version_sensitive": true,
+          "first_relevant_rank": 1,
+          "hit_at_1": true,
+          "hit_at_3": true,
+          "hit_at_5": true,
+          "reciprocal_rank_at_5": 1.0,
+          "legacy_in_top_3": false,
+          "top_5_chunk_ids": [
+            "SPEC-FIN-041_v1.2_fx_conversion_timing_rates.pdf#00",
+            "RUNBOOK-DBX-005_fx_rates_and_payments.html#00",
+            "RELEASE-NOTES-2025-Q1_reporting_platform.md#01",
+            "ADR-002_single_fx_conversion_in_databricks.md#00",
+            "SPEC-FIN-041_v1.2_fx_conversion_timing_rates.pdf#02"
+          ]
+        },
+        {
+          "id": "RET-14",
+          "category": "versioned_spec",
+          "version_sensitive": true,
+          "first_relevant_rank": 1,
+          "hit_at_1": true,
+          "hit_at_3": true,
+          "hit_at_5": true,
+          "reciprocal_rank_at_5": 1.0,
+          "legacy_in_top_3": false,
+          "top_5_chunk_ids": [
+            "SPEC-OPS-007_v2.0_daily_inventory_by_plant.pdf#00",
+            "RUNBOOK-DBX-002_inventory_snapshot_wh.html#00",
+            "RELEASE-NOTES-2025-Q1_reporting_platform.md#01",
+            "SPEC-OPS-007_v2.0_daily_inventory_by_plant.pdf#02",
+            "SPEC-OPS-007_v2.0_daily_inventory_by_plant.pdf#01"
+          ]
+        },
+        {
+          "id": "RET-15",
+          "category": "versioned_spec",
+          "version_sensitive": true,
+          "first_relevant_rank": 1,
+          "hit_at_1": true,
+          "hit_at_3": true,
+          "hit_at_5": true,
+          "reciprocal_rank_at_5": 1.0,
+          "legacy_in_top_3": false,
+          "top_5_chunk_ids": [
+            "POL-DEP-001_v1.3_deployment_and_reconciliation_policy.docx#00",
+            "RELEASE-NOTES-2025-Q1_reporting_platform.md#01",
+            "POL-DEP-001_v1.3_deployment_and_reconciliation_policy.docx#01",
+            "POL-DEP-001_v1.3_deployment_and_reconciliation_policy.docx#02",
+            "INCIDENT-POSTMORTEM-002_fx_double_conversion.html#01"
+          ]
+        }
+      ]
+    }
+  ]
+}

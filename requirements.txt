@@ -12,3 +12,8 @@ python-docx>=1.1
 beautifulsoup4>=4.12
 tiktoken>=0.7
 charset-normalizer>=3.3
+
+# HW2 Step 2: Qdrant vector DB, domain BM25, RRF hybrid search & multilingual ONNX reranker
+qdrant-client>=1.12
+rank-bm25>=0.2.2
+fastembed>=0.4

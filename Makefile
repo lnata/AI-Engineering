@@ -1,20 +1,23 @@
-.PHONY: setup run golden creative ollama lmstudio eval hw2-corpus hw2-ingest hw2-step1 test help
+.PHONY: setup run golden creative ollama lmstudio eval hw2-corpus hw2-ingest hw2-step1 hw2-index hw2-eval-retrieval hw2-step2 test help
 
 PYTHON ?= .venv/bin/python
 PIP ?= .venv/bin/pip
 
 help:
-	@echo "make setup       — venv + deps"
-	@echo "make run         — HW1 full corpus (Gemini v2, default sampling)"
-	@echo "make golden      — HW1 golden set BUGS-41..50"
-	@echo "make creative    — HW1 golden set with creative sampling"
-	@echo "make ollama      — HW1 local Ollama on golden set"
-	@echo "make lmstudio    — HW1 local LM Studio on golden set"
+	@echo "make setup              — venv + deps"
+	@echo "make run                — HW1 full corpus (Gemini v2, default sampling)"
+	@echo "make golden             — HW1 golden set BUGS-41..50"
+	@echo "make creative           — HW1 golden set with creative sampling"
+	@echo "make ollama             — HW1 local Ollama on golden set"
+	@echo "make lmstudio           — HW1 local LM Studio on golden set"
 	@echo "make eval RUN=results/<dir> — HW1 score a run vs golden.json"
-	@echo "make hw2-corpus  — HW2 generate 38 raw domain docs (PDF/DOCX/HTML/MD)"
-	@echo "make hw2-ingest  — HW2 ingest, clean, deduplicate & chunk corpus"
-	@echo "make hw2-step1   — HW2 full Step 1 pipeline (corpus + ingest)"
-	@echo "make test        — run all HW1 + HW2 pytest suites"
+	@echo "make hw2-corpus         — HW2 generate 38 raw domain docs (PDF/DOCX/HTML/MD)"
+	@echo "make hw2-ingest         — HW2 ingest, clean, deduplicate & chunk corpus"
+	@echo "make hw2-step1          — HW2 full Step 1 pipeline (corpus + ingest)"
+	@echo "make hw2-index          — HW2 build persistent local Qdrant vector index"
+	@echo "make hw2-eval-retrieval — HW2 run 15-query retrieval benchmark (5 configs)"
+	@echo "make hw2-step2          — HW2 full Step 2 pipeline (index + retrieval eval)"
+	@echo "make test               — run all HW1 + HW2 Step 1–2 pytest suites"
 
 setup:
 	python3.11 -m venv .venv || python3 -m venv .venv
@@ -48,6 +51,14 @@ hw2-ingest:
 	$(PYTHON) -m src.hw2.ingest
 
 hw2-step1: hw2-corpus hw2-ingest
+
+hw2-index:
+	$(PYTHON) -m src.hw2.index
+
+hw2-eval-retrieval:
+	$(PYTHON) -m src.hw2.eval_retrieval
+
+hw2-step2: hw2-index hw2-eval-retrieval
 
 test:
 	$(PYTHON) -m pytest tests -q

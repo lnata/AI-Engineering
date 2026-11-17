@@ -1,4 +1,4 @@
-"""HW2 Step 1: Multi-format corpus ingestion, cleaning, deduplication, and chunking."""
+"""HW2 Step 1–2: Multi-format ingestion, chunking, Qdrant + BM25 hybrid search, and reranking."""
 
 from src.hw2.models import (
     ChunkingComparison,
@@ -6,6 +6,9 @@ from src.hw2.models import (
     ChunkStrategyMetrics,
     CorpusManifest,
     ExtractedDocument,
+    IndexMeta,
+    SearchFilters,
+    SearchHit,
 )
 
 __all__ = [
@@ -14,4 +17,7 @@ __all__ = [
     "ChunkingComparison",
     "CorpusManifest",
     "ExtractedDocument",
+    "IndexMeta",
+    "SearchFilters",
+    "SearchHit",
 ]

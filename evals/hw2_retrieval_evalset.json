@@ -1,0 +1,210 @@
+[
+  {
+    "id": "RET-01",
+    "category": "semantic_paraphrase",
+    "version_sensitive": false,
+    "query": "Який механізм обмеження доступу за роллю користувача може приховувати рядки датасету так, що звіт виглядає порожнім?",
+    "expected_chunk_ids": [
+      "GLOSSARY-001_analytics_reporting_terms.md#01",
+      "GUIDE-PBI-002_v1.3_gross_margin_dashboard.docx#01",
+      "FAQ-ANALYSTS-001_common_fiori_vs_pbi_questions.md#01"
+    ],
+    "expected_sources": [
+      "data/hw2_corpus/raw/GLOSSARY-001_analytics_reporting_terms.md",
+      "data/hw2_corpus/raw/GUIDE-PBI-002_v1.3_gross_margin_dashboard.docx",
+      "data/hw2_corpus/raw/FAQ-ANALYSTS-001_common_fiori_vs_pbi_questions.md"
+    ],
+    "notes": "Semantic paraphrase: role-based row hiding making a report look empty -> RLS (Row-Level Security) without mentioning 'RLS' in the query."
+  },
+  {
+    "id": "RET-02",
+    "category": "semantic_paraphrase",
+    "version_sensitive": false,
+    "query": "Чому сертифіковані спільні виміри адмініструють в одному базовому датасеті замість локальних копій імпорту у кожному звіті?",
+    "expected_chunk_ids": [
+      "ADR-001_semantic_model_parent_child_split.md#00",
+      "GUIDE-SEMANTIC-004_v2.0_parent_child_directquery_rls.docx#00"
+    ],
+    "expected_sources": [
+      "data/hw2_corpus/raw/ADR-001_semantic_model_parent_child_split.md",
+      "data/hw2_corpus/raw/GUIDE-SEMANTIC-004_v2.0_parent_child_directquery_rls.docx"
+    ],
+    "notes": "Semantic architectural question on Parent/Child dataset split without exact 'Parent/Child' or 'ADR-001' codes."
+  },
+  {
+    "id": "RET-03",
+    "category": "semantic_paraphrase",
+    "version_sensitive": false,
+    "query": "Чому бізнес бачить різні суми у SAP та на сторінці валютного звіту через вибір неузгодженого календаря оплати замість періоду проводки?",
+    "expected_chunk_ids": [
+      "FAQ-ANALYSTS-001_common_fiori_vs_pbi_questions.md#01",
+      "GUIDE-PBI-003_v1.2_fx_revenue_and_customers.docx#00"
+    ],
+    "expected_sources": [
+      "data/hw2_corpus/raw/FAQ-ANALYSTS-001_common_fiori_vs_pbi_questions.md",
+      "data/hw2_corpus/raw/GUIDE-PBI-003_v1.2_fx_revenue_and_customers.docx"
+    ],
+    "notes": "Semantic paraphrase of user period-slicer mismatch (Payment Period vs Posting Period) without mentioning FX_Revenue.pbix or BUGS-45."
+  },
+  {
+    "id": "RET-04",
+    "category": "exact_identifier",
+    "version_sensitive": false,
+    "query": "Що означає помилка DM_GWPipeline_Gateway_Timeout і як її усунути при оновленні датасету?",
+    "expected_chunk_ids": [
+      "RUNBOOK-PBI-006_gateway_and_dataset_refresh.html#01"
+    ],
+    "expected_sources": [
+      "data/hw2_corpus/raw/RUNBOOK-PBI-006_gateway_and_dataset_refresh.html"
+    ],
+    "notes": "Exact Power BI gateway error code lookup inside runbook table."
+  },
+  {
+    "id": "RET-05",
+    "category": "exact_identifier",
+    "version_sensitive": false,
+    "query": "Яка блокуюча перевірка chk_orders_header_unique захищає mart.fact_orders перед рефрешем?",
+    "expected_chunk_ids": [
+      "RUNBOOK-DQ-007_great_expectations_checks.html#00"
+    ],
+    "expected_sources": [
+      "data/hw2_corpus/raw/RUNBOOK-DQ-007_great_expectations_checks.html"
+    ],
+    "notes": "Exact DQ circuit-breaker identifier chk_orders_header_unique."
+  },
+  {
+    "id": "RET-06",
+    "category": "exact_identifier",
+    "version_sensitive": false,
+    "query": "Який діапазон рахунків Головної книги ACDOCA класифікується як INBOUND_FREIGHT_EUR у пайплайні dag_sap_fi_margin_marts?",
+    "expected_chunk_ids": [
+      "RUNBOOK-DBX-004_profit_center_revenue_cogs.html#00"
+    ],
+    "expected_sources": [
+      "data/hw2_corpus/raw/RUNBOOK-DBX-004_profit_center_revenue_cogs.html"
+    ],
+    "notes": "Exact DAG + GL account mapping table in RUNBOOK-DBX-004 (551000–552999)."
+  },
+  {
+    "id": "RET-07",
+    "category": "exact_identifier",
+    "version_sensitive": false,
+    "query": "Як поле LOEVM із SAP KNA1 трансформується у колонку is_deleted в пайплайні dag_sap_customer_master?",
+    "expected_chunk_ids": [
+      "RUNBOOK-DBX-003_customer_master_scd2.html#00"
+    ],
+    "expected_sources": [
+      "data/hw2_corpus/raw/RUNBOOK-DBX-003_customer_master_scd2.html"
+    ],
+    "notes": "Exact SAP field LOEVM / KNA1 / dag_sap_customer_master mapping."
+  },
+  {
+    "id": "RET-08",
+    "category": "kpi_table_lookup",
+    "version_sensitive": false,
+    "query": "Які коди умов SAP відповідають ретро-бонусам дистриб'юторів BO01 та поверненням G2 у каскаді SPEC-REV-012?",
+    "expected_chunk_ids": [
+      "SPEC-REV-012_v1.4_net_revenue_waterfall.pdf#01"
+    ],
+    "expected_sources": [
+      "data/hw2_corpus/raw/SPEC-REV-012_v1.4_net_revenue_waterfall.pdf"
+    ],
+    "notes": "KPI waterfall table lookup in SPEC-REV-012 (#01 table chunk vs #00 prose chunk)."
+  },
+  {
+    "id": "RET-09",
+    "category": "kpi_table_lookup",
+    "version_sensitive": false,
+    "query": "Який цільовий поріг SLA встановлено для показників On-Time %, In-Full % та OTIF % у таблиці mart.fact_deliveries?",
+    "expected_chunk_ids": [
+      "SPEC-OPS-011_v1.2_order_fulfillment_otif.pdf#01"
+    ],
+    "expected_sources": [
+      "data/hw2_corpus/raw/SPEC-OPS-011_v1.2_order_fulfillment_otif.pdf"
+    ],
+    "notes": "SLA threshold table chunk (#01) in SPEC-OPS-011."
+  },
+  {
+    "id": "RET-10",
+    "category": "kpi_table_lookup",
+    "version_sensitive": false,
+    "query": "Який час першої реакції та цільовий час фіксу на DEV для Critical Blocker інцидентів під час закриття місяця WD1–WD5?",
+    "expected_chunk_ids": [
+      "PLAYBOOK-SLA-003_v1.2_incident_severity_month_close.docx#01"
+    ],
+    "expected_sources": [
+      "data/hw2_corpus/raw/PLAYBOOK-SLA-003_v1.2_incident_severity_month_close.docx"
+    ],
+    "notes": "Month-end close SLA response/fix table (#01) in PLAYBOOK-SLA-003."
+  },
+  {
+    "id": "RET-11",
+    "category": "kpi_table_lookup",
+    "version_sensitive": false,
+    "query": "Якою командою Airflow вручну запускається backfill пропущеної партиції у RUNBOOK-DBX-002 при інциденті BUGS-43?",
+    "expected_chunk_ids": [
+      "RUNBOOK-DBX-002_inventory_snapshot_wh.html#01"
+    ],
+    "expected_sources": [
+      "data/hw2_corpus/raw/RUNBOOK-DBX-002_inventory_snapshot_wh.html"
+    ],
+    "notes": "Runbook remediation table lookup for dag_sap_inventory_daily."
+  },
+  {
+    "id": "RET-12",
+    "category": "versioned_spec",
+    "version_sensitive": true,
+    "query": "Як обліковуються витрати на вхідну доставку inbound_freight_eur у собівартості COGS та який поріг звірки SAP проти Databricks діє у чинній специфікації SPEC-FIN-030?",
+    "expected_chunk_ids": [
+      "SPEC-FIN-030_v1.3_gross_margin_rules.pdf#01",
+      "SPEC-FIN-030_v1.3_gross_margin_rules.pdf#02"
+    ],
+    "expected_sources": [
+      "data/hw2_corpus/raw/SPEC-FIN-030_v1.3_gross_margin_rules.pdf"
+    ],
+    "notes": "Versioned trap: SPEC-FIN-030 v1.0 excluded inbound_freight_eur and allowed 1.00% threshold; active v1.3 includes it in COGS with 0.15% threshold."
+  },
+  {
+    "id": "RET-13",
+    "category": "versioned_spec",
+    "version_sensitive": true,
+    "query": "За якою датою та на якому шарі виконується валютна конвертація у EUR за діючим стандартом SPEC-FIN-041 для звіту FX Revenue?",
+    "expected_chunk_ids": [
+      "SPEC-FIN-041_v1.2_fx_conversion_timing_rates.pdf#00",
+      "SPEC-FIN-041_v1.2_fx_conversion_timing_rates.pdf#02"
+    ],
+    "expected_sources": [
+      "data/hw2_corpus/raw/SPEC-FIN-041_v1.2_fx_conversion_timing_rates.pdf"
+    ],
+    "notes": "Versioned trap: legacy SPEC-FIN-041 v1.0 converted in DAX at monthly average; active v1.2 converts once in Databricks mart.fact_payments at payment_date."
+  },
+  {
+    "id": "RET-14",
+    "category": "versioned_spec",
+    "version_sensitive": true,
+    "query": "О котрій годині UTC фіксується зріз wh.inventory_snapshot, який максимальний SLA затримки та чи входять запаси в дорозі in_transit_qty за чинною специфікацією SPEC-OPS-007?",
+    "expected_chunk_ids": [
+      "SPEC-OPS-007_v2.0_daily_inventory_by_plant.pdf#00",
+      "SPEC-OPS-007_v2.0_daily_inventory_by_plant.pdf#01",
+      "SPEC-OPS-007_v2.0_daily_inventory_by_plant.pdf#02"
+    ],
+    "expected_sources": [
+      "data/hw2_corpus/raw/SPEC-OPS-007_v2.0_daily_inventory_by_plant.pdf"
+    ],
+    "notes": "Versioned trap: legacy SPEC-OPS-007 v1.0 ran at 23:00 UTC with 8h SLA and excluded in-transit; active v2.0 runs by 05:30 UTC with 2h SLA and includes in_transit_qty."
+  },
+  {
+    "id": "RET-15",
+    "category": "versioned_spec",
+    "version_sensitive": true,
+    "query": "Чи дозволений екстрений прямий деплой хотфіксу у PROD без попередньої публікації на DEV та апруву фінансового аналітика за чинним регламентом POL-DEP-001?",
+    "expected_chunk_ids": [
+      "POL-DEP-001_v1.3_deployment_and_reconciliation_policy.docx#00",
+      "POL-DEP-001_v1.3_deployment_and_reconciliation_policy.docx#02"
+    ],
+    "expected_sources": [
+      "data/hw2_corpus/raw/POL-DEP-001_v1.3_deployment_and_reconciliation_policy.docx"
+    ],
+    "notes": "Versioned trap: legacy POL-DEP-001 v1.0 allowed direct P1 hotfixes to PROD with 48h post-review; active v1.3 strictly forbids skipping DEV or FA approval."
+  }
+]
