@@ -25,15 +25,17 @@ from src.hw2.verifier import ABSTAIN_MESSAGE_UK
 def test_rag_testset_schema_distribution_and_corpus_alignment():
     cases = load_rag_testset(DEFAULT_TESTSET_PATH)
     assert len(cases) >= 20
-    assert len(cases) == 24
+    assert len(cases) == 28
     assert all(c.human_verified for c in cases)
 
     unanswerable = [c for c in cases if c.expected_abstain]
     legacy_traps = [c for c in cases if c.category == "trap_legacy_version"]
     similar_traps = [c for c in cases if c.category == "trap_similar_docs"]
+    cross_source = [c for c in cases if c.category == "cross_source_ticket_spec"]
     assert len(unanswerable) >= 5
     assert len(legacy_traps) >= 4
     assert len(similar_traps) >= 3
+    assert len(cross_source) >= 4
 
     corpus_sources = {ch.source for ch in load_chunks_jsonl()}
     for c in cases:

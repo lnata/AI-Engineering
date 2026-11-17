@@ -1,5 +1,5 @@
 {
-  "evaluated_at": "2026-11-17T19:59:47Z",
+  "evaluated_at": "2026-11-17T20:04:17Z",
   "rag_provider": "auto",
   "judge_name": "rubric:calibrated-v1",
   "judge_calibration_agreement": 0.9286,
