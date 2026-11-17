@@ -1,0 +1,491 @@
+[
+  {
+    "id": "QA-01",
+    "category": "standard",
+    "human_verified": true,
+    "curator_note": "Analyst architectural question on ADR-001 / GUIDE-SEMANTIC-004 Parent-Child split.",
+    "question": "Чому ми відмовилися від окремих імпортованих копій таблиць у кожному .pbix на користь зв'язки Parent + Child моделей, і в якій моделі налаштовується RLS?",
+    "expected_abstain": false,
+    "expected_sources": [
+      "data/hw2_corpus/raw/ADR-001_semantic_model_parent_child_split.md",
+      "data/hw2_corpus/raw/GUIDE-SEMANTIC-004_v2.0_parent_child_directquery_rls.docx"
+    ],
+    "expected_sections": [
+      "1. Контекст та прийняте архітектурне рішення",
+      "1. Дворівнева архітектура семантичних моделей Power BI"
+    ],
+    "required_facts": [
+      "Parent",
+      "DirectQuery",
+      "RLS"
+    ],
+    "forbidden_facts": [],
+    "reference_answer": "Окремі імпорти у кожному .pbix спричиняли розбіжності базових формул виторгу між департаментами. Тому введено єдину сертифіковану Parent модель (Import/DirectLake з Databricks), де централізовано адмініструються спільні виміри та RLS, і тонкі Child моделі у режимі DirectQuery для конкретних звітів та RDL."
+  },
+  {
+    "id": "QA-02",
+    "category": "standard",
+    "human_verified": true,
+    "curator_note": "Data engineering mapping question on ADR-003 boolean flags.",
+    "question": "У які два стандартні булеві прапорці у вітринах mart.* команда Data Pull перетворює сирі коди SAP LOEVM, VBUND та FKSTO?",
+    "expected_abstain": false,
+    "expected_sources": [
+      "data/hw2_corpus/raw/ADR-003_soft_delete_and_intercompany_flags.md"
+    ],
+    "expected_sections": [
+      "1. Уніфікація системних прапорців у вітринах mart.*"
+    ],
+    "required_facts": [
+      "is_deleted",
+      "is_intercompany"
+    ],
+    "forbidden_facts": [],
+    "reference_answer": "Команда Data Pull трансформує технічні коди SAP (LOEVM, VBUND, FKSTO) на етапі побудови mart.* у два обов'язкові булеві поля: is_deleted (BOOLEAN NOT NULL) та is_intercompany (BOOLEAN NOT NULL)."
+  },
+  {
+    "id": "QA-03",
+    "category": "standard",
+    "human_verified": true,
+    "curator_note": "Support ticket pattern from FAQ-ANALYSTS-001 / GUIDE-PBI-003.",
+    "question": "Бізнес-користувач скаржиться, що суми у FX_Revenue.pbix не сходяться із SAP Fiori, хоча багів у даних немає. Які неузгоджені фільтри періодів чи валюти найчастіше це викликають?",
+    "expected_abstain": false,
+    "expected_sources": [
+      "data/hw2_corpus/raw/FAQ-ANALYSTS-001_common_fiori_vs_pbi_questions.md",
+      "data/hw2_corpus/raw/GUIDE-PBI-003_v1.2_fx_revenue_and_customers.docx"
+    ],
+    "expected_sections": [
+      "1. Чому цифри користувача у SAP Fiori відрізняються від дашборду без наявності бага?",
+      "1. Особливості звіту FX_Revenue.pbix (RPT-FX-005)"
+    ],
+    "required_facts": [
+      "Payment Period",
+      "Posting Period"
+    ],
+    "forbidden_facts": [],
+    "reference_answer": "Найчастіша причина хибних звернень (кейс BUGS-45) — у FX_Revenue.pbix обрано слайсер Payment Period, тоді як у SAP Fiori користувач дивиться Posting Period, або у Fiori обрано локальну валюту UAH/USD замість EUR чи спрацьовує RLS/bookmark."
+  },
+  {
+    "id": "QA-04",
+    "category": "standard",
+    "human_verified": true,
+    "curator_note": "Process checklist question on PLAYBOOK-RECON-002.",
+    "question": "Чому під час 4-Way Reconciliation заборонено пропускати звірку Power BI проти специфікації SPEC-*, навіть коли візуал копійка в копійку збігається з Databricks?",
+    "expected_abstain": false,
+    "expected_sources": [
+      "data/hw2_corpus/raw/PLAYBOOK-RECON-002_v1.4_sap_dbx_pbi_reconciliation.docx",
+      "data/hw2_corpus/raw/PLAYBOOK-TRIAGE-001_v2.1_jira_bug_vs_cr_triage.docx"
+    ],
+    "expected_sections": [
+      "1. Чотири контрольні точки звірки (4-Way Reconciliation)",
+      "1. Критерії розмежування Bug та Change Request у проєкті BUGS"
+    ],
+    "required_facts": [
+      "SPEC-*|специфікації|Specification",
+      "помилкову логіку|застаріла DAX|spec_mismatch"
+    ],
+    "forbidden_facts": [],
+    "reference_answer": "Пропускати перевірку Power BI vs Specification заборонено, оскільки візуал може точно відтворювати помилкову логіку вітрини або містити застарілу DAX-формулу, що порушує вимоги чинної SPEC-* (категорія spec_mismatch)."
+  },
+  {
+    "id": "QA-05",
+    "category": "standard",
+    "human_verified": true,
+    "curator_note": "DAX table lookup in GUIDE-PBI-001.",
+    "question": "Яка саме DAX-формула використовується для міри Orders Count у звіті Sales_Overview_v3.pbix, щоб уникнути задвоєння рядків замовлення?",
+    "expected_abstain": false,
+    "expected_sources": [
+      "data/hw2_corpus/raw/GUIDE-PBI-001_v1.5_sales_overview_dashboard.docx"
+    ],
+    "expected_sections": [
+      "2. Ключові DAX-міри та відомі обмеження"
+    ],
+    "required_facts": [
+      "DISTINCTCOUNT",
+      "order_id"
+    ],
+    "forbidden_facts": [],
+    "reference_answer": "Міра Orders Count у Sales_Overview_v3.pbix обчислюється формулою DISTINCTCOUNT('mart_fact_orders'[order_id]), що захищає показник від дублювання позицій замовлення."
+  },
+  {
+    "id": "QA-06",
+    "category": "standard",
+    "human_verified": true,
+    "curator_note": "Power BI engineering rule in GUIDE-PBI-002.",
+    "question": "Чому в Finance_Margin_Dataset заборонено виносити фільтр is_intercompany = FALSE() лише на рівень окремого візуалу Power BI замість базової DAX-міри?",
+    "expected_abstain": false,
+    "expected_sources": [
+      "data/hw2_corpus/raw/GUIDE-PBI-002_v1.3_gross_margin_dashboard.docx"
+    ],
+    "expected_sections": [
+      "2. Обов'язковий фільтр Intercompany та налаштування RLS"
+    ],
+    "required_facts": [
+      "is_intercompany",
+      "Excel|RDL"
+    ],
+    "forbidden_facts": [],
+    "reference_answer": "Перенесення фільтра is_intercompany = FALSE() лише на рівень окремого візуалу заборонено, тому що експорт даних у Excel або пагіновані звіти RDL ігнорує візуальні фільтри; предикат має бути всередині кожної базової DAX-міри."
+  },
+  {
+    "id": "QA-07",
+    "category": "standard",
+    "human_verified": true,
+    "curator_note": "HTML runbook table lookup for exact error code in RUNBOOK-PBI-006.",
+    "question": "Рефреш Parent моделі впав із кодом DM_GWPipeline_Gateway_Timeout — через який ліміт часу це стається і які стандартні дії усунення вказані в ранбуку?",
+    "expected_abstain": false,
+    "expected_sources": [
+      "data/hw2_corpus/raw/RUNBOOK-PBI-006_gateway_and_dataset_refresh.html"
+    ],
+    "expected_sections": [
+      "1. Діагностика помилок оновлення Parent та Child датасетів"
+    ],
+    "required_facts": [
+      "120 хв",
+      "Incremental Refresh",
+      "Photon"
+    ],
+    "forbidden_facts": [],
+    "reference_answer": "Помилка DM_GWPipeline_Gateway_Timeout виникає, коли запит імпорту перевищив 120 хв на великій партиції. Стандартна дія усунення: увімкнути Incremental Refresh та перевірити кластер Photon."
+  },
+  {
+    "id": "QA-08",
+    "category": "standard",
+    "human_verified": true,
+    "curator_note": "HTML DQ circuit breaker lookup in RUNBOOK-DQ-007.",
+    "question": "За якої умови блокуючий тест chk_margin_sap_delta зупиняє пайплайн перед оновленням датасету на вітрині mart.fact_revenue?",
+    "expected_abstain": false,
+    "expected_sources": [
+      "data/hw2_corpus/raw/RUNBOOK-DQ-007_great_expectations_checks.html"
+    ],
+    "expected_sections": [
+      "1. Блокуючі перевірки якості даних (Circuit Breakers)"
+    ],
+    "required_facts": [
+      "mart.fact_revenue",
+      "0.15%"
+    ],
+    "forbidden_facts": [
+      "1.00%"
+    ],
+    "reference_answer": "Перевірка chk_margin_sap_delta на цільовій вітрині mart.fact_revenue зупиняє пайплайн, якщо відхилення суми від контрольного підсумку SAP control total перевищує 0.15%."
+  },
+  {
+    "id": "QA-09",
+    "category": "standard",
+    "human_verified": true,
+    "curator_note": "GL account range table lookup in RUNBOOK-DBX-004.",
+    "question": "Який діапазон рахунків Головної книги GL у проводках ACDOCA класифікується як INBOUND_FREIGHT_EUR у пайплайні dag_sap_fi_margin_marts?",
+    "expected_abstain": false,
+    "expected_sources": [
+      "data/hw2_corpus/raw/RUNBOOK-DBX-004_profit_center_revenue_cogs.html"
+    ],
+    "expected_sections": [
+      "1. Формування mart.fact_revenue та mart.fact_cogs"
+    ],
+    "required_facts": [
+      "551000",
+      "552999",
+      "mart.fact_cogs"
+    ],
+    "forbidden_facts": [],
+    "reference_answer": "Діапазон рахунків GL 551000–552999 спрямовується у таблицю mart.fact_cogs із класифікацією INBOUND_FREIGHT_EUR."
+  },
+  {
+    "id": "QA-10",
+    "category": "standard",
+    "human_verified": true,
+    "curator_note": "Incident postmortem root-cause question on INCIDENT-POSTMORTEM-001.",
+    "question": "Що спричинило розбіжність виторгу на PROD у березневому інциденті BUGS-41 (1.24M проти 1.31M EUR) та який запобіжний dbt-тест додали після регресії BUGS-50?",
+    "expected_abstain": false,
+    "expected_sources": [
+      "data/hw2_corpus/raw/INCIDENT-POSTMORTEM-001_march_sales_discrepancy.html"
+    ],
+    "expected_sections": [
+      "1. Хронологія інцидентів BUGS-41 та BUGS-50 у звіті Sales Overview"
+    ],
+    "required_facts": [
+      "OData|дельта-партицію",
+      "unique(order_id)|order_id"
+    ],
+    "forbidden_facts": [],
+    "reference_answer": "На PROD у BUGS-41 розбіжність виникла через пропущену дельта-партицію внаслідок обриву пагінації OData при ротації сертифіката SAP Gateway. Після регресії гранулярності BUGS-50 додано запобіжний dbt-тест unique(order_id) на mart.fact_orders."
+  },
+  {
+    "id": "QA-11",
+    "category": "standard",
+    "human_verified": true,
+    "curator_note": "PDF spec lookup on SPEC-FIN-021 customer exclusions.",
+    "question": "Яка технічна група рахунків клієнтів у SAP та який прапорець видалення обов'язково виключаються при розрахунку Active Customers у SPEC-FIN-021?",
+    "expected_abstain": false,
+    "expected_sources": [
+      "data/hw2_corpus/raw/SPEC-FIN-021_v1.1_active_customers_by_country.pdf"
+    ],
+    "expected_sections": [
+      "1. Визначення активної клієнтської бази",
+      "2. Фільтрація soft-deleted записів у Databricks та Power BI"
+    ],
+    "required_facts": [
+      "ZCPD",
+      "is_deleted"
+    ],
+    "forbidden_facts": [],
+    "reference_answer": "За SPEC-FIN-021 v1.1 активними є лише клієнти з is_deleted = false (та порожнім LOEVM), а технічні одноразові рахунки групи account_group = 'ZCPD' виключаються з KPI Active Customers."
+  },
+  {
+    "id": "QA-12",
+    "category": "standard",
+    "human_verified": true,
+    "curator_note": "PDF table threshold lookup on SPEC-OPS-011.",
+    "question": "Яка мінімальна частка доставленого обсягу вважається виконанням умови In-Full та який цільовий SLA встановлено для підсумкового OTIF % у SPEC-OPS-011?",
+    "expected_abstain": false,
+    "expected_sources": [
+      "data/hw2_corpus/raw/SPEC-OPS-011_v1.2_order_fulfillment_otif.pdf"
+    ],
+    "expected_sections": [
+      "1. Визначення метрики OTIF (On-Time In-Full)"
+    ],
+    "required_facts": [
+      "0.99|99.0%",
+      "94.0%"
+    ],
+    "forbidden_facts": [],
+    "reference_answer": "Умова In-Full вимагає delivered_qty / ordered_qty >= 0.99 (99.0% замовленого обсягу), а цільовий поріг SLA для комплексної метрики OTIF % становить >= 94.0%."
+  },
+  {
+    "id": "QA-13",
+    "category": "unanswerable_out_of_domain",
+    "human_verified": true,
+    "curator_note": "Out-of-domain HR policy question — must abstain via Gate 1.",
+    "question": "Скільки календарних днів оплачуваної відпустки та який відсоток річної премії передбачено HR-регламентом для фінансових аналітиків?",
+    "expected_abstain": true,
+    "expected_sources": [],
+    "expected_sections": [],
+    "required_facts": [],
+    "forbidden_facts": [],
+    "reference_answer": "У наданих документах цієї інформації немає."
+  },
+  {
+    "id": "QA-14",
+    "category": "unanswerable_out_of_domain",
+    "human_verified": true,
+    "curator_note": "Out-of-domain cloud FinOps question — must abstain via Gate 1.",
+    "question": "Який місячний ліміт витрат на кластери AWS EKS та ліцензії Tableau Server затверджено на 2025 рік?",
+    "expected_abstain": true,
+    "expected_sources": [],
+    "expected_sections": [],
+    "required_facts": [],
+    "forbidden_facts": [],
+    "reference_answer": "У наданих документах цієї інформації немає."
+  },
+  {
+    "id": "QA-15",
+    "category": "unanswerable_out_of_domain",
+    "human_verified": true,
+    "curator_note": "Out-of-domain travel reimbursement question — must abstain via Gate 1.",
+    "question": "Яка добова норма компенсації витрат на готель та переліт під час закордонних відряджень команди продажів?",
+    "expected_abstain": true,
+    "expected_sources": [],
+    "expected_sections": [],
+    "required_facts": [],
+    "forbidden_facts": [],
+    "reference_answer": "У наданих документах цієї інформації немає."
+  },
+  {
+    "id": "QA-16",
+    "category": "unanswerable_in_domain_trap",
+    "human_verified": true,
+    "curator_note": "In-domain missing-fact trap: mentions real SPEC-FIN-030, asks for corporate income tax rate absent in corpus.",
+    "question": "Яка ефективна ставка корпоративного податку на прибуток підприємств закладена у розрахунок чистого прибутку в специфікації SPEC-FIN-030?",
+    "expected_abstain": true,
+    "expected_sources": [],
+    "expected_sections": [],
+    "required_facts": [],
+    "forbidden_facts": [
+      "18%",
+      "20%"
+    ],
+    "reference_answer": "У наданих документах цієї інформації немає (SPEC-FIN-030 регламентує лише Gross Margin % і не містить ставки податку на прибуток)."
+  },
+  {
+    "id": "QA-17",
+    "category": "unanswerable_in_domain_trap",
+    "human_verified": true,
+    "curator_note": "In-domain missing-fact trap: mentions real DAG dag_sap_sales_orders_cdpos & RUNBOOK-DBX-001, asks about Snowflake warehouse size.",
+    "question": "Який розмір віртуального сховища Snowflake Warehouse (Small чи X-Large) виділено для пайплайну dag_sap_sales_orders_cdpos у RUNBOOK-DBX-001?",
+    "expected_abstain": true,
+    "expected_sources": [],
+    "expected_sections": [],
+    "required_facts": [],
+    "forbidden_facts": [
+      "Small",
+      "X-Large"
+    ],
+    "reference_answer": "У наданих документах цієї інформації немає (пайплайн працює на Databricks / Spark Delta, про Snowflake у корпусі не йдеться)."
+  },
+  {
+    "id": "QA-18",
+    "category": "trap_legacy_version",
+    "human_verified": true,
+    "curator_note": "Legacy v1.0 vs active v1.3 trap on SPEC-FIN-030 (inbound_freight_eur + 0.15% threshold).",
+    "question": "Підкажіть за чинною специфікацією SPEC-FIN-030: як обліковуються витрати на вхідну логістику inbound_freight_eur у собівартості COGS і який допустимий поріг звірки SAP проти Databricks?",
+    "expected_abstain": false,
+    "expected_sources": [
+      "data/hw2_corpus/raw/SPEC-FIN-030_v1.3_gross_margin_rules.pdf",
+      "data/hw2_corpus/raw/RELEASE-NOTES-2025-Q1_reporting_platform.md"
+    ],
+    "expected_sections": [
+      "2. Формула Gross Margin % та виключення оборотів",
+      "1. Зведення оновлених специфікацій та регламентів у Q1 2025"
+    ],
+    "required_facts": [
+      "inbound_freight_eur",
+      "0.15%"
+    ],
+    "forbidden_facts": [
+      "списується в OPEX",
+      "Не входить до COGS",
+      "До 1.00% на рівень"
+    ],
+    "reference_answer": "За чинною версією SPEC-FIN-030 v1.3 витрати inbound_freight_eur обов'язково включаються до складу COGS (у mart.fact_cogs), а допустимий поріг розбіжності між SAP Fiori та Databricks становить 0.15%."
+  },
+  {
+    "id": "QA-19",
+    "category": "trap_legacy_version",
+    "human_verified": true,
+    "curator_note": "Legacy v1.0 (DAX Monthly Avg) vs active v1.2 (Databricks payment_date) trap on SPEC-FIN-041.",
+    "question": "На якому шарі архітектури та за якою датою курсу перераховуються платежі в EUR за діючим стандартом SPEC-FIN-041 для звіту FX Revenue?",
+    "expected_abstain": false,
+    "expected_sources": [
+      "data/hw2_corpus/raw/SPEC-FIN-041_v1.2_fx_conversion_timing_rates.pdf",
+      "data/hw2_corpus/raw/RELEASE-NOTES-2025-Q1_reporting_platform.md"
+    ],
+    "expected_sections": [
+      "1. Єдиний стандарт валютної конвертації у FX Revenue",
+      "2. Заборона повторного множення на fx_rate у Power BI",
+      "1. Зведення оновлених специфікацій та регламентів у Q1 2025"
+    ],
+    "required_facts": [
+      "payment_date",
+      "mart.fact_payments|Databricks"
+    ],
+    "forbidden_facts": [
+      "Monthly Avg",
+      "середньомісячний курс"
+    ],
+    "reference_answer": "За чинною SPEC-FIN-041 v1.2 конвертація в EUR виконується рівно один раз у шарі Databricks при формуванні mart.fact_payments за денним курсом ЄЦБ на дату оплати payment_date (повторне множення в DAX заборонено)."
+  },
+  {
+    "id": "QA-20",
+    "category": "trap_legacy_version",
+    "human_verified": true,
+    "curator_note": "Legacy v1.0 (23:00 UTC, 8h SLA, no transit) vs active v2.0 (05:30 UTC, 2h SLA, in_transit_qty) trap on SPEC-OPS-007.",
+    "question": "За актуальною редакцією SPEC-OPS-007, до котрої години UTC формується зріз wh.inventory_snapshot, який максимальний SLA затримки та чи входить міжзаводський транзит in_transit_qty у доступний запас?",
+    "expected_abstain": false,
+    "expected_sources": [
+      "data/hw2_corpus/raw/SPEC-OPS-007_v2.0_daily_inventory_by_plant.pdf",
+      "data/hw2_corpus/raw/RELEASE-NOTES-2025-Q1_reporting_platform.md"
+    ],
+    "expected_sections": [
+      "1. Призначення звіту Inventory Snapshot (v2.0)",
+      "2. Категорії запасів та контроль повноти партицій",
+      "1. Зведення оновлених специфікацій та регламентів у Q1 2025"
+    ],
+    "required_facts": [
+      "05:30 UTC",
+      "2 годин|2 год",
+      "in_transit_qty"
+    ],
+    "forbidden_facts": [
+      "23:00 UTC",
+      "8 годин"
+    ],
+    "reference_answer": "За чинною SPEC-OPS-007 v2.0 ранковий зріз у wh.inventory_snapshot формується до 05:30 UTC із максимальним SLA затримки 2 години, а міжзаводський транзит in_transit_qty включено до складу доступного запасу."
+  },
+  {
+    "id": "QA-21",
+    "category": "trap_legacy_version",
+    "human_verified": true,
+    "curator_note": "Legacy v1.0 (direct P1 hotfix allowed) vs active v1.3 (strictly forbidden) trap on POL-DEP-001.",
+    "question": "Чи дозволяє чинний регламент деплою POL-DEP-001 опублікувати терміновий хотфікс напряму в PROD в обхід DEV під час закриття місяця з рев'ю пост-фактум?",
+    "expected_abstain": false,
+    "expected_sources": [
+      "data/hw2_corpus/raw/POL-DEP-001_v1.3_deployment_and_reconciliation_policy.docx",
+      "data/hw2_corpus/raw/RELEASE-NOTES-2025-Q1_reporting_platform.md"
+    ],
+    "expected_sections": [
+      "1. Обов'язковий маршрут релізу змін (DEV -> Approval -> PROD)",
+      "1. Зведення оновлених специфікацій та регламентів у Q1 2025"
+    ],
+    "required_facts": [
+      "DEV",
+      "заборона|не може бути опублікована|заборонено",
+      "фінансового аналітика|financial_analyst|FA"
+    ],
+    "forbidden_facts": [
+      "Дозволявся для hotfix P1"
+    ],
+    "reference_answer": "Ні, чинний регламент POL-DEP-001 v1.3 суворо забороняє прямий деплой у PROD в обхід середовища DEV або без попереднього апруву фінансового аналітика навіть під час закриття місяця."
+  },
+  {
+    "id": "QA-22",
+    "category": "trap_similar_docs",
+    "human_verified": true,
+    "curator_note": "Similar revenue specs trap: SPEC-REV-012 (billing Gross-to-Net waterfall) vs SPEC-FIN-014 (sales orders) & SPEC-FIN-030 (gross margin).",
+    "question": "Які коди умов SAP зменшують виторг за рахунок ретро-бонусів дистриб'юторам та підтверджених повернень у каскаді Gross-to-Net Revenue в SPEC-REV-012?",
+    "expected_abstain": false,
+    "expected_sources": [
+      "data/hw2_corpus/raw/SPEC-REV-012_v1.4_net_revenue_waterfall.pdf"
+    ],
+    "expected_sections": [
+      "1. Відмінність Net Revenue Waterfall від Gross Margin та Sales Overview"
+    ],
+    "required_facts": [
+      "BO01",
+      "G2"
+    ],
+    "forbidden_facts": [],
+    "reference_answer": "У каскаді Gross-to-Net Revenue (SPEC-REV-012 v1.4, mart.fact_billing) нараховані ретро-бонуси дистриб'юторам кодуються умовами BO01 / BO02, а кредит-ноти та повернення товару — G2 / RE."
+  },
+  {
+    "id": "QA-23",
+    "category": "trap_similar_docs",
+    "human_verified": true,
+    "curator_note": "Similar revenue specs trap: SPEC-REV-019 (IFRS-15 deferred subscription revenue) vs SPEC-REV-012.",
+    "question": "За якою формулою в таблиці mart.fact_deferred_rev обчислюється щомісячний визнаний дохід recognized_eur для річних сервісних контрактів C_RARCONTRACT_Q?",
+    "expected_abstain": false,
+    "expected_sources": [
+      "data/hw2_corpus/raw/SPEC-REV-019_v1.1_deferred_revenue_recognition.pdf"
+    ],
+    "expected_sections": [
+      "1. Графік визнання доходів майбутніх періодів (IFRS-15)"
+    ],
+    "required_facts": [
+      "contract_total_eur",
+      "active_days_in_month",
+      "total_contract_days"
+    ],
+    "forbidden_facts": [],
+    "reference_answer": "Згідно зі SPEC-REV-019 v1.1 місячний визнаний виторг recognized_eur обчислюється як contract_total_eur * (active_days_in_month / total_contract_days)."
+  },
+  {
+    "id": "QA-24",
+    "category": "trap_similar_docs",
+    "human_verified": true,
+    "curator_note": "Similar playbooks trap: PLAYBOOK-SLA-003 (month-close SLA timers) vs PLAYBOOK-TRIAGE-001 (Bug vs CR triage).",
+    "question": "Який час першої реакції та цільовий час фіксу на DEV діє для інцидентів із викривленням фінансових сум на PROD у робочі дні закриття місяця WD1–WD5?",
+    "expected_abstain": false,
+    "expected_sources": [
+      "data/hw2_corpus/raw/PLAYBOOK-SLA-003_v1.2_incident_severity_month_close.docx"
+    ],
+    "expected_sections": [
+      "1. Рівні пріоритетів та режим закриття періоду (Month-End Close)"
+    ],
+    "required_facts": [
+      "15 хвилин",
+      "2 години",
+      "Critical"
+    ],
+    "forbidden_facts": [],
+    "reference_answer": "За PLAYBOOK-SLA-003 v1.2 таке звернення у WD1–WD5 отримує пріоритет Critical (Blocker) із часом першої реакції 15 хвилин та цільовим часом фіксу на DEV 2 години."
+  }
+]

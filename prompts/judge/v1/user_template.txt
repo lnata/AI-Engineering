@@ -1,0 +1,23 @@
+Оціни відповідь RAG-системи за рубрикою.
+
+<question>
+{{question}}
+</question>
+
+Очікувана відмова (`expected_abstain`): {{expected_abstain}}
+Обов'язкові факти (`required_facts`): {{required_facts}}
+Заборонені/застарілі факти (`forbidden_facts`): {{forbidden_facts}}
+
+<reference_answer>
+{{reference_answer}}
+</reference_answer>
+
+<packed_context>
+{{packed_context}}
+</packed_context>
+
+<candidate_output>
+abstained: {{candidate_abstained}}
+citations: {{candidate_citations}}
+answer: {{candidate_answer}}
+</candidate_output>
