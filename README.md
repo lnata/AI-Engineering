@@ -177,4 +177,50 @@ make test
 - `hybrid_rrf` піднімає повноту кандидатів `Recall@5` до **`1.000`**, а багатомовний `BAAI/bge-reranker-v2-m3-int8` (`hybrid_rrf_rerank`) піднімає `MRR@5` з `0.680` до **`0.933`** (випереджаючи і чистий векторний пошук, і чистий `BM25`).
 - Без фільтра метаданих застарілі редакції `v1.0` потрапляють у Top-3 у `75%–100%` версіонованих запитів. Додавання `is_latest=True` (`hybrid_rrf_rerank_latest`) знижує забруднення застарілими версіями до **`0.0%`** і доводить `Recall@1` та `MRR@5` до **`1.000`**.
 
+---
+
+## HW2 — Крок 3. RAG з цитуванням джерел, контролем контексту та «не знаю»
+
+Третій крок будує поверх гібридного пошуку (`Qdrant + BM25 + RRF + BGE-M3 Reranker`) надійний генератор відповідей із жорсткою верифікацією посилань на джерела (документ і розділ), контролем бюджету токенів та дворівневим захистом від галюцинацій.
+
+### Швидкий запуск HW2 Step 3 (однією командою)
+
+```bash
+make hw2-step3
+# або окремими командами:
+python -m src.hw2.rag --demo
+python -m src.hw2.rag --question "Який поріг звірки діє у чинній SPEC-FIN-030?" --prompt-version v2 --max-context-tokens 1200 --only-latest
+python main.py --hw2-rag --question "Який бюджет відряджень у маркетингу?"
+make test
+```
+
+> За замовчуванням `--provider auto` використовує хмарну модель із `.env` (`GEMINI_API_KEY` → `gemini-3.5-flash-lite`, `OPENAI_API_KEY` → `gpt-4o-mini`, `OPENROUTER_API_KEY` → `openai/gpt-4o-mini`), а за відсутності ключів (локально чи в CI) автоматично перемикається на детермінований grounded-режим `extractive` (**$0.00**).
+
+### Архітектура RAG-контуру (`src/hw2/` + `prompts/rag/`)
+
+1. **Версіоновані промпти (`prompts/rag/v1`, `prompts/rag/v2`, [`prompts/rag/CHANGELOG.md`](prompts/rag/CHANGELOG.md)):**
+   - **`v1` (Baseline):** базовий промпт генерації JSON зі списком `claims` та посиланнями `[S1]..[Sk]`.
+   - **`v2` (Production Default):** ізоляція недовірених чанків у `<context>...</context>` із захистом від *Indirect Prompt Injection* (`OWASP LLM01`), явний перелік дозволених ID `{{allowed_source_ids}}`, обов'язковий формат цитат `[Si] (документ — розділ)`, контроль `is_latest=true/false` проти архівних `v1.0` та нульовий витік відповідей із тестсету.
+2. **Детермінований Context Packer (`src/hw2/context_packer.py`):**
+   - Рахує точні токени заголовка і тіла кожного блока `[Si]` через `tiktoken` (`cl100k_base`) і гарантує `used_tokens <= max_context_tokens` (за замовчуванням `1200` токенів).
+   - Фіксує повну телеметрію пакування: `budget_tokens`, `used_tokens`, `included_sources`, `dropped_for_budget`, `dropped_for_low_relevance`.
+3. **Дворівневий механізм «не знаю» (Abstention Gates):**
+   - **Gate 1 (Pre-LLM Retrieval Gate):** якщо жоден чанк не проходить поріг релевантності крос-енкодера (`rerank_score < -4.5`) або лексико-семантичного перетину (наприклад, питання про бюджет маркетингу чи Tableau SSO), система миттєво повертає `abstained=True` (`«У наданих документах цієї інформації немає.»`) і витрачає **0 токенів LLM**.
+   - **Gate 2 (In-LLM / Grounding Gate):** якщо питання-пастка містить реальний код спеки (`SPEC-FIN-030`), але питає про відсутню в корпусі метрику (наприклад, ставку податку на прибуток), генератор повертає `abstained=True`, `abstain_reason="missing_in_corpus"`, `claims=[]`.
+4. **Верифікатор цитат + 1-Retry Schema/Citation Repair (`src/hw2/verifier.py`, `src/hw2/rag.py`):**
+   - Перевіряє валідність схеми `RAGLLMResponse`, непорожність `claims` і `source_ids`, відсутність вигаданих посилань на кшталт `[S99]`, перевірку `finish_reason != "length"` та підставляє повні метадані `(документ — розділ)` у `RAGCitation`.
+   - При помилці JSON, `ValidationError` або `CitationVerificationError` виконується **рівно 1 спроба repair** із передачею тексту помилки моделі (за патерном HW1).
+
+### Економіка токенів та вартість на 1000 запитань
+
+На демо-прогоні (`data/hw2_rag/sample_answers.json`, бюджет контексту `1200` токенів, `prompt v2`) середній обсяг запиту, що доходить до генератора, становить **~2 603 вхідних** (`system + <context> + <question>`) та **~421 вихідний** токен (а Gate-1 відсікання позадоменних питань коштує **0 токенів**):
+
+| Режим / Модель | Embeddings + Reranker | Тариф LLM (Input / Output за 1M) | Оцінка вартості на **1000 питань** |
+|----------------|-----------------------|----------------------------------|------------------------------------|
+| Local `extractive` + `fastembed` ONNX | Локально ONNX ($0) | $0 / $0 | **$0.00** |
+| Cloud `gemini-3.5-flash-lite` (Free Tier) | Локально ONNX ($0) | Free tier ($0) | **$0.00** |
+| Cloud `gemini-3.5-flash-lite` (Paid Tier) | Локально ONNX ($0) | $0.30 / $2.50 | **~$1.83 / 1k питань** |
+| Cloud `gpt-4o-mini` (OpenAI / OpenRouter) | Локально ONNX ($0) | $0.15 / $0.60 | **~$0.64 / 1k питань** |
+
+
 
