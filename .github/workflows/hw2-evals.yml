@@ -2,9 +2,9 @@ name: HW2 RAG Evals & Quality Gate
 
 on:
   push:
-    branches: ["**"]
+    branches: ["hw2", "main", "**"]
   pull_request:
-    branches: ["**"]
+    branches: ["hw2", "main", "**"]
 
 env:
   FASTEMBED_CACHE_PATH: ~/.cache/fastembed

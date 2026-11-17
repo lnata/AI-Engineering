@@ -1,21 +1,40 @@
-# HW1 — Structured Extraction Service
+# Analytics Ticket Copilot — HW2 (RAG на власних даних + Evals) & HW1
 
-Сервис вытягивает структурированный JSON из «грязных» Jira-тикетов про отчётность
-**SAP Fiori → Databricks → Power BI** (bugs + change requests), сравнивает cloud и
-локальные модели и обосновывает выбор для продакшна.
+Наскрізний проєкт курсу **AI Engineering (потік 2)** для аналітичної платформи звітності **`SAP Fiori → Databricks → Parent/Child Semantic Models → Power BI + SPEC-*`**.
 
-Опис проєкту на курс: [`docs/PROJECT.md`](docs/PROJECT.md)  
-Сквозной план (кейсы 1–4): [`docs/COURSE_ROADMAP.md`](docs/COURSE_ROADMAP.md)  
-Домен и роли: [`docs/DOMAIN.md`](docs/DOMAIN.md)  
-Отчёт с метриками: [`REPORT.md`](REPORT.md)
+- **Гілка [`hw2`](https://github.com/lnata/AI-Engineering/tree/hw2) (поточна):** повна реалізація **Домашнього завдання 2 (Кейс 2: RAG + Evals у CI)** зі збереженням усього коду й даних ДЗ-1.
+- **Гілка [`main`](https://github.com/lnata/AI-Engineering/tree/main):** первинна здача **Домашнього завдання 1 (Кейс 1: Structured Extraction Service)** без змін.
+- **Підсумковий звіт метрик і розбір помилок:** [`REPORT.md`](REPORT.md) · Опис домену: [`docs/DOMAIN.md`](docs/DOMAIN.md) · Дорожня карта: [`docs/COURSE_ROADMAP.md`](docs/COURSE_ROADMAP.md)
 
-## Quick start (одна команда после setup)
+## Quick Start — HW2 (гілка `hw2`, запуск однією командою)
 
 ```bash
+git clone -b hw2 https://github.com/lnata/AI-Engineering.git
+cd AI-Engineering
 python3.11 -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-cp .env.example .env   # → вписать GEMINI_API_KEY
-make run               # или: python main.py
+cp .env.example .env   # ключі не в коді; локальний ONNX/extractive режим працює і без платних ключів ($0)
+
+make hw2-all           # повний цикл Кроків 1–4 однією командою (ingest → Qdrant index → RAG → CI evals)
+# або через єдиний CLI entrypoint:
+python main.py --hw2-eval
+python main.py --hw2-rag --question "Який поріг звірки діє у чинній SPEC-FIN-030?"
+make test              # усі unit + integration тести HW1 + HW2
+```
+
+> Якщо репозиторій уже склоновано, перемкніться командою `git fetch origin hw2 && git checkout hw2`. Для підключення хмарного генератора/судді (`gemini-3.5-flash-lite` або `gpt-4o-mini`) достатньо вписати `GEMINI_API_KEY` або `OPENAI_API_KEY` у локальний `.env` (у Git зберігається лише `.env.example`).
+
+---
+
+## HW1 — Structured Extraction Service (збережено на `main` і `hw2`)
+
+Сервіс витягує структурований JSON із «брудних» Jira-тікетів про звітність **SAP Fiori → Databricks → Power BI** (bugs + change requests), порівнює хмарні та локальні моделі й обґрунтовує вибір для продакшна.
+
+### Quick start HW1 (одна команда після setup)
+
+```bash
+cp .env.example .env   # → вписати GEMINI_API_KEY
+make run               # або: python main.py
 ```
 
 `make run` / `python main.py` гоняет **весь корпус** (53 тикета) на Gemini + prompt **v2** + sampling **default**.
