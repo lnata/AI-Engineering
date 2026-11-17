@@ -213,7 +213,7 @@ JUDGE_CALIBRATION_CASES: list[dict] = [
     },
     {
         "id": "CAL-14",
-        "scenario": "perfect_deployment_policy_v13",
+        "scenario": "borderline_synonym_paraphrase_for_dev",
         "question": "Чи дозволяє чинний регламент POL-DEP-001 прямий хотфікс у PROD під час закриття місяця?",
         "expected_abstain": False,
         "required_facts": ["DEV", "заборонено|не може бути опублікована", "фінансового аналітика|FA"],
@@ -222,9 +222,9 @@ JUDGE_CALIBRATION_CASES: list[dict] = [
         "packed_context": "[S1] source=data/hw2_corpus/raw/POL-DEP-001_v1.3_deployment_and_reconciliation_policy.docx | section=1. Обов'язковий маршрут | version=1.3 | is_latest=true\nЖодна зміна не може бути опублікована напряму в PROD в обхід середовища DEV або без зафіксованого погодження фінансового аналітика — навіть під час закриття місяця.",
         "candidate_abstained": False,
         "candidate_citations": ["POL-DEP-001_v1.3_deployment_and_reconciliation_policy.docx#00"],
-        "candidate_answer": "Ні, за чинним регламентом POL-DEP-001 v1.3 жодна зміна не може бути опублікована напряму в PROD в обхід середовища DEV або без попереднього погодження фінансового аналітика навіть під час закриття місяця [S1].",
+        "candidate_answer": "Ні, за чинним регламентом POL-DEP-001 v1.3 жодна зміна не може бути опублікована напряму в PROD в обхід попереднього тестового середовища або без погодження фінансового аналітика навіть під час закриття місяця [S1].",
         "human_label": "pass",
         "human_score": 1.0,
-        "human_rationale": "Повна відповідність чинному регламенту v1.3 із валідною цитатою.",
+        "human_rationale": "Повна змістовна відповідність чинному v1.3 (людина зараховує синонім 'попереднє тестове середовище' як еквівалент DEV).",
     },
 ]

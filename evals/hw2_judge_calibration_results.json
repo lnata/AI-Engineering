@@ -1,0 +1,168 @@
+{
+  "calibrated_at": "2026-11-17T19:14:52Z",
+  "judge_name": "rubric:calibrated-v1",
+  "total_cases": 14,
+  "exact_matches": 13,
+  "agreement_rate": 0.9286,
+  "cohens_kappa": 0.8871,
+  "mean_abs_score_diff": 0.0357,
+  "confusion_matrix": {
+    "pass": {
+      "pass": 5,
+      "partial": 1,
+      "fail": 0
+    },
+    "partial": {
+      "pass": 0,
+      "partial": 2,
+      "fail": 0
+    },
+    "fail": {
+      "pass": 0,
+      "partial": 0,
+      "fail": 6
+    }
+  },
+  "cases": [
+    {
+      "id": "CAL-01",
+      "scenario": "perfect_cited_answer_latest_spec",
+      "human_label": "pass",
+      "human_score": 1.0,
+      "judge_label": "pass",
+      "judge_score": 1.0,
+      "agreed": true,
+      "judge_rationale": "Усі ключові факти та джерела повністю узгоджені з еталоном."
+    },
+    {
+      "id": "CAL-02",
+      "scenario": "legacy_v1_spec_contamination",
+      "human_label": "fail",
+      "human_score": 0.0,
+      "judge_label": "fail",
+      "judge_score": 0.0,
+      "agreed": true,
+      "judge_rationale": "Виявлено заборонені або застарілі (v1.0) твердження."
+    },
+    {
+      "id": "CAL-03",
+      "scenario": "partial_answer_missing_second_fact",
+      "human_label": "partial",
+      "human_score": 0.5,
+      "judge_label": "partial",
+      "judge_score": 0.5,
+      "agreed": true,
+      "judge_rationale": "Відповідь часткова: розкрито не всі обов'язкові умови еталону."
+    },
+    {
+      "id": "CAL-04",
+      "scenario": "correct_abstention_out_of_domain",
+      "human_label": "pass",
+      "human_score": 1.0,
+      "judge_label": "pass",
+      "judge_score": 1.0,
+      "agreed": true,
+      "judge_rationale": "Коректна відмова на запитанні без відповіді в корпусі."
+    },
+    {
+      "id": "CAL-05",
+      "scenario": "hallucinated_answer_when_should_abstain",
+      "human_label": "fail",
+      "human_score": 0.0,
+      "judge_label": "fail",
+      "judge_score": 0.0,
+      "agreed": true,
+      "judge_rationale": "Модель не відмовилася на питанні без даних у корпусі."
+    },
+    {
+      "id": "CAL-06",
+      "scenario": "false_abstention_on_answerable_query",
+      "human_label": "fail",
+      "human_score": 0.0,
+      "judge_label": "fail",
+      "judge_score": 0.0,
+      "agreed": true,
+      "judge_rationale": "Хибна відмова за наявності релевантних даних."
+    },
+    {
+      "id": "CAL-07",
+      "scenario": "perfect_runbook_table_answer",
+      "human_label": "pass",
+      "human_score": 1.0,
+      "judge_label": "pass",
+      "judge_score": 1.0,
+      "agreed": true,
+      "judge_rationale": "Усі ключові факти та джерела повністю узгоджені з еталоном."
+    },
+    {
+      "id": "CAL-08",
+      "scenario": "unfaithful_fabricated_number_in_claim",
+      "human_label": "fail",
+      "human_score": 0.0,
+      "judge_label": "fail",
+      "judge_score": 0.0,
+      "agreed": true,
+      "judge_rationale": "Виявлено заборонені або застарілі (v1.0) твердження."
+    },
+    {
+      "id": "CAL-09",
+      "scenario": "perfect_sla_answer",
+      "human_label": "pass",
+      "human_score": 1.0,
+      "judge_label": "pass",
+      "judge_score": 1.0,
+      "agreed": true,
+      "judge_rationale": "Усі ключові факти та джерела повністю узгоджені з еталоном."
+    },
+    {
+      "id": "CAL-10",
+      "scenario": "uncited_answer_missing_sources",
+      "human_label": "fail",
+      "human_score": 0.0,
+      "judge_label": "fail",
+      "judge_score": 0.0,
+      "agreed": true,
+      "judge_rationale": "Відсутні обов'язкові посилання на джерела."
+    },
+    {
+      "id": "CAL-11",
+      "scenario": "partial_inventory_spec_answer",
+      "human_label": "partial",
+      "human_score": 0.5,
+      "judge_label": "partial",
+      "judge_score": 0.5,
+      "agreed": true,
+      "judge_rationale": "Відповідь часткова: розкрито не всі обов'язкові умови еталону."
+    },
+    {
+      "id": "CAL-12",
+      "scenario": "correct_abstention_in_domain_snowlake_trap",
+      "human_label": "pass",
+      "human_score": 1.0,
+      "judge_label": "pass",
+      "judge_score": 1.0,
+      "agreed": true,
+      "judge_rationale": "Коректна відмова на запитанні без відповіді в корпусі."
+    },
+    {
+      "id": "CAL-13",
+      "scenario": "wrong_similar_spec_confusion",
+      "human_label": "fail",
+      "human_score": 0.0,
+      "judge_label": "fail",
+      "judge_score": 0.0,
+      "agreed": true,
+      "judge_rationale": "Числа у відповіді не підтверджені переданим контекстом."
+    },
+    {
+      "id": "CAL-14",
+      "scenario": "borderline_synonym_paraphrase_for_dev",
+      "human_label": "pass",
+      "human_score": 1.0,
+      "judge_label": "partial",
+      "judge_score": 0.5,
+      "agreed": false,
+      "judge_rationale": "Відповідь часткова: розкрито не всі обов'язкові умови еталону."
+    }
+  ]
+}
