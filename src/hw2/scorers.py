@@ -33,6 +33,7 @@ class RAGTestCase(BaseModel):
     question: str
     expected_abstain: bool
     expected_sources: list[str] = Field(default_factory=list)
+    required_source_groups: list[list[str]] = Field(default_factory=list)
     expected_sections: list[str] = Field(default_factory=list)
     required_facts: list[str] = Field(default_factory=list)
     forbidden_facts: list[str] = Field(default_factory=list)
@@ -115,7 +116,13 @@ def score_deterministic(case: RAGTestCase, answer: RAGAnswer | None) -> Determin
     has_legacy_cite = any(not c.is_latest for c in answer.citations)
     forbid_legacy = case.category == "trap_legacy_version" or "v1.0" not in case.question.casefold()
 
-    src_ok = any(c.source in exp_srcs for c in answer.citations) and not (forbid_legacy and has_legacy_cite)
+    cited_set = {c.source for c in answer.citations}
+    groups_ok = all(bool(cited_set & set(grp)) for grp in case.required_source_groups)
+    src_ok = (
+        any(c.source in exp_srcs for c in answer.citations)
+        and groups_ok
+        and not (forbid_legacy and has_legacy_cite)
+    )
     sec_ok = any(
         c.source in exp_srcs and (not exp_secs or c.section in exp_secs)
         for c in answer.citations

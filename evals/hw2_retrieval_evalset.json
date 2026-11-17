@@ -206,5 +206,48 @@
       "data/hw2_corpus/raw/POL-DEP-001_v1.3_deployment_and_reconciliation_policy.docx"
     ],
     "notes": "Versioned trap: legacy POL-DEP-001 v1.0 allowed direct P1 hotfixes to PROD with 48h post-review; active v1.3 strictly forbids skipping DEV or FA approval."
+  },
+  {
+    "id": "RET-16",
+    "category": "jira_ticket",
+    "version_sensitive": false,
+    "query": "У якому тікеті проєкту BUGS описано завищення кількості активних клієнтів UA у Customers_Prod.pbix до 12040 проти 11802 у mart.dim_customer через фільтр soft-deleted?",
+    "expected_chunk_ids": [
+      "BUGS-44.json#00",
+      "SPEC-FIN-021_v1.1_active_customers_by_country.pdf#01"
+    ],
+    "expected_sources": [
+      "data/raw/BUGS-44.json",
+      "data/hw2_corpus/raw/SPEC-FIN-021_v1.1_active_customers_by_country.pdf"
+    ],
+    "notes": "Historical HW1 Jira ticket BUGS-44 retrieval (Customers_Prod.pbix 12040 vs 11802 UA active)."
+  },
+  {
+    "id": "RET-17",
+    "category": "jira_ticket",
+    "version_sensitive": false,
+    "query": "Який Change Request у черзі BUGS ініціює перехід валютної конвертації в SPEC-FIN-041 із payment date на posting date?",
+    "expected_chunk_ids": [
+      "BUGS-47.json#00",
+      "SPEC-FIN-041_v1.2_fx_conversion_timing_rates.pdf#00"
+    ],
+    "expected_sources": [
+      "data/raw/BUGS-47.json",
+      "data/hw2_corpus/raw/SPEC-FIN-041_v1.2_fx_conversion_timing_rates.pdf"
+    ],
+    "notes": "Historical HW1 Change Request ticket BUGS-47 retrieval."
+  },
+  {
+    "id": "RET-18",
+    "category": "reference_catalog",
+    "version_sensitive": false,
+    "query": "Які типові проблеми на стадіях sap_fiori, databricks та power_bi_report перелічено в еталонному довіднику пайплайну REF-PIPELINE?",
+    "expected_chunk_ids": [
+      "pipeline.json#00"
+    ],
+    "expected_sources": [
+      "data/reference/pipeline.json"
+    ],
+    "notes": "HW1 structured reference catalog data/reference/pipeline.json retrieval."
   }
 ]

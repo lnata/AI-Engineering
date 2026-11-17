@@ -1,10 +1,10 @@
 {
-  "evaluated_at": "2026-11-17T19:15:46Z",
+  "evaluated_at": "2026-11-17T19:59:47Z",
   "rag_provider": "auto",
   "judge_name": "rubric:calibrated-v1",
   "judge_calibration_agreement": 0.9286,
   "judge_calibration_kappa": 0.8871,
-  "testset_size": 24,
+  "testset_size": 28,
   "configurations": [
     {
       "config_name": "baseline_unfiltered_v1",
@@ -12,17 +12,18 @@
       "only_latest": false,
       "prompt_version": "v1",
       "max_context_tokens": 520,
-      "total_questions": 24,
-      "overall_composite_score": 0.5847,
-      "abstention_accuracy": 0.875,
-      "citation_source_hit_rate": 0.5,
+      "total_questions": 28,
+      "overall_composite_score": 0.5783,
+      "abstention_accuracy": 0.8929,
+      "citation_source_hit_rate": 0.4286,
       "citation_section_hit_rate": 0.5,
-      "fact_coverage_mean": 0.1944,
-      "no_forbidden_facts_rate": 0.9583,
+      "fact_coverage_mean": 0.2173,
+      "no_forbidden_facts_rate": 0.9643,
       "faithfulness_mean": 1.0,
-      "judge_correctness_mean": 0.1667,
-      "judge_pass_rate": 0.125,
+      "judge_correctness_mean": 0.1607,
+      "judge_pass_rate": 0.1071,
       "category_scores": {
+        "cross_source_ticket_spec": 0.5396,
         "standard": 0.6306,
         "trap_legacy_version": 0.4917,
         "trap_similar_docs": 0.5833,
@@ -911,6 +912,162 @@
             "rationale": "Відповідь не містить очікуваних фактів еталону."
           },
           "composite_score": 0.65
+        },
+        {
+          "id": "QA-25",
+          "category": "cross_source_ticket_spec",
+          "question": "Яка розбіжність сум за березень між SAP Fiori Manage Sales Orders та mart.fact_orders описана в тікеті BUGS-41, і яке правило гранулярності order_id або перевірки партицій вимагає специфікація SPEC-FIN-014?",
+          "expected_abstain": false,
+          "abstained": false,
+          "cited_sources": [
+            "RUNBOOK-DBX-001_sap_sales_orders_ingest.html#01"
+          ],
+          "answer": "Якщо сума виторгу в mart.fact_orders нижча за SAP Fiori Manage Sales Orders (кейс BUGS-41), інженер Data Pull перевіряє статус таски extract_sap_odata_delta та повноту партицій posting_month. [S1] (RUNBOOK-DBX-001_sap_sales_orders_ingest.html — 2. Діагностика розбіжностей гранулярності та затримок партицій).",
+          "deterministic": {
+            "abstention_accuracy": 1.0,
+            "citation_source_hit": 0.0,
+            "citation_section_hit": 0.0,
+            "fact_coverage": 0.0,
+            "no_forbidden_facts": 1.0,
+            "matched_facts": [],
+            "missing_facts": [
+              "1.31M",
+              "1.24M",
+              "SPEC-FIN-014"
+            ],
+            "triggered_forbidden_facts": []
+          },
+          "faithfulness": {
+            "faithfulness_score": 1.0,
+            "total_claims": 1,
+            "supported_claims": 1,
+            "unsupported_claims": []
+          },
+          "judge": {
+            "label": "fail",
+            "correctness": 0.0,
+            "completeness": 0.0,
+            "rationale": "Відповідь не містить очікуваних фактів еталону."
+          },
+          "composite_score": 0.45
+        },
+        {
+          "id": "QA-26",
+          "category": "cross_source_ticket_spec",
+          "question": "Які цифри по країні UA наведено у тікеті BUGS-44 для Customers_Prod.pbix проти mart.dim_customer, і яку точну умову фільтрації soft-deleted записів встановлює специфікація SPEC-FIN-021?",
+          "expected_abstain": false,
+          "abstained": false,
+          "cited_sources": [
+            "BUGS-44.json#00"
+          ],
+          "answer": "Mart.dim_customer на PROD = 11802 UA active. [S1] (BUGS-44.json — 1. Картка та опис Jira-тікета BUGS-44).",
+          "deterministic": {
+            "abstention_accuracy": 1.0,
+            "citation_source_hit": 0.0,
+            "citation_section_hit": 1.0,
+            "fact_coverage": 0.3333,
+            "no_forbidden_facts": 1.0,
+            "matched_facts": [
+              "11802"
+            ],
+            "missing_facts": [
+              "12040",
+              "is_deleted"
+            ],
+            "triggered_forbidden_facts": []
+          },
+          "faithfulness": {
+            "faithfulness_score": 1.0,
+            "total_claims": 1,
+            "supported_claims": 1,
+            "unsupported_claims": []
+          },
+          "judge": {
+            "label": "fail",
+            "correctness": 0.0,
+            "completeness": 0.0,
+            "rationale": "Відповідь не містить очікуваних фактів еталону."
+          },
+          "composite_score": 0.5167
+        },
+        {
+          "id": "QA-27",
+          "category": "cross_source_ticket_spec",
+          "question": "Що саме пропонує змінити Change Request у тікеті BUGS-47 щодо моменту конвертації валют і яке правило діє зараз у чинній специфікації SPEC-FIN-041?",
+          "expected_abstain": false,
+          "abstained": false,
+          "cited_sources": [
+            "SPEC-FIN-041_v1.0_fx_conversion_legacy.pdf#00"
+          ],
+          "answer": "УВАГА: Версія 1.0 специфікації SPEC-FIN-041 від 2024-05-20 є архівною та замінена версією 1.2 від 2025-04-05. [S1] (SPEC-FIN-041_v1.0_fx_conversion_legacy.pdf — 1. Статус застарілої редакції SPEC-FIN-041 v1.0).",
+          "deterministic": {
+            "abstention_accuracy": 1.0,
+            "citation_source_hit": 0.0,
+            "citation_section_hit": 0.0,
+            "fact_coverage": 0.3333,
+            "no_forbidden_facts": 1.0,
+            "matched_facts": [
+              "SPEC-FIN-041"
+            ],
+            "missing_facts": [
+              "posting date",
+              "payment_date|payment date"
+            ],
+            "triggered_forbidden_facts": []
+          },
+          "faithfulness": {
+            "faithfulness_score": 1.0,
+            "total_claims": 1,
+            "supported_claims": 1,
+            "unsupported_claims": []
+          },
+          "judge": {
+            "label": "fail",
+            "correctness": 0.0,
+            "completeness": 0.0,
+            "rationale": "Процитовано скасовану архівну версію v1.0 замість чинної."
+          },
+          "composite_score": 0.5167
+        },
+        {
+          "id": "QA-28",
+          "category": "cross_source_ticket_spec",
+          "question": "Яке порушення процесу деплою для звіту Inventory Snapshot описано в тікеті BUGS-53 і який обов'язковий маршрут викатки встановлюють регламент POL-DEP-001 v1.3 та довідник deployment.json?",
+          "expected_abstain": false,
+          "abstained": false,
+          "cited_sources": [
+            "BUGS-53.json#00"
+          ],
+          "answer": "Кто-то задеплоил hotfix Inventory Snapshot сразу на PROD минуя DEV и без аппрува FA. [S1] (BUGS-53.json — 1. Картка та опис Jira-тікета BUGS-53).",
+          "deterministic": {
+            "abstention_accuracy": 1.0,
+            "citation_source_hit": 0.0,
+            "citation_section_hit": 1.0,
+            "fact_coverage": 0.75,
+            "no_forbidden_facts": 1.0,
+            "matched_facts": [
+              "Inventory Snapshot|hotfix",
+              "DEV",
+              "PROD"
+            ],
+            "missing_facts": [
+              "approval|апрув|погодження"
+            ],
+            "triggered_forbidden_facts": []
+          },
+          "faithfulness": {
+            "faithfulness_score": 1.0,
+            "total_claims": 1,
+            "supported_claims": 1,
+            "unsupported_claims": []
+          },
+          "judge": {
+            "label": "partial",
+            "correctness": 0.5,
+            "completeness": 0.5,
+            "rationale": "Відповідь часткова: розкрито не всі обов'язкові умови еталону."
+          },
+          "composite_score": 0.675
         }
       ]
     },
@@ -920,18 +1077,19 @@
       "only_latest": true,
       "prompt_version": "v2",
       "max_context_tokens": 1200,
-      "total_questions": 24,
-      "overall_composite_score": 0.9503,
+      "total_questions": 28,
+      "overall_composite_score": 0.9259,
       "abstention_accuracy": 1.0,
       "citation_source_hit_rate": 1.0,
       "citation_section_hit_rate": 1.0,
-      "fact_coverage_mean": 0.8611,
+      "fact_coverage_mean": 0.8036,
       "no_forbidden_facts_rate": 1.0,
       "faithfulness_mean": 1.0,
-      "judge_correctness_mean": 0.8542,
-      "judge_pass_rate": 0.75,
+      "judge_correctness_mean": 0.7679,
+      "judge_pass_rate": 0.6786,
       "category_scores": {
-        "standard": 0.9562,
+        "cross_source_ticket_spec": 0.8229,
+        "standard": 0.9417,
         "trap_legacy_version": 0.8771,
         "trap_similar_docs": 0.9417,
         "unanswerable_in_domain_trap": 1.0,
@@ -1095,10 +1253,10 @@
           "expected_abstain": false,
           "abstained": false,
           "cited_sources": [
-            "LINEAGE-CAT-001_sap_cds_to_databricks_matrix.html#01",
-            "GUIDE-PBI-001_v1.5_sales_overview_dashboard.docx#01"
+            "GUIDE-PBI-001_v1.5_sales_overview_dashboard.docx#01",
+            "GUIDE-PBI-001_v1.5_sales_overview_dashboard.docx#00"
           ],
-          "answer": "Код звіту: RPT-SALES-001; SAP Fiori / CDS: Manage Sales Orders (C_SALESORDER_Q1); Об'єкти Databricks: mart.fact_orders, mart.dim_region; PBIX / Dataset: Sales_Overview_v3.pbix / Sales_Overview_Dataset; Чинна SPEC: SPEC-FIN-014 v1.3 [S3] (LINEAGE-CAT-001_sap_cds_to_databricks_matrix.html — 1. Канонічний реєстр залежностей п'яти базових звітів). DAX Міра: Orders Count; Вираз / Джерело: DISTINCTCOUNT('mart_fact_orders'[order_id]); Правило валідації: Захист від дублювання позицій замовлення [S1] (GUIDE-PBI-001_v1.5_sales_overview_dashboard.docx — 2. Ключові DAX-міри та відомі обмеження).",
+          "answer": "DAX Міра: Orders Count; Вираз / Джерело: DISTINCTCOUNT('mart_fact_orders'[order_id]); Правило валідації: Захист від дублювання позицій замовлення [S1] (GUIDE-PBI-001_v1.5_sales_overview_dashboard.docx — 2. Ключові DAX-міри та відомі обмеження). Звіт Sales Overview (код RPT-SALES-001, файл Sales_Overview_v3.pbix) підключений у режимі DirectQuery до дочірньої моделі Sales_Overview_Dataset, яка наслідує базові таблиці mart.fact_orders та mart.dim_region із корпоративної Parent моделі [S2] (GUIDE-PBI-001_v1.5_sales_overview_dashboard.docx — 1. Структура файлу Sales_Overview_v3.pbix та датасету).",
           "deterministic": {
             "abstention_accuracy": 1.0,
             "citation_source_hit": 1.0,
@@ -1286,7 +1444,7 @@
             "INCIDENT-POSTMORTEM-001_march_sales_discrepancy.html#00",
             "SPEC-FIN-014_v1.3_sales_revenue_region_channel.pdf#03"
           ],
-          "answer": "У березні 2025 року зафіксовано два пов'язані дефекти у пайплайні звіту RPT-SALES-001: на PROD виторг за березень у mart.fact_orders становив 1.24M EUR проти 1.31M EUR у SAP Fiori Manage Sales Orders (BUGS-41) через пропущену дельта-партицію від 28 березня [S2] (INCIDENT-POSTMORTEM-001_march_sales_discrepancy.html — 1. Хронологія інцидентів BUGS-41 та BUGS-50 у звіті Sales Overview). При розслідуванні розбіжностей на PROD (приклад: тікет BUGS-41, де SAP Fiori показував 1.31M EUR проти 1.24M EUR у mart.fact_orders) аналітик перевіряє затримку delta-партицій за датою проводки ERDAT [S3] (SPEC-FIN-014_v1.3_sales_revenue_region_channel.pdf — 3. Контроль звірки між шарами пайплайну).",
+          "answer": "У березні 2025 року зафіксовано два пов'язані дефекти у пайплайні звіту RPT-SALES-001: на PROD виторг за березень у mart.fact_orders становив 1.24M EUR проти 1.31M EUR у SAP Fiori Manage Sales Orders (BUGS-41) через пропущену дельта-партицію від 28 березня [S2] (INCIDENT-POSTMORTEM-001_march_sales_discrepancy.html — 1. Хронологія інцидентів BUGS-41 та BUGS-50 у звіті Sales Overview). При розслідуванні розбіжностей на PROD (приклад: тікет BUGS-41, де SAP Fiori показував 1.31M EUR проти 1.24M EUR у mart.fact_orders) аналітик перевіряє затримку delta-партицій за датою проводки ERDAT [S4] (SPEC-FIN-014_v1.3_sales_revenue_region_channel.pdf — 3. Контроль звірки між шарами пайплайну).",
           "deterministic": {
             "abstention_accuracy": 1.0,
             "citation_source_hit": 1.0,
@@ -1322,19 +1480,19 @@
           "expected_abstain": false,
           "abstained": false,
           "cited_sources": [
-            "SPEC-FIN-021_v1.1_active_customers_by_country.pdf#00"
+            "SPEC-FIN-021_v1.1_active_customers_by_country.pdf#00",
+            "BUGS-44.json#00"
           ],
-          "answer": "Специфікація SPEC-FIN-021 (версія 1.1) встановлює правила підрахунку активних клієнтів за країнами у звіті Customers by Region (Customers_Prod.pbix, датасет Customers_Prod, код RPT-CUST-003) [S1] (SPEC-FIN-021_v1.1_active_customers_by_country.pdf — 1. Визначення активної клієнтської бази). Технічні одноразові рахунки групи CPD (account_group = 'ZCPD') не входять до KPI Active Customers [S1] (SPEC-FIN-021_v1.1_active_customers_by_country.pdf — 1. Визначення активної клієнтської бази).",
+          "answer": "Специфікація SPEC-FIN-021 (версія 1.1) встановлює правила підрахунку активних клієнтів за країнами у звіті Customers by Region (Customers_Prod.pbix, датасет Customers_Prod, код RPT-CUST-003) [S1] (SPEC-FIN-021_v1.1_active_customers_by_country.pdf — 1. Визначення активної клієнтської бази). spec SPEC-FIN-021 говорит только active customers [S4] (BUGS-44.json — 1. Картка та опис Jira-тікета BUGS-44).",
           "deterministic": {
             "abstention_accuracy": 1.0,
             "citation_source_hit": 1.0,
             "citation_section_hit": 1.0,
-            "fact_coverage": 0.5,
+            "fact_coverage": 0.0,
             "no_forbidden_facts": 1.0,
-            "matched_facts": [
-              "ZCPD"
-            ],
+            "matched_facts": [],
             "missing_facts": [
+              "ZCPD",
               "is_deleted"
             ],
             "triggered_forbidden_facts": []
@@ -1346,12 +1504,12 @@
             "unsupported_claims": []
           },
           "judge": {
-            "label": "partial",
-            "correctness": 0.5,
-            "completeness": 0.5,
-            "rationale": "Відповідь часткова: розкрито не всі обов'язкові умови еталону."
+            "label": "fail",
+            "correctness": 0.0,
+            "completeness": 0.0,
+            "rationale": "Відповідь не містить очікуваних фактів еталону."
           },
-          "composite_score": 0.825
+          "composite_score": 0.65
         },
         {
           "id": "QA-12",
@@ -1803,6 +1961,169 @@
               "15 хвилин",
               "2 години",
               "Critical"
+            ],
+            "missing_facts": [],
+            "triggered_forbidden_facts": []
+          },
+          "faithfulness": {
+            "faithfulness_score": 1.0,
+            "total_claims": 2,
+            "supported_claims": 2,
+            "unsupported_claims": []
+          },
+          "judge": {
+            "label": "pass",
+            "correctness": 1.0,
+            "completeness": 1.0,
+            "rationale": "Усі ключові факти та джерела повністю узгоджені з еталоном."
+          },
+          "composite_score": 1.0
+        },
+        {
+          "id": "QA-25",
+          "category": "cross_source_ticket_spec",
+          "question": "Яка розбіжність сум за березень між SAP Fiori Manage Sales Orders та mart.fact_orders описана в тікеті BUGS-41, і яке правило гранулярності order_id або перевірки партицій вимагає специфікація SPEC-FIN-014?",
+          "expected_abstain": false,
+          "abstained": false,
+          "cited_sources": [
+            "RUNBOOK-DBX-001_sap_sales_orders_ingest.html#01",
+            "BUGS-41.json#00",
+            "INCIDENT-POSTMORTEM-001_march_sales_discrepancy.html#00"
+          ],
+          "answer": "Якщо сума виторгу в mart.fact_orders нижча за SAP Fiori Manage Sales Orders (кейс BUGS-41), інженер Data Pull перевіряє статус таски extract_sap_odata_delta та повноту партицій posting_month [S1] (RUNBOOK-DBX-001_sap_sales_orders_ingest.html — 2. Діагностика розбіжностей гранулярності та затримок партицій). В SAP Fiori app 'Manage Sales Orders' (CDS C_SALESORDER_Q1) за март revenue = 1.31M [S3] (BUGS-41.json — 1. Картка та опис Jira-тікета BUGS-41). У березні 2025 року зафіксовано два пов'язані дефекти у пайплайні звіту RPT-SALES-001: на PROD виторг за березень у mart.fact_orders становив 1.24M EUR проти 1.31M EUR у SAP Fiori Manage Sales Orders (BUGS-41) через пропущену дельта-партицію від 28 березня [S2] (INCIDENT-POSTMORTEM-001_march_sales_discrepancy.html — 1. Хронологія інцидентів BUGS-41 та BUGS-50 у звіті Sales Overview).",
+          "deterministic": {
+            "abstention_accuracy": 1.0,
+            "citation_source_hit": 1.0,
+            "citation_section_hit": 1.0,
+            "fact_coverage": 0.6667,
+            "no_forbidden_facts": 1.0,
+            "matched_facts": [
+              "1.31M",
+              "1.24M"
+            ],
+            "missing_facts": [
+              "SPEC-FIN-014"
+            ],
+            "triggered_forbidden_facts": []
+          },
+          "faithfulness": {
+            "faithfulness_score": 1.0,
+            "total_claims": 3,
+            "supported_claims": 3,
+            "unsupported_claims": []
+          },
+          "judge": {
+            "label": "partial",
+            "correctness": 0.5,
+            "completeness": 0.5,
+            "rationale": "Відповідь часткова: розкрито не всі обов'язкові умови еталону."
+          },
+          "composite_score": 0.8583
+        },
+        {
+          "id": "QA-26",
+          "category": "cross_source_ticket_spec",
+          "question": "Які цифри по країні UA наведено у тікеті BUGS-44 для Customers_Prod.pbix проти mart.dim_customer, і яку точну умову фільтрації soft-deleted записів встановлює специфікація SPEC-FIN-021?",
+          "expected_abstain": false,
+          "abstained": false,
+          "cited_sources": [
+            "SPEC-FIN-021_v1.1_active_customers_by_country.pdf#00",
+            "BUGS-44.json#00",
+            "SPEC-FIN-021_v1.1_active_customers_by_country.pdf#01"
+          ],
+          "answer": "Специфікація SPEC-FIN-021 (версія 1.1) встановлює правила підрахунку активних клієнтів за країнами у звіті Customers by Region (Customers_Prod.pbix, датасет Customers_Prod, код RPT-CUST-003) [S3] (SPEC-FIN-021_v1.1_active_customers_by_country.pdf — 1. Визначення активної клієнтської бази). Customers_Prod.pbix показывает 12040 — похоже включены soft-deleted [S1] (BUGS-44.json — 1. Картка та опис Jira-тікета BUGS-44). Вітрина mart.dim_customer зберігає повну історію клієнтів включно із soft-deleted записами для ретроспективних фінансових звітів [S2] (SPEC-FIN-021_v1.1_active_customers_by_country.pdf — 2. Фільтрація soft-deleted записів у Databricks та Power BI).",
+          "deterministic": {
+            "abstention_accuracy": 1.0,
+            "citation_source_hit": 1.0,
+            "citation_section_hit": 1.0,
+            "fact_coverage": 0.3333,
+            "no_forbidden_facts": 1.0,
+            "matched_facts": [
+              "12040"
+            ],
+            "missing_facts": [
+              "11802",
+              "is_deleted"
+            ],
+            "triggered_forbidden_facts": []
+          },
+          "faithfulness": {
+            "faithfulness_score": 1.0,
+            "total_claims": 3,
+            "supported_claims": 3,
+            "unsupported_claims": []
+          },
+          "judge": {
+            "label": "fail",
+            "correctness": 0.0,
+            "completeness": 0.0,
+            "rationale": "Відповідь не містить очікуваних фактів еталону."
+          },
+          "composite_score": 0.7167
+        },
+        {
+          "id": "QA-27",
+          "category": "cross_source_ticket_spec",
+          "question": "Що саме пропонує змінити Change Request у тікеті BUGS-47 щодо моменту конвертації валют і яке правило діє зараз у чинній специфікації SPEC-FIN-041?",
+          "expected_abstain": false,
+          "abstained": false,
+          "cited_sources": [
+            "SPEC-FIN-041_v1.2_fx_conversion_timing_rates.pdf#00",
+            "BUGS-47.json#00",
+            "BUGS-49.json#00"
+          ],
+          "answer": "Специфікація SPEC-FIN-041 (версія 1.2) визначає правила перерахунку вхідних платежів у звіті FX Revenue (FX_Revenue.pbix, датасет FX_Revenue_Dataset, код RPT-FX-005) [S2] (SPEC-FIN-041_v1.2_fx_conversion_timing_rates.pdf — 1. Єдиний стандарт валютної конвертації у FX Revenue). это меняет SPEC-FIN-041 и логику и Data Pull (fx join) и PBI FX_Revenue [S1] (BUGS-47.json — 1. Картка та опис Jira-тікета BUGS-47). спека SPEC-FIN-041: convert once at payment [S3] (BUGS-49.json — 1. Картка та опис Jira-тікета BUGS-49).",
+          "deterministic": {
+            "abstention_accuracy": 1.0,
+            "citation_source_hit": 1.0,
+            "citation_section_hit": 1.0,
+            "fact_coverage": 0.3333,
+            "no_forbidden_facts": 1.0,
+            "matched_facts": [
+              "SPEC-FIN-041"
+            ],
+            "missing_facts": [
+              "posting date",
+              "payment_date|payment date"
+            ],
+            "triggered_forbidden_facts": []
+          },
+          "faithfulness": {
+            "faithfulness_score": 1.0,
+            "total_claims": 3,
+            "supported_claims": 3,
+            "unsupported_claims": []
+          },
+          "judge": {
+            "label": "fail",
+            "correctness": 0.0,
+            "completeness": 0.0,
+            "rationale": "Відповідь не містить очікуваних фактів еталону."
+          },
+          "composite_score": 0.7167
+        },
+        {
+          "id": "QA-28",
+          "category": "cross_source_ticket_spec",
+          "question": "Яке порушення процесу деплою для звіту Inventory Snapshot описано в тікеті BUGS-53 і який обов'язковий маршрут викатки встановлюють регламент POL-DEP-001 v1.3 та довідник deployment.json?",
+          "expected_abstain": false,
+          "abstained": false,
+          "cited_sources": [
+            "POL-DEP-001_v1.3_deployment_and_reconciliation_policy.docx#00",
+            "BUGS-53.json#00"
+          ],
+          "answer": "Регламент POL-DEP-001 (версія 1.3) встановлює безальтернативний порядок викатки виправлень багів та Change Requests для всіх звітів Power BI, семантичних моделей і пайплайнів Databricks [S1] (POL-DEP-001_v1.3_deployment_and_reconciliation_policy.docx — 1. Обов'язковий маршрут релізу змін (DEV -> Approval -> PROD)). Кто-то задеплоил hotfix Inventory Snapshot сразу на PROD минуя DEV и без аппрува FA [S2] (BUGS-53.json — 1. Картка та опис Jira-тікета BUGS-53).",
+          "deterministic": {
+            "abstention_accuracy": 1.0,
+            "citation_source_hit": 1.0,
+            "citation_section_hit": 1.0,
+            "fact_coverage": 1.0,
+            "no_forbidden_facts": 1.0,
+            "matched_facts": [
+              "Inventory Snapshot|hotfix",
+              "DEV",
+              "approval|апрув|погодження",
+              "PROD"
             ],
             "missing_facts": [],
             "triggered_forbidden_facts": []

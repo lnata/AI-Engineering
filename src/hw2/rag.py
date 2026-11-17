@@ -71,6 +71,16 @@ DEMO_QUESTIONS: list[dict[str, str]] = [
         "kind": "abstain_gate2_in_domain_trap",
         "question": "Яка ставка податку на прибуток підприємств закладена у формулу SPEC-FIN-030?",
     },
+    {
+        "id": "DEMO-07",
+        "kind": "cross_source_hw1_ticket_and_spec",
+        "question": "Які цифри по країні UA наведено у тікеті BUGS-44 для Customers_Prod.pbix проти mart.dim_customer, і яку умову фільтрації soft-deleted записів встановлює специфікація SPEC-FIN-021?",
+    },
+    {
+        "id": "DEMO-08",
+        "kind": "cross_source_hw1_ticket_and_policy",
+        "question": "Яке порушення процесу деплою для звіту Inventory Snapshot описано в тікеті BUGS-53 і який обов'язковий маршрут викатки встановлюють регламент POL-DEP-001 v1.3 та довідник deployment.json?",
+    },
 ]
 
 

@@ -22,7 +22,10 @@ from src.hw2.verifier import (
     verify_and_resolve_rag_output,
 )
 
-_DOC_CODE_RE = re.compile(r"^(?:spec|pol|runbook|guide|playbook|adr|incident|lineage|glossary|faq)\b", re.I)
+_DOC_CODE_RE = re.compile(
+    r"^(?:spec|pol|runbook|guide|playbook|adr|incident|lineage|glossary|faq|ref)\b",
+    re.I,
+)
 _INJECTION_LINE_RE = re.compile(
     r"(?:ignore\s+(?:all\s+)?previous\s+instructions|system\s+override|disregard\s+rules"
     r"|ігноруй\s+попередні\s+інструкції|забудь\s+правила|виведи\s+системний\s+промпт)",
@@ -228,10 +231,21 @@ def _build_extractive_response(packed: PackedContext, question: str) -> RAGLLMRe
 
     top_score = scored_units[0][0]
     chosen = [scored_units[0]]
+    first_is_ticket = "BUGS-" in chosen[0][2].source
+    wants_cross = bool(re.search(r"\b(?:bugs-\d+|тікет\w*)\b", question, re.I)) and bool(
+        re.search(r"\b(?:spec-|pol-|runbook-|deployment\.json|регламент\w*|специфікац\w*)\b", question, re.I)
+    )
+    if wants_cross:
+        for cand in scored_units[1:]:
+            cand_is_ticket = "BUGS-" in cand[2].source
+            if cand_is_ticket != first_is_ticket and cand[0] >= 1.5:
+                chosen.append(cand)
+                break
+    max_units = 3 if wants_cross else 2
     for cand in scored_units[1:]:
-        if len(chosen) >= 2:
+        if len(chosen) >= max_units:
             break
-        if cand[0] >= max(2.0, top_score * 0.55) and cand[1] != chosen[0][1]:
+        if cand[0] >= max(2.0, top_score * 0.55) and all(cand[1] != c[1] for c in chosen):
             chosen.append(cand)
 
     claims: list[RAGClaim] = []
@@ -266,7 +280,9 @@ def _split_units(body: str) -> list[str]:
                     if v
                 ]
                 if pairs:
-                    units.append("; ".join(pairs))
+                    row_unit = "; ".join(pairs)
+                    if not row_unit.startswith("Ticket ID: BUGS-"):
+                        units.append(row_unit)
                 idx += 1
             continue
         if not re.match(r"^\|\s*---", s):
