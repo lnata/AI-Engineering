@@ -81,6 +81,70 @@ def test_faithfulness_penalizes_negation_and_polarity_inversion():
     assert rep.faithfulness_score == 0.0
     assert len(rep.unsupported_claims) == 1
 
+    # Affirmative main clause from a contrast sentence ("X, а не Y") must remain faithful (1.0),
+    # while claiming the negated contrast branch ("Y") must be flagged as unfaithful (0.0).
+    contrast_ctx = PackedContext(
+        budget_tokens=600,
+        used_tokens=120,
+        gate_passed=True,
+        included_sources=[
+            PackedSource(
+                source_id="S1",
+                chunk_id="SPEC-FIN-041_v1.2_fx_conversion_timing_rates.pdf#00",
+                source="data/hw2_corpus/raw/SPEC-FIN-041_v1.2_fx_conversion_timing_rates.pdf",
+                title="SPEC-FIN-041",
+                section="1. Єдиний стандарт валютної конвертації у FX Revenue",
+                version="1.2",
+                date="2025-04-05",
+                is_latest=True,
+                score=4.5,
+                packed_tokens=120,
+                formatted_block=(
+                    "[S1] source=data/hw2_corpus/raw/SPEC-FIN-041_v1.2_fx_conversion_timing_rates.pdf\n"
+                    "Курс визначається за датою фактичної оплати (payment_date / AUGDT), а не за датою виставлення інвойсу."
+                ),
+            )
+        ],
+        context_text="Курс визначається за датою фактичної оплати (payment_date / AUGDT), а не за датою виставлення інвойсу.",
+    )
+    cite_fx = RAGCitation(
+        source_id="S1",
+        chunk_id="SPEC-FIN-041_v1.2_fx_conversion_timing_rates.pdf#00",
+        source="data/hw2_corpus/raw/SPEC-FIN-041_v1.2_fx_conversion_timing_rates.pdf",
+        title="SPEC-FIN-041",
+        section="1. Єдиний стандарт валютної конвертації у FX Revenue",
+        version="1.2",
+        date="2025-04-05",
+        is_latest=True,
+    )
+    valid_main = RAGAnswer(
+        abstained=False,
+        answer="Курс визначається за датою фактичної оплати (payment_date / AUGDT) [S1].",
+        claims=[
+            RAGClaim(
+                statement="Курс визначається за датою фактичної оплати (payment_date / AUGDT).",
+                source_ids=["S1"],
+            )
+        ],
+        citations=[cite_fx],
+        prompt_version="v2",
+    )
+    assert eval_scorers.score_faithfulness(valid_main, contrast_ctx).faithfulness_score == 1.0
+
+    invalid_contrast = RAGAnswer(
+        abstained=False,
+        answer="Курс визначається за датою виставлення інвойсу [S1].",
+        claims=[
+            RAGClaim(
+                statement="Курс визначається за датою виставлення інвойсу.",
+                source_ids=["S1"],
+            )
+        ],
+        citations=[cite_fx],
+        prompt_version="v2",
+    )
+    assert eval_scorers.score_faithfulness(invalid_contrast, contrast_ctx).faithfulness_score == 0.0
+
 
 def test_cloud_llm_429_503_retry_backoff_disk_cache_and_gemini_model_env(tmp_path: Path, monkeypatch):
     assert parse_retry_after_seconds("429 RESOURCE_EXHAUSTED. Please retry in 24.5s.") == 24.5

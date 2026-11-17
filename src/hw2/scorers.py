@@ -45,13 +45,20 @@ def _has_polarity_inversion(claim_stmt: str, cited_text: str) -> bool:
 
     best_overlap = 0.0
     best_line = ""
-    for line in re.split(r"[\n.!?]+", cited_text):
+    clause_split_re = re.compile(
+        r"[\n.!?;]+|,(?=\s*(?:а|але)\s+не\b)|\((?=\s*якщо\s+не\b)",
+        re.IGNORECASE,
+    )
+    for line in clause_split_re.split(cited_text):
         ln = line.strip()
         if len(ln) < 12 or ln.startswith("[S"):
             continue
         l_toks = set(tokenize_bm25(ln))
         if not l_toks:
             continue
+        if not claim_neg and re.match(r"^(?:(?:а|але|якщо)\s+не\b)", ln, re.IGNORECASE):
+            if len(c_toks & l_toks) / len(l_toks) >= 0.75:
+                return True
         ov = len(c_toks & l_toks) / len(c_toks)
         if ov > best_overlap:
             best_overlap = ov

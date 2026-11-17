@@ -235,14 +235,14 @@ make test
 
 ### Економіка токенів та вартість на 1000 запитань
 
-На демо-прогоні (`data/hw2_rag/sample_answers.json`, бюджет контексту `1200` токенів, `prompt v2`) середній обсяг запиту, що доходить до генератора, становить **~2 603 вхідних** (`system + <context> + <question>`) та **~421 вихідний** токен (а Gate-1 відсікання позадоменних питань коштує **0 токенів**):
+На live демо-прогоні `gemini:gemini-3.5-flash-lite` (`data/hw2_rag/sample_answers.json`, бюджет контексту `1200` токенів, `prompt v2`) середній обсяг запиту, що доходить до генератора, становить **~1 991 вхідний** (`system + <context> + <question>`) та **~236 вихідних** токенів (а Gate-1 відсікання позадоменних питань коштує **0 токенів**):
 
 | Режим / Модель | Embeddings + Reranker | Тариф LLM (Input / Output за 1M) | Оцінка вартості на **1000 питань** |
 |----------------|-----------------------|----------------------------------|------------------------------------|
 | Local `extractive` + `fastembed` ONNX | Локально ONNX ($0) | $0 / $0 | **$0.00** |
 | Cloud `gemini-3.5-flash-lite` (Free Tier) | Локально ONNX ($0) | Free tier ($0) | **$0.00** |
-| Cloud `gemini-3.5-flash-lite` (Paid Tier) | Локально ONNX ($0) | $0.30 / $2.50 | **~$1.83 / 1k питань** |
-| Cloud `gpt-4o-mini` (OpenAI / OpenRouter) | Локально ONNX ($0) | $0.15 / $0.60 | **~$0.64 / 1k питань** |
+| Cloud `gemini-3.5-flash-lite` (Paid Tier) | Локально ONNX ($0) | $0.30 / $2.50 | **~$1.19 / 1k питань** |
+| Cloud `gpt-4o-mini` (OpenAI / OpenRouter) | Локально ONNX ($0) | $0.15 / $0.60 | **~$0.44 / 1k питань** |
 
 ---
 
@@ -269,14 +269,14 @@ make test
    - `4` наскрізні **cross-source HW1 + HW2** питання (`QA-25..28`), що вимагають одночасно процитувати історичний Jira-тікет (`BUGS-41`, `BUGS-44`, `BUGS-47`, `BUGS-53`) та відповідну специфікацію/регламент (`SPEC-FIN-014`, `SPEC-FIN-021`, `SPEC-FIN-041`, `POL-DEP-001` / `deployment.json`).
 2. **Три рівні Scoring-функцій (`src/hw2/scorers.py`, `src/hw2/judge.py`, `src/hw2/calibrate_judge.py`):**
    - **Детерміновані метрики:** `abstention_accuracy`, `citation_source_hit` (включно з обов'язковими групами джерел `required_source_groups`), `citation_section_hit`, `fact_coverage`, `no_forbidden_facts`.
-   - **LLM-as-a-Judge (`prompts/judge/v1/`) з калібруванням на 14 ручних прикладах (`evals/hw2_judge_calibration.json`):** точний збіг із ручною розміткою **`92.9%` (`13/14`)**, Каппа Коена **$\kappa = 0.887$** (`evals/hw2_judge_calibration_results.json`).
-   - **Faithfulness (`score_faithfulness`):** перевіряє кожне окреме твердження в `claims` (числа, коди об'єктів, лексичне підґрунтя) проти процитованого блока `[Si]`.
-3. **Результати на 28 питаннях (`evals/hw2_rag_eval_results.json`) та CI Gate:**
+   - **LLM-as-a-Judge (`prompts/judge/v1/`, `gemini:gemini-3.5-flash-lite`) з калібруванням на 14 ручних прикладах (`evals/hw2_judge_calibration.json`):** точний збіг із ручною розміткою **`92.9%` (`13/14`)**, Каппа Коена **$\kappa = 0.879$** (`evals/hw2_judge_calibration_results.json`).
+   - **Faithfulness (`score_faithfulness`):** перевіряє кожне окреме твердження в `claims` (числа, коди об'єктів, полярність заперечень та лексичне підґрунтя) проти процитованого блока `[Si]`.
+3. **Результати на 28 питаннях (`evals/hw2_rag_eval_results.json`, `rag_provider = gemini:gemini-3.5-flash-lite`, `judge_name = gemini:gemini-3.5-flash-lite`) та CI Gate:**
 
 | Конфігурація | Overall | Abstention | Cite Source | Cite Section | Fact Coverage | No Forbidden (`v1.0`) | Faithfulness | Judge Score |
 |--------------|---------|------------|-------------|--------------|---------------|-----------------------|--------------|-------------|
-| `baseline_unfiltered_v1` | 0.578 | 0.893 | 0.429 | 0.357 | 0.217 | 0.964 | 1.000 | 0.161 |
-| **`production_filtered_v2`** | **0.926** | **1.000** | **1.000** | **1.000** | **0.804** | **1.000** | **1.000** | **0.768** |
+| `baseline_unfiltered_v1` | 0.597 | 0.893 | 0.429 | 0.500 | 0.217 | 0.964 | 1.000 | 0.286 |
+| **`production_filtered_v2`** | **0.962** | **0.964** | **0.964** | **0.964** | **0.923** | **1.000** | **1.000** | **0.946** |
 | *Поріг падіння у CI (`exit 1`)* | `>= 0.85` | `>= 0.90` | — | — | — | — | `>= 0.90` | Agreement `>= 0.85` |
 
 Повний розбір метрик і 4 характерних помилок див. у [`REPORT.md`](REPORT.md).

@@ -45,27 +45,29 @@ data/hw2_corpus/raw/ (38 файлів) + data/raw/BUGS-41..53.json (13) + data/r
 
 ### 3.1 Порівняння Baseline (`v1`, без фільтра) проти Production (`v2`, `hybrid_rerank + is_latest=True`)
 
-*(Джерело: `evals/hw2_rag_eval_results.json`, поріг проходження CI: `Overall >= 0.85`, `Faithfulness >= 0.90`, `Abstention >= 0.90`)*
+*(Джерело: `evals/hw2_rag_eval_results.json`, live прогін `rag_provider = gemini:gemini-3.5-flash-lite`, `judge_name = gemini:gemini-3.5-flash-lite`; поріг проходження CI: `Overall >= 0.85`, `Faithfulness >= 0.90`, `Abstention >= 0.90`)*
 
-| Метрика | `baseline_unfiltered_v1` (`vector`, `520` tok, `v1`) | `production_filtered_v2` (`hybrid_rerank`, `is_latest`, `1200` tok, `v2`) | Приріст ($\Delta$) |
-|---------|------------------------------------------------------|---------------------------------------------------------------------------|--------------------|
-| **Overall Composite Score** | 0.578 | **0.926** | **+0.348** |
-| **Abstention Accuracy («не знаю»)** | 0.893 | **1.000** | **+10.7 pp** |
-| **Citation Source Hit Rate** | 0.429 | **1.000** | **+57.1 pp** |
-| **Citation Section Hit Rate** | 0.357 | **1.000** | **+64.3 pp** |
-| **Required Fact Coverage** | 0.217 | **0.804** | **+58.7 pp** |
+| Метрика | `baseline_unfiltered_v1` (`vector`, `520` tok, `v1`) | `production_filtered_v2` (`hybrid_rerank`, `is_latest`, `1200` tok, `v2`, `gemini-3.5-flash-lite`) | Приріст ($\Delta$) |
+|---------|------------------------------------------------------|----------------------------------------------------------------------------------------------------|--------------------|
+| **Overall Composite Score** | 0.597 | **0.962** | **+0.365** |
+| **Abstention Accuracy («не знаю»)** | 0.893 | **0.964** | **+7.1 pp** |
+| **Citation Source Hit Rate** | 0.429 | **0.964** | **+53.6 pp** |
+| **Citation Section Hit Rate** | 0.500 | **0.964** | **+46.4 pp** |
+| **Required Fact Coverage** | 0.217 | **0.923** | **+70.5 pp** |
 | **No Forbidden / Legacy `v1.0` Facts** | 0.964 | **1.000** | **+3.6 pp** |
 | **Claim Faithfulness** | 1.000 | **1.000** | **0.0 pp (100% grounded)** |
-| **Calibrated Judge Mean Score** | 0.161 | **0.768** | **+60.7 pp** |
+| **Calibrated Judge Mean Score** | 0.286 | **0.946** | **+66.1 pp** |
 
-Розріз `Overall Composite Score` за категоріями у `production_filtered_v2`: `standard = 0.942`, `unanswerable_out_of_domain = 1.000`, `unanswerable_in_domain_trap = 1.000`, `trap_similar_docs = 0.942`, `trap_legacy_version = 0.877`, `cross_source_ticket_spec = 0.823` (`100%` подвійне цитування `BUGS-* + SPEC-*/POL-*`).
+*(Без API-ключів у GitHub Actions CI детермінований офлайн-контур `extractive + rubric:calibrated-v1` також стабільно проходить усі пороги з `Overall = 0.926`, `Faithfulness = 1.000`, `Abstention = 1.000`.)*
+
+Розріз `Overall Composite Score` за категоріями у `production_filtered_v2` (`gemini:gemini-3.5-flash-lite`): `standard = 0.980`, `unanswerable_out_of_domain = 1.000`, `unanswerable_in_domain_trap = 1.000`, `trap_similar_docs = 1.000`, `trap_legacy_version = 0.983`, `cross_source_ticket_spec = 0.813`.
 
 ### 3.2 Калібрування судді на ручній розмітці (`evals/hw2_judge_calibration_results.json`)
 
-На `14` вручну розмічених прикладах (`evals/hw2_judge_calibration.json`: ідеальні відповіді, часткові відповіді, просочування `v1.0`, галюцинація цифр, відсутні цитати, хибна та коректна відмова):
-- **Точний збіг (`Exact Agreement`):** **`13 / 14` (`92.9%`)** при порозі CI `>= 85.0%`.
-- **Коефіцієнт згоди Каппа Коена ($\kappa$):** **`0.887`** (*almost perfect agreement*), середня абсолютна похибка балу `MAD = 0.036`.
-- **Єдина розбіжність (`CAL-14`):** людина поставила `pass (1.0)`, зарахувавши синонім *«попереднє тестове середовище»* як еквівалент `DEV`, тоді як суворий рубричний суддя поставив консервативний `partial (0.5)` через відсутність буквального маркера `DEV` (жодного хибного пропуску `fail → pass`: усі `6/6` помилкових відповідей відбраковано).
+На `14` вручну розмічених прикладах (`evals/hw2_judge_calibration.json`: ідеальні відповіді, часткові відповіді, просочування `v1.0`, галюцинація цифр, відсутні цитати, хибна та коректна відмова) для live LLM-судді **`gemini:gemini-3.5-flash-lite`**:
+- **Точний збіг (`Exact Agreement`):** **`13 / 14` (`92.9%` / `0.9286`)** при порозі CI `>= 85.0%`.
+- **Коефіцієнт згоди Каппа Коена ($\kappa$):** **`0.879` (`0.8793`)** (*almost perfect agreement*), середня абсолютна похибка балу `MAD = 0.036`.
+- **Єдина розбіжність (`CAL-11`):** у прикладі зі специфікацією `SPEC-OPS-007 v2.0` ручна розмітка поставила `partial (0.5)` через скорочений виклад деталі про транзит, тоді як `gemini-3.5-flash-lite` оцінив наявність усіх трьох ключових параметрів (`05:30 UTC`, `2 години`, `in_transit_qty`) як `pass (1.0)` (жодного хибного пропуску `fail → pass`: усі `6/6` помилкових відповідей відбраковано зі `100%` точністю).
 
 ---
 
@@ -79,19 +81,19 @@ data/hw2_corpus/raw/ (38 файлів) + data/raw/BUGS-41..53.json (13) + data/r
 
 2. **Втрата точних технічних кодів при суто векторному пошуку (`QA-05`, `QA-08`, `QA-09`, `QA-22` у `baseline_unfiltered_v1`)**
    - *Що мало бути:* знаходження `RUNBOOK-DQ-007` за назвою перевірки `chk_margin_sap_delta` та `SPEC-REV-012` за кодами `BO01` / `G2`.
-   - *Що вийшло:* `vector_only` повернув загальні чанки про маржу й клієнтів (`Citation Source Hit = 0.500`).
+   - *Що вийшло:* `vector_only` повернув загальні чанки про маржу й клієнтів (`Citation Source Hit = 0.429`).
    - *Чому:* рідкісні snake_case / SAP коди розбиваються subword-токенізатором ембеддера і «розмиваються» в dense-векторі.
-   - *Як виправлено:* доменний `BM25` + `RRF` + багатомовний `BAAI/bge-reranker-v2-m3-int8` підняли `Citation Source Hit` до **`1.000` (`24/24`)**.
+   - *Як виправлено:* доменний `BM25` + `RRF` + багатомовний `BAAI/bge-reranker-v2-m3-int8` підняли `Citation Source Hit` до **`0.964` (`27/28`)**.
 
 3. **Відповідь замість «не знаю» на внутрішньодоменних пастках (`QA-16`, `QA-17` у `baseline_unfiltered_v1`)**
    - *Що мало бути:* чесна відмова `«У наданих документах цієї інформації немає.»` на питання про ставку податку на прибуток у `SPEC-FIN-030` та розмір `Snowflake Warehouse` у `RUNBOOK-DBX-001`.
-   - *Що вийшло:* через наявність у запиті реальних кодів `SPEC-FIN-030` і `RUNBOOK-DBX-001` документи пройшли `Gate 1`, і наївний `v1` генератор видав перший речення спеки замість відмови (`Abstention = 0.875`).
-   - *Як виправлено:* `Gate 2` (перевірка специфічних термінів запиту в контексті + суворе правило відмови в `prompts/rag/v2`) підняв `Abstention Accuracy` до **`1.000` (`5/5`)**.
+   - *Що вийшло:* через наявність у запиті реальних кодів `SPEC-FIN-030` і `RUNBOOK-DBX-001` документи пройшли `Gate 1`, і наївний `v1` генератор видав перше речення спеки замість відмови (`Abstention = 0.893`).
+   - *Як виправлено:* `Gate 2` та суворе правило відмови в `prompts/rag/v2` забезпечують **`1.000` (`5/5`)** коректних відмов на обох типах пасток (`unanswerable_out_of_domain = 1.000`, `unanswerable_in_domain_trap = 1.000`).
 
-4. **Неповне покриття багатофактних питань локальним екстрактивним генератором (`QA-19`, `QA-20`, `QA-22` у `production_filtered_v2`)**
-   - *Що мало бути:* у `QA-19` навести і шар `mart.fact_payments`, і дату курсу `payment_date`; у `QA-22` — і `BO01`, і `G2`.
-   - *Що вийшло:* ретрівер знайшов правильний чанк `[S1]` (`CiteSrc = 1.000`), але безкоштовний локальний `ExtractiveRAGGenerator` (обмежений 2 реченнями/рядками за лексичним перетином) у `QA-19` обрав вступне речення з назвою звіту замість булетів із `payment_date` (`FactCov = 0.861` по корпусу).
-   - *Що покращити далі (план на Блок 3):* у продакшні з підключеним `GEMINI_API_KEY` (`gemini-3.5-flash-lite` + `prompts/rag/v2`) LLM синтезує всі булети й рядки таблиці `[S1]` в одну повну відповідь; для офлайн-режиму варто додати `MMR`-диверсифікацію вибраних речень, щоб уникати дублювання вступної тези.
+4. **Надмірно консервативна відмова LLM на 3-джерельному запиті при витісненні супутнього довідника з Top-5 (`QA-28` у `production_filtered_v2`)**
+   - *Що мало бути:* синтезувати процес-брич із `BUGS-53` та обов'язковий маршрут `DEV -> FA approval -> PROD` із `POL-DEP-001 v1.3` / `deployment.json`.
+   - *Що вийшло:* ретрівер повернув у `<context>` `BUGS-53.json#00` та три розділи `POL-DEP-001 v1.3` (`#00`, `#01`, `#02`), через що файл `deployment.json` опинився поза Top-5; модель `gemini-3.5-flash-lite`, побачивши в тексті запитання пряму назву `deployment.json`, консервативно спрацювала за правилом відмови (`abstained=True`).
+   - *Що покращити далі (план на Блок 3):* додати per-document diversity cap у `ContextPacker` (не більше 2 чанків з одного `doc_hash` при multi-entity запитах), щоб `deployment.json` гарантовано потрапляв у `<context>` поруч із `POL-DEP-001` та `BUGS-53`.
 
 ---
 
@@ -100,9 +102,9 @@ data/hw2_corpus/raw/ (38 файлів) + data/raw/BUGS-41..53.json (13) + data/r
 | Компонент / Режим | Модель | Вартість на **1000 питань** | Примітка |
 |-------------------|--------|-----------------------------|----------|
 | Індексація + Пошук + Rerank | `MiniLM-L12-v2` + `BM25` + `bge-reranker-v2-m3-int8` (ONNX) | **$0.00** | Локально на CPU (включно з GitHub Actions CI) |
-| Генерація (Offline / CI default) | `ExtractiveRAGGenerator` + `CalibratedRubricJudge` | **$0.00** | Детермінований прогін у CI без секретів |
-| Генерація (Cloud Production) | `gemini-3.5-flash-lite` (~2.6k in + ~421 out tok/q) | **~$1.83** *(Free tier: $0)* | Найкращий синтез багатоходових табличних відповідей |
-| Альтернатива Cloud | `gpt-4o-mini` ($0.15 / $0.60 за 1M) | **~$0.64** | Економний хмарний резерв через OpenAI / OpenRouter |
+| Генерація (Offline / CI fallback) | `ExtractiveRAGGenerator` + `CalibratedRubricJudge` | **$0.00** | Детермінований прогін у CI без секретів |
+| Генерація (Cloud Production) | `gemini-3.5-flash-lite` (~1 991 in + ~236 out tok/q) | **~$1.19** *(Free tier: $0)* | Продакшн-вибір (`Overall = 0.962`, `Faithfulness = 1.000`) |
+| Альтернатива Cloud | `gpt-4o-mini` ($0.15 / $0.60 за 1M) | **~$0.44** | Економний хмарний резерв через OpenAI / OpenRouter |
 
 ---
 
