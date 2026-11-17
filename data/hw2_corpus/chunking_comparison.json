@@ -1,6 +1,6 @@
 {
   "tokenizer": "cl100k_base",
-  "evaluated_documents": 36,
+  "evaluated_documents": 53,
   "structure_aware": {
     "strategy": "structure_aware",
     "parameters": {
@@ -8,12 +8,12 @@
       "overlap_tokens": 45,
       "table_atomic": "true"
     },
-    "chunk_count": 79,
-    "avg_tokens": 258.97,
+    "chunk_count": 97,
+    "avg_tokens": 253.98,
     "min_tokens": 121,
     "max_tokens": 353,
-    "p50_tokens": 260,
-    "p95_tokens": 345,
+    "p50_tokens": 252,
+    "p95_tokens": 344,
     "broken_table_count": 0,
     "mid_sentence_split_count": 0,
     "mid_sentence_split_rate": 0.0,
@@ -25,15 +25,15 @@
       "chunk_tokens": 240,
       "overlap_tokens": 40
     },
-    "chunk_count": 110,
-    "avg_tokens": 201.03,
+    "chunk_count": 141,
+    "avg_tokens": 193.6,
     "min_tokens": 41,
     "max_tokens": 241,
     "p50_tokens": 240,
     "p95_tokens": 240,
-    "broken_table_count": 52,
-    "mid_sentence_split_count": 79,
-    "mid_sentence_split_rate": 0.7182,
+    "broken_table_count": 59,
+    "mid_sentence_split_count": 92,
+    "mid_sentence_split_rate": 0.6525,
     "cross_section_bleed_count": 18
   },
   "fixed_size_defect_samples": [
