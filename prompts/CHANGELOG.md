@@ -1,6 +1,7 @@
 # Prompt changelog
 
-> **HW2 RAG prompts:** see [`prompts/rag/CHANGELOG.md`](rag/CHANGELOG.md) (`prompts/rag/v1`, `prompts/rag/v2`).
+> **HW2 RAG prompts:** see [`prompts/rag/CHANGELOG.md`](rag/CHANGELOG.md) (`prompts/rag/v1`, `prompts/rag/v2`).  
+> **HW2 Judge prompts:** see [`prompts/judge/CHANGELOG.md`](judge/CHANGELOG.md) (`prompts/judge/v1`).
 
 ## v2.1 — 2026-10-19 (review fix)
 
