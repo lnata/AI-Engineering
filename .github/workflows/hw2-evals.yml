@@ -52,7 +52,7 @@ jobs:
 
       - name: Run calibrated judge & end-to-end RAG CI quality gate
         run: |
-          python -m src.hw2.eval_rag \
+          python -m evals.run_evals \
             --min-overall-score 0.85 \
             --min-faithfulness 0.90 \
             --min-abstention-accuracy 0.90 \

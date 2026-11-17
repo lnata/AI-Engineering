@@ -13,31 +13,31 @@ git clone -b hw2 https://github.com/lnata/AI-Engineering.git
 cd AI-Engineering
 python3.11 -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-cp .env.example .env   # ключі не в коді; локальний ONNX/extractive режим працює і без платних ключів ($0)
+cp .env.example .env   # опційно впишіть GEMINI_API_KEY для live LLM-режиму; без ключа працює локально ($0)
 
-make hw2-all           # повний цикл Кроків 1–4 однією командою (ingest → Qdrant index → RAG → CI evals)
-# або через єдиний CLI entrypoint:
-python main.py --hw2-eval
+make run               # або: python main.py  (за замовчуванням на гілці hw2 запускає пайплайн HW2 RAG + Evals)
+make hw2-llm           # або: python main.py --hw2-llm  (повний live-прогін RAG + LLM-as-a-Judge із GEMINI_API_KEY)
+make hw2-all           # повна перезбірка Кроків 1–4 з сирих документів (corpus → ingest → index → evals)
 python main.py --hw2-rag --question "Який поріг звірки діє у чинній SPEC-FIN-030?"
 make test              # усі unit + integration тести HW1 + HW2
 ```
 
-> Якщо репозиторій уже склоновано, перемкніться командою `git fetch origin hw2 && git checkout hw2`. Для підключення хмарного генератора/судді (`gemini-3.5-flash-lite` або `gpt-4o-mini`) достатньо вписати `GEMINI_API_KEY` або `OPENAI_API_KEY` у локальний `.env` (у Git зберігається лише `.env.example`).
+> Якщо репозиторій уже склоновано, перемкніться командою `git fetch origin hw2 && git checkout hw2`. Live-команда `make hw2-llm` автоматично підхоплює `GEMINI_API_KEY` (та `GEMINI_MODEL`) із вашого `.env`, має exponential backoff на `429`/`503` і кешує відповіді у `.cache/hw2_llm/`.
 
 ---
 
-## HW1 — Structured Extraction Service (збережено на `main` і `hw2`)
+## HW1 — Structured Extraction Service (збережено на `main` і доступно через `--hw1`)
 
 Сервіс витягує структурований JSON із «брудних» Jira-тікетів про звітність **SAP Fiori → Databricks → Power BI** (bugs + change requests), порівнює хмарні та локальні моделі й обґрунтовує вибір для продакшна.
 
-### Quick start HW1 (одна команда після setup)
+### Quick start HW1
 
 ```bash
 cp .env.example .env   # → вписати GEMINI_API_KEY
-make run               # або: python main.py
+make hw1-run           # або: python main.py --hw1  (на гілці main — просто make run / python main.py)
 ```
 
-`make run` / `python main.py` гоняет **весь корпус** (53 тикета) на Gemini + prompt **v2** + sampling **default**.
+`make hw1-run` / `python main.py --hw1` ганяє **весь корпус** (53 тікети) на Gemini + prompt **v2** + sampling **default**.
 
 Другие цели Makefile: `make golden` · `make creative` · `make ollama` · `make lmstudio` · `make eval RUN=results/<dir>`
 

@@ -123,17 +123,17 @@ def evaluate_rag_config(
     filters = SearchFilters(is_latest=True) if only_latest else None
     rows: list[PerQuestionRAGScore] = []
 
-    for case in cases:
+    for idx, case in enumerate(cases, start=1):
         gen_override = None
-        if use_naive_v1_baseline and provider in ("auto", "extractive") and not (
-            os.getenv("GEMINI_API_KEY") or os.getenv("OPENAI_API_KEY") or os.getenv("OPENROUTER_API_KEY")
-        ):
+        if use_naive_v1_baseline:
             hits = pipeline.engine.search(case.question, mode=search_mode, top_k=5, filters=filters)
             from src.hw2.context_packer import pack_retrieved_context
 
             preview = pack_retrieved_context(case.question, hits, max_context_tokens=max_context_tokens)
             if preview.gate_passed:
                 gen_override = NaiveV1ExtractiveGenerator(preview)
+        elif provider == "cloud":
+            print(f"  [{config_name}] {idx}/{len(cases)} {case.id} ...", flush=True)
 
         run = pipeline.answer(
             case.question,
@@ -279,9 +279,19 @@ def run_end_to_end_rag_eval(
     finally:
         engine.close()
 
+    from src.hw2.llm_runtime import resolve_cloud_provider, resolve_gemini_model
+
+    resolved_prov = resolve_cloud_provider(provider, require_cloud=(provider == "cloud"))
+    if resolved_prov == "gemini":
+        rag_label = f"gemini:{resolve_gemini_model(env_var='HW2_RAG_MODEL')}"
+    elif resolved_prov in ("openai", "openrouter"):
+        rag_label = f"{resolved_prov}:{os.getenv('HW2_RAG_MODEL') or 'gpt-4o-mini'}"
+    else:
+        rag_label = "extractive:deterministic-grounded-extractive-v1"
+
     report = EndToEndRAGEvalReport(
         evaluated_at=datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
-        rag_provider=provider,
+        rag_provider=rag_label,
         judge_name=judge.name,
         judge_calibration_agreement=calib.agreement_rate,
         judge_calibration_kappa=calib.cohens_kappa,
@@ -301,8 +311,8 @@ def main() -> None:
     parser = argparse.ArgumentParser(description="HW2 Step 4 End-to-End RAG Evals & CI Gate")
     parser.add_argument("--testset", type=Path, default=DEFAULT_TESTSET_PATH)
     parser.add_argument("--out", type=Path, default=DEFAULT_EVAL_OUT)
-    parser.add_argument("--provider", choices=["auto", "extractive", "gemini", "openai", "openrouter"], default="auto")
-    parser.add_argument("--judge-provider", choices=["auto", "rubric", "gemini", "openai", "openrouter"], default="auto")
+    parser.add_argument("--provider", choices=["auto", "cloud", "extractive", "gemini", "openai", "openrouter"], default="auto")
+    parser.add_argument("--judge-provider", choices=["auto", "cloud", "rubric", "gemini", "openai", "openrouter"], default="auto")
     parser.add_argument("--min-overall-score", type=float, default=0.85)
     parser.add_argument("--min-faithfulness", type=float, default=0.90)
     parser.add_argument("--min-abstention-accuracy", type=float, default=0.90)

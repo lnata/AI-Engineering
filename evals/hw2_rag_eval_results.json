@@ -1,6 +1,6 @@
 {
-  "evaluated_at": "2026-11-17T20:04:17Z",
-  "rag_provider": "auto",
+  "evaluated_at": "2026-11-17T21:06:13Z",
+  "rag_provider": "extractive:deterministic-grounded-extractive-v1",
   "judge_name": "rubric:calibrated-v1",
   "judge_calibration_agreement": 0.9286,
   "judge_calibration_kappa": 0.8871,
